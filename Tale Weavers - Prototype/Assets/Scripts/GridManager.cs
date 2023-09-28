@@ -6,26 +6,70 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
 
+    public static GridManager instance;
+
+    [SerializeField] private Player _player;
+
     private Camera _camera;
 
-    private Tile currentTile;
+    private Square currentTile;
 
-    private Tile[,] tiles;
+    public Dictionary<Vector3, Square> map = new Dictionary<Vector3, Square>();
+
+    [SerializeField] private Square[] _tiles;
+
 
     private void Awake()
     {
-        _camera = Camera.main;
+       if(instance !=null && instance != this)
+        {
+            Destroy(this.gameObject);
+
+        }
+        else
+        {
+            instance = this;
+        }
+
     }
+
 
     private void Start()
     {
-        tiles = new Tile[10, 10];
-        foreach (Tile cube in transform.GetComponentsInChildren<Tile>())
+        Square tileAux;
+        foreach (Square tile in _tiles)
         {
-            cube.Row = (int)Math.Truncate(cube.transform.position.z);
-            cube.Col = (int)Math.Truncate(cube.transform.position.x);
-            tiles[cube.Row, cube.Col] = cube;
+            map.Add(tile.transform.position, tile);
+          
+            map.TryGetValue(tile.transform.position, out tileAux);
         }
+
+        _player.gameObject.SetActive(true);
+
+    }
+
+    public List<Square> GetAdjacents(Square init)
+    {
+        List<Square> list = new List<Square>(4);
+        Square value;
+        Vector3 initPosition= init.transform.position;
+
+
+        map.TryGetValue(new Vector3(initPosition.x + 1, 0, initPosition.z), out value);
+        
+        if(value!= null && value.isWalkable) list.Add(value);
+
+        map.TryGetValue(new Vector3(initPosition.x - 1, 0, initPosition.z), out value);
+        if (value != null && value.isWalkable) list.Add(value);
+
+        map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z + 1), out value);
+        if (value != null && value.isWalkable) list.Add(value);
+
+        map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z - 1), out value);
+        if (value != null && value.isWalkable) list.Add(value);
+
+
+        return list;
     }
 
 }
