@@ -4,15 +4,63 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager instance;
+    public int currentTurn;
+    public Enemy[] listOfEnemies;
+    public Player player;
+
+
+
+    private void Awake()
     {
-        
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+
+        }
+        else
+        {
+            instance = this;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartCharacters()
     {
-        
+        foreach (Enemy enemy in listOfEnemies)
+        {
+            enemy.gameObject.SetActive(true);
+        }
+        player.gameObject.SetActive(true);
+    }
+
+    public void NextTurn()
+    {
+        StartCoroutine(TimeWaste(0));
+        player.UpdateMoveable();
+    }
+
+    public void EndPlayerTurn()
+    {
+        StartCoroutine(EnemyMovement());
+    }
+
+
+    private IEnumerator TimeWaste(int time)
+    {
+        yield return new WaitForSeconds(time);
+        currentTurn++;
+    }
+
+    private IEnumerator EnemyMovement()
+    {
+        foreach (Enemy enemy in listOfEnemies)
+        {
+            
+            yield return new WaitForSeconds(0.5f);
+            enemy.StartMovement();
+
+        }
+        NextTurn();
     }
 }

@@ -8,8 +8,6 @@ public class GridManager : MonoBehaviour
 
     public static GridManager instance;
 
-    [SerializeField] private Player _player;
-
     private Camera _camera;
 
     private Square currentTile;
@@ -44,9 +42,7 @@ public class GridManager : MonoBehaviour
           
             map.TryGetValue(tile.transform.position, out tileAux);
         }
-
-        _player.gameObject.SetActive(true);
-
+        GameManager.instance.StartCharacters();
     }
 
     public List<Square> GetAdjacents(Square init)
