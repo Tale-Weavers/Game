@@ -43,7 +43,6 @@ public class Player : MoveableCharacter
                 currentPos.isWalkable = true;
                 currentPos = target;
                 target.isWalkable = false;
-                
                 GameManager.instance.EndPlayerTurn();
                 currentTurn++;
             }
