@@ -7,29 +7,28 @@ public class Player : MonoBehaviour
 {
 
     List<Square> walkablePositions = new List<Square>();
+
     public Square initSpawn;
 
     public Square currentPos;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
 
 
         
     }
 
-    
-
     private void Awake()
     {
         currentPos = initSpawn;
-        moveablePositions();
+        MoveablePositions();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
@@ -45,13 +44,13 @@ public class Player : MonoBehaviour
                 {
                     transform.position = new Vector3 (hit.transform.position.x,transform.position.y,hit.transform.position.z);
                     currentPos = hit.transform.GetComponent<Square>();
-                    moveablePositions();
+                    MoveablePositions();
                 }
             }
         }
     }
 
-    void moveablePositions()
+    private void MoveablePositions()
     {
         if(walkablePositions.Count > 0)
         {
@@ -63,16 +62,12 @@ public class Player : MonoBehaviour
         }
 
 
-        walkablePositions = currentPos.seeNeighbours();
+        walkablePositions = currentPos.SeeNeighbours();
 
         foreach (Square square in walkablePositions)
         {
             square.SetAdjacent(true);
         }
     }
-
-        
-
-
  
 }

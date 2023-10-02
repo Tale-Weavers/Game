@@ -19,6 +19,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Square[] _tiles;
 
 
+
     private void Awake()
     {
        if(instance !=null && instance != this)
@@ -54,7 +55,6 @@ public class GridManager : MonoBehaviour
         Square value;
         Vector3 initPosition= init.transform.position;
 
-
         map.TryGetValue(new Vector3(initPosition.x + 1, 0, initPosition.z), out value);
         
         if(value!= null && value.isWalkable) list.Add(value);
@@ -67,7 +67,6 @@ public class GridManager : MonoBehaviour
 
         map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z - 1), out value);
         if (value != null && value.isWalkable) list.Add(value);
-
 
         return list;
     }
