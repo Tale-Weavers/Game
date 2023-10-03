@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Enemy[] listOfEnemies;
     public Player player;
 
+    public TextMeshProUGUI turnText;
 
 
     private void Awake()
@@ -36,8 +38,10 @@ public class GameManager : MonoBehaviour
 
     public void NextTurn()
     {
-        StartCoroutine(TimeWaste(0));
+        //StartCoroutine(TimeWaste(0));
         player.UpdateMoveable();
+        currentTurn++;
+        turnText.text = $"Current turn: {currentTurn}";
     }
 
     public void EndPlayerTurn()
@@ -49,7 +53,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator TimeWaste(int time)
     {
         yield return new WaitForSeconds(time);
-        currentTurn++;
+        
     }
 
     private IEnumerator EnemyMovement()
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour
         {
             
             yield return new WaitForSeconds(0.5f);
-            enemy.StartMovement();
+            enemy.StartAction();
 
         }
         NextTurn();

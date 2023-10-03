@@ -1,13 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MoveableCharacter
+public abstract class Enemy : MoveableCharacter
 {
+    public Transform inspectorFacingDir;
+    protected Vector3 facingDirection;
+
+    public Transform[] directions;
+    protected List<Vector3> realDirections = new();
+
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
-        
+        foreach (var direction in directions)
+        {
+            realDirections.Add(direction.position);
+        }
+
+        facingDirection = inspectorFacingDir.position;
+
     }
 
     // Update is called once per frame
@@ -42,13 +55,21 @@ public class Enemy : MoveableCharacter
     //    }
     //}
 
-    public void StartMovement()
+    public abstract void StartAction();
+
+    public void CheckVision()
     {
-        MoveablePositions();
-        int random = Random.Range(0, walkablePositions.Count);
-        transform.position = new Vector3(walkablePositions[random].transform.position.x, transform.position.y, walkablePositions[random].transform.position.z);
-        currentPos.isWalkable = true;
-        currentPos = walkablePositions[random].transform.GetComponent<Square>();
-        currentPos.isWalkable = false;
+        RaycastHit hit;
+
+        Debug.DrawRay(transform.position, facingDirection*3.5f, Color.red, 0.5f);
+
+        if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f)) 
+        {
+            if(hit.collider.CompareTag("Player")) 
+            {
+                Debug.Log("Atrapada");
+            }
+        }
     }
+
 }

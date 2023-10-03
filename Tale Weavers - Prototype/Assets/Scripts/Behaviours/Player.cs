@@ -22,6 +22,8 @@ public class Player : MoveableCharacter
         {
             MoveCharacter();
         }
+
+        if(Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
     }
 
 

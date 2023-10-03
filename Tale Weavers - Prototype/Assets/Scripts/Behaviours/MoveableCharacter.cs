@@ -17,6 +17,7 @@ public class MoveableCharacter : MonoBehaviour
         transform.position = new Vector3(currentPos.transform.position.x, transform.position.y, currentPos.transform.position.z);
         MoveablePositions();
         currentTurn = 0;
+        initSpawn.isWalkable = false;
     }
 
     protected void MoveablePositions()
