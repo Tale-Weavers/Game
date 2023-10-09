@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MoveableCharacter
 {
-
+    [SerializeField] private bool _isSeen;
 
     // Start is called before the first frame update
     private void Start()
@@ -13,6 +13,12 @@ public class Player : MoveableCharacter
 
 
 
+    }
+
+    private void Awake()
+    {
+        base.Awake();
+        currentPos.occupiedByPlayer = true;
     }
 
     // Update is called once per frame
@@ -43,8 +49,10 @@ public class Player : MoveableCharacter
                 transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
                 Square target = hit.transform.GetComponent<Square>();
                 currentPos.isWalkable = true;
+                currentPos.occupiedByPlayer = false;
                 currentPos = target;
                 target.isWalkable = false;
+                target.occupiedByPlayer = true;
                 GameManager.instance.EndPlayerTurn();
                 currentTurn++;
             }
@@ -53,6 +61,11 @@ public class Player : MoveableCharacter
     public void UpdateMoveable()
     {
         MoveablePositions();
+    }
+
+    public void Seen()
+    {
+        _isSeen = true;
     }
 
 }

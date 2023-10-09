@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -66,5 +68,27 @@ public class GameManager : MonoBehaviour
 
         }
         NextTurn();
+    }
+
+    public void NotifyEnemies(bool seen)
+    {
+        foreach (Enemy enemy in listOfEnemies)
+        {
+            enemy.PlayerSeen(seen);
+        }
+    }
+
+    public void RestartLevel()
+    {
+        StartCoroutine (SetupLevel());
+        Time.timeScale = 0.0f;
+    }
+    
+    private IEnumerator SetupLevel()
+    {
+
+        yield return new WaitForSecondsRealtime(5);
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;
     }
 }

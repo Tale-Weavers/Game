@@ -67,4 +67,26 @@ public class GridManager : MonoBehaviour
         return list;
     }
 
+    public Square LookForPlayer(Square init)
+    {
+        Square playerPos = null;
+        Square value;
+        Vector3 initPosition = init.transform.position;
+
+        map.TryGetValue(new Vector3(initPosition.x + 1, 0, initPosition.z), out value);
+
+        if (value != null && value.occupiedByPlayer) playerPos = value;
+
+        map.TryGetValue(new Vector3(initPosition.x - 1, 0, initPosition.z), out value);
+        if (value != null && value.occupiedByPlayer) playerPos = value;
+
+        map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z + 1), out value);
+        if (value != null && value.occupiedByPlayer) playerPos = value;
+
+        map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z - 1), out value);
+        if (value != null && value.occupiedByPlayer) playerPos = value;
+
+        return playerPos;
+    }
+
 }

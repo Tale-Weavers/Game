@@ -7,6 +7,7 @@ public class Square : MonoBehaviour
 {
 
     public bool isWalkable;
+    public bool occupiedByPlayer;
 
     [SerializeField] private bool isAdjacent;
 
