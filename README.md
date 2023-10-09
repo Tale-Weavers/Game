@@ -301,6 +301,13 @@ La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta ma
 ## Diseño de Objetos y Requisitos Gráficos
 
 ## Efectos Visuales (VFX)
+Se tendrán que hacer los siguientes efectos visuales:
+
+- Humo: Cuando el jugador lance una bomba de humo se generará una cortina de humo
+- Niebla de guerra: Aquellas zonas que no vea el jugador estarán oscurecidas.
+- Agua de las fuentes: Las fuentes estarán llenas de agua para que el jugador la consumo. Se hará un shader para el agua.
+- Shader de escondite: Queremos que si el jugador se esconde en un armario el jugador le pueda ver a través de él.
+- Shader Láser: Se usará un shader para crear los láseres que habrá en los distintos niveles.
 
 ## Animaciones
 
@@ -341,3 +348,34 @@ Los sonidos tendrán un estilo cartoon que no resulten muy agresivos al jugador.
 El juego como tal no tendrá voces, pero sí se incluirán sonidos durante los dialogos como en animal crossing. La forma de crear estos sonidos se estudiará más adelante cuando el juego esté más desarrollado
 
 # Logros
+
+1. **Amigo rescatado:** Completar todos los niveles
+2. **Cuervo discreto:** Completar un nivel sin que te detecten
+3. **Cuervo sigiloso:** Completar un nivel sin que te detecten y sin noquear
+4. **Sombra corvina:** Completar todo el juego sin que te detecten
+5. **El cuervo más sigiloso de toda Creatureville:** Completar todo el juego sin que te detecten y sin noquear
+6. **Infiltrado novato:** Conseguir un total de 150 estrellas
+7. **Infiltrado cauto:** Conseguir un total de 200 estrellas
+8. **Maestro de la infiltración:** Conseguir un total de 250 estrellas
+9. **No molestes al cuervo:** Noquear a 50 guardias
+10. **Sin testigos:** Noquear a 100 guardias
+11. **Cría cuervos y te sacarán los ojos:** Noquear a 200 guardias
+12. **Perfección:** Conseguir todas las estrellas de un nivel
+13. **No deja títere sin cabeza:** Conseguir todas las estrellas del juego
+14. **Solo me hacen falta mis plumas:** Completar un nivel sin usar objetos
+15. **Cuervo hidratado:** Beber de 10 fuentes
+16. **Los favoritos de mi abuela:** Usar 5 ovillos para distraer a 5 guardias
+17. **Dropping flash(bang):** Deslumbrar 10 veces a 10 enemigos con la linterna
+18. **La especialidad de Gonso:** Escabullirse con una bomba de humo
+19. **Aquí hay cuervo encerrado:** Usar 50 escondites
+20. **Kamikaze:** Activar a propósito 3 alarmas
+21. **Por las plumas:** Cubrir tu salida con un aspersor anti incendios cuando huyas de un guardia
+22. **Ábrete sésamo:** Recoger 10 llaves para abrir puertas
+23. **Siesta forzosa:** Eliminar a 15 guardias desde un escondite
+24. **Experto felino:** Noquear al menos 1 vez a cada tipo enemigo
+25. **Fin del terror de Don Felino** : Acabar con Don Felino
+26. **Compañero emplumado** : Rescatar a Midnight Wing
+27. **No sin mi antifaz:** Completar el tutorial
+28. **Buscando recovecos:** Encontrar un camino alternativo en un nivel
+29. **Física de partículas:** Teletransportarse por primera vez en un nivel
+30. **Física de partículas aplicada:** Usar el teletransporte para perder a un guardia.
