@@ -2,11 +2,11 @@
 
 ## Nombre del Juego
 
+Whispers & Whiskers
+
 Noir Avian Heist
 
 Feather Noir Heist
-
-Whiskers & Whispers
 
 Noir Purr-suit
 
@@ -44,13 +44,13 @@ Una experiencia de entretenimiento casual, retos intelectuales y comedia. Tambi�
 
 ## Alcance del Proyecto (Scope)
 
-## Como alcance inicial del proyecto, se van a realizar entre 10-15 niveles con posibilidad de ampliarlo a futuro.
+## Como alcance inicial del proyecto, se van a realizar entre 15-20 niveles con posibilidad de ampliarlo a futuro.
 
 ## Objetivos del Proyecto
 
 Entregar un buen producto que funcione de forma estable en todas las plataformas. Crear un juego divertido que sea potencialmente vendible.
 
-# Mecánicas:
+# Mecánicas
 
 ## Objetivos del Core Gameplay
 
@@ -117,43 +117,149 @@ Cada vez que se presente una mecánica nueva se introducirá dicha mecánica con
 
 ## Configuraciones del Juego
 
-## Modos de Juego
+El menú de opciones del juego contará con los siguientes apartados:
 
-## Personalización de Personajes (si corresponde)
+- Volumen: Pondremos un toggle para subir o bajar el volumen al gusto del jugador.
+- Idioma: Pondremos una opción en el menú de pausa para elegir el idioma del juego. Tendremos las opciones de español, italiano e inglés.
+- Ayuda: Por último, se pondrá un botón de ayuda con el que los jugadores podrán ver los controles del juego.
 
-## Opciones de Control y Mecánicas Avanzadas
+## Personalización de Personajes
 
-## Opciones de Audio y Sonido
+Desde el menú de inicio se podrá acceder a un menú de personalización del personaje. Los cosméticos se tendrán que comprar con dinero real. En el menú se podrán elegir distintos cosméticos con una preview del personaje para que el jugador vea en tiempo real qué está cambiando.
 
 ## Opciones de Cámara y Visualización
 
+El juego contará con una opción in game que permitirá al jugador cambiar entre dos cámaras, una cenital y otra en perspectiva.
+
 ## Guardado y Carga de Partidas
 
-## Configuración de Idioma y Subtítulos (si corresponde)
+Se guardará el progreso de los jugadores y sus estadísticas para los logros. El guardado se hará automáticamente después de salir de cada nivel.
 
 # Estados de Juego
+
+![](RackMultipart20231010-1-rn4ig8_html_a1a3a4d8a35597ee.png)
 
 # Interfaces
 
 ## Objetivos de la Interfaz de Usuario
 
-## Elementos de la Interfaz de Usuario
+La interfaz debe mostrarle al jugador información relevante para que complete el nivel. De este modo la interfaz solo mostrará:
+
+- Número de movimientos del jugador: Aparecerá un pequeño contador que le dará al jugador el número de movimientos que lleva en ese intento del nivel. De este modo, los jugadores que quieran mejorar su desempeño en un determinado nivel podrán buscar mejores estrategias para mejorar.
+- Objetos disponibles: En un lado de la pantalla aparecerán los distintos objetos que el jugador lleva encima. De este modo tendrá la información de qué objetos puede usar y así podrán planificar sus acciones.
+- Botones de acción: La interfaz mostrará botones de acción al jugador cuando se necesite. Por ejemplo, si el jugador se coloca al lado de un enemigo aparecerá el botón de acción para noquear a dicho enemigo.
 
 ## Diseño de Pantallas Principales
 
-## Diseño de In-Game UI
+El menú principal del juego contará con una imagen que introduzca al jugador al juego, con el título del juego y con los botones descritos en el diagrama de estados.
+
+## Diseño In-Game UI
 
 ## Diseño de Menús y Submenús
 
 ## Interacción del Jugador
 
-## Animaciones y Transiciones
+El jugador interactuará con todo el juego por medio de clicks para facilitar la portabilidad y adaptación del juego a distintas plataformas (ordenador, teléfono móvil y tablet).
 
-## Accesibilidad
+## Animaciones y Transiciones:
 
-## Pruebas de Usabilidad
+Se introducirán pequeñas animaciones para cambiar entre menús.
 
 # Niveles
+
+## Tutorial:
+
+Tutorial 1:
+
+![](RackMultipart20231010-1-rn4ig8_html_774157c57552987.jpg)
+
+**Explicación:** El camino esperado por el jugador consiste en el cuervo moviéndose hacia el gato para noquearlo y posteriormente avanzar hasta la casilla de salida. Tiene otra ruta alternativa con la que no sería necesario enfrentar al gato pero es más lenta.
+
+El gato mira alternativamente a la derecha y abajo.
+
+**Objetivo:** Dar a conocer al jugador la mecánica de noqueo.
+
+Tutorial 2:
+
+![](RackMultipart20231010-1-rn4ig8_html_f23cc703e67f8c0b.jpg)
+
+**Explicación:** El camino superior se encuentra bloqueado por la presencia del gato número 1 que se encuentra vigilando siempre en la misma dirección.
+
+El camino esperado se encuentra bajando. Según la ruta que toma el gato número 2 el jugador deberá seguirle los pasos y esconderse en el "arbusto" (será otra cosa) hasta que esté adyacente para noquearlo y poder completar el nivel.
+
+**Objetivo:** Dar a conocer al jugador la mecánica de los escondites (arbusto) y de esperar.
+
+Tutorial 3: ![](RackMultipart20231010-1-rn4ig8_html_261ece9c412a9f99.jpg)
+
+**Explicación:** El camino esperado por el jugador consiste en avanzar por arriba y recoger el ovillo. Posteriormente debe dejar el ovillo dentro del rango de visión del gato número 1 para que lo recoja y quede fuera de combate.
+
+Tras eso el jugador puede avanzar hasta interactuar con la fuente de agua que le permite soltar un alarido con el que atraer al gato número 2 y noquearlo.
+
+Con ambos gatos fuera de combate puede completar el nivel.
+
+**Objetivo:** Dar a conocer al jugador la utilidad del ovillo y el graznido.
+
+## Zona 1:
+
+Nivel 1:
+
+![](RackMultipart20231010-1-rn4ig8_html_a61ccb19556c9e8e.jpg)
+
+**Explicación:** El nivel es bastante libre y cuenta con 2 herramientas principales para completarlo: 1 ovillo y 1 graznido.
+
+Los gatos 1 y 2 alternan sus líneas de visión para siempre mantener vigilada la sección entre ellos. El gato 3 mira solamente en una dirección.
+
+El camino esperado consiste en agarrar el ovillo y usarlo para distraer al gato 3. Con el gato 3 fuera de juego el jugador puede tomar el camino de la derecha para completar el nivel sin problemas.
+
+**Objetivo:** Ofrecer herramientas varias y libertad.
+
+Nivel 2:
+
+![](RackMultipart20231010-1-rn4ig8_html_200bb3aaa2ece1f7.jpg)
+
+**Explicación:** El camino esperado por el jugador es esconderse del gato número 1 en el escondite para poder pasar a la zona inferior.
+
+Una vez allí se encuentra con los gatos 2 y 3 vigilando todos los posibles caminos, por lo que el jugador debe avanzar y conseguir ocultarse de ellos utilizando los escondites inferiores y completar el nivel.
+
+**Objetivo:** Mostrar utilidad de escondites y demostrar al jugador que puede completar el nivel aun habiendo sido detectado.
+
+Nivel 3:
+
+Nivel 4:
+
+Nivel 5:
+
+Nivel 6:
+
+Nivel 7:
+
+Nivel 8:
+
+Nivel 9:
+
+Nivel 10:
+
+## Zona 2:
+
+Nivel 11:
+
+Nivel 12:
+
+Nivel 13:
+
+Nivel 14:
+
+Nivel 15:
+
+Nivel 16:
+
+Nivel 17:
+
+Nivel 18:
+
+Nivel 19:
+
+Nivel 20:
 
 # Historia
 
@@ -224,7 +330,7 @@ El ovillo es un objeto que permitirá al jugador distraer a los guardias. Una ve
 
 ## Láser:
 
-Los láseres serán elementos similares a los ovillos. Servirán para distraer a los guardias que se pondrán a perseguir al láser. De este modo,
+Los láseres serán elementos similares a los ovillos. Servirán para distraer a los guardias que se pondrán a perseguir al láser. De este modo, el jugador podrá distraer a distancia a los enemigos, mandándolos al otro lado del nivel con respecto a donde él apunte el láser.
 
 ## Escondites:
 
@@ -258,14 +364,18 @@ El estilo visual es simple y amigable, orientado a una audiencia joven y cuidado
 
 Se usarán colores neutros para el entorno con colores vivos o fuertes para elementos importantes como personajes, objetos, campos de visión etc.
 
-![](RackMultipart20231009-1-3paqdo_html_1fa01d2878cd34fe.jpg)
- ![](RackMultipart20231009-1-3paqdo_html_de56d16322fa3ccb.png)
+![](RackMultipart20231010-1-rn4ig8_html_1fa01d2878cd34fe.jpg)
+ ![](RackMultipart20231010-1-rn4ig8_html_de56d16322fa3ccb.png)
 
-## ![](RackMultipart20231009-1-3paqdo_html_8816092911ee58f4.jpg)
+## ![](RackMultipart20231010-1-rn4ig8_html_8816092911ee58f4.jpg)
 
 ## Paleta de Colores
 
 ## Diseño de Personajes
+
+Los personajes deben ser antropomórficos pero no demasiado, de la misma manera deben ser visualmente atractivos para los jugadores más pequeños sin perder el encanto para jugadores más mayores.
+
+En este aspecto hemos tomado como referencia
 
 ##
 
@@ -274,10 +384,9 @@ Se usarán colores neutros para el entorno con colores vivos o fuertes para elem
 
 Para mayor claridad y que el entorno no distraiga del puzle que conforman las mecánicas del juego, se ha decidido utilizar un estilo que, mientras que sea simple sin dejar de aportar cierto interés visual.
 
-Un ejemplo e inspiración en este aspecto es el juego Monument Valley. ![](RackMultipart20231009-1-3paqdo_html_34c96db44a895893.jpg)
-
-![](RackMultipart20231009-1-3paqdo_html_aee8e3abda2a6445.jpg)
- ![](RackMultipart20231009-1-3paqdo_html_9978c5a63352a9d0.jpg)
+Un ejemplo e inspiración en este aspecto es el juego Monument Valley. ![](RackMultipart20231010-1-rn4ig8_html_aee8e3abda2a6445.jpg)
+ ![](RackMultipart20231010-1-rn4ig8_html_9978c5a63352a9d0.jpg)
+ ![](RackMultipart20231010-1-rn4ig8_html_34c96db44a895893.jpg)
 
 A pesar de su relativa simpleza, los escenarios son memorables y cautivadores, a la vez que dejan claro al jugador de una mirada su objetivo, el camino a seguir, y los recursos en su mano.
 
@@ -285,26 +394,26 @@ Mientras que en nuestro juego el ambiente no tiene tanto peso como en este, toma
 
 Al haberse ambientado el juego en un mundo de gangsters reminiscente de la época de los speakeasy, contemporánea al art deco y a la bauhaus, ambos movimientos de gran inspiración geométrica, hemos decidido apoyarnos en estos para decorar los escenarios.
 
-La idea es utilizar motivos geométricos y principios racionalistas para diseñar los entornos, aprovechando los mismos para guiar la mirada del jugador y hacer el juego más intuitivo, usando el entorno como apoyo o acompañamiento a la interfaz. ![](RackMultipart20231009-1-3paqdo_html_b4bea788b0f53e5a.png)
- ![](RackMultipart20231009-1-3paqdo_html_184419a48d21a237.png)
- ![](RackMultipart20231009-1-3paqdo_html_37a2414dfe202822.png)
+La idea es utilizar motivos geométricos y principios racionalistas para diseñar los entornos, aprovechando los mismos para guiar la mirada del jugador y hacer el juego más intuitivo, usando el entorno como apoyo o acompañamiento a la interfaz. ![](RackMultipart20231010-1-rn4ig8_html_b4bea788b0f53e5a.png)
+ ![](RackMultipart20231010-1-rn4ig8_html_184419a48d21a237.png)
+ ![](RackMultipart20231010-1-rn4ig8_html_37a2414dfe202822.png)
 
-![](RackMultipart20231009-1-3paqdo_html_87ccc9e05b729612.png)
- ![](RackMultipart20231009-1-3paqdo_html_79c058f81a8ba744.jpg)
+![](RackMultipart20231010-1-rn4ig8_html_87ccc9e05b729612.png)
+ ![](RackMultipart20231010-1-rn4ig8_html_79c058f81a8ba744.jpg)
 
 La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta manera ayude a personaje, enemigos y objetos a destacar por color. En principio nos apoyaremos en la iluminación para aumentar este efecto como en estos escenarios de Eddy Loukil:
 
-![](RackMultipart20231009-1-3paqdo_html_bd664905d94097af.jpg)
- ![](RackMultipart20231009-1-3paqdo_html_10e9a47a26fe24c6.jpg)
- ![](RackMultipart20231009-1-3paqdo_html_537242f4c62cfaa2.jpg)
+![](RackMultipart20231010-1-rn4ig8_html_bd664905d94097af.jpg)
+ ![](RackMultipart20231010-1-rn4ig8_html_10e9a47a26fe24c6.jpg)
+ ![](RackMultipart20231010-1-rn4ig8_html_537242f4c62cfaa2.jpg)
 
 ## Diseño de Objetos y Requisitos Gráficos
 
 ## Efectos Visuales (VFX)
+
 Se tendrán que hacer los siguientes efectos visuales:
 
 - Humo: Cuando el jugador lance una bomba de humo se generará una cortina de humo
-- Niebla de guerra: Aquellas zonas que no vea el jugador estarán oscurecidas.
 - Agua de las fuentes: Las fuentes estarán llenas de agua para que el jugador la consumo. Se hará un shader para el agua.
 - Shader de escondite: Queremos que si el jugador se esconde en un armario el jugador le pueda ver a través de él.
 - Shader Láser: Se usará un shader para crear los láseres que habrá en los distintos niveles.
