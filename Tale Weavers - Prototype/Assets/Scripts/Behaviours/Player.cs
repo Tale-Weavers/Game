@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MoveableCharacter
 {
     [SerializeField] private bool _isSeen;
 
+    public bool actionDone = false;
+    public bool moveDone = false;
+
     // Start is called before the first frame update
     private void Start()
     {
-
-
-
     }
 
     private void Awake()
@@ -29,13 +26,31 @@ public class Player : MoveableCharacter
             MoveCharacter();
         }
 
-        if(Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
+        if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
+
+        if (Input.GetKeyDown(KeyCode.X)&&!_isSeen) { KnockOutEnemies(); } //For debugging purposes, temporal
     }
 
+    public void KnockOutEnemies()
+    {
+        if (_isSeen)
+        {
+            return;
+        }
+        if (GameManager.instance.CloseEnemies())
+        {
+            actionDone = true;
+        }
+    }
+
+    public void SkipTurn()
+    {
+        GameManager.instance.EndPlayerTurn(); 
+        currentTurn++;
+    }
 
     private void MoveCharacter()
     {
-
         Vector3 mousePosition = Input.mousePosition;
 
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -53,11 +68,17 @@ public class Player : MoveableCharacter
                 currentPos = target;
                 target.isWalkable = false;
                 target.occupiedByPlayer = true;
-                GameManager.instance.EndPlayerTurn();
-                currentTurn++;
+                moveDone = true;
+                if(currentPos.isExit)
+                {
+                    GameManager.instance.EndLevel();
+                }
+                //GameManager.instance.EndPlayerTurn();
+                //currentTurn++;
             }
         }
     }
+
     public void UpdateMoveable()
     {
         MoveablePositions();
@@ -68,5 +89,7 @@ public class Player : MoveableCharacter
         _isSeen = true;
     }
 
+    public void NewTurn()
+    {
+    }
 }
-

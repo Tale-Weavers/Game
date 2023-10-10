@@ -9,6 +9,8 @@ public class MoveableCharacter : MonoBehaviour
     public Square initSpawn;
     public Square currentPos;
 
+    protected Material currentMaterial;
+
     protected int currentTurn;
 
     protected void Awake()
@@ -18,6 +20,9 @@ public class MoveableCharacter : MonoBehaviour
         MoveablePositions();
         currentTurn = 0;
         initSpawn.isWalkable = false;
+
+        Renderer renderer = GetComponent<Renderer>();
+        currentMaterial = renderer.material;
     }
 
     protected void MoveablePositions()

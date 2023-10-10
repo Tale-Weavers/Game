@@ -6,7 +6,11 @@ using UnityEngine;
 public abstract class Enemy : MoveableCharacter
 {
     public Transform inspectorFacingDir;
+
+    public bool knockOut = false;
+
     protected Vector3 facingDirection;
+
 
     public Transform[] directions;
     protected List<Vector3> realDirections = new();
@@ -82,6 +86,14 @@ public abstract class Enemy : MoveableCharacter
     public void PlayerSeen(bool seen)
     {
         _playerSeen = seen;
+    }
+
+    public void KnockEnemy()
+    {
+        knockOut = true;
+        currentMaterial.color = Color.red;
+        Debug.Log("Me mueroaaaaaa");
+        currentPos.isWalkable = true;
     }
 
     protected void MoveTowards(Square destination)
