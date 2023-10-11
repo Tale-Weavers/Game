@@ -137,8 +137,7 @@ Se guardará el progreso de los jugadores y sus estadísticas para los logros. E
 
 # Estados de Juego
 
-![](RackMultipart20231010-1-rn4ig8_html_a1a3a4d8a35597ee.png)
-
+![Texto alternativo](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Diagrama_de_estados.jpg)
 # Interfaces
 
 ## Objetivos de la Interfaz de Usuario
@@ -171,7 +170,7 @@ Se introducirán pequeñas animaciones para cambiar entre menús.
 
 Tutorial 1:
 
-![](RackMultipart20231010-1-rn4ig8_html_774157c57552987.jpg)
+![Texto alternativo](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Tutorial_1.jpg)
 
 **Explicación:** El camino esperado por el jugador consiste en el cuervo moviéndose hacia el gato para noquearlo y posteriormente avanzar hasta la casilla de salida. Tiene otra ruta alternativa con la que no sería necesario enfrentar al gato pero es más lenta.
 
@@ -181,7 +180,7 @@ El gato mira alternativamente a la derecha y abajo.
 
 Tutorial 2:
 
-![](RackMultipart20231010-1-rn4ig8_html_f23cc703e67f8c0b.jpg)
+![Texto alternativo](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Tutorial_2.jpg)
 
 **Explicación:** El camino superior se encuentra bloqueado por la presencia del gato número 1 que se encuentra vigilando siempre en la misma dirección.
 
@@ -189,7 +188,9 @@ El camino esperado se encuentra bajando. Según la ruta que toma el gato número
 
 **Objetivo:** Dar a conocer al jugador la mecánica de los escondites (arbusto) y de esperar.
 
-Tutorial 3: ![](RackMultipart20231010-1-rn4ig8_html_261ece9c412a9f99.jpg)
+Tutorial 3: 
+
+![Texto alternativo](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Tutorial_3.jpg)
 
 **Explicación:** El camino esperado por el jugador consiste en avanzar por arriba y recoger el ovillo. Posteriormente debe dejar el ovillo dentro del rango de visión del gato número 1 para que lo recoja y quede fuera de combate.
 
@@ -203,7 +204,7 @@ Con ambos gatos fuera de combate puede completar el nivel.
 
 Nivel 1:
 
-![](RackMultipart20231010-1-rn4ig8_html_a61ccb19556c9e8e.jpg)
+![Texto alternativo](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Nivel_1.jpg)
 
 **Explicación:** El nivel es bastante libre y cuenta con 2 herramientas principales para completarlo: 1 ovillo y 1 graznido.
 
@@ -215,7 +216,7 @@ El camino esperado consiste en agarrar el ovillo y usarlo para distraer al gato 
 
 Nivel 2:
 
-![](RackMultipart20231010-1-rn4ig8_html_200bb3aaa2ece1f7.jpg)
+![Texto alternativo](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Nivel_2.jpg)
 
 **Explicación:** El camino esperado por el jugador es esconderse del gato número 1 en el escondite para poder pasar a la zona inferior.
 
