@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1623,6 +1623,7 @@ MonoBehaviour:
   initSpawn: {fileID: 1829093896}
   currentPos: {fileID: 0}
   _isSeen: 0
+  _isHiding: 0
   actionDone: 0
   moveDone: 0
 --- !u!1001 &259371855
@@ -4731,7 +4732,6 @@ MonoBehaviour:
   knockOut: 0
   directions:
   - {fileID: 1919462866131331681, guid: e2b89cf4dbd1c504b912a9f6c3bc2fbc, type: 3}
-  - {fileID: 5225218721541078947, guid: bfac0ad8ace252046bd1b14451922893, type: 3}
   _playerSeen: 0
 --- !u!1001 &1006370078
 PrefabInstance:
@@ -5633,6 +5633,11 @@ PrefabInstance:
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: isWalkable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: isHidingSpot
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,

@@ -87,6 +87,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CheckEnemiesVision()
+    {
+        bool hidingSuccesful = true;
+        foreach(Enemy enemy in listOfEnemies) 
+        { 
+            hidingSuccesful = enemy.PlayerHidCheck(); 
+        }
+        if (hidingSuccesful)
+        {
+            NotifyEnemies(false);
+        }
+    }
+
     public void RestartLevel()
     {
         StartCoroutine(SetupLevel());

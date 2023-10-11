@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player : MoveableCharacter
 {
     [SerializeField] private bool _isSeen;
+    [SerializeField] private bool _isHiding;
 
     public bool actionDone = false;
     public bool moveDone = false;
@@ -61,10 +62,15 @@ public class Player : MoveableCharacter
         {
             if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
             {
-                transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
                 Square target = hit.transform.GetComponent<Square>();
+                if (target.isHidingSpot)
+                {
+                    GameManager.instance.CheckEnemiesVision();
+                }
+                transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
                 currentPos.isWalkable = true;
                 currentPos.occupiedByPlayer = false;
+                if(currentPos.isHidingSpot) _isHiding = false;
                 currentPos = target;
                 target.isWalkable = false;
                 target.occupiedByPlayer = true;
@@ -72,6 +78,10 @@ public class Player : MoveableCharacter
                 if(currentPos.isExit)
                 {
                     GameManager.instance.EndLevel();
+                }
+                else if(currentPos.isHidingSpot) 
+                {
+                    _isHiding = true;
                 }
                 //GameManager.instance.EndPlayerTurn();
                 //currentTurn++;

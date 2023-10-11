@@ -9,6 +9,7 @@ public class Square : MonoBehaviour
     public bool isWalkable;
 
     public bool isExit = false;
+    public bool isHidingSpot = false;
 
     public bool occupiedByPlayer;
 
@@ -23,6 +24,7 @@ public class Square : MonoBehaviour
     {
         Renderer renderer = GetComponent<Renderer>();
         currentMaterial = renderer.material;
+        if (isHidingSpot) currentMaterial.color = Color.blue;
         _colorInit = currentMaterial.color;
        
     }

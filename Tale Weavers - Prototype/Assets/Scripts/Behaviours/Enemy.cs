@@ -62,6 +62,7 @@ public abstract class Enemy : MoveableCharacter
     {
         RaycastHit hit;
 
+
         Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
 
         if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f))
@@ -81,6 +82,25 @@ public abstract class Enemy : MoveableCharacter
                 }
             }
         }
+
+    }
+
+    public bool PlayerHidCheck()
+    {
+        RaycastHit hit;
+        bool playerHid = true;
+        Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
+
+        if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                playerHid = false;
+                Debug.Log("Atrapada");
+                GameManager.instance.player.Seen();
+            }
+        }
+        return playerHid;
     }
 
     public void PlayerSeen(bool seen)
@@ -93,12 +113,15 @@ public abstract class Enemy : MoveableCharacter
         knockOut = true;
         currentMaterial.color = Color.red;
         Debug.Log("Me mueroaaaaaa");
+        transform.Rotate(90, 0, 0);
         currentPos.isWalkable = true;
     }
 
     protected void MoveTowards(Square destination)
     {
-        transform.position = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
+        Vector3 targetPosition = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
+        facingDirection = targetPosition - transform.position;
+        transform.position = targetPosition;
         currentPos.isWalkable = true;
         currentPos = destination.transform.GetComponent<Square>();
         currentPos.isWalkable = false;
