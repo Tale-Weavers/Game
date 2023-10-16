@@ -20,6 +20,7 @@ public class StaticEnemy : Enemy
             {
                 CheckVision();
                 RotateVision();
+                CheckVision();
             }
             else
             {
@@ -40,6 +41,8 @@ public class StaticEnemy : Enemy
 
         facingDirection = realDirections[_rotationCounter];
         _rotationCounter++;
+
+        RotateEnemy();
 
     }
 

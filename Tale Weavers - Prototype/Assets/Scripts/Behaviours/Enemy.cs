@@ -26,6 +26,12 @@ public abstract class Enemy : MoveableCharacter
 
         facingDirection = inspectorFacingDir.position;
 
+
+
+        
+
+        transform.rotation = Quaternion.LookRotation(facingDirection);
+
     }
 
     // Update is called once per frame
@@ -173,5 +179,12 @@ public abstract class Enemy : MoveableCharacter
             return true;
         }
         return false;
+    }
+
+    protected void RotateEnemy()
+    {
+        Debug.Log(facingDirection);
+        transform.rotation = Quaternion.LookRotation(facingDirection);
+        Debug.Log(transform.rotation);
     }
 }
