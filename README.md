@@ -24,11 +24,11 @@ Sigilo por turnos. Navegador web, con posibilidad de ampliarse a otras plataform
 
 ## Mecánicas Clave
 
-Desplazarse por el escenario. Interactuar con elementos del escenario y con los enemigos.
+Desplazamiento por el escenario. Interacción con elementos del escenario y con los enemigos.
 
 ## Historia y Ambientación
 
-Juego 3D Low Poly, con estética basada en formas geométricas (art deco, bauhaus). Los gatos son malos, han raptado a tu "amigo" y tú tienes que rescatarle.
+Juego 3D Low Poly, con estética basada en formas geométricas (art deco, bauhaus). Los gatos son malos, han raptado a tu amigo y tú tienes que rescatarle.
 
 ## Público Objetivo
 
@@ -94,19 +94,15 @@ Para diseñar los distintos puzzles del juego vamos a seguir el siguiente esquem
 - Consumibles
 
 ## Interacción del Jugador con el Entorno
-
 El jugador en los distintos mapas podrá interactuar con varios objetos. Entre ellos, encontraremos objetos que servirán de distracción a los guardias: interruptores, láseres…. También habrá objetos que sirvan para esconderse: armarios, taquillas…. y también objetos consumibles como bombas de humo u ovillos de lana.
 
 ## Recursos
-
 Entre los recursos de los que dispone el jugador se encontrarán los consumibles anteriormente descritos. Por otro lado, también se tendrá que hacer gestión del número de movimientos para conseguir más o menos estrellas al final del nivel.
 
 ## Feedback al Jugador
-
 Sonidos para la interacción con el entorno. A medida que se avance en el proyecto se irá definiendo más.
 
 ## Tutorial
-
 Cada vez que se presente una mecánica nueva se introducirá dicha mecánica con un texto explicativo. La forma concreta de hacer los tutoriales se irá analizando a medida que se desarrolle el proyecto.
 
 - Tutorial 1: Un guardia patrullando. Lo tienes que incapacitar. Introducimos la mecánica de esperar.
@@ -124,24 +120,19 @@ El menú de opciones del juego contará con los siguientes apartados:
 - Ayuda: Por último, se pondrá un botón de ayuda con el que los jugadores podrán ver los controles del juego.
 
 ## Personalización de Personajes
-
 Desde el menú de inicio se podrá acceder a un menú de personalización del personaje. Los cosméticos se tendrán que comprar con dinero real. En el menú se podrán elegir distintos cosméticos con una preview del personaje para que el jugador vea en tiempo real qué está cambiando.
 
 ## Opciones de Cámara y Visualización
-
 El juego contará con una opción in game que permitirá al jugador cambiar entre dos cámaras, una cenital y otra en perspectiva.
 
 ## Guardado y Carga de Partidas
-
 Se guardará el progreso de los jugadores y sus estadísticas para los logros. El guardado se hará automáticamente después de salir de cada nivel.
 
 # Estados de Juego
-
 ![Texto alternativo](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Diagrama_de_estados.jpg)
 # Interfaces
 
 ## Objetivos de la Interfaz de Usuario
-
 La interfaz debe mostrarle al jugador información relevante para que complete el nivel. De este modo la interfaz solo mostrará:
 
 - Número de movimientos del jugador: Aparecerá un pequeño contador que le dará al jugador el número de movimientos que lleva en ese intento del nivel. De este modo, los jugadores que quieran mejorar su desempeño en un determinado nivel podrán buscar mejores estrategias para mejorar.
@@ -409,6 +400,26 @@ La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta ma
  ![](RackMultipart20231010-1-rn4ig8_html_537242f4c62cfaa2.jpg)
 
 ## Diseño de Objetos y Requisitos Gráficos
+Objetos interactuables:
+
+Llaves
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Objetos/llaves_color.png?raw=true)
+
+Fuente
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Objetos/fuente_color.png?raw=true)
+
+Ovillo de lana
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Objetos/ovillo_color.png?raw=true)
+
+Botón
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Objetos/boton_color.png?raw=true)
+
+Bomba de Humo
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Objetos/bombahumo_color.png?raw=true)
+
+Linterna
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Objetos/linterna_color.png?raw=true)
+
 
 ## Efectos Visuales (VFX)
 
