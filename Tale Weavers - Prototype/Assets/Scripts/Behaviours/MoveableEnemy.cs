@@ -7,6 +7,7 @@ public class MoveableEnemy : Enemy
     private Square currentWaypoint;
     private List<Square> waypointList = new();
     private int waypointCounter;
+    private bool onWaypoint = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -32,9 +33,17 @@ public class MoveableEnemy : Enemy
             CheckVision();
             if (currentWaypoint == currentPos)
             {
-                SelectWaypoint2();
+                SelectWaypoint();
             }
-            MoveToWaypoint();
+            if (onWaypoint)
+            {
+                onWaypoint = false;
+                LookNextWaypoint();
+            }
+            else
+            {
+                MoveToWaypoint();
+            }
             CheckVision();
         }
         else
@@ -77,24 +86,26 @@ public class MoveableEnemy : Enemy
         }
 
         MoveTowards(optimalMovement);
+
+        if (currentWaypoint == currentPos)
+        {
+            onWaypoint = true;
+        }
     }
 
     private void SelectWaypoint()
-    {
-        if (waypointCounter >= wayPoints.Length-1) waypointCounter = 0;
-        Debug.Log(waypointCounter);
-        Debug.Log(wayPoints.Length);
-        waypointCounter++;
-        currentWaypoint = wayPoints[waypointCounter];
-
-    }
-
-    private void SelectWaypoint2()
     {
         if (waypointCounter >= waypointList.Count) waypointCounter = 0;
 
         currentWaypoint = waypointList[waypointCounter];
         waypointCounter++;
+    }
 
+    private void LookNextWaypoint() 
+    {
+        Vector3 targetPosition = new Vector3(currentWaypoint.transform.position.x, transform.position.y, currentWaypoint.transform.position.z);
+        facingDirection = targetPosition - transform.position;
+        facingDirection.Normalize();
+        RotateEnemy();
     }
 }
