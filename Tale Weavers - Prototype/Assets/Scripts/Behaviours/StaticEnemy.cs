@@ -6,6 +6,17 @@ public class StaticEnemy : Enemy
 {
     private int _rotationCounter = 1;
 
+    public Transform[] directions;
+    protected List<Vector3> realDirections = new();
+
+    private void Start()
+    {
+        base.Start();
+        foreach (var direction in directions)
+        {
+            realDirections.Add(direction.position);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
