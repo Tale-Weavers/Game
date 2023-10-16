@@ -16,6 +16,7 @@ public class Player : MoveableCharacter
     private void Awake()
     {
         base.Awake();
+        transform.position = new Vector3(currentPos.transform.position.x, transform.position.y, currentPos.transform.position.z);
         currentPos.occupiedByPlayer = true;
     }
 
