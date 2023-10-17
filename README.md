@@ -362,12 +362,18 @@ Se usarán colores neutros para el entorno con colores vivos o fuertes para elem
 ## ![](RackMultipart20231010-1-rn4ig8_html_8816092911ee58f4.jpg)
 
 ## Paleta de Colores
+El cuervo utilizará tonos azulados para crear la ilusión de la oscuridad de su plumaje sin recurrir directamente al color negro puro y dar tambien así el efecto de los reflejos metálicos típicos de los córvidos.
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Paletas/cuervo.PNG?raw=true)
+Los gatos base serán de color naranja, pero los diferentes tipos de enemigo vendrán diferenciados por color. Todos estarán inspirados en el pelaje de tipos reales de gatos. 
+Los componentes de gángster de su diseño irán en escala de grises u otros colores oscuros y neutros.
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Paletas/gatos.PNG?raw=true)
+
+Habrá diferentes tipos de escenarios según avanza la aventura, los cuales se diferenciarán principalmente por sus colores, que deben permitir el contraste tanto con el cuervo como con los gatos. 
+![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Escenario/escenario%20color%20test.png?raw=true)
 
 ## Diseño de Personajes
-
-Los personajes deben ser antropomórficos pero no demasiado, de la misma manera deben ser visualmente atractivos para los jugadores más pequeños sin perder el encanto para jugadores más mayores.
-
-En este aspecto hemos tomado como referencia
+Los personajes serán semiantropomórficos, de la misma manera deben ser visualmente atractivos para los jugadores más pequeños sin perder el encanto para jugadores más mayores.
+En este aspecto hemos tomado como referencia animales de cómic y personajes de Disney para elaborar bocetos de personajes atractivos.
 
 ##
 
@@ -401,6 +407,9 @@ La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta ma
 
 ## Diseño de Objetos y Requisitos Gráficos
 Objetos interactuables:
+Los objetos han de ser fácilmente identificables y deben destacar en el entorno. Esto se logrará con una combinación de los colores usados para el fondo y los objetos y la iluminación. 
+Se ha tomado como referencia la estética de mobiliario y piezas Art Dèco conforme a la estética del juego.
+Los objetos estarán modelados en Low Poly y serán visibles en el escenario y fáciles de identificar por el jugador. Seguirán la estética gráfica de los personajes y el ambiente descrita anteriormente.
 
 Llaves
 ![Texto alternativo](https://github.com/Tale-Weavers/Game/blob/main/GDD-Images/Concept/Objetos/llaves_color.png?raw=true)
@@ -423,11 +432,11 @@ Linterna
 
 ## Efectos Visuales (VFX)
 
-Se tendrán que hacer los siguientes efectos visuales:
+Se desarrollarán los siguientes efectos visuales:
 
-- Humo: Cuando el jugador lance una bomba de humo se generará una cortina de humo
-- Agua de las fuentes: Las fuentes estarán llenas de agua para que el jugador la consumo. Se hará un shader para el agua.
-- Shader de escondite: Queremos que si el jugador se esconde en un armario el jugador le pueda ver a través de él.
+- Humo: Cuando el jugador lance una bomba de humo se generará una cortina de humo.
+- Agua de las fuentes: Las fuentes estarán llenas de agua para que el jugador la consumo. Se realizará un shader para el agua.
+- Shader de escondite: si el jugador se esconde en un armario, puede ver a través de sus puertas.
 - Shader Láser: Se usará un shader para crear los láseres que habrá en los distintos niveles.
 
 ## Animaciones
@@ -466,7 +475,7 @@ Los sonidos tendrán un estilo cartoon que no resulten muy agresivos al jugador.
 
 ## Voces
 
-El juego como tal no tendrá voces, pero sí se incluirán sonidos durante los dialogos como en animal crossing. La forma de crear estos sonidos se estudiará más adelante cuando el juego esté más desarrollado
+El juego como tal no tendrá voces, pero sí se incluirán sonidos durante los dialogos como en Animal Crossing. La forma de crear estos sonidos se estudiará más adelante cuando el juego esté más desarrollado.
 
 # Logros
 
