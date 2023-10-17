@@ -123,12 +123,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initSpawn: {fileID: 0}
   currentPos: {fileID: 0}
+  moveDone: 0
   inspectorFacingDir: {fileID: 1919462866131331681, guid: e2b89cf4dbd1c504b912a9f6c3bc2fbc,
     type: 3}
   knockOut: 0
+  _playerSeen: 0
+  _alerted: 0
   directions:
   - {fileID: 1919462866131331681, guid: e2b89cf4dbd1c504b912a9f6c3bc2fbc, type: 3}
-  _playerSeen: 0
 --- !u!1 &3769433020118425096
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VisionConeMaterial: {fileID: 0}
-  VisionRange: 5
+  VisionRange: 7
   VisionAngle: 10
   VisionObstructingLayer:
     serializedVersion: 2

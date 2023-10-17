@@ -1,14 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Square : MonoBehaviour
 {
-
     public bool isWalkable;
 
+    public bool isFountain;
+
+    [SerializeField] private int _fountainCounter;
+
     public bool isExit = false;
+
     public bool isHidingSpot = false;
 
     public bool occupiedByPlayer;
@@ -19,24 +21,26 @@ public class Square : MonoBehaviour
 
     private Color _colorInit;
 
-
     public void Start()
     {
         Renderer renderer = GetComponent<Renderer>();
         currentMaterial = renderer.material;
-        if (isHidingSpot) currentMaterial.color = Color.blue;
+        if (isHidingSpot) currentMaterial.color = Color.magenta;
+        if (isExit) currentMaterial.color = Color.cyan;
+        if (isFountain) currentMaterial.color = Color.blue;
         _colorInit = currentMaterial.color;
-       
+  
+        if (isFountain) isWalkable = false;
+
     }
 
     private void Update()
     {
-        
     }
 
     public List<Square> SeeNeighbours()
     {
-        List <Square> list = new List<Square>();
+        List<Square> list = new List<Square>();
         list = GridManager.instance.GetAdjacents(this);
         return list;
     }
@@ -62,13 +66,15 @@ public class Square : MonoBehaviour
         {
             currentMaterial.color = _colorInit;
         }
-
     }
 
-
-
-
-
-
-
+    public bool DecreaseFountainCounter()
+    {
+        if (_fountainCounter > 0)
+        {
+            _fountainCounter--;
+            return true;
+        }
+        else return false;
+    }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -17,6 +16,12 @@ public class GameManager : MonoBehaviour
     public Button attackButton;
 
     public Button skipButton;
+
+    public Button squawkButton;
+
+    public Button drinkButton;
+
+    [SerializeField] private float _squawkRange;
 
     private void Awake()
     {
@@ -45,6 +50,8 @@ public class GameManager : MonoBehaviour
     {
         //StartCoroutine(TimeWaste(0));
         player.UpdateMoveable();
+        if(player.canSquawk) squawkButton.gameObject.SetActive(true);
+        if(player.fountainClose) drinkButton.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
@@ -55,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
+        squawkButton.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
         StartCoroutine(EnemyMovement());
@@ -73,8 +81,8 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
                 enemy.StartAction();
+                enemy.moveDone = false;
             }
-
         }
         NextTurn();
     }
@@ -85,17 +93,19 @@ public class GameManager : MonoBehaviour
         {
             enemy.PlayerSeen(seen);
         }
+        
     }
 
     public void CheckEnemiesVision()
     {
         bool hidingSuccesful = true;
-        foreach(Enemy enemy in listOfEnemies) 
-        { 
-            hidingSuccesful = enemy.PlayerHidCheck(); 
+        foreach (Enemy enemy in listOfEnemies)
+        {
+            hidingSuccesful = enemy.PlayerHidCheck();
         }
         if (hidingSuccesful)
         {
+            player.Seen(false);
             NotifyEnemies(false);
         }
     }
@@ -134,5 +144,28 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("VICTORIA ROYALE");
         RestartLevel();
+    }
+
+    public void PlayerSquawk()
+    {
+        squawkButton.gameObject.SetActive(false);
+        foreach (Enemy enemy in listOfEnemies)
+        {
+            Vector3 distance = (enemy.transform.position - player.transform.position);
+            if (distance.magnitude < _squawkRange)
+            {
+                Debug.Log(enemy.name);
+                enemy.AlertEnemy(player.currentPos);
+                
+            }
+        }
+    }
+
+    public void EnemyFinishedExploring()
+    {
+        foreach (Enemy enemy in listOfEnemies)
+        {
+            enemy.EndExploring();
+        }
     }
 }

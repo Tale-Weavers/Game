@@ -89,5 +89,27 @@ public class GridManager : MonoBehaviour
         return playerPos;
     }
 
+    public Square LookForFountain(Square init)
+    {
+        Square fountainPos = null;
+        Square value;
+        Vector3 initPosition = init.transform.position;
+
+        map.TryGetValue(new Vector3(initPosition.x + 1, 0, initPosition.z), out value);
+
+        if (value != null && value.isFountain) fountainPos = value;
+
+        map.TryGetValue(new Vector3(initPosition.x - 1, 0, initPosition.z), out value);
+        if (value != null && value.isFountain) fountainPos = value;
+
+        map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z + 1), out value);
+        if (value != null && value.isFountain) fountainPos = value;
+
+        map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z - 1), out value);
+        if (value != null && value.isFountain) fountainPos = value;
+
+        return fountainPos;
+    }
+
 
 }

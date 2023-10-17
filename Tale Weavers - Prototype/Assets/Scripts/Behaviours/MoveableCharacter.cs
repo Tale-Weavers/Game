@@ -9,6 +9,8 @@ public class MoveableCharacter : MonoBehaviour
     public Square initSpawn;
     public Square currentPos;
 
+    public bool moveDone = false;
+
     protected Material currentMaterial;
 
     protected int currentTurn;

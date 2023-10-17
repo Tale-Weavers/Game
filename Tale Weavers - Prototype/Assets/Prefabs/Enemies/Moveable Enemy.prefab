@@ -123,10 +123,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initSpawn: {fileID: 0}
   currentPos: {fileID: 0}
+  moveDone: 0
   inspectorFacingDir: {fileID: 0}
   knockOut: 0
-  directions: []
   _playerSeen: 0
+  _alerted: 0
   wayPoints: []
 --- !u!1 &3769433020118425096
 GameObject:
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VisionConeMaterial: {fileID: 0}
-  VisionRange: 5
+  VisionRange: 7
   VisionAngle: 10
   VisionObstructingLayer:
     serializedVersion: 2

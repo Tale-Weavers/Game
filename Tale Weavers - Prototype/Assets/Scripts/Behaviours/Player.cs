@@ -5,8 +5,12 @@ public class Player : MoveableCharacter
     [SerializeField] private bool _isSeen;
     [SerializeField] public bool _isHiding;
 
+    private Square fountain;
+
     public bool actionDone = false;
-    public bool moveDone = false;
+
+    public bool canSquawk = false;
+    public bool fountainClose = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,6 +27,7 @@ public class Player : MoveableCharacter
     // Update is called once per frame
     private void Update()
     {
+
         if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn)
         {
             MoveCharacter();
@@ -30,7 +35,11 @@ public class Player : MoveableCharacter
 
         if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.X)&&!_isSeen) { KnockOutEnemies(); } //For debugging purposes, temporal
+        if (Input.GetKeyDown(KeyCode.X) && !_isSeen) { KnockOutEnemies(); } //For debugging purposes, temporal
+
+        if (Input.GetKeyDown(KeyCode.S)) { Squawk(); } //For debugging purposes, temporal
+
+        if (Input.GetKeyDown(KeyCode.D)) { Drink(); }
     }
 
     public void KnockOutEnemies()
@@ -42,12 +51,13 @@ public class Player : MoveableCharacter
         if (GameManager.instance.CloseEnemies())
         {
             actionDone = true;
+            UpdateMoveable();
         }
     }
 
     public void SkipTurn()
     {
-        GameManager.instance.EndPlayerTurn(); 
+        GameManager.instance.EndPlayerTurn();
         currentTurn++;
     }
 
@@ -71,18 +81,32 @@ public class Player : MoveableCharacter
                 transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
                 currentPos.isWalkable = true;
                 currentPos.occupiedByPlayer = false;
-                if(currentPos.isHidingSpot) _isHiding = false;
+                if (currentPos.isHidingSpot) _isHiding = false;
                 currentPos = target;
                 target.isWalkable = false;
                 target.occupiedByPlayer = true;
                 moveDone = true;
-                if(currentPos.isExit)
+
+                fountain = GridManager.instance.LookForFountain(currentPos);
+                if (fountain != null)
+                {
+                    fountainClose = true;
+                    GameManager.instance.drinkButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    fountainClose = false;
+                    GameManager.instance.drinkButton.gameObject.SetActive(false);
+                }
+
+                if (currentPos.isExit)
                 {
                     GameManager.instance.EndLevel();
                 }
-                else if(currentPos.isHidingSpot) 
+                else if (currentPos.isHidingSpot)
                 {
                     _isHiding = true;
+
                 }
                 //GameManager.instance.EndPlayerTurn();
                 //currentTurn++;
@@ -95,12 +119,44 @@ public class Player : MoveableCharacter
         MoveablePositions();
     }
 
-    public void Seen()
+    public void Seen(bool seen)
     {
-        _isSeen = true;
+        _isSeen = seen;
     }
 
     public void NewTurn()
     {
+    }
+
+    public void Squawk()
+    {
+        if (canSquawk)
+        {
+            GameManager.instance.PlayerSquawk();
+            canSquawk = false;
+        }
+        else
+        {
+            Debug.Log("Tienes la garganta seca");
+        }
+    }
+
+    public void Drink()
+    {
+        if (fountainClose && !canSquawk)
+        {
+            if (fountain.DecreaseFountainCounter())
+            {
+                canSquawk = true;
+            }
+            else
+            {
+                Debug.Log("Fuente Seca");
+            }
+        }
+        else
+        {
+            Debug.Log("No hay agua cerca");
+        }
     }
 }

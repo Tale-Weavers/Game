@@ -27,16 +27,32 @@ public class StaticEnemy : Enemy
     {
         if (!_playerSeen)
         {
-            if (currentPos == initSpawn)
+            if (_alerted)
             {
                 CheckVision();
-                RotateVision();
+                ExploreSquawk();
+                if (currentPos == alertedTile)
+                {
+                    GameManager.instance.EnemyFinishedExploring();
+                }
                 CheckVision();
             }
             else
             {
-                ReturnSpawn();
+                if (currentPos == initSpawn)
+                {
+                    CheckVision();
+                    RotateVision();
+                    CheckVision();
+                }
+                else
+                {
+                    CheckVision();
+                    ReturnSpawn();
+                    CheckVision();
+                }
             }
+
         }
         else
         {

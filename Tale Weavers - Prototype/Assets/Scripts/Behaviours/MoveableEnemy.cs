@@ -30,21 +30,34 @@ public class MoveableEnemy : Enemy
     {
         if (!_playerSeen)
         {
-            CheckVision();
-            if (currentWaypoint == currentPos)
+            if (_alerted)
             {
-                SelectWaypoint();
-            }
-            if (onWaypoint)
-            {
-                onWaypoint = false;
-                LookNextWaypoint();
+                CheckVision();
+                ExploreSquawk();
+                if(currentPos == alertedTile)
+                {
+                    GameManager.instance.EnemyFinishedExploring();
+                }
+                CheckVision();
             }
             else
             {
-                MoveToWaypoint();
+                CheckVision();
+                if (currentWaypoint == currentPos)
+                {
+                    SelectWaypoint();
+                }
+                if (onWaypoint)
+                {
+                    onWaypoint = false;
+                    LookNextWaypoint();
+                }
+                else
+                {
+                    MoveToWaypoint();
+                }
+                CheckVision();
             }
-            CheckVision();
         }
         else
         {
@@ -101,7 +114,7 @@ public class MoveableEnemy : Enemy
         waypointCounter++;
     }
 
-    private void LookNextWaypoint() 
+    private void LookNextWaypoint()
     {
         Vector3 targetPosition = new Vector3(currentWaypoint.transform.position.x, transform.position.y, currentWaypoint.transform.position.z);
         facingDirection = targetPosition - transform.position;
