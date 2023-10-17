@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MoveableCharacter
 {
     [SerializeField] private bool _isSeen;
-    [SerializeField] private bool _isHiding;
+    [SerializeField] public bool _isHiding;
 
     public bool actionDone = false;
     public bool moveDone = false;

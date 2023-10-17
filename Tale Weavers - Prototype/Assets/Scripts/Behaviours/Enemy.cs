@@ -30,11 +30,11 @@ public abstract class Enemy : MoveableCharacter
     {
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, facingDirection * 2.5f, Color.red, 0.5f);
+        Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
 
-        if (Physics.Raycast(transform.position, facingDirection, out hit, 2.5f))
+        if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f))
         {
-            if (hit.collider.CompareTag("Player"))
+            if (hit.collider.CompareTag("Player") && !GameManager.instance.player._isHiding)
             {
                 Debug.Log("Atrapada");
                 GameManager.instance.player.Seen();
@@ -53,9 +53,9 @@ public abstract class Enemy : MoveableCharacter
     {
         RaycastHit hit;
         bool playerHid = true;
-        Debug.DrawRay(transform.position, facingDirection * 2.5f, Color.red, 0.5f);
+        Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
 
-        if (Physics.Raycast(transform.position, facingDirection, out hit, 2.5f))
+        if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f))
         {
             if (hit.collider.CompareTag("Player"))
             {
