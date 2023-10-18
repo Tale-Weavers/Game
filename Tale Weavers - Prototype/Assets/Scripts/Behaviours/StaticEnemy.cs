@@ -27,38 +27,70 @@ public class StaticEnemy : Enemy
     {
         if (!_playerSeen)
         {
-            if (_alerted)
+            if (_distracted)
             {
-                CheckVision();
-                ExploreSquawk();
-                if (currentPos == alertedTile)
+                if (currentPos == woolBallTile)
                 {
-                    GameManager.instance.EnemyFinishedExploring();
+                    Debug.Log("Estoy jugando");
                 }
-                CheckVision();
+                else if(woolBall.beingPlayed)
+                {
+                    List<Square> neighbours = currentPos.SeeWool();
+                    if (neighbours.Contains(woolBallTile)) AwakeEnemies();
+                    else ExploreSquawk(woolBallTile);
+                }
+                else ExploreSquawk(woolBallTile);
             }
+
             else
             {
-                if (currentPos == initSpawn)
+                if (_alerted)
                 {
                     CheckVision();
-                    RotateVision();
+                    ExploreSquawk(alertedTile);
+                    if (currentPos == alertedTile)
+                    {
+                        GameManager.instance.EnemyFinishedExploring();
+                    }
                     CheckVision();
                 }
                 else
                 {
-                    CheckVision();
-                    ReturnSpawn();
-                    CheckVision();
+                    if (currentPos == initSpawn)
+                    {
+                        CheckVision();
+                        RotateVision();
+                        CheckVision();
+                    }
+                    else
+                    {
+                        CheckVision();
+                        ReturnSpawn();
+                        CheckVision();
+                    }
                 }
             }
 
         }
         else
         {
-            CatchPlayer();
-            ChasePlayer();
-            CatchPlayer();
+
+            if (_distracted)
+            {
+
+                if (currentPos == woolBallTile)
+                {
+                    Debug.Log("Estoy jugando");
+                }
+                else ExploreSquawk(woolBallTile);
+            }
+            else
+            {
+                CatchPlayer();
+                ChasePlayer();
+                CatchPlayer();
+                CheckVision();
+            }
         }
     }
 
@@ -106,5 +138,5 @@ public class StaticEnemy : Enemy
 
         MoveTowards(optimalMovement);
     }
-    
+
 }

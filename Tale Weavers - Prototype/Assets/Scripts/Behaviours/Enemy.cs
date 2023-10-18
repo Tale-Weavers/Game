@@ -13,7 +13,11 @@ public abstract class Enemy : MoveableCharacter
 
     [SerializeField] protected bool _alerted;
 
+    [SerializeField] protected bool _distracted;
+
     protected Square alertedTile;
+    protected Square woolBallTile;
+    protected WoolBall woolBall;
 
     // Start is called before the first frame update
     protected void Start()
@@ -49,6 +53,13 @@ public abstract class Enemy : MoveableCharacter
                     ChasePlayer();
                     CatchPlayer();
                 }
+            }
+            else if (hit.collider.CompareTag("WoolBall"))
+            {
+                Debug.Log($"Soy {gameObject.name} y he encontrado el ovillo");
+                _distracted = true;
+                woolBall = hit.collider.GetComponent<WoolBall>();
+                woolBallTile = woolBall.tile;
             }
         }
     }
@@ -98,6 +109,7 @@ public abstract class Enemy : MoveableCharacter
             currentPos = destination.transform.GetComponent<Square>();
             currentPos.isWalkable = false;
             RotateEnemy();
+            if (_distracted && currentPos == woolBallTile) woolBall.beingPlayed = true;
         }
     }
 
@@ -165,7 +177,7 @@ public abstract class Enemy : MoveableCharacter
         _alerted = false;
     }
 
-    protected void ExploreSquawk()
+    protected void ExploreSquawk(Square targetTile)
     {
         List<Square> list = new List<Square>();
         list = GridManager.instance.GetAdjacents(currentPos);
@@ -174,7 +186,7 @@ public abstract class Enemy : MoveableCharacter
 
         foreach (Square square in list)
         {
-            Vector3 aux = square.transform.position - alertedTile.transform.position;
+            Vector3 aux = square.transform.position - targetTile.transform.position;
 
             if (aux.magnitude < distance)
             {
@@ -187,7 +199,7 @@ public abstract class Enemy : MoveableCharacter
 
             foreach (Square square2 in recursiveList)
             {
-                Vector3 aux2 = square2.transform.position - alertedTile.transform.position;
+                Vector3 aux2 = square2.transform.position - targetTile.transform.position;
                 if (aux2.magnitude < distance)
                 {
                     distance = aux2.magnitude;
@@ -197,5 +209,15 @@ public abstract class Enemy : MoveableCharacter
         }
 
         MoveTowards(optimalMovement);
+    }
+
+    protected void AwakeEnemies()
+    {
+        foreach(Enemy enemy in GameManager.instance.listOfEnemies)
+        {
+            enemy._distracted = false;
+            if(woolBall != null) woolBall.gameObject.SetActive(false);
+            woolBall = null;
+        }
     }
 }

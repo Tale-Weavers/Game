@@ -7,6 +7,8 @@ public class Square : MonoBehaviour
 
     public bool isFountain;
 
+    public bool containsWool;
+
     [SerializeField] private int _fountainCounter;
 
     public bool isExit = false;
@@ -20,6 +22,7 @@ public class Square : MonoBehaviour
     private Material currentMaterial;
 
     private Color _colorInit;
+    public WoolBall wool;
 
     public void Start()
     {
@@ -31,7 +34,14 @@ public class Square : MonoBehaviour
         _colorInit = currentMaterial.color;
   
         if (isFountain) isWalkable = false;
-
+        if(containsWool) {
+            WoolBall[] woolballList;
+            woolballList = FindObjectsByType<WoolBall>(FindObjectsSortMode.None);
+            foreach (WoolBall woolball in woolballList)
+            {
+                if (woolball.tile = this) wool = woolball;
+            }
+        }
     }
 
     private void Update()
@@ -42,6 +52,12 @@ public class Square : MonoBehaviour
     {
         List<Square> list = new List<Square>();
         list = GridManager.instance.GetAdjacents(this);
+        return list;
+    }   
+    public List<Square> SeeWool()
+    {
+        List<Square> list = new List<Square>();
+        list = GridManager.instance.LookForWoolBall(this);
         return list;
     }
 

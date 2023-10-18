@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public Button drinkButton;
 
     [SerializeField] private float _squawkRange;
+    [SerializeField] private WoolBall _woolBall;
+
+
 
     private void Awake()
     {
@@ -56,6 +59,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(true);
         currentTurn++;
         turnText.text = $"Current turn: {currentTurn}";
+        _woolBall.GetComponent<Collider>().enabled = false;
     }
 
     public void EndPlayerTurn()
@@ -65,6 +69,7 @@ public class GameManager : MonoBehaviour
         squawkButton.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
+        _woolBall.GetComponent<Collider>().enabled = true;
         StartCoroutine(EnemyMovement());
     }
 

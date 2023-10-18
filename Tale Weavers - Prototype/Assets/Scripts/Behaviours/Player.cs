@@ -11,6 +11,9 @@ public class Player : MoveableCharacter
 
     public bool canSquawk = false;
     public bool fountainClose = false;
+    public bool hasWoolBall = false;
+    private WoolBall _woolball;
+    [SerializeField] private bool _placingWool;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,9 +31,14 @@ public class Player : MoveableCharacter
     private void Update()
     {
 
-        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn)
+        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone)
         {
             MoveCharacter();
+            MoveablePositions();
+        }
+        else if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _placingWool)
+        {
+            PlaceWoolBall();
         }
 
         if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
@@ -39,7 +47,9 @@ public class Player : MoveableCharacter
 
         if (Input.GetKeyDown(KeyCode.S)) { Squawk(); } //For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.D)) { Drink(); }
+        if (Input.GetKeyDown(KeyCode.D)) { Drink(); }//For debugging purposes, temporal
+
+        if (Input.GetKeyDown(KeyCode.W)) { _placingWool = !_placingWool; }//For debugging purposes, temporal
     }
 
     public void KnockOutEnemies()
@@ -108,8 +118,45 @@ public class Player : MoveableCharacter
                     _isHiding = true;
 
                 }
+                else if(currentPos.containsWool)
+                {
+                    if (!hasWoolBall)
+                    {
+                        hasWoolBall = true;
+                        currentPos.containsWool = false;
+                        _woolball = currentPos.wool;
+                        currentPos.wool = null;
+                        _woolball.gameObject.SetActive(false);
+                    }
+                }
                 //GameManager.instance.EndPlayerTurn();
                 //currentTurn++;
+            }
+        }
+    }
+
+    private void PlaceWoolBall()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
+            {
+                Square target = hit.transform.GetComponent<Square>();
+                if (!target.containsWool)
+                {
+                    target.containsWool = true;
+                    target.wool = _woolball;
+                    hasWoolBall = false;
+                    _woolball.transform.position = new Vector3(hit.transform.position.x, _woolball.transform.position.y, hit.transform.position.z);
+                    _woolball.tile = target;
+                    _woolball.gameObject.SetActive(true);
+                }
             }
         }
     }

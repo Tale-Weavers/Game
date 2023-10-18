@@ -30,40 +30,72 @@ public class MoveableEnemy : Enemy
     {
         if (!_playerSeen)
         {
-            if (_alerted)
+            if (_distracted)
             {
-                CheckVision();
-                ExploreSquawk();
-                if(currentPos == alertedTile)
+                if (currentPos == woolBallTile)
                 {
-                    GameManager.instance.EnemyFinishedExploring();
+                    Debug.Log("Estoy jugando");
+                    
                 }
-                CheckVision();
+                else if (woolBall.beingPlayed)
+                {
+                    List<Square> neighbours = currentPos.SeeWool();
+                    if (neighbours.Contains(woolBallTile)) AwakeEnemies();
+                    else ExploreSquawk(woolBallTile);
+                }
+                else ExploreSquawk(woolBallTile);
             }
+
             else
             {
-                CheckVision();
-                if (currentWaypoint == currentPos)
+                if (_alerted)
                 {
-                    SelectWaypoint();
-                }
-                if (onWaypoint)
-                {
-                    onWaypoint = false;
-                    LookNextWaypoint();
+                    CheckVision();
+                    ExploreSquawk(alertedTile);
+                    if (currentPos == alertedTile)
+                    {
+                        GameManager.instance.EnemyFinishedExploring();
+                    }
+                    CheckVision();
                 }
                 else
                 {
-                    MoveToWaypoint();
+                    CheckVision();
+                    if (currentWaypoint == currentPos)
+                    {
+                        SelectWaypoint();
+                    }
+                    if (onWaypoint)
+                    {
+                        onWaypoint = false;
+                        LookNextWaypoint();
+                    }
+                    else
+                    {
+                        MoveToWaypoint();
+                    }
+                    CheckVision();
                 }
-                CheckVision();
             }
         }
         else
         {
-            CatchPlayer();
-            ChasePlayer();
-            CatchPlayer();
+            if (_distracted)
+            {
+
+                if (currentPos == woolBallTile)
+                {
+                    Debug.Log("Estoy jugando");
+                }
+                else ExploreSquawk(woolBallTile);
+            }
+            else
+            {
+                CatchPlayer();
+                ChasePlayer();
+                CatchPlayer();
+                CheckVision();
+            }
         }
     }
 
