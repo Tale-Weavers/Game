@@ -12,7 +12,9 @@ public class Player : MoveableCharacter
     public bool canSquawk = false;
     public bool fountainClose = false;
     public bool hasWoolBall = false;
+
     private WoolBall _woolball;
+
     [SerializeField] private bool _placingWool;
 
     // Start is called before the first frame update
@@ -36,7 +38,7 @@ public class Player : MoveableCharacter
             MoveCharacter();
             MoveablePositions();
         }
-        else if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _placingWool)
+        else if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _placingWool && hasWoolBall)
         {
             PlaceWoolBall();
         }
@@ -120,7 +122,7 @@ public class Player : MoveableCharacter
                 }
                 else if(currentPos.containsWool)
                 {
-                    if (!hasWoolBall)
+                    if (!hasWoolBall&&currentPos.wool.isActiveAndEnabled)
                     {
                         hasWoolBall = true;
                         currentPos.containsWool = false;
@@ -156,6 +158,8 @@ public class Player : MoveableCharacter
                     _woolball.transform.position = new Vector3(hit.transform.position.x, _woolball.transform.position.y, hit.transform.position.z);
                     _woolball.tile = target;
                     _woolball.gameObject.SetActive(true);
+                    _placingWool = false;
+                    GameManager.instance.PlayerPlaceWoolball();
                 }
             }
         }
@@ -205,5 +209,10 @@ public class Player : MoveableCharacter
         {
             Debug.Log("No hay agua cerca");
         }
+    }
+
+    public void EnablePlacingWoolBall()
+    {
+        _placingWool = !_placingWool;
     }
 }

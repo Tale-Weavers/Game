@@ -94,6 +94,7 @@ public abstract class Enemy : MoveableCharacter
         Debug.Log("Me mueroaaaaaa");
         transform.Rotate(90, 0, 0);
         currentPos.isWalkable = true;
+        if(woolBall!=null) woolBall.gameObject.SetActive(false);
         GetComponent<CapsuleCollider>().enabled = false;
     }
 

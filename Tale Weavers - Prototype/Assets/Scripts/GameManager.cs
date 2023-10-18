@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     public Button squawkButton;
 
     public Button drinkButton;
+
+    public Button woolBallButton;
 
     [SerializeField] private float _squawkRange;
     [SerializeField] private WoolBall _woolBall;
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
         player.UpdateMoveable();
         if(player.canSquawk) squawkButton.gameObject.SetActive(true);
         if(player.fountainClose) drinkButton.gameObject.SetActive(true);
+        if(player.hasWoolBall) woolBallButton.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
@@ -67,6 +71,8 @@ public class GameManager : MonoBehaviour
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
+        drinkButton.gameObject.SetActive(false);
+        woolBallButton.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
         _woolBall.GetComponent<Collider>().enabled = true;
@@ -172,5 +178,10 @@ public class GameManager : MonoBehaviour
         {
             enemy.EndExploring();
         }
+    }
+
+    public void PlayerPlaceWoolball()
+    {
+        woolBallButton.gameObject.SetActive(false);
     }
 }
