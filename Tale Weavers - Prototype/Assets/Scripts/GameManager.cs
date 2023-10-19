@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1.0f;
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -123,14 +124,14 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        winText.gameObject.SetActive(true);
+        
         StartCoroutine(SetupLevel());
         Time.timeScale = 0.0f;
     }
 
     private IEnumerator SetupLevel()
     {
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
     }
@@ -154,6 +155,16 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
+        winText.text = "Level Completed";
+        winText.gameObject.SetActive(true);
+        Debug.Log("VICTORIA ROYALE");
+        RestartLevel();
+    }
+
+    public void EndLevelLost()
+    {
+        winText.text = "GAME OVER";
+        winText.gameObject.SetActive(true);
         Debug.Log("VICTORIA ROYALE");
         RestartLevel();
     }

@@ -155,7 +155,7 @@ public abstract class Enemy : MoveableCharacter
         if (playerPos != null)
         {
             Debug.Log("Cachete");
-            GameManager.instance.RestartLevel();
+            GameManager.instance.EndLevelLost();
             return true;
         }
         return false;
