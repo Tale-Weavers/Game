@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(true);
         currentTurn++;
         turnText.text = $"Current turn: {currentTurn}";
-        _woolBall.GetComponent<Collider>().enabled = false;
+        if (_woolBall != null) _woolBall.GetComponent<Collider>().enabled = false;
     }
 
     public void EndPlayerTurn()
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         woolBallButton.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
-        _woolBall.GetComponent<Collider>().enabled = true;
+        if(_woolBall != null) _woolBall.GetComponent<Collider>().enabled = true;
         StartCoroutine(EnemyMovement());
     }
 
