@@ -1481,11 +1481,13 @@ MonoBehaviour:
   - {fileID: 1056207191}
   player: {fileID: 244428632}
   turnText: {fileID: 1858537276}
+  winText: {fileID: 949253500}
   attackButton: {fileID: 1858537274}
   skipButton: {fileID: 1858537275}
   squawkButton: {fileID: 1858537273}
   drinkButton: {fileID: 1858537272}
   woolBallButton: {fileID: 1858537271}
+  mainMenu: {fileID: 726165829}
   _squawkRange: 3
   _woolBall: {fileID: 1343731635}
 --- !u!4 &174325306 stripped
@@ -4645,6 +4647,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2097426147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &726165829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1858537270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &738652487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
@@ -5052,6 +5066,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 712352d71f6ae9842a0f57287b957705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &949253500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3777692973703712871, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1858537270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &955186569 stripped
@@ -10029,6 +10055,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Squawk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 167176614}
+    - target: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6446877413769430011, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}

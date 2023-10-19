@@ -13,16 +13,16 @@ public class GameManager : MonoBehaviour
     public Player player;
 
     public TextMeshProUGUI turnText;
+    public TextMeshProUGUI winText;
 
+
+    [Header("Buttons")]
     public Button attackButton;
-
     public Button skipButton;
-
     public Button squawkButton;
-
     public Button drinkButton;
-
     public Button woolBallButton;
+    public Button mainMenu;
 
     [SerializeField] private float _squawkRange;
     [SerializeField] private WoolBall _woolBall;
@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        winText.gameObject.SetActive(true);
         StartCoroutine(SetupLevel());
         Time.timeScale = 0.0f;
     }
@@ -130,7 +131,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator SetupLevel()
     {
         yield return new WaitForSecondsRealtime(5);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
     }
 
@@ -183,5 +184,10 @@ public class GameManager : MonoBehaviour
     public void PlayerPlaceWoolball()
     {
         woolBallButton.gameObject.SetActive(false);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

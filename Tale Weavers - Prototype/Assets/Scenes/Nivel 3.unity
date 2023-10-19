@@ -501,7 +501,10 @@ MonoBehaviour:
   skipButton: {fileID: 209404281}
   squawkButton: {fileID: 209404279}
   drinkButton: {fileID: 209404278}
+  woolBallButton: {fileID: 1736197009}
+  mainMenu: {fileID: 209404282}
   _squawkRange: 3
+  _woolBall: {fileID: 0}
 --- !u!4 &193149173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
@@ -751,6 +754,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Squawk
       objectReference: {fileID: 0}
+    - target: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 167176614}
+    - target: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -795,6 +808,18 @@ MonoBehaviour:
 --- !u!114 &209404281 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3642543546993398703, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 209404277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &209404282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
     type: 3}
   m_PrefabInstance: {fileID: 209404277}
   m_PrefabAsset: {fileID: 0}
@@ -938,6 +963,8 @@ MonoBehaviour:
   actionDone: 0
   canSquawk: 0
   fountainClose: 0
+  hasWoolBall: 0
+  _placingWool: 0
 --- !u!4 &250795756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 44095401272392109, guid: 2947eef500ee17f4cbf33f5f3505c924,
@@ -7093,6 +7120,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 712352d71f6ae9842a0f57287b957705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1736197009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3945111156836532895, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 209404277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1740691188 stripped

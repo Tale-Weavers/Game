@@ -207,6 +207,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 35325489}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &109508870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3777692973703712871, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1839723122}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &140802903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,11 +437,13 @@ MonoBehaviour:
   - {fileID: 974284814}
   player: {fileID: 244428632}
   turnText: {fileID: 899039469}
+  winText: {fileID: 109508870}
   attackButton: {fileID: 1839723126}
   skipButton: {fileID: 1839723127}
   squawkButton: {fileID: 1839723125}
   drinkButton: {fileID: 1839723124}
   woolBallButton: {fileID: 1839723123}
+  mainMenu: {fileID: 991931685}
   _squawkRange: 0
   _woolBall: {fileID: 0}
 --- !u!1001 &172534409
@@ -4004,6 +4018,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854aea0d3c7714041914a18ad8a84f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &991931685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1839723122}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1006370078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6617,6 +6643,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Squawk
       objectReference: {fileID: 0}
+    - target: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 167176614}
     - target: {fileID: 6446877413769430011, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_AnchorMax.y

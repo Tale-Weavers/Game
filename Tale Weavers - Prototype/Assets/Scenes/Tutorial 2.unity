@@ -231,6 +231,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 361687570}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &98586288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1580317174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &112895840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,11 +545,13 @@ MonoBehaviour:
   - {fileID: 2042741366}
   player: {fileID: 244428632}
   turnText: {fileID: 1580317180}
+  winText: {fileID: 1155153245}
   attackButton: {fileID: 1580317178}
   skipButton: {fileID: 1580317179}
   squawkButton: {fileID: 1580317177}
   drinkButton: {fileID: 1580317176}
   woolBallButton: {fileID: 1580317175}
+  mainMenu: {fileID: 98586288}
   _squawkRange: 0
   _woolBall: {fileID: 0}
 --- !u!4 &171645004 stripped
@@ -4665,6 +4679,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1620295109}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155153245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3777692973703712871, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1580317174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1162891114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 44095401272392109, guid: 2947eef500ee17f4cbf33f5f3505c924,
@@ -6574,6 +6600,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Squawk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 167176614}
+    - target: {fileID: 6157749943055337184, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
