@@ -164,7 +164,7 @@ El menú principal del juego contará con una imagen que introduzca al jugador a
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/UI/UI-menu-principal.png)
 
 ### Diseño de Menús y Submenús
-#### Inicio de sesion
+#### Inicio de sesión
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/UI/InicioSesionStep0.png)
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/UI/InicioSesionStep1.png)
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/UI/InicioSesionStep2.png)
