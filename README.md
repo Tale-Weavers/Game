@@ -45,13 +45,13 @@ El objetivo principal es que los niños aprendan pensamiento computacional a tra
 
 Se quieren fomentar las siguientes áreas de aprendizaje en los niños:
 
-- Abstracción: Reconocer los elementos clave de un problema y reconocimiento de patrones. Esta área se desarrolla en varios niveles, como por ejemplo en el [tutorial 1](#_kyzpz7ezrxzp), donde se busca que el jugador sea capaz de identificar qué camino debe elegir y cómo gestionar la presencia del enemigo guardando la salida, o en el [tutorial 2](#_hf175fta6aac), donde se necesita que el jugador estudie los patrones de patrullaje de los enemigos y los aproveche para poder esconderse e ir avanzando.
+- Abstracción: Reconocer los elementos clave de un problema y reconocimiento de patrones. Esta área se desarrolla en varios niveles, como por ejemplo en el [tutorial 1](https://github.com/Tale-Weavers/Game#tutorial-1), donde se busca que el jugador sea capaz de identificar qué camino debe elegir y cómo gestionar la presencia del enemigo guardando la salida, o en el [tutorial 2](https://github.com/Tale-Weavers/Game#tutorial-2), donde se necesita que el jugador estudie los patrones de patrullaje de los enemigos y los aproveche para poder esconderse e ir avanzando.
 
-- Descomposición: División de problemas en otros más pequeños y deducción. El refuerzo de esta área del pensamiento computacional se introduce en el [tutorial 3](#_7ka8f6xzyden), donde el jugador debe analizar los recursos disponibles para decidir cómo eliminará a los dos enemigos de la escena, requisito necesario para superar este nivel. Los dos enemigos de este nivel se encuentran en dos áreas diferentes y no deberían interactuar, por lo que el jugador debe enfrentar este nivel como dos problemas independientes más pequeños. Este área también se sigue entrenando en el [nivel 2](#_vnuzg9mqv1sc) y en el [nivel 3](#_5yaj58b6g6xh), donde los enemigos se configuran en varios grupos diferenciados, que suponen la división del problema principal (el nivel) en diferentes subproblemas, para los cuales el jugador debe gestionar los recursos disponibles
+- Descomposición: División de problemas en otros más pequeños y deducción. El refuerzo de esta área del pensamiento computacional se introduce en el [tutorial 3](https://github.com/Tale-Weavers/Game#tutorial-3), donde el jugador debe analizar los recursos disponibles para decidir cómo eliminará a los dos enemigos de la escena, requisito necesario para superar este nivel. Los dos enemigos de este nivel se encuentran en dos áreas diferentes y no deberían interactuar, por lo que el jugador debe enfrentar este nivel como dos problemas independientes más pequeños. Este área también se sigue entrenando en el [nivel 2](https://github.com/Tale-Weavers/Game#nivel-2) y en el [nivel 3](https://github.com/Tale-Weavers/Game#nivel-3-sin-implementar), donde los enemigos se configuran en varios grupos diferenciados, que suponen la división del problema principal (el nivel) en diferentes subproblemas, para los cuales el jugador debe gestionar los recursos disponibles
 
-- Evaluación: Decidir sobre el buen uso de recursos, ajustar acciones según los objetivos y detección de errores. Este área se reforzará en niveles como el[tutorial 3](#_7ka8f6xzyden) y el [nivel 1](#_kfz0e5paqu9z), donde el jugador tendrá que gestionar los recursos que se encontrará en el escenario para completar el nivel. En el caso del [tutorial 3](#_7ka8f6xzyden), aunque es la introducción a los objetos consumibles, se muestra al jugador cómo usar los objetos que se encontrará a lo largo del juego y que deberá averiguar cómo usar correctamente. Por ejemplo, el jugador tendrá la opción de graznar donde quiera y tendrá que pensar cómo usarlo de la forma más eficiente posible (en este caso el graznido debe realizarse cerca del escondite para que el enemigo vaya a investigar y el jugador le noquee desde una posición segura). Posteriormente, en el [nivel 1](#_kfz0e5paqu9z), el jugador podrá usar los objetos de forma completamente libre, por tanto tendrá que valorar de forma correcta cómo usarlos para llegar a la salida en el menor número de movimientos posible.
+- Evaluación: Decidir sobre el buen uso de recursos, ajustar acciones según los objetivos y detección de errores. Este área se reforzará en niveles como el[tutorial 3](https://github.com/Tale-Weavers/Game#tutorial-3) y el [nivel 1](https://github.com/Tale-Weavers/Game#nivel-1), donde el jugador tendrá que gestionar los recursos que se encontrará en el escenario para completar el nivel. En el caso del [tutorial 3](https://github.com/Tale-Weavers/Game#tutorial-3), aunque es la introducción a los objetos consumibles, se muestra al jugador cómo usar los objetos que se encontrará a lo largo del juego y que deberá averiguar cómo usar correctamente. Por ejemplo, el jugador tendrá la opción de graznar donde quiera y tendrá que pensar cómo usarlo de la forma más eficiente posible (en este caso el graznido debe realizarse cerca del escondite para que el enemigo vaya a investigar y el jugador le noquee desde una posición segura). Posteriormente, en el [nivel 1](https://github.com/Tale-Weavers/Game#nivel-1), el jugador podrá usar los objetos de forma completamente libre, por tanto tendrá que valorar de forma correcta cómo usarlos para llegar a la salida en el menor número de movimientos posible.
 
-- Generalización: Resolución de problemas basada en problemas anteriores, identificación de patrones, conexiones y similitudes. Este área se entrena a lo largo de prácticamente todo el juego. Durante los diferentes tutoriales y niveles se van introduciendo paulatinamente mecánicas con las que el jugador debe familiarizarse, y que más tarde debe volver a usar en niveles posteriores; así como el comportamiento de los enemigos, para ser capaz de predecirlos. Por ejemplo, en el [tutorial 2](#_hf175fta6aac) se introducen los escondites, que el jugador debe aprovechar para pasar desapercibido frente a los enemigos. Estos escondites vuelven a aparecer en numerosos niveles posteriores, por lo que el jugador se debe familiarizar con ellos y debe ser capaz de reconocerlos y saber utilizarlos para su ventaja.
+- Generalización: Resolución de problemas basada en problemas anteriores, identificación de patrones, conexiones y similitudes. Este área se entrena a lo largo de prácticamente todo el juego. Durante los diferentes tutoriales y niveles se van introduciendo paulatinamente mecánicas con las que el jugador debe familiarizarse, y que más tarde debe volver a usar en niveles posteriores; así como el comportamiento de los enemigos, para ser capaz de predecirlos. Por ejemplo, en el [tutorial 2](https://github.com/Tale-Weavers/Game#tutorial-2) se introducen los escondites, que el jugador debe aprovechar para pasar desapercibido frente a los enemigos. Estos escondites vuelven a aparecer en numerosos niveles posteriores, por lo que el jugador se debe familiarizar con ellos y debe ser capaz de reconocerlos y saber utilizarlos para su ventaja.
 
 Más adelante, en la sección de niveles de este documento, se explicará detalladamente cómo se mejorará cada área que afecta al pensamiento computacional con las mecánicas.
 
@@ -242,7 +242,7 @@ Nivel 1 in-game
 **Objetivo:** No se introducen nuevas mecánicas en este nivel puesto que se quiere afianzar las mecánicas ya introducidas previamente. De este modo, se aplica el principio de generalización que hará que los jugadores apliquen los conocimientos previos para completar este nivel.
 
 #### Nivel 2
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image16.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image16.jpg)
 
 Nivel 2 in-game
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image28.png)
@@ -455,22 +455,22 @@ En este aspecto hemos tomado como referencia animales de cómic y personajes de 
 Para mayor claridad y que el entorno no distraiga del puzle que conforman las mecánicas del juego, se ha decidido utilizar un estilo que, mientras que sea simple sin dejar de aportar cierto interés visual.
 
 Un ejemplo e inspiración en este aspecto es el juego Monument Valley.
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image4.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image47.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image19.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image4.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image47.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image19.jpg)
 
 A pesar de su relativa simpleza, los escenarios son memorables y cautivadores, a la vez que dejan claro al jugador de una mirada su objetivo, el camino a seguir, y los recursos en su mano.
 
 Mientras que en nuestro juego el ambiente no tiene tanto peso como en este, tomaremos inspiración en lo que a estilo se refiere. Queremos capturar la misma limpieza y estilización de la arquitectura.
-
 Al haberse ambientado el juego en un mundo de gangsters reminiscente de la época de los speakeasy, contemporánea al art deco y a la bauhaus, ambos movimientos de gran inspiración geométrica, hemos decidido apoyarnos en estos para decorar los escenarios.
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image15.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image15.jpg)
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image27.png)
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image17.png)
 
 La idea es utilizar motivos geométricos y principios racionalistas para diseñar los entornos, aprovechando los mismos para guiar la mirada del jugador y hacer el juego más intuitivo, usando el entorno como apoyo o acompañamiento a la interfaz.
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image51.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image50.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image50.jpg)
 
 La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta manera ayude a personaje, enemigos y objetos a destacar por color. En principio nos apoyaremos en la iluminación para aumentar este efecto como en estos escenarios de Eddy Loukil:
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image6.jpg)
