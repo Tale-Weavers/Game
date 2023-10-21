@@ -391,7 +391,7 @@ Cuando un personaje pase por una casilla de aceite se resbala y avanza 1 casilla
 
 El enemigo más básico de todos, su comportamiento se define de la siguiente forma:
 
-- Su rango de visión es de 3 casillas. G - - -
+- Su rango de visión es de 3 casillas hacia delante.
 - Pueden girarse y cambiar la dirección en la que están mirando.
 - Pueden o no moverse. En caso de que se muevan no pueden avanzar más de 1 casilla al mismo tiempo.
 - Un gato solo puede hacer 1 acción en el turno ya sea: moverse, girarse o esperar.
@@ -400,7 +400,7 @@ El enemigo más básico de todos, su comportamiento se define de la siguiente fo
 
 El segundo enemigo que se presenta en el juego:
 
-- Su rango de visión es de 3 casillas. G - - -
+- Su rango de visión es de 3 casillas hacia delante.
 - Pueden girarse y cambiar la dirección en la que están mirando.
 - Pueden o no moverse. En caso de que se muevan no pueden avanzar más de 1 casilla al mismo tiempo.
 - Un gato solo puede hacer 1 acción en el turno ya sea: moverse, girarse o esperar.
@@ -618,26 +618,15 @@ Wood, Z. M. (s.f.). _Art Deco Environment Hotel._ Chicago.
 
 # **Modelo de negocio**
 
-Se va a desarrollar un modelo de negocio para estudiar la viabilidad comercial de nuestro proyecto. En este escrito se van a analizar diversas áreas de nuestro proyecto para ver qué cosas nos faltan por definir o mejorar. El objetivo es crear un videojuego que enseñe pensamiento computacional a niños pequeños.
-
-##
-# Equipo
-
-El grupo está compuesto por 6 miembros, cada uno con sus especialidades. Por tanto, nos vamos a repartir el trabajo del proyecto de la siguiente forma:
-
-- Gonzalo Barranco Castro: Game Designer y escritor.
-- Pablo Conde López: Programador y Game Designer.
-- Luis Morón Álvarez: Jefe de programación
-- Daniel Salguero Fernández: Game Designer, escritor y artista técnico.
-- Almudena Sanchez Encinas: Artista
-- Gloria Turati Domínguez: Artista y música.
+Se va a desarrollar un modelo de negocio para estudiar la viabilidad comercial de nuestro proyecto. Se analizarán diversas áreas del proyecto para ver qué necesita mejorar o cambiar. 
+El objetivo del proyecto es crear un videojuego que enseñe a emplear el pensamiento computacional a niños pequeños.
 
 ##
 # Financiación
 
 La financiación inicial del proyecto se conseguirá a través de ahorros propios con posibilidad de habilitar un crowdfunding en caso de lograr gran visibilidad del proyecto. Como todos los miembros del equipo cuentan con equipo propio, no se tendrá que invertir dinero en esta primera fase inicial si no se tienen en cuenta gastos energéticos y licencias. Todo el dinero necesario para las licencias se aportará de manera equitativa entre los miembros del equipo. De esta forma, se conseguiría llevar a cabo el proyecto completo, con posibilidad de ampliarlo con paquetes de niveles nuevos.
 
-Para la financiación inicial se necesitará:
+La financiación inicial constará de:
 
 - Coste de Personal: 0€; No vamos a cobrar por el desarrollo del juego
 - Coste de Software y licencias: 1000€; Licencia de Unity, Photoshop, 3Ds Max, Substance, Steam y App Store.
