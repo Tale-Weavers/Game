@@ -93,4 +93,9 @@ public class Square : MonoBehaviour
         }
         else return false;
     }
+
+    public void OnRange()
+    {
+        currentMaterial.color = Color.black;
+    }
 }

@@ -7,6 +7,8 @@ public class Player : MoveableCharacter
 
     private Square fountain;
 
+    public bool checkingRange;
+
     public bool actionDone = false;
 
     public bool canSquawk = false;
@@ -33,7 +35,7 @@ public class Player : MoveableCharacter
     private void Update()
     {
 
-        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone)
+        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange)
         {
             MoveCharacter();
             MoveablePositions();
@@ -183,8 +185,18 @@ public class Player : MoveableCharacter
     {
         if (canSquawk)
         {
-            GameManager.instance.PlayerSquawk();
-            canSquawk = false;
+            if (!GameManager.instance.cancelButton.gameObject.activeSelf)
+            {
+                GameManager.instance.SetUpSquawk();
+                checkingRange = true;
+            }
+            else
+            {
+                GameManager.instance.PlayerSquawk();
+                canSquawk = false;
+                checkingRange = true;
+            }
+
         }
         else
         {

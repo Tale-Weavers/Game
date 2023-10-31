@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public Button drinkButton;
     public Button woolBallButton;
     public Button mainMenu;
+    public Button cancelButton;
 
     [SerializeField] private float _squawkRange;
     [SerializeField] private WoolBall _woolBall;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
+        
     }
 
     public void NextTurn()
@@ -200,5 +203,35 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void SetUpSquawk()
+    {
+
+        GridManager.instance.DrawRange(player.currentPos);
+
+        attackButton.gameObject.SetActive(false);
+        skipButton.gameObject.SetActive(false);
+        cancelButton.gameObject.SetActive(true);
+        drinkButton.gameObject.SetActive(false);
+        woolBallButton.gameObject.SetActive(false);
+
+
+    }
+
+    public void CancelAction()
+    {
+        attackButton.gameObject.SetActive(true);
+        skipButton.gameObject.SetActive(true);
+        if (player.fountainClose)
+        {
+            drinkButton.gameObject.SetActive(true);
+        }
+        if(player.hasWoolBall) {
+           woolBallButton.gameObject.SetActive(true); ;
+        }
+        cancelButton.gameObject.SetActive(false);
+        player.checkingRange = false;
+
     }
 }
