@@ -157,6 +157,10 @@ public class Player : MoveableCharacter
                     }
 
                 }
+                else if(currentPos.containsButton)
+                {
+                    currentPos.OpenDoor();
+                }
                 //GameManager.instance.EndPlayerTurn();
                 //currentTurn++;
             }
