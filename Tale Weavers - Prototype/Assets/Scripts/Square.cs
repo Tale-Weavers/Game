@@ -17,6 +17,8 @@ public class Square : MonoBehaviour
 
     public bool occupiedByPlayer;
 
+    private bool _drawingrange;
+
     [SerializeField] private bool isAdjacent;
 
     private Material currentMaterial;
@@ -63,15 +65,24 @@ public class Square : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (isAdjacent)
+        if (isAdjacent || _drawingrange)
         {
             currentMaterial.color = Color.green;
         }
+
     }
 
     private void OnMouseExit()
     {
-        currentMaterial.color = _colorInit;
+        if(!_drawingrange)
+        {
+            currentMaterial.color = _colorInit;
+        }
+        else
+        {
+            currentMaterial.color = Color.black;
+        }
+
     }
 
     public void SetAdjacent(bool adjacent)
@@ -96,6 +107,13 @@ public class Square : MonoBehaviour
 
     public void OnRange()
     {
+        _drawingrange = true;
         currentMaterial.color = Color.black;
+    }
+
+    public void ClearRange()
+    {
+        currentMaterial.color = _colorInit;
+        _drawingrange = false;
     }
 }

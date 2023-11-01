@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,9 +14,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI turnText;
     public TextMeshProUGUI winText;
 
-
     [Header("Buttons")]
     public Button attackButton;
+
     public Button skipButton;
     public Button squawkButton;
     public Button drinkButton;
@@ -28,8 +26,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _squawkRange;
     [SerializeField] private WoolBall _woolBall;
-
-
 
     private void Awake()
     {
@@ -53,16 +49,15 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
-        
     }
 
     public void NextTurn()
     {
         //StartCoroutine(TimeWaste(0));
         player.UpdateMoveable();
-        if(player.canSquawk) squawkButton.gameObject.SetActive(true);
-        if(player.fountainClose) drinkButton.gameObject.SetActive(true);
-        if(player.hasWoolBall) woolBallButton.gameObject.SetActive(true);
+        if (player.canSquawk) squawkButton.gameObject.SetActive(true);
+        if (player.fountainClose) drinkButton.gameObject.SetActive(true);
+        if (player.hasWoolBall) woolBallButton.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
@@ -79,14 +74,14 @@ public class GameManager : MonoBehaviour
         woolBallButton.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
-        if(_woolBall != null) _woolBall.GetComponent<Collider>().enabled = true;
+        if (_woolBall != null) _woolBall.GetComponent<Collider>().enabled = true;
         StartCoroutine(EnemyMovement());
     }
 
-    private IEnumerator TimeWaste(int time)
-    {
-        yield return new WaitForSeconds(time);
-    }
+    //private IEnumerator TimeWaste(int time)
+    //{
+    //    yield return new WaitForSeconds(time);
+    //}
 
     private IEnumerator EnemyMovement()
     {
@@ -108,7 +103,6 @@ public class GameManager : MonoBehaviour
         {
             enemy.PlayerSeen(seen);
         }
-        
     }
 
     public void CheckEnemiesVision()
@@ -127,7 +121,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        
         StartCoroutine(SetupLevel());
         Time.timeScale = 0.0f;
     }
@@ -182,9 +175,9 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
-                
             }
         }
+        CancelAction();
     }
 
     public void EnemyFinishedExploring()
@@ -198,6 +191,7 @@ public class GameManager : MonoBehaviour
     public void PlayerPlaceWoolball()
     {
         woolBallButton.gameObject.SetActive(false);
+        CancelAction();
     }
 
     public void MainMenu()
@@ -207,31 +201,44 @@ public class GameManager : MonoBehaviour
 
     public void SetUpSquawk()
     {
-
-        GridManager.instance.DrawRange(player.currentPos);
+        GridManager.instance.DrawRange(0,player.currentPos);
 
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-        cancelButton.gameObject.SetActive(true);
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
 
+        cancelButton.gameObject.SetActive(true);
+    }
 
+    public void SetUpWoolBall()
+    {
+        GridManager.instance.DrawRange(1, player.currentPos);
+
+        attackButton.gameObject.SetActive(false);
+        skipButton.gameObject.SetActive(false);
+        drinkButton.gameObject.SetActive(false);
+        squawkButton.gameObject.SetActive(false);
+
+        cancelButton.gameObject.SetActive(true);
     }
 
     public void CancelAction()
     {
+        GridManager.instance.CleanRange();
+
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         if (player.fountainClose)
         {
             drinkButton.gameObject.SetActive(true);
         }
-        if(player.hasWoolBall) {
-           woolBallButton.gameObject.SetActive(true); ;
+        if (player.hasWoolBall)
+        {
+            woolBallButton.gameObject.SetActive(true);
+            player.DisablePlacingWoolBall();
         }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;
-
     }
 }

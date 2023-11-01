@@ -13,6 +13,8 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private Square[] _tiles;
 
+    private List<Square> areaToPaint = new();
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -147,32 +149,54 @@ public class GridManager : MonoBehaviour
         return list;
     }
 
-    public void DrawRange(Square pos)
+    public void DrawRange(int idx, Square pos)
     {
-        List<Square> areaToPaint = new();
-        areaToPaint.AddRange(GetAdjacentsNonWalkable(pos)); //Verde
+        switch (idx)
+        {
+            case 0:
+                areaToPaint.AddRange(GetAdjacentsNonWalkable(pos)); //Verde
 
-        List<Square> firstAdjancents = new();
+                List<Square> firstAdjancents = new();
+                foreach (Square square in areaToPaint)
+                {
+                    firstAdjancents.AddRange(GetAdjacentsNonWalkable(square));//Azul
+                    square.OnRange();
+                }
+
+                List<Square> secondAdjacents = new();
+                foreach (Square square in firstAdjancents)
+                {
+                    if (square != pos)
+                    {
+                        secondAdjacents.AddRange(GetAdjacentsNonWalkable(square));//Rojo
+                        square.OnRange();
+                    }
+                }
+                foreach (Square square in secondAdjacents)
+                {
+                    square.OnRange();
+                }
+                areaToPaint.AddRange(firstAdjancents);
+                areaToPaint.AddRange(secondAdjacents);
+                break;
+
+            case 1:
+                areaToPaint.AddRange(GetAdjacentsNonWalkable(pos));
+                foreach (Square square in areaToPaint)
+                {
+                    square.OnRange();
+                }
+
+                break;
+        }
+    }
+
+    public void CleanRange()
+    {
         foreach (Square square in areaToPaint)
         {
-            firstAdjancents.AddRange(GetAdjacentsNonWalkable(square));//Azul
-            square.OnRange();
+            square.ClearRange();
         }
-
-        List<Square> secondAdjacents = new();
-        foreach (Square square in firstAdjancents)
-        {
-            if (square != pos)
-            {
-                secondAdjacents.AddRange(GetAdjacentsNonWalkable(square));//Rojo
-                square.OnRange();
-            }
-        }
-        foreach(Square square in secondAdjacents)
-        {
-            square.OnRange();
-        }
-        areaToPaint.AddRange(firstAdjancents);
-        areaToPaint.AddRange(secondAdjacents);
+        areaToPaint.Clear();
     }
 }

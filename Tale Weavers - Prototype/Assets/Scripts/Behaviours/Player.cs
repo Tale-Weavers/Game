@@ -225,6 +225,14 @@ public class Player : MoveableCharacter
 
     public void EnablePlacingWoolBall()
     {
-        _placingWool = !_placingWool;
+        _placingWool = true;
+        GameManager.instance.SetUpWoolBall();
     }
+
+    public void DisablePlacingWoolBall()
+    {
+        _placingWool = false;
+    }
+
+
 }
