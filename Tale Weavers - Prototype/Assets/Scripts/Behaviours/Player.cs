@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MoveableCharacter
@@ -14,10 +16,13 @@ public class Player : MoveableCharacter
     public bool canSquawk = false;
     public bool fountainClose = false;
     public bool hasWoolBall = false;
+    public bool hasLaser = false;
 
     private WoolBall _woolball;
+    private WoolBall _laser;
 
     [SerializeField] private bool _placingWool;
+    [SerializeField] private bool _placingLaser;
 
     // Start is called before the first frame update
     private void Start()
@@ -35,7 +40,7 @@ public class Player : MoveableCharacter
     private void Update()
     {
 
-        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange)
+        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser)
         {
             MoveCharacter();
             MoveablePositions();
@@ -43,6 +48,10 @@ public class Player : MoveableCharacter
         else if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _placingWool && hasWoolBall)
         {
             PlaceWoolBall();
+        }
+        else if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _placingLaser && hasLaser)
+        {
+            PlaceLaser();
         }
 
         if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
@@ -54,6 +63,8 @@ public class Player : MoveableCharacter
         if (Input.GetKeyDown(KeyCode.D)) { Drink(); }//For debugging purposes, temporal
 
         if (Input.GetKeyDown(KeyCode.W)) { _placingWool = !_placingWool; }//For debugging purposes, temporal
+
+        if (Input.GetKeyDown(KeyCode.L)) { _placingLaser = !_placingLaser; }//For debugging purposes, temporal
     }
 
     public void KnockOutEnemies()
@@ -122,16 +133,35 @@ public class Player : MoveableCharacter
                     _isHiding = true;
 
                 }
-                else if(currentPos.containsWool)
+                else if (currentPos.containsWool)
                 {
-                    if (!hasWoolBall&&currentPos.wool.isActiveAndEnabled)
+                    if (!currentPos.wool.isLaser)
                     {
-                        hasWoolBall = true;
-                        currentPos.containsWool = false;
-                        _woolball = currentPos.wool;
-                        currentPos.wool = null;
-                        _woolball.gameObject.SetActive(false);
+                        if (!hasWoolBall && currentPos.wool.isActiveAndEnabled)
+                        {
+                            hasWoolBall = true;
+                            currentPos.containsWool = false;
+                            _woolball = currentPos.wool;
+                            currentPos.wool = null;
+                            _woolball.gameObject.SetActive(false);
+                        }
                     }
+                    else
+                    {
+                        if (!hasLaser && currentPos.wool.isActiveAndEnabled)
+                        {
+                            hasLaser = true;
+                            currentPos.containsWool = false;
+                            _laser = currentPos.wool;
+                            currentPos.wool = null;
+                            _laser.gameObject.SetActive(false);
+                        }
+                    }
+
+                }
+                else if(currentPos.containsButton)
+                {
+                    currentPos.OpenDoor();
                 }
                 //GameManager.instance.EndPlayerTurn();
                 //currentTurn++;
@@ -149,17 +179,47 @@ public class Player : MoveableCharacter
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
+                if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
+                {
+                    Square target = hit.transform.GetComponent<Square>();
+                    if (!target.containsWool)
+                    {
+                        target.containsWool = true;
+                        target.wool = _woolball;
+                        hasWoolBall = false;
+                        _woolball.transform.position = new Vector3(hit.transform.position.x, _woolball.transform.position.y, hit.transform.position.z);
+                        _woolball.tile = target;
+                        _woolball.gameObject.SetActive(true);
+                        _placingWool = false;
+                        GameManager.instance.PlayerPlaceWoolball();
+                    }
+                }
+        }
+    }
+
+    private void PlaceLaser()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        List<Square> placeablePositions = new();
+        placeablePositions = GridManager.instance.GetMultipleAdjacents(currentPos, 3);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (placeablePositions.Contains(hit.transform.GetComponent<Square>()))
             {
                 Square target = hit.transform.GetComponent<Square>();
                 if (!target.containsWool)
                 {
                     target.containsWool = true;
-                    target.wool = _woolball;
-                    hasWoolBall = false;
-                    _woolball.transform.position = new Vector3(hit.transform.position.x, _woolball.transform.position.y, hit.transform.position.z);
-                    _woolball.tile = target;
-                    _woolball.gameObject.SetActive(true);
+                    target.wool = _laser;
+                    hasLaser = false;
+                    _laser.transform.position = new Vector3(hit.transform.position.x, _laser.transform.position.y, hit.transform.position.z);
+                    _laser.tile = target;
+                    _laser.gameObject.SetActive(true);
                     _placingWool = false;
                     GameManager.instance.PlayerPlaceWoolball();
                 }

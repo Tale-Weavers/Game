@@ -6,6 +6,7 @@ public class WoolBall : MonoBehaviour
 {
     public Square tile;
     public bool beingPlayed = false;
+    public bool isLaser;
     // Start is called before the first frame update
     void Start()
     {

@@ -9,6 +9,9 @@ public class Square : MonoBehaviour
 
     public bool containsWool;
 
+    public bool isDoor;
+    public bool containsButton;
+
     [SerializeField] private int _fountainCounter;
 
     public bool isExit = false;
@@ -25,6 +28,7 @@ public class Square : MonoBehaviour
 
     private Color _colorInit;
     public WoolBall wool;
+    public Square door;
 
     public void Start()
     {
@@ -32,11 +36,13 @@ public class Square : MonoBehaviour
         currentMaterial = renderer.material;
         if (isHidingSpot) currentMaterial.color = Color.magenta;
         if (isExit) currentMaterial.color = Color.cyan;
-        if (isFountain) currentMaterial.color = Color.blue;
+        if (isFountain) { currentMaterial.color = Color.blue; isWalkable = false; }
+        if (isDoor) { currentMaterial.color = Color.yellow; isWalkable = false; }
+        if (containsButton)  currentMaterial.color = Color.red; 
         _colorInit = currentMaterial.color;
-  
-        if (isFountain) isWalkable = false;
-        if(containsWool) {
+
+        if (containsWool)
+        {
             WoolBall[] woolballList;
             woolballList = FindObjectsByType<WoolBall>(FindObjectsSortMode.None);
             foreach (WoolBall woolball in woolballList)
@@ -55,7 +61,7 @@ public class Square : MonoBehaviour
         List<Square> list = new List<Square>();
         list = GridManager.instance.GetAdjacents(this);
         return list;
-    }   
+    }
     public List<Square> SeeWool()
     {
         List<Square> list = new List<Square>();
@@ -105,6 +111,7 @@ public class Square : MonoBehaviour
         else return false;
     }
 
+
     public void OnRange()
     {
         _drawingrange = true;
@@ -115,5 +122,12 @@ public class Square : MonoBehaviour
     {
         currentMaterial.color = _colorInit;
         _drawingrange = false;
+
+    public void OpenDoor()
+    {
+        door.isWalkable = true;
+        door.currentMaterial.color = Color.grey;
+        containsButton = false;
+
     }
 }

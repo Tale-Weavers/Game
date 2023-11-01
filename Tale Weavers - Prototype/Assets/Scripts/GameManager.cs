@@ -198,7 +198,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
     public void SetUpSquawk()
     {
         GridManager.instance.DrawRange(0,player.currentPos);

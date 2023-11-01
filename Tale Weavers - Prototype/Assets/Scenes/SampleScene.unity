@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -441,8 +441,9 @@ MonoBehaviour:
   squawkButton: {fileID: 944302317}
   drinkButton: {fileID: 1697852856}
   woolBallButton: {fileID: 859542038}
-  mainMenu: {fileID: 345572180}
-  cancelButton: {fileID: 209557620}
+
+  mainMenu: {fileID: 0}
+
   _squawkRange: 2.5
   _woolBall: {fileID: 1515789375}
 --- !u!1001 &172534409
@@ -1125,7 +1126,9 @@ MonoBehaviour:
   canSquawk: 1
   fountainClose: 0
   hasWoolBall: 0
+  hasLaser: 0
   _placingWool: 0
+  _placingLaser: 0
 --- !u!1001 &259371855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1900,7 +1903,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
+      propertyPath: isDoor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
       propertyPath: isWalkable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: containsButton
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
@@ -4040,8 +4053,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 392211499}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: isDoor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
       propertyPath: isWalkable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: containsButton
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
@@ -7208,6 +7236,11 @@ PrefabInstance:
       propertyPath: tile
       value: 
       objectReference: {fileID: 1115059752}
+    - target: {fileID: 6390013831791525692, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
+        type: 3}
+      propertyPath: isLaser
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8771061262123203035, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
         type: 3}
       propertyPath: m_LocalPosition.x
