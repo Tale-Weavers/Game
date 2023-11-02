@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -441,11 +441,10 @@ MonoBehaviour:
   squawkButton: {fileID: 944302317}
   drinkButton: {fileID: 1697852856}
   woolBallButton: {fileID: 859542038}
-
-  mainMenu: {fileID: 0}
-
-  _squawkRange: 2.5
-  _woolBall: {fileID: 1515789375}
+  mainMenu: {fileID: 345572180}
+  cancelButton: {fileID: 209557620}
+  _squawkRange: 0
+  _woolBall: {fileID: 0}
 --- !u!1001 &172534409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1123,7 +1122,7 @@ MonoBehaviour:
   _isHiding: 0
   checkingRange: 0
   actionDone: 0
-  canSquawk: 1
+  canSquawk: 0
   fountainClose: 0
   hasWoolBall: 0
   hasLaser: 0
@@ -3709,12 +3708,15 @@ MonoBehaviour:
   isWalkable: 0
   isFountain: 0
   containsWool: 0
+  isDoor: 0
+  containsButton: 0
   _fountainCounter: 0
   isExit: 0
   isHidingSpot: 0
   occupiedByPlayer: 0
   isAdjacent: 0
   wool: {fileID: 0}
+  door: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,12 +3787,15 @@ MonoBehaviour:
   isWalkable: 0
   isFountain: 0
   containsWool: 0
+  isDoor: 0
+  containsButton: 0
   _fountainCounter: 0
   isExit: 0
   isHidingSpot: 0
   occupiedByPlayer: 0
   isAdjacent: 0
   wool: {fileID: 0}
+  door: {fileID: 0}
 --- !u!114 &855106073 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6255572541081846009, guid: 50f2da89fe0a985458baac9f2257cc56,
@@ -5087,7 +5092,7 @@ PrefabInstance:
     - target: {fileID: 5340437371572971475, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5906863973388465264, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
@@ -5157,7 +5162,7 @@ PrefabInstance:
     - target: {fileID: 6446877413769430011, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 7452009194887166403, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
@@ -6000,18 +6005,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1508804024}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1515789375 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6390013831791525692, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 4727815105549254618}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a159c3afbf372f341a3672faf6d10c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1543641847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7239,7 +7232,7 @@ PrefabInstance:
     - target: {fileID: 6390013831791525692, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
         type: 3}
       propertyPath: isLaser
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8771061262123203035, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
         type: 3}

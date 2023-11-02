@@ -38,7 +38,7 @@ public class Square : MonoBehaviour
         if (isExit) currentMaterial.color = Color.cyan;
         if (isFountain) { currentMaterial.color = Color.blue; isWalkable = false; }
         if (isDoor) { currentMaterial.color = Color.yellow; isWalkable = false; }
-        if (containsButton)  currentMaterial.color = Color.red; 
+        if (containsButton) currentMaterial.color = Color.red;
         _colorInit = currentMaterial.color;
 
         if (containsWool)
@@ -62,6 +62,7 @@ public class Square : MonoBehaviour
         list = GridManager.instance.GetAdjacents(this);
         return list;
     }
+
     public List<Square> SeeWool()
     {
         List<Square> list = new List<Square>();
@@ -75,12 +76,11 @@ public class Square : MonoBehaviour
         {
             currentMaterial.color = Color.green;
         }
-
     }
 
     private void OnMouseExit()
     {
-        if(!_drawingrange)
+        if (!_drawingrange)
         {
             currentMaterial.color = _colorInit;
         }
@@ -88,7 +88,6 @@ public class Square : MonoBehaviour
         {
             currentMaterial.color = Color.black;
         }
-
     }
 
     public void SetAdjacent(bool adjacent)
@@ -111,7 +110,6 @@ public class Square : MonoBehaviour
         else return false;
     }
 
-
     public void OnRange()
     {
         _drawingrange = true;
@@ -122,12 +120,12 @@ public class Square : MonoBehaviour
     {
         currentMaterial.color = _colorInit;
         _drawingrange = false;
+    }
 
     public void OpenDoor()
     {
         door.isWalkable = true;
         door.currentMaterial.color = Color.grey;
         containsButton = false;
-
     }
 }
