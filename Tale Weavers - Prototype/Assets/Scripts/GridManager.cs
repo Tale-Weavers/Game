@@ -63,12 +63,12 @@ public class GridManager : MonoBehaviour
 
     public List<Square> GetMultipleAdjacents(Square init, int numberOfSquares)
     {
-        int listSize = numberOfSquares *4;
+        int listSize = numberOfSquares * 4;
         List<Square> list = new List<Square>(listSize);
         Square value;
         Vector3 initPosition = init.transform.position;
 
-        for(int i = 1; i<=numberOfSquares; i++)
+        for (int i = 1; i <= numberOfSquares; i++)
         {
             map.TryGetValue(new Vector3(initPosition.x + i, 0, initPosition.z), out value);
             if (value != null && value.isWalkable) list.Add(value);
@@ -90,6 +90,41 @@ public class GridManager : MonoBehaviour
         {
             map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z - i), out value);
             if (value != null && value.isWalkable) list.Add(value);
+        }
+        return list;
+    }
+
+    public List<Square> GetMultipleAdjacentsNonWalkable(Square init, int numberOfSquares)
+    {
+        int listSize = numberOfSquares * 4;
+        List<Square> list = new List<Square>(listSize);
+        Square value;
+        Vector3 initPosition = init.transform.position;
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x + i, 0, initPosition.z), out value);
+            if (value != null) list.Add(value);
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x - i, 0, initPosition.z), out value);
+            if (value != null) list.Add(value);
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z + i), out value);
+            if (value != null)
+                list.Add(value);
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z - i), out value);
+            if (value != null)
+                list.Add(value);
         }
         return list;
     }
@@ -182,44 +217,93 @@ public class GridManager : MonoBehaviour
         return list;
     }
 
+    public List<Square> GetDiagonalsNonWalkable(Square init, int numberOfSquares)
+    {
+        List<Square> list = new List<Square>();
+        Square value;
+        Vector3 initPosition = init.transform.position;
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x + i, 0, initPosition.z + i), out value);
+            if (value != null) list.Add(value);
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x - i, 0, initPosition.z - i), out value);
+            if (value != null) list.Add(value);
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x - i, 0, initPosition.z + i), out value);
+            if (value != null) list.Add(value);
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x + i, 0, initPosition.z - i), out value);
+            if (value != null) list.Add(value);
+        }
+        return list;
+    }
+
     public void DrawRange(int idx, Square pos)
     {
         switch (idx)
         {
             case 0:
-                areaToPaint.AddRange(GetAdjacentsNonWalkable(pos)); //Verde
+                //areaToPaint.AddRange(GetAdjacentsNonWalkable(pos)); //Verde
 
+                //List<Square> firstAdjancents = new();
+                //foreach (Square square in areaToPaint)
+                //{
+                //    firstAdjancents.AddRange(GetAdjacentsNonWalkable(square));//Azul
+
+                //}
+
+                //List<Square> secondAdjacents = new();
+                //foreach (Square square in firstAdjancents)
+                //{
+                //    if (square != pos)
+                //    {
+                //        secondAdjacents.AddRange(GetAdjacentsNonWalkable(square));//Rojo
+
+                //    }
+                //}
+                //areaToPaint.AddRange(firstAdjancents);
+                //areaToPaint.AddRange(secondAdjacents);
                 List<Square> firstAdjancents = new();
+                areaToPaint.AddRange(GetMultipleAdjacentsNonWalkable(pos, 3));
+
                 foreach (Square square in areaToPaint)
                 {
                     firstAdjancents.AddRange(GetAdjacentsNonWalkable(square));//Azul
-                    square.OnRange();
                 }
-
-                List<Square> secondAdjacents = new();
-                foreach (Square square in firstAdjancents)
-                {
-                    if (square != pos)
-                    {
-                        secondAdjacents.AddRange(GetAdjacentsNonWalkable(square));//Rojo
-                        square.OnRange();
-                    }
-                }
-                foreach (Square square in secondAdjacents)
-                {
-                    square.OnRange();
-                }
+                areaToPaint.AddRange(GetDiagonalsNonWalkable(pos, 2));
                 areaToPaint.AddRange(firstAdjancents);
-                areaToPaint.AddRange(secondAdjacents);
+                foreach (Square square in areaToPaint)
+                {
+                    if (Mathf.Abs(pos.transform.position.x - square.transform.position.x) <= 3 && Mathf.Abs(pos.transform.position.z - square.transform.position.z) <= 3)
+                        square.OnRange();
+                }
                 break;
 
             case 1:
                 areaToPaint.AddRange(GetAdjacentsNonWalkable(pos));
                 foreach (Square square in areaToPaint)
                 {
+                        square.OnRange();
+                }
+                break;
+
+            case 2:
+                areaToPaint.AddRange(GetMultipleAdjacents(pos, 3));
+                foreach (Square square in areaToPaint)
+                {
                     square.OnRange();
                 }
-
                 break;
         }
     }
