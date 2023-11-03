@@ -254,7 +254,6 @@ public class Player : MoveableCharacter
             {
                 GameManager.instance.PlayerSquawk();
                 canSquawk = false;
-                checkingRange = true;
             }
 
         }

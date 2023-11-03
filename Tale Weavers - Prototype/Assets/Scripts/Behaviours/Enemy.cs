@@ -1,8 +1,12 @@
+using MBT;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Enemy : MoveableCharacter
 {
+    public MonoBehaviourTree BT;
+
     public Transform inspectorFacingDir;
 
     public bool knockOut = false;
@@ -14,6 +18,8 @@ public abstract class Enemy : MoveableCharacter
     [SerializeField] protected bool _alerted;
 
     [SerializeField] protected bool _distracted;
+
+    [SerializeField] protected bool _goAwake;
 
     protected Square alertedTile;
     protected Square woolBallTile;
@@ -57,9 +63,17 @@ public abstract class Enemy : MoveableCharacter
             else if (hit.collider.CompareTag("WoolBall"))
             {
                 Debug.Log($"Soy {gameObject.name} y he encontrado el ovillo");
-                _distracted = true;
                 woolBall = hit.collider.GetComponent<WoolBall>();
-                woolBallTile = woolBall.tile;
+                if (!woolBall.beingPlayed)
+                {
+                    _distracted = true;
+                    woolBallTile = woolBall.tile;
+                    woolBall.AddEnemy(this);
+                }
+                else
+                {
+                    _goAwake = true;
+                }
             }
         }
     }
@@ -214,11 +228,82 @@ public abstract class Enemy : MoveableCharacter
 
     protected void AwakeEnemies()
     {
-        foreach(Enemy enemy in GameManager.instance.listOfEnemies)
-        {
-            enemy._distracted = false;
+
+            woolBall.ForgetWoolball();
             if(woolBall != null) woolBall.gameObject.SetActive(false);
             woolBall = null;
-        }
+        
     }
+    public void Perseguir()
+    {
+        CatchPlayer();
+        ChasePlayer();
+        CatchPlayer();
+        CheckVision();
+    }
+
+    public void Jugar()
+    {
+        if (currentPos == woolBallTile)
+        {
+            Debug.Log("Estoy jugando");
+            woolBall.NotifyEnemies(this);
+        }
+        else ExploreSquawk(woolBallTile);
+    }
+
+    public void Investigar()
+    {
+        CheckVision();
+        ExploreSquawk(alertedTile);
+        if (currentPos == alertedTile)
+        {
+            GameManager.instance.EnemyFinishedExploring();
+        }
+        CheckVision();
+    }
+
+    public void Levantar()
+    {
+        List<Square> neighbours = currentPos.SeeWool();
+        if (neighbours.Contains(woolBallTile)) AwakeEnemies();
+        else ExploreSquawk(woolBallTile);
+    }
+
+    public bool GetDistracted()
+    {
+        return _distracted;
+    }
+    public void SetDistracted(bool distracted)
+    {
+        _distracted = distracted;
+    }
+
+    public bool GetAlerted()
+    {
+        return _alerted;
+    }
+    public void SetAlerted(bool alerted)
+    {
+        _alerted = alerted;
+    }
+
+    public bool GetPlayerSeen()
+    {
+        return _playerSeen;
+    }
+    public void SetPlayerSeen(bool playerSeen)
+    {
+        _playerSeen = playerSeen;
+    }
+
+    public bool GetGoAwake()
+    {
+        return _goAwake;
+    }
+    public void SetGoAwake(bool goAwake)
+    {
+        _goAwake = goAwake;
+    }
+
 }

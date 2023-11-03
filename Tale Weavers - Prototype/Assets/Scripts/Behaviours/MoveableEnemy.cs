@@ -28,75 +28,76 @@ public class MoveableEnemy : Enemy
 
     public override void StartAction()
     {
-        if (!_playerSeen)
-        {
-            if (_distracted)
-            {
-                if (currentPos == woolBallTile)
-                {
-                    Debug.Log("Estoy jugando");
-                    
-                }
-                else if (woolBall.beingPlayed)
-                {
-                    List<Square> neighbours = currentPos.SeeWool();
-                    if (neighbours.Contains(woolBallTile)) AwakeEnemies();
-                    else ExploreSquawk(woolBallTile);
-                }
-                else ExploreSquawk(woolBallTile);
-            }
+        BT.Tick();
+        //if (!_playerSeen)
+        //{
+        //    if (_distracted)
+        //    {
+        //        if (currentPos == woolBallTile)
+        //        {
+        //            Debug.Log("Estoy jugando");
 
-            else
-            {
-                if (_alerted)
-                {
-                    CheckVision();
-                    ExploreSquawk(alertedTile);
-                    if (currentPos == alertedTile)
-                    {
-                        GameManager.instance.EnemyFinishedExploring();
-                    }
-                    CheckVision();
-                }
-                else
-                {
-                    CheckVision();
-                    if (currentWaypoint == currentPos)
-                    {
-                        SelectWaypoint();
-                    }
-                    if (onWaypoint)
-                    {
-                        onWaypoint = false;
-                        LookNextWaypoint();
-                    }
-                    else
-                    {
-                        MoveToWaypoint();
-                    }
-                    CheckVision();
-                }
-            }
-        }
-        else
-        {
-            if (_distracted)
-            {
+        //        }
+        //        else if (woolBall.beingPlayed)
+        //        {
+        //            List<Square> neighbours = currentPos.SeeWool();
+        //            if (neighbours.Contains(woolBallTile)) AwakeEnemies();
+        //            else ExploreSquawk(woolBallTile);
+        //        }
+        //        else ExploreSquawk(woolBallTile);
+        //    }
 
-                if (currentPos == woolBallTile)
-                {
-                    Debug.Log("Estoy jugando");
-                }
-                else ExploreSquawk(woolBallTile);
-            }
-            else
-            {
-                CatchPlayer();
-                ChasePlayer();
-                CatchPlayer();
-                CheckVision();
-            }
-        }
+        //    else
+        //    {
+        //        if (_alerted)
+        //        {
+        //            CheckVision();
+        //            ExploreSquawk(alertedTile);
+        //            if (currentPos == alertedTile)
+        //            {
+        //                GameManager.instance.EnemyFinishedExploring();
+        //            }
+        //            CheckVision();
+        //        }
+        //        else
+        //        {
+        //            CheckVision();
+        //            if (currentWaypoint == currentPos)
+        //            {
+        //                SelectWaypoint();
+        //            }
+        //            if (onWaypoint)
+        //            {
+        //                onWaypoint = false;
+        //                LookNextWaypoint();
+        //            }
+        //            else
+        //            {
+        //                MoveToWaypoint();
+        //            }
+        //            CheckVision();
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    if (_distracted)
+        //    {
+
+        //        if (currentPos == woolBallTile)
+        //        {
+        //            Debug.Log("Estoy jugando");
+        //        }
+        //        else ExploreSquawk(woolBallTile);
+        //    }
+        //    else
+        //    {
+        //        CatchPlayer();
+        //        ChasePlayer();
+        //        CatchPlayer();
+        //        CheckVision();
+        //    }
+        //}
     }
 
     private void MoveToWaypoint()
@@ -153,4 +154,60 @@ public class MoveableEnemy : Enemy
         facingDirection.Normalize();
         RotateEnemy();
     }
+
+    public void Patrullar()
+    {
+
+        CheckVision();
+        if (currentWaypoint == currentPos)
+        {
+            SelectWaypoint();
+        }
+        if (onWaypoint)
+        {
+            onWaypoint = false;
+            LookNextWaypoint();
+        }
+        else
+        {
+            MoveToWaypoint();
+        }
+        CheckVision();
+
+    }
+
+    //public void Perseguir()
+    //{
+    //    CatchPlayer();
+    //    ChasePlayer();
+    //    CatchPlayer();
+    //    CheckVision();
+    //}
+
+    //public void Jugar()
+    //{
+    //    if (currentPos == woolBallTile)
+    //    {
+    //        Debug.Log("Estoy jugando");
+    //    }
+    //    else ExploreSquawk(woolBallTile);
+    //}
+
+    //public void Investigar()
+    //{
+    //    CheckVision();
+    //    ExploreSquawk(alertedTile);
+    //    if (currentPos == alertedTile)
+    //    {
+    //        GameManager.instance.EnemyFinishedExploring();
+    //    }
+    //    CheckVision();
+    //}
+
+    //public void Levantar()
+    //{
+    //    List<Square> neighbours = currentPos.SeeWool();
+    //    if (neighbours.Contains(woolBallTile)) AwakeEnemies();
+    //    else ExploreSquawk(woolBallTile);
+    //}
 }
