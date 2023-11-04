@@ -25,73 +25,8 @@ public class StaticEnemy : Enemy
 
     override public void StartAction()
     {
-        if (!_playerSeen)
-        {
-            if (_distracted)
-            {
-                if (currentPos == woolBallTile)
-                {
-                    Debug.Log("Estoy jugando");
-                }
-                else if(woolBall.beingPlayed)
-                {
-                    List<Square> neighbours = currentPos.SeeWool();
-                    if (neighbours.Contains(woolBallTile)) AwakeEnemies();
-                    else ExploreSquawk(woolBallTile);
-                }
-                else ExploreSquawk(woolBallTile);
-            }
-
-            else
-            {
-                if (_alerted)
-                {
-                    CheckVision();
-                    ExploreSquawk(alertedTile);
-                    if (currentPos == alertedTile)
-                    {
-                        GameManager.instance.EnemyFinishedExploring();
-                    }
-                    CheckVision();
-                }
-                else
-                {
-                    if (currentPos == initSpawn)
-                    {
-                        CheckVision();
-                        RotateVision();
-                        CheckVision();
-                    }
-                    else
-                    {
-                        CheckVision();
-                        ReturnSpawn();
-                        CheckVision();
-                    }
-                }
-            }
-
-        }
-        else
-        {
-
-            if (_distracted)
-            {
-
-                if (currentPos == woolBallTile)
-                {
-                    Debug.Log("Estoy jugando");
-                }
-                else ExploreSquawk(woolBallTile);
-            }
-            else
-            {
-                CatchPlayer();
-                ChasePlayer();
-                CatchPlayer();
-                CheckVision();
-            }
-        }
+        BT.Tick();
+        BT.Restart();
     }
 
     private void RotateVision()
@@ -139,4 +74,19 @@ public class StaticEnemy : Enemy
         MoveTowards(optimalMovement);
     }
 
+    public void Vigilar()
+    {
+        if (currentPos == initSpawn)
+        {
+            CheckVision();
+            RotateVision();
+            CheckVision();
+        }
+        else
+        {
+            CheckVision();
+            ReturnSpawn();
+            CheckVision();
+        }
+    }
 }

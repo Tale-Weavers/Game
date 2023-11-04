@@ -116,6 +116,7 @@ public abstract class Enemy : MoveableCharacter
     {
         if (!moveDone)
         {
+            Debug.Log("hola");
             moveDone = true;
             Vector3 targetPosition = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
             facingDirection = targetPosition - transform.position;

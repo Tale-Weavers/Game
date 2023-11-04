@@ -7,7 +7,7 @@ public class MoveableEnemy : Enemy
     private Square currentWaypoint;
     private List<Square> waypointList = new();
     private int waypointCounter;
-    private bool onWaypoint = false;
+    [SerializeField] private bool onWaypoint = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,79 +29,12 @@ public class MoveableEnemy : Enemy
     public override void StartAction()
     {
         BT.Tick();
-        //if (!_playerSeen)
-        //{
-        //    if (_distracted)
-        //    {
-        //        if (currentPos == woolBallTile)
-        //        {
-        //            Debug.Log("Estoy jugando");
-
-        //        }
-        //        else if (woolBall.beingPlayed)
-        //        {
-        //            List<Square> neighbours = currentPos.SeeWool();
-        //            if (neighbours.Contains(woolBallTile)) AwakeEnemies();
-        //            else ExploreSquawk(woolBallTile);
-        //        }
-        //        else ExploreSquawk(woolBallTile);
-        //    }
-
-        //    else
-        //    {
-        //        if (_alerted)
-        //        {
-        //            CheckVision();
-        //            ExploreSquawk(alertedTile);
-        //            if (currentPos == alertedTile)
-        //            {
-        //                GameManager.instance.EnemyFinishedExploring();
-        //            }
-        //            CheckVision();
-        //        }
-        //        else
-        //        {
-        //            CheckVision();
-        //            if (currentWaypoint == currentPos)
-        //            {
-        //                SelectWaypoint();
-        //            }
-        //            if (onWaypoint)
-        //            {
-        //                onWaypoint = false;
-        //                LookNextWaypoint();
-        //            }
-        //            else
-        //            {
-        //                MoveToWaypoint();
-        //            }
-        //            CheckVision();
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    if (_distracted)
-        //    {
-
-        //        if (currentPos == woolBallTile)
-        //        {
-        //            Debug.Log("Estoy jugando");
-        //        }
-        //        else ExploreSquawk(woolBallTile);
-        //    }
-        //    else
-        //    {
-        //        CatchPlayer();
-        //        ChasePlayer();
-        //        CatchPlayer();
-        //        CheckVision();
-        //    }
-        //}
+        BT.Restart();
     }
 
     private void MoveToWaypoint()
     {
+        
         List<Square> list = new List<Square>();
         list = GridManager.instance.GetAdjacents(currentPos);
         Square optimalMovement = null;
@@ -157,7 +90,7 @@ public class MoveableEnemy : Enemy
 
     public void Patrullar()
     {
-
+        Debug.Log("patrullo");
         CheckVision();
         if (currentWaypoint == currentPos)
         {
