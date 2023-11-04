@@ -7,7 +7,7 @@ public class MoveableEnemy : Enemy
     private Square currentWaypoint;
     private List<Square> waypointList = new();
     private int waypointCounter;
-    private bool onWaypoint = false;
+    [SerializeField] private bool onWaypoint = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,79 +28,13 @@ public class MoveableEnemy : Enemy
 
     public override void StartAction()
     {
-        if (!_playerSeen)
-        {
-            if (_distracted)
-            {
-                if (currentPos == woolBallTile)
-                {
-                    Debug.Log("Estoy jugando");
-                    
-                }
-                else if (woolBall.beingPlayed)
-                {
-                    List<Square> neighbours = currentPos.SeeWool();
-                    if (neighbours.Contains(woolBallTile)) AwakeEnemies();
-                    else ExploreSquawk(woolBallTile);
-                }
-                else ExploreSquawk(woolBallTile);
-            }
-
-            else
-            {
-                if (_alerted)
-                {
-                    CheckVision();
-                    ExploreSquawk(alertedTile);
-                    if (currentPos == alertedTile)
-                    {
-                        GameManager.instance.EnemyFinishedExploring();
-                    }
-                    CheckVision();
-                }
-                else
-                {
-                    CheckVision();
-                    if (currentWaypoint == currentPos)
-                    {
-                        SelectWaypoint();
-                    }
-                    if (onWaypoint)
-                    {
-                        onWaypoint = false;
-                        LookNextWaypoint();
-                    }
-                    else
-                    {
-                        MoveToWaypoint();
-                    }
-                    CheckVision();
-                }
-            }
-        }
-        else
-        {
-            if (_distracted)
-            {
-
-                if (currentPos == woolBallTile)
-                {
-                    Debug.Log("Estoy jugando");
-                }
-                else ExploreSquawk(woolBallTile);
-            }
-            else
-            {
-                CatchPlayer();
-                ChasePlayer();
-                CatchPlayer();
-                CheckVision();
-            }
-        }
+        BT.Tick();
+        BT.Restart();
     }
 
     private void MoveToWaypoint()
     {
+        
         List<Square> list = new List<Square>();
         list = GridManager.instance.GetAdjacents(currentPos);
         Square optimalMovement = null;
@@ -153,4 +87,60 @@ public class MoveableEnemy : Enemy
         facingDirection.Normalize();
         RotateEnemy();
     }
+
+    public void Patrullar()
+    {
+        Debug.Log("patrullo");
+        CheckVision();
+        if (currentWaypoint == currentPos)
+        {
+            SelectWaypoint();
+        }
+        if (onWaypoint)
+        {
+            onWaypoint = false;
+            LookNextWaypoint();
+        }
+        else
+        {
+            MoveToWaypoint();
+        }
+        CheckVision();
+
+    }
+
+    //public void Perseguir()
+    //{
+    //    CatchPlayer();
+    //    ChasePlayer();
+    //    CatchPlayer();
+    //    CheckVision();
+    //}
+
+    //public void Jugar()
+    //{
+    //    if (currentPos == woolBallTile)
+    //    {
+    //        Debug.Log("Estoy jugando");
+    //    }
+    //    else ExploreSquawk(woolBallTile);
+    //}
+
+    //public void Investigar()
+    //{
+    //    CheckVision();
+    //    ExploreSquawk(alertedTile);
+    //    if (currentPos == alertedTile)
+    //    {
+    //        GameManager.instance.EnemyFinishedExploring();
+    //    }
+    //    CheckVision();
+    //}
+
+    //public void Levantar()
+    //{
+    //    List<Square> neighbours = currentPos.SeeWool();
+    //    if (neighbours.Contains(woolBallTile)) AwakeEnemies();
+    //    else ExploreSquawk(woolBallTile);
+    //}
 }

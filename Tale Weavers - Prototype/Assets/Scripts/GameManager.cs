@@ -90,8 +90,9 @@ public class GameManager : MonoBehaviour
             if (!enemy.knockOut)
             {
                 yield return new WaitForSeconds(0.5f);
-                enemy.StartAction();
                 enemy.moveDone = false;
+                enemy.StartAction();
+                
             }
         }
         NextTurn();
