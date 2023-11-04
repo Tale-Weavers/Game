@@ -444,6 +444,7 @@ MonoBehaviour:
   drinkButton: {fileID: 1839723124}
   woolBallButton: {fileID: 1839723123}
   mainMenu: {fileID: 991931685}
+  cancelButton: {fileID: 0}
   _squawkRange: 0
   _woolBall: {fileID: 0}
 --- !u!1001 &172534409
@@ -1109,11 +1110,14 @@ MonoBehaviour:
   moveDone: 0
   _isSeen: 0
   _isHiding: 0
+  checkingRange: 0
   actionDone: 0
   canSquawk: 0
   fountainClose: 0
   hasWoolBall: 0
+  hasLaser: 0
   _placingWool: 0
+  _placingLaser: 0
 --- !u!1001 &259371855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5841,6 +5845,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6485092411848424689, guid: 2947eef500ee17f4cbf33f5f3505c924,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 7270719245958349523, guid: 2947eef500ee17f4cbf33f5f3505c924,
         type: 3}
       propertyPath: m_Name
@@ -7208,6 +7217,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156090608765410095, guid: 1af932b0bc17e9148bea073420431d95,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156090608765410095, guid: 1af932b0bc17e9148bea073420431d95,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156090608765410095, guid: 1af932b0bc17e9148bea073420431d95,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7285837628587888800, guid: 1af932b0bc17e9148bea073420431d95,
         type: 3}

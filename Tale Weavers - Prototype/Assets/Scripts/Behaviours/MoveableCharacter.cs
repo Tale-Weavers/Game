@@ -23,7 +23,7 @@ public class MoveableCharacter : MonoBehaviour
         currentTurn = 0;
         initSpawn.isWalkable = false;
 
-        Renderer renderer = GetComponent<Renderer>();
+        Renderer renderer = GetComponentInChildren<Renderer>();
         currentMaterial = renderer.material;
     }
 

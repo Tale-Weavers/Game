@@ -1488,6 +1488,7 @@ MonoBehaviour:
   drinkButton: {fileID: 1858537272}
   woolBallButton: {fileID: 1858537271}
   mainMenu: {fileID: 726165829}
+  cancelButton: {fileID: 0}
   _squawkRange: 3
   _woolBall: {fileID: 1343731635}
 --- !u!4 &174325306 stripped
@@ -1945,11 +1946,14 @@ MonoBehaviour:
   moveDone: 0
   _isSeen: 0
   _isHiding: 0
+  checkingRange: 0
   actionDone: 0
   canSquawk: 0
   fountainClose: 0
   hasWoolBall: 0
+  hasLaser: 0
   _placingWool: 0
+  _placingLaser: 0
 --- !u!1001 &245354010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8089,23 +8093,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7285837628587888800, guid: 1af932b0bc17e9148bea073420431d95,
-        type: 3}
-      propertyPath: initSpawn
-      value: 
-      objectReference: {fileID: 2023033617}
-    - target: {fileID: 7285837628587888800, guid: 1af932b0bc17e9148bea073420431d95,
-        type: 3}
-      propertyPath: inspectorFacingDir
-      value: 
-      objectReference: {fileID: 1638328618019092073, guid: 1f58b37c5b8efc04babe187222af7340,
-        type: 3}
-    - target: {fileID: 7285837628587888800, guid: 1af932b0bc17e9148bea073420431d95,
-        type: 3}
-      propertyPath: directions.Array.data[0]
-      value: 
-      objectReference: {fileID: 1638328618019092073, guid: 1f58b37c5b8efc04babe187222af7340,
-        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
