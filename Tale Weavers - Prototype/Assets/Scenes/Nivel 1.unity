@@ -1488,6 +1488,7 @@ MonoBehaviour:
   drinkButton: {fileID: 1858537272}
   woolBallButton: {fileID: 1858537271}
   mainMenu: {fileID: 726165829}
+  cancelButton: {fileID: 0}
   _squawkRange: 3
   _woolBall: {fileID: 1343731635}
 --- !u!4 &174325306 stripped
@@ -1945,11 +1946,14 @@ MonoBehaviour:
   moveDone: 0
   _isSeen: 0
   _isHiding: 0
+  checkingRange: 0
   actionDone: 0
   canSquawk: 0
   fountainClose: 0
   hasWoolBall: 0
+  hasLaser: 0
   _placingWool: 0
+  _placingLaser: 0
 --- !u!1001 &245354010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9850,6 +9854,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807361252523598297, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 167176614}
+    - target: {fileID: 1807361252523598297, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CancelAction
       objectReference: {fileID: 0}
     - target: {fileID: 2607899666718854091, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
