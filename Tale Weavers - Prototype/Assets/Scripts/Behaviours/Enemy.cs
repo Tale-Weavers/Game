@@ -24,6 +24,9 @@ public abstract class Enemy : MoveableCharacter
     protected Square alertedTile;
     protected Square woolBallTile;
     protected WoolBall woolBall;
+    
+    [SerializeField]protected bool isBlinded;
+    [SerializeField] protected int blindedCounter = 3;
 
     // Start is called before the first frame update
     protected void Start()
@@ -225,6 +228,12 @@ public abstract class Enemy : MoveableCharacter
         }
 
         MoveTowards(optimalMovement);
+    }
+
+    public void GetBlinded(Vector3 lightDirection)
+    {
+        if(lightDirection + facingDirection == Vector3.zero) { isBlinded = true; }
+        
     }
 
     protected void AwakeEnemies()

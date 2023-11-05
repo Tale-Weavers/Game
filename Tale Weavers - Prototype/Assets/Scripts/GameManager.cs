@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
     public Button cancelButton;
 
     [SerializeField] private float _squawkRange;
-    [SerializeField] private WoolBall _woolBall;
+    [SerializeField] private List<WoolBall> _woolBall = new();
 
     private void Awake()
     {
@@ -62,7 +63,10 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(true);
         currentTurn++;
         turnText.text = $"Current turn: {currentTurn}";
-        if (_woolBall != null) _woolBall.GetComponent<Collider>().enabled = false;
+        foreach(WoolBall woolBall in _woolBall)
+        {
+            woolBall.GetComponent<Collider>().enabled = false;
+        }
     }
 
     public void EndPlayerTurn()
@@ -74,7 +78,10 @@ public class GameManager : MonoBehaviour
         woolBallButton.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
-        if (_woolBall != null) _woolBall.GetComponent<Collider>().enabled = true;
+        foreach (WoolBall woolBall in _woolBall)
+        {
+            woolBall.GetComponent<Collider>().enabled = true;
+        }
         StartCoroutine(EnemyMovement());
     }
 

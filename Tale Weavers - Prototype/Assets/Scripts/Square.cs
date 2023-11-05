@@ -8,7 +8,7 @@ public class Square : MonoBehaviour
     public bool isFountain;
 
     public bool containsWool;
-
+    public bool containsFlashlight;
     public bool isDoor;
     public bool containsButton;
 

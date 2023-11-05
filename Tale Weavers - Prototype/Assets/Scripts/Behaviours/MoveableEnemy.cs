@@ -28,8 +28,16 @@ public class MoveableEnemy : Enemy
 
     public override void StartAction()
     {
-        BT.Tick();
-        BT.Restart();
+        if (!isBlinded)
+        {
+            BT.Tick();
+            BT.Restart();
+        }
+        else
+        {
+            blindedCounter--;
+            if (blindedCounter == 0) { isBlinded = false; blindedCounter = 3; }
+        }
     }
 
     private void MoveToWaypoint()
