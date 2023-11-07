@@ -196,6 +196,12 @@ public class GameManager : MonoBehaviour
         CancelAction();
     }
 
+    public void PlayerPlaceLaser()
+    {
+        laserButton.gameObject.SetActive(false);
+        CancelAction();
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
@@ -209,6 +215,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
+        laserButton.gameObject.SetActive(false);
 
         cancelButton.gameObject.SetActive(true);
     }
@@ -221,6 +228,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
+        laserButton.gameObject.SetActive(false);
 
         cancelButton.gameObject.SetActive(true);
     }
@@ -233,7 +241,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
-
+        woolBallButton.gameObject.SetActive(false) ;
         cancelButton.gameObject.SetActive(true);
     }
 
@@ -243,6 +251,8 @@ public class GameManager : MonoBehaviour
 
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
+        player.DisablePlacingWoolBall();
+        player.DisablePlacingLaser();
         if (player.fountainClose)
         {
             drinkButton.gameObject.SetActive(true);
@@ -250,12 +260,12 @@ public class GameManager : MonoBehaviour
         if (player.hasWoolBall)
         {
             woolBallButton.gameObject.SetActive(true);
-            player.DisablePlacingWoolBall();
+
         }
         if (player.hasLaser)
         {
-            woolBallButton.gameObject.SetActive(true);
-            player.DisablePlacingLaser();
+            laserButton.gameObject.SetActive(true);
+
         }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;

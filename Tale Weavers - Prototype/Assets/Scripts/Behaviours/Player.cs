@@ -221,7 +221,7 @@ public class Player : MoveableCharacter
                     _laser.tile = target;
                     _laser.gameObject.SetActive(true);
                     _placingWool = false;
-                    GameManager.instance.PlayerPlaceWoolball();
+                    GameManager.instance.PlayerPlaceLaser();
                 }
             }
         }
