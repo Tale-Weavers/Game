@@ -254,6 +254,7 @@ public class GridManager : MonoBehaviour
         switch (idx)
         {
             case 0:
+                #region Version Antigua
                 //areaToPaint.AddRange(GetAdjacentsNonWalkable(pos)); //Verde
 
                 //List<Square> firstAdjancents = new();
@@ -274,6 +275,7 @@ public class GridManager : MonoBehaviour
                 //}
                 //areaToPaint.AddRange(firstAdjancents);
                 //areaToPaint.AddRange(secondAdjacents);
+                #endregion
                 List<Square> firstAdjancents = new();
                 areaToPaint.AddRange(GetMultipleAdjacentsNonWalkable(pos, 3));
 
