@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         if (player.canSquawk) squawkButton.gameObject.SetActive(true);
         if (player.fountainClose) drinkButton.gameObject.SetActive(true);
         if (player.hasWoolBall) woolBallButton.gameObject.SetActive(true);
-        if (player.hasLaser) laserButton.gameObject.SetActive(true);
+        if (player.hasLaser) laserButton?.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         squawkButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
-        laserButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
         if (_woolBall != null) _woolBall.GetComponent<Collider>().enabled = true;
@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerPlaceLaser()
     {
-        laserButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
         CancelAction();
     }
 
@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
-        laserButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
 
         cancelButton.gameObject.SetActive(true);
     }
@@ -228,7 +228,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
-        laserButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
 
         cancelButton.gameObject.SetActive(true);
     }
@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour
         }
         if (player.hasLaser)
         {
-            laserButton.gameObject.SetActive(true);
+            laserButton?.gameObject.SetActive(true);
 
         }
         cancelButton.gameObject.SetActive(false);
