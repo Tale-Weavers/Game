@@ -11,6 +11,7 @@ public class Square : MonoBehaviour
     public bool containsFlashlight;
     public bool isDoor;
     public bool containsButton;
+    public bool isOilPuddle;
 
     [SerializeField] private int _fountainCounter;
 
@@ -39,6 +40,7 @@ public class Square : MonoBehaviour
         if (isFountain) { currentMaterial.color = Color.blue; isWalkable = false; }
         if (isDoor) { currentMaterial.color = Color.yellow; isWalkable = false; }
         if (containsButton) currentMaterial.color = Color.red;
+        if (isOilPuddle) currentMaterial.color = new Color(0.43f, 0.29f, 0.11f);
         _colorInit = currentMaterial.color;
 
         if (containsWool)

@@ -124,14 +124,18 @@ public class Player : MoveableCharacter
                 {
                     GameManager.instance.CheckEnemiesVision();
                 }
-                transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
-                currentPos.isWalkable = true;
-                currentPos.occupiedByPlayer = false;
-                if (currentPos.isHidingSpot) _isHiding = false;
-                currentPos = target;
-                target.isWalkable = false;
-                target.occupiedByPlayer = true;
-                moveDone = true;
+                if (target.isOilPuddle) Slip(target);
+                else
+                {
+                    transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
+                    currentPos.isWalkable = true;
+                    currentPos.occupiedByPlayer = false;
+                    if (currentPos.isHidingSpot) _isHiding = false;
+                    currentPos = target;
+                    target.isWalkable = false;
+                    target.occupiedByPlayer = true;
+                    moveDone = true;
+                }
 
                 fountain = GridManager.instance.LookForFountain(currentPos);
                 if (fountain != null)
@@ -193,6 +197,31 @@ public class Player : MoveableCharacter
                 //currentTurn++;
             }
         }
+    }
+
+    private void Slip(Square target)
+    {
+        Vector3 direction = target.transform.position - currentPos.transform.position;
+        transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        currentPos.isWalkable = true;
+        currentPos.occupiedByPlayer = false;
+        if (currentPos.isHidingSpot) _isHiding = false;
+        currentPos = target;
+        target.isWalkable = false;
+        target.occupiedByPlayer = true;
+        moveDone = true;
+        if(currentPos.isOilPuddle)
+        {
+            List<Square> adjacents = GridManager.instance.GetAdjacents(currentPos);
+            foreach(Square adjacent in adjacents)
+            {
+                if(adjacent.transform.position == currentPos.transform.position + direction) 
+                {
+                    Slip(adjacent);
+                }
+            }
+        }
+
     }
 
     private void PlaceWoolBall()
