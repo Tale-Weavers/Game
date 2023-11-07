@@ -1,7 +1,8 @@
-Shader "Unlit/ShaderTest1"
+Shader "Unlit/ToonItem"
 {
     Properties
     {
+        _MainTex("Texture", 2D) = "white" {}
         _Albedo("Albedo", Color) = (1,1,1,1)
         _Shades("Shades", Range(1,20)) = 3
     }
@@ -10,44 +11,6 @@ Shader "Unlit/ShaderTest1"
         Tags { "RenderType" = "Opaque" }
         LOD 100
 
-        // OUTLINE
-
-        /*Pass{
-            Cull Front
-
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag  
-
-            #include "UnityCG.cginc"
-
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float3 normal: NORMAL;
-            };
-
-            struct v2f
-            {
-                float4 vertex : SV_POSITION;
-            };
-
-            v2f vert(appdata v)
-            {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex/2 + v.normal/2);
-                return o;
-            }
-
-            fixed4 frag(v2f i) : SV_Target
-            {
-                return fixed4(0.0, 0.0, 0.0, 1.0);
-            }
-            ENDCG
-
-        }*/
-
-        //TEXTURE
 
         Pass
         {
@@ -57,24 +20,21 @@ Shader "Unlit/ShaderTest1"
 
             #include "UnityCG.cginc"
 
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float3 normal: NORMAL;
-            };
-
             struct v2f
             {
-                float3 worldNormal: TEXCOORD0;
+                float2 uv : TEXCOORD0;
+                float3 worldNormal: TEXCOORD1;
                 float4 vertex : SV_POSITION;
             };
 
+            sampler2D _MainTex;
             float4 _Albedo;
             float _Shades;
 
-            v2f vert (appdata v)
+            v2f vert (appdata_base v)
             {
                 v2f o;
+                o.uv = v.texcoord;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.worldNormal = UnityObjectToWorldNormal(v.normal);
                 return o;
@@ -82,8 +42,7 @@ Shader "Unlit/ShaderTest1"
 
             fixed4 frag(v2f i) : SV_Target
             {
-
-
+                half4 col = tex2D(_MainTex, i.uv);
 
                 //Coseno entre el vector de normal y la dirección de la luz
                 float cosineAngle = dot(normalize(i.worldNormal), normalize(_WorldSpaceLightPos0.xyz));
@@ -92,7 +51,7 @@ Shader "Unlit/ShaderTest1"
 
                 cosineAngle = floor(cosineAngle * _Shades) / _Shades + 0.3;
 
-                return _Albedo * cosineAngle;
+                return col * cosineAngle;
             }
             ENDCG
         }
