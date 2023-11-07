@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Button squawkButton;
     public Button drinkButton;
     public Button woolBallButton;
+    public Button laserButton;
     public Button mainMenu;
     public Button cancelButton;
 
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
         if (player.canSquawk) squawkButton.gameObject.SetActive(true);
         if (player.fountainClose) drinkButton.gameObject.SetActive(true);
         if (player.hasWoolBall) woolBallButton.gameObject.SetActive(true);
+        if (player.hasLaser) laserButton?.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
         squawkButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
         foreach (WoolBall woolBall in _woolBall)
@@ -160,7 +163,6 @@ public class GameManager : MonoBehaviour
     {
         winText.text = "Level Completed";
         winText.gameObject.SetActive(true);
-        Debug.Log("VICTORIA ROYALE");
         RestartLevel();
     }
 
@@ -168,7 +170,7 @@ public class GameManager : MonoBehaviour
     {
         winText.text = "GAME OVER";
         winText.gameObject.SetActive(true);
-        Debug.Log("VICTORIA ROYALE");
+
         RestartLevel();
     }
 
@@ -201,18 +203,26 @@ public class GameManager : MonoBehaviour
         CancelAction();
     }
 
+    public void PlayerPlaceLaser()
+    {
+        laserButton?.gameObject.SetActive(false);
+        CancelAction();
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
+
     public void SetUpSquawk()
     {
-        GridManager.instance.DrawRange(0,player.currentPos);
+        GridManager.instance.DrawRange(0, player.currentPos);
 
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
 
         cancelButton.gameObject.SetActive(true);
     }
@@ -225,7 +235,20 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
 
+        cancelButton.gameObject.SetActive(true);
+    }
+
+    public void SetUpLaser()
+    {
+        GridManager.instance.DrawRange(2, player.currentPos);
+
+        attackButton.gameObject.SetActive(false);
+        skipButton.gameObject.SetActive(false);
+        drinkButton.gameObject.SetActive(false);
+        squawkButton.gameObject.SetActive(false);
+        woolBallButton.gameObject.SetActive(false) ;
         cancelButton.gameObject.SetActive(true);
     }
 
@@ -235,6 +258,8 @@ public class GameManager : MonoBehaviour
 
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
+        player.DisablePlacingWoolBall();
+        player.DisablePlacingLaser();
         if (player.fountainClose)
         {
             drinkButton.gameObject.SetActive(true);
@@ -242,7 +267,12 @@ public class GameManager : MonoBehaviour
         if (player.hasWoolBall)
         {
             woolBallButton.gameObject.SetActive(true);
-            player.DisablePlacingWoolBall();
+
+        }
+        if (player.hasLaser)
+        {
+            laserButton?.gameObject.SetActive(true);
+
         }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;
