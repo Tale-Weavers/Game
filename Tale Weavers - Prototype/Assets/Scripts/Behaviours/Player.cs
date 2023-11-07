@@ -17,12 +17,14 @@ public class Player : MoveableCharacter
     public bool fountainClose = false;
     public bool hasWoolBall = false;
     public bool hasLaser = false;
+    public bool hasFlashlight = false;
 
     private WoolBall _woolball;
     private WoolBall _laser;
 
     [SerializeField] private bool _placingWool;
     [SerializeField] private bool _placingLaser;
+    [SerializeField] private bool _usingFlashlight;
 
     // Start is called before the first frame update
     private void Start()
@@ -54,6 +56,23 @@ public class Player : MoveableCharacter
             PlaceLaser();
         }
 
+        if(Input.GetKeyUp(KeyCode.DownArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight ) 
+        {
+            UseFlashlight(new Vector3(0,0,-1));
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        {
+            UseFlashlight(new Vector3(0, 0, 1));
+        }
+        if (Input.GetKeyUp(KeyCode.LeftArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        {
+            UseFlashlight(new Vector3(-1, 0, 0));
+        }
+        if (Input.GetKeyUp(KeyCode.RightArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        {
+            UseFlashlight(new Vector3(1, 0, 0));
+        }
+
         if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
 
         if (Input.GetKeyDown(KeyCode.X) && !_isSeen) { KnockOutEnemies(); } //For debugging purposes, temporal
@@ -65,6 +84,8 @@ public class Player : MoveableCharacter
         if (Input.GetKeyDown(KeyCode.W)) { _placingWool = !_placingWool; }//For debugging purposes, temporal
 
         if (Input.GetKeyDown(KeyCode.L)) { _placingLaser = !_placingLaser; }//For debugging purposes, temporal
+
+        if (Input.GetKeyDown(KeyCode.F)) { _usingFlashlight = !_usingFlashlight; }//For debugging purposes, temporal
     }
 
     public void KnockOutEnemies()
@@ -163,6 +184,11 @@ public class Player : MoveableCharacter
                 {
                     currentPos.OpenDoor();
                 }
+                else if(currentPos.containsFlashlight)
+                {
+                    currentPos.containsFlashlight = false;
+                    hasFlashlight = true;
+                }
                 //GameManager.instance.EndPlayerTurn();
                 //currentTurn++;
             }
@@ -223,6 +249,20 @@ public class Player : MoveableCharacter
                     _placingWool = false;
                     GameManager.instance.PlayerPlaceWoolball();
                 }
+            }
+        }
+    }
+
+    private void UseFlashlight(Vector3 direction)
+    {
+        hasFlashlight = false;
+
+        RaycastHit hit; 
+        if(Physics.Raycast(transform.position, direction, out hit))
+        {
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                hit.collider.GetComponent<Enemy>().GetBlinded(direction);
             }
         }
     }

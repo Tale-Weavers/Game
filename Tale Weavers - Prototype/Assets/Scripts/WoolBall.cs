@@ -13,6 +13,8 @@ public class WoolBall : MonoBehaviour
     void Start()
     {
         GetComponent<Renderer>().material.color = Color.red;
+        tile.containsWool = true;
+        tile.wool = this;
     }
 
     // Update is called once per frame
