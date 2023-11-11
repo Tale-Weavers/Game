@@ -1385,10 +1385,12 @@ MonoBehaviour:
   squawkButton: {fileID: 626164713}
   drinkButton: {fileID: 1123626366}
   woolBallButton: {fileID: 653100428}
+  laserButton: {fileID: 0}
   mainMenu: {fileID: 3566674898532539244}
   cancelButton: {fileID: 0}
   _squawkRange: 3.5
-  _woolBall: {fileID: 0}
+  _woolBall:
+  - {fileID: 0}
 --- !u!1001 &184309750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2072,8 +2074,10 @@ MonoBehaviour:
   fountainClose: 0
   hasWoolBall: 0
   hasLaser: 0
+  hasFlashlight: 0
   _placingWool: 0
   _placingLaser: 0
+  _usingFlashlight: 0
 --- !u!1001 &264990697
 PrefabInstance:
   m_ObjectHideFlags: 0
