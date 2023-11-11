@@ -2085,11 +2085,12 @@ MonoBehaviour:
   drinkButton: {fileID: 865941314}
   woolBallButton: {fileID: 1258676881}
   laserButton: {fileID: 0}
+  torchButton: {fileID: 0}
   mainMenu: {fileID: 1903937401}
   cancelButton: {fileID: 63509745}
   _squawkRange: 3.5
   _woolBall:
-  - {fileID: 0}
+  - {fileID: 1343731635}
 --- !u!4 &174325306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 44095401272392109, guid: 2947eef500ee17f4cbf33f5f3505c924,
@@ -11192,6 +11193,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoolBall
       objectReference: {fileID: 0}
+    - target: {fileID: 6390013831791525692, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
+        type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 217290451}
     - target: {fileID: 8771061262123203035, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
         type: 3}
       propertyPath: m_LocalPosition.x
