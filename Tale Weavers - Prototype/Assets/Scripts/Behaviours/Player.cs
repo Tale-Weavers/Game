@@ -17,12 +17,14 @@ public class Player : MoveableCharacter
     public bool fountainClose = false;
     public bool hasWoolBall = false;
     public bool hasLaser = false;
+    public bool hasFlashlight = false;
 
     private WoolBall _woolball;
     private WoolBall _laser;
 
     [SerializeField] private bool _placingWool;
     [SerializeField] private bool _placingLaser;
+    [SerializeField] private bool _usingFlashlight;
 
     // Start is called before the first frame update
     private void Start()
@@ -54,6 +56,23 @@ public class Player : MoveableCharacter
             PlaceLaser();
         }
 
+        if(Input.GetKeyUp(KeyCode.DownArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight ) 
+        {
+            UseFlashlight(new Vector3(0,0,-1));
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        {
+            UseFlashlight(new Vector3(0, 0, 1));
+        }
+        if (Input.GetKeyUp(KeyCode.LeftArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        {
+            UseFlashlight(new Vector3(-1, 0, 0));
+        }
+        if (Input.GetKeyUp(KeyCode.RightArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        {
+            UseFlashlight(new Vector3(1, 0, 0));
+        }
+
         if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
 
         if (Input.GetKeyDown(KeyCode.X) && !_isSeen) { KnockOutEnemies(); } //For debugging purposes, temporal
@@ -65,6 +84,8 @@ public class Player : MoveableCharacter
         if (Input.GetKeyDown(KeyCode.W)) { _placingWool = !_placingWool; }//For debugging purposes, temporal
 
         if (Input.GetKeyDown(KeyCode.L)) { _placingLaser = !_placingLaser; }//For debugging purposes, temporal
+
+        if (Input.GetKeyDown(KeyCode.F)) { _usingFlashlight = !_usingFlashlight; }//For debugging purposes, temporal
     }
 
     public void KnockOutEnemies()
@@ -103,14 +124,18 @@ public class Player : MoveableCharacter
                 {
                     GameManager.instance.CheckEnemiesVision();
                 }
-                transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
-                currentPos.isWalkable = true;
-                currentPos.occupiedByPlayer = false;
-                if (currentPos.isHidingSpot) _isHiding = false;
-                currentPos = target;
-                target.isWalkable = false;
-                target.occupiedByPlayer = true;
-                moveDone = true;
+                if (target.isOilPuddle) Slip(target);
+                else
+                {
+                    transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
+                    currentPos.isWalkable = true;
+                    currentPos.occupiedByPlayer = false;
+                    if (currentPos.isHidingSpot) _isHiding = false;
+                    currentPos = target;
+                    target.isWalkable = false;
+                    target.occupiedByPlayer = true;
+                    moveDone = true;
+                }
 
                 fountain = GridManager.instance.LookForFountain(currentPos);
                 if (fountain != null)
@@ -163,10 +188,40 @@ public class Player : MoveableCharacter
                 {
                     currentPos.OpenDoor();
                 }
+                else if(currentPos.containsFlashlight)
+                {
+                    currentPos.containsFlashlight = false;
+                    hasFlashlight = true;
+                }
                 //GameManager.instance.EndPlayerTurn();
                 //currentTurn++;
             }
         }
+    }
+
+    private void Slip(Square target)
+    {
+        Vector3 direction = target.transform.position - currentPos.transform.position;
+        transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        currentPos.isWalkable = true;
+        currentPos.occupiedByPlayer = false;
+        if (currentPos.isHidingSpot) _isHiding = false;
+        currentPos = target;
+        target.isWalkable = false;
+        target.occupiedByPlayer = true;
+        moveDone = true;
+        if(currentPos.isOilPuddle)
+        {
+            List<Square> adjacents = GridManager.instance.GetAdjacents(currentPos);
+            foreach(Square adjacent in adjacents)
+            {
+                if(adjacent.transform.position == currentPos.transform.position + direction) 
+                {
+                    Slip(adjacent);
+                }
+            }
+        }
+
     }
 
     private void PlaceWoolBall()
@@ -221,8 +276,22 @@ public class Player : MoveableCharacter
                     _laser.tile = target;
                     _laser.gameObject.SetActive(true);
                     _placingWool = false;
-                    GameManager.instance.PlayerPlaceWoolball();
+                    GameManager.instance.PlayerPlaceLaser();
                 }
+            }
+        }
+    }
+
+    private void UseFlashlight(Vector3 direction)
+    {
+        hasFlashlight = false;
+
+        RaycastHit hit; 
+        if(Physics.Raycast(transform.position, direction, out hit))
+        {
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                hit.collider.GetComponent<Enemy>().GetBlinded(direction);
             }
         }
     }
@@ -254,7 +323,6 @@ public class Player : MoveableCharacter
             {
                 GameManager.instance.PlayerSquawk();
                 canSquawk = false;
-                checkingRange = true;
             }
 
         }
@@ -294,5 +362,15 @@ public class Player : MoveableCharacter
         _placingWool = false;
     }
 
+    public void EnablePlacingLaser()
+    {
+        _placingLaser = true;
+        GameManager.instance.SetUpLaser();
+    }
+
+    public void DisablePlacingLaser()
+    {
+        _placingLaser = false;
+    }
 
 }
