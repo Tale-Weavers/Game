@@ -129,6 +129,47 @@ public class GridManager : MonoBehaviour
         return list;
     }
 
+    public List<Square> GetMultipleAdjacentsStopAtWalls(Square init, int numberOfSquares)
+    {
+        int listSize = numberOfSquares * 4;
+        List<Square> list = new List<Square>(listSize);
+        Square value;
+        Vector3 initPosition = init.transform.position;
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x + i, 0, initPosition.z), out value);
+            if (value != null && value.isWalkable) list.Add(value);
+            else break;
+
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x - i, 0, initPosition.z), out value);
+            if (value != null && value.isWalkable) list.Add(value);
+            else break;
+
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z + i), out value);
+            if (value != null && value.isWalkable) list.Add(value);
+            else break;
+
+        }
+
+        for (int i = 1; i <= numberOfSquares; i++)
+        {
+            map.TryGetValue(new Vector3(initPosition.x, 0, initPosition.z - i), out value);
+            if (value != null && value.isWalkable) list.Add(value);
+            else break;
+
+        }
+        return list;
+    }
+
     public Square LookForPlayer(Square init)
     {
         Square playerPos = null;
@@ -302,6 +343,13 @@ public class GridManager : MonoBehaviour
 
             case 2:
                 areaToPaint.AddRange(GetMultipleAdjacents(pos, 3));
+                foreach (Square square in areaToPaint)
+                {
+                    square.OnRange();
+                }
+                break;
+            case 3:
+                areaToPaint.AddRange(GetMultipleAdjacentsStopAtWalls(pos, 4));
                 foreach (Square square in areaToPaint)
                 {
                     square.OnRange();
