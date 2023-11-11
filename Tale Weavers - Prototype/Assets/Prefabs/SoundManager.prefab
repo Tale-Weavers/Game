@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2326334911084686428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5614523671521803396}
+  - component: {fileID: 4348136735236689134}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5614523671521803396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2326334911084686428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9417999, y: 1, z: -2.989481}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4348136735236689134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2326334911084686428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5533b42b45adc54cb1835413cba8598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderGeneral: {fileID: 0}
+  sliderMusic: {fileID: 0}
+  sliderSFX: {fileID: 0}
+  sounds:
+  - audioType: 1
+    name: cancion
+    clip: {fileID: 8300000, guid: 6c44a1168e85e58448a9d7a738ce00d2, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  masterMixer: MasterVolume
+  sfxMixer: SFXVolume
+  musicMixer: MusicVolume
+  GeneralMixerGroup: {fileID: 24300002, guid: e97f8a8ac13440f46aafc168df754e06, type: 2}
+  MusicMixerGroup: {fileID: -8429023606594628887, guid: e97f8a8ac13440f46aafc168df754e06,
+    type: 2}
+  SoundsEffectsMixerGroup: {fileID: -5736595141514007331, guid: e97f8a8ac13440f46aafc168df754e06,
+    type: 2}
