@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -407,6 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167176613}
   - component: {fileID: 167176614}
+  - component: {fileID: 167176615}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -459,6 +460,43 @@ MonoBehaviour:
   _squawkRange: 3.5
   _woolBall:
   - {fileID: 622456009}
+--- !u!114 &167176615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167176612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5533b42b45adc54cb1835413cba8598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderGeneral: {fileID: 0}
+  sliderMusic: {fileID: 0}
+  sliderSFX: {fileID: 0}
+  sounds:
+  - audioType: 1
+    name: cancion
+    clip: {fileID: 8300000, guid: 6c44a1168e85e58448a9d7a738ce00d2, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  masterMixer: MasterVolume
+  sfxMixer: SFXVolume
+  musicMixer: MusicVolume
+  GeneralMixerGroup: {fileID: 24300002, guid: e97f8a8ac13440f46aafc168df754e06, type: 2}
+  MusicMixerGroup: {fileID: -8429023606594628887, guid: e97f8a8ac13440f46aafc168df754e06,
+    type: 2}
+  SoundsEffectsMixerGroup: {fileID: -5736595141514007331, guid: e97f8a8ac13440f46aafc168df754e06,
+    type: 2}
 --- !u!1001 &172534409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5628,8 +5666,10 @@ MonoBehaviour:
   isWalkable: 0
   isFountain: 0
   containsWool: 0
+  containsFlashlight: 0
   isDoor: 0
   containsButton: 0
+  isOilPuddle: 0
   _fountainCounter: 0
   isExit: 0
   isHidingSpot: 0
@@ -5658,8 +5698,10 @@ MonoBehaviour:
   isWalkable: 0
   isFountain: 0
   containsWool: 0
+  containsFlashlight: 0
   isDoor: 0
   containsButton: 0
+  isOilPuddle: 0
   _fountainCounter: 0
   isExit: 0
   isHidingSpot: 0
@@ -6605,8 +6647,10 @@ MonoBehaviour:
   isWalkable: 0
   isFountain: 0
   containsWool: 0
+  containsFlashlight: 0
   isDoor: 0
   containsButton: 0
+  isOilPuddle: 0
   _fountainCounter: 0
   isExit: 0
   isHidingSpot: 0
