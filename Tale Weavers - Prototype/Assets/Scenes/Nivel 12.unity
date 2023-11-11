@@ -957,6 +957,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnablePlacingWoolBall
       objectReference: {fileID: 0}
+    - target: {fileID: 4045020174023000097, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 244428632}
+    - target: {fileID: 4045020174023000097, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnablePlacingLaser
+      objectReference: {fileID: 0}
     - target: {fileID: 4660083728330537496, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_IsActive
@@ -2803,7 +2813,7 @@ MonoBehaviour:
   squawkButton: {fileID: 1266168338}
   drinkButton: {fileID: 1958045447}
   woolBallButton: {fileID: 1836280164}
-  laserButton: {fileID: 0}
+  laserButton: {fileID: 388811642}
   mainMenu: {fileID: 45632240}
   cancelButton: {fileID: 165017624}
   _squawkRange: 3.5
@@ -5318,6 +5328,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 386217467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &388811642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4045020174023000097, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 45632239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,15 +43,15 @@ public class Square : MonoBehaviour
         if (isOilPuddle) currentMaterial.color = new Color(0.43f, 0.29f, 0.11f);
         _colorInit = currentMaterial.color;
 
-        if (containsWool)
-        {
-            WoolBall[] woolballList;
-            woolballList = FindObjectsByType<WoolBall>(FindObjectsSortMode.None);
-            foreach (WoolBall woolball in woolballList)
-            {
-                if (woolball.tile = this) wool = woolball;
-            }
-        }
+        //if (containsWool)
+        //{
+        //    WoolBall[] woolballList;
+        //    woolballList = FindObjectsByType<WoolBall>(FindObjectsSortMode.None);
+        //    foreach (WoolBall woolball in woolballList)
+        //    {
+        //        if (woolball.tile = this) wool = woolball;
+        //    }
+        //}
     }
 
     private void Update()
