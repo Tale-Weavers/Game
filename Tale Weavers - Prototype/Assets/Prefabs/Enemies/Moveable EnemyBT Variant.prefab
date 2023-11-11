@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 5643935823513431916}
   - component: {fileID: 1025940753222424235}
   - component: {fileID: 8098306342758132842}
+  - component: {fileID: 489942109749367398}
   m_Layer: 0
   m_Name: BT
   m_TagString: Untagged
@@ -523,6 +524,18 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+--- !u!114 &489942109749367398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727709267580721627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8297c7fa0356da428835a17ab641d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6235692343598646776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -596,6 +609,11 @@ PrefabInstance:
       propertyPath: BT
       value: 
       objectReference: {fileID: 6919065040159882272}
+    - target: {fileID: 3092483526615012103, guid: 91e3d4499ba670140aca42b528d346ac,
+        type: 3}
+      propertyPath: pathfinder
+      value: 
+      objectReference: {fileID: 489942109749367398}
     - target: {fileID: 3092483526615012103, guid: 91e3d4499ba670140aca42b528d346ac,
         type: 3}
       propertyPath: inspectorFacingDir
