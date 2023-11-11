@@ -1577,6 +1577,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: containsFlashlight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: m_Name
@@ -1675,10 +1680,12 @@ MonoBehaviour:
   squawkButton: {fileID: 1266168338}
   drinkButton: {fileID: 1958045447}
   woolBallButton: {fileID: 1836280164}
+  laserButton: {fileID: 0}
   mainMenu: {fileID: 45632240}
   cancelButton: {fileID: 165017624}
   _squawkRange: 3.5
-  _woolBall: {fileID: 0}
+  _woolBall:
+  - {fileID: 238521599}
 --- !u!1001 &174494441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2330,8 +2337,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6390013831791525692, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
         type: 3}
+      propertyPath: tile
+      value: 
+      objectReference: {fileID: 576099453}
+    - target: {fileID: 6390013831791525692, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
+        type: 3}
       propertyPath: isLaser
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8771061262123203035, guid: 23ad96b3f4bd4f843b1b8b27e0d800bf,
         type: 3}
@@ -2615,8 +2627,10 @@ MonoBehaviour:
   fountainClose: 0
   hasWoolBall: 0
   hasLaser: 0
+  hasFlashlight: 0
   _placingWool: 0
   _placingLaser: 0
+  _usingFlashlight: 0
 --- !u!1001 &258957019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4499,6 +4513,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: isExit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
