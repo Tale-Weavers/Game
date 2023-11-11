@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 7620595277086836129}
   - component: {fileID: 7510961093115118325}
   - component: {fileID: 5504032373526433886}
+  - component: {fileID: 3509680938553956428}
   m_Layer: 0
   m_Name: BT
   m_TagString: Untagged
@@ -523,6 +524,18 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
+--- !u!114 &3509680938553956428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336531000349978912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8297c7fa0356da428835a17ab641d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5809667840686886042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -596,6 +609,11 @@ PrefabInstance:
       propertyPath: BT
       value: 
       objectReference: {fileID: 8758430441702519187}
+    - target: {fileID: 7285837628587888800, guid: 1af932b0bc17e9148bea073420431d95,
+        type: 3}
+      propertyPath: pathfinder
+      value: 
+      objectReference: {fileID: 3509680938553956428}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

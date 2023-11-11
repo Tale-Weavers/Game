@@ -307,7 +307,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            torchButton.gameObject.SetActive(false);
+            torchButton?.gameObject.SetActive(false);
         }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;
