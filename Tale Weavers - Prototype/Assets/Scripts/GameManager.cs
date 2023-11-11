@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
+        AudioManager.instance.Play("cancion");
     }
 
     public void NextTurn()
