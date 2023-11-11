@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public Button drinkButton;
     public Button woolBallButton;
     public Button laserButton;
+    public Button torchButton;
     public Button mainMenu;
     public Button cancelButton;
 
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
         if (player.fountainClose) drinkButton.gameObject.SetActive(true);
         if (player.hasWoolBall) woolBallButton.gameObject.SetActive(true);
         if (player.hasLaser) laserButton?.gameObject.SetActive(true);
+        if (player.hasFlashlight) torchButton?.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
         laserButton?.gameObject.SetActive(false);
+        torchButton?.gameObject.SetActive(false);
         player.moveDone = false;
         player.actionDone = false;
         foreach (WoolBall woolBall in _woolBall)
@@ -210,6 +213,12 @@ public class GameManager : MonoBehaviour
         CancelAction();
     }
 
+    public void PlayerPlaceTorch()
+    {
+        torchButton?.gameObject.SetActive(false);
+        CancelAction();
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
@@ -237,6 +246,7 @@ public class GameManager : MonoBehaviour
         drinkButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
         laserButton?.gameObject.SetActive(false);
+        torchButton?.gameObject.SetActive(false);
 
         cancelButton.gameObject.SetActive(true);
     }
@@ -249,7 +259,22 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
-        woolBallButton.gameObject.SetActive(false) ;
+        woolBallButton.gameObject.SetActive(false);
+        torchButton?.gameObject.SetActive(false);
+
+        cancelButton.gameObject.SetActive(true);
+    }
+    public void SetUpTorch()
+    {
+        GridManager.instance.DrawRange(3, player.currentPos);
+
+        attackButton.gameObject.SetActive(false);
+        skipButton.gameObject.SetActive(false);
+        drinkButton.gameObject.SetActive(false);
+        squawkButton.gameObject.SetActive(false);
+        woolBallButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
+
         cancelButton.gameObject.SetActive(true);
     }
 
@@ -261,6 +286,7 @@ public class GameManager : MonoBehaviour
         skipButton.gameObject.SetActive(true);
         player.DisablePlacingWoolBall();
         player.DisablePlacingLaser();
+        player.DisablePlacingFlashlight();
         if (player.fountainClose)
         {
             drinkButton.gameObject.SetActive(true);
@@ -274,6 +300,14 @@ public class GameManager : MonoBehaviour
         {
             laserButton?.gameObject.SetActive(true);
 
+        }
+        if(player.hasFlashlight)
+        {
+            torchButton?.gameObject.SetActive(true);
+        }
+        else
+        {
+            torchButton.gameObject.SetActive(false);
         }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;

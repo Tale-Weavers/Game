@@ -42,7 +42,7 @@ public class Player : MoveableCharacter
     private void Update()
     {
 
-        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser)
+        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser &&!_usingFlashlight)
         {
             MoveCharacter();
             MoveablePositions();
@@ -294,6 +294,7 @@ public class Player : MoveableCharacter
                 hit.collider.GetComponent<Enemy>().GetBlinded(direction);
             }
         }
+        GameManager.instance.CancelAction();
     }
 
     public void UpdateMoveable()
@@ -371,6 +372,17 @@ public class Player : MoveableCharacter
     public void DisablePlacingLaser()
     {
         _placingLaser = false;
+    }
+
+    public void EnablePlacingFlaslight()
+    {
+        _usingFlashlight = true;
+        GameManager.instance.SetUpTorch();
+    }
+
+    public void DisablePlacingFlashlight()
+    {
+        _usingFlashlight = false;
     }
 
 }
