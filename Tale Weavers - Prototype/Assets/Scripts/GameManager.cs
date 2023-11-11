@@ -12,20 +12,18 @@ public class GameManager : MonoBehaviour
     public Enemy[] listOfEnemies;
     public Player player;
 
-    public TextMeshProUGUI turnText;
-    public TextMeshProUGUI winText;
+    public CanvasController canvasC;
 
-    [Header("Buttons")]
-    public Button attackButton;
 
-    public Button skipButton;
-    public Button squawkButton;
-    public Button drinkButton;
-    public Button woolBallButton;
-    public Button laserButton;
-    public Button torchButton;
-    public Button mainMenu;
-    public Button cancelButton;
+    [HideInInspector] public Button attackButton;
+    [HideInInspector] public Button skipButton;
+    [HideInInspector] public Button squawkButton;
+    [HideInInspector] public Button drinkButton;
+    [HideInInspector] public Button woolBallButton;
+    [HideInInspector] public Button laserButton;
+    [HideInInspector] public Button torchButton;
+    [HideInInspector] public Button mainMenu;
+    [HideInInspector] public Button cancelButton;
 
     [SerializeField] private float _squawkRange;
     [SerializeField] private List<WoolBall> _woolBall = new();
@@ -45,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void StartCharacters()
     {
+        
         foreach (Enemy enemy in listOfEnemies)
         {
             enemy.gameObject.SetActive(true);
@@ -67,8 +66,8 @@ public class GameManager : MonoBehaviour
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
-        turnText.text = $"Current turn: {currentTurn}";
-        foreach(WoolBall woolBall in _woolBall)
+        canvasC.AddTurn(currentTurn);
+        foreach (WoolBall woolBall in _woolBall)
         {
             woolBall.GetComponent<Collider>().enabled = false;
         }
@@ -165,16 +164,13 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
-        winText.text = "Level Completed";
-        winText.gameObject.SetActive(true);
+        canvasC.EndLevel();
         RestartLevel();
     }
 
     public void EndLevelLost()
     {
-        winText.text = "GAME OVER";
-        winText.gameObject.SetActive(true);
-
+        canvasC.LostLevel();
         RestartLevel();
     }
 
@@ -264,6 +260,7 @@ public class GameManager : MonoBehaviour
 
         cancelButton.gameObject.SetActive(true);
     }
+
     public void SetUpTorch()
     {
         GridManager.instance.DrawRange(3, player.currentPos);
@@ -294,14 +291,12 @@ public class GameManager : MonoBehaviour
         if (player.hasWoolBall)
         {
             woolBallButton.gameObject.SetActive(true);
-
         }
         if (player.hasLaser)
         {
             laserButton?.gameObject.SetActive(true);
-
         }
-        if(player.hasFlashlight)
+        if (player.hasFlashlight)
         {
             torchButton?.gameObject.SetActive(true);
         }
@@ -311,5 +306,19 @@ public class GameManager : MonoBehaviour
         }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;
+    }
+
+    public void SetUpButtons(Button[] botones)
+    {
+        attackButton = botones[0];
+
+        skipButton = botones[1];
+        squawkButton = botones[2];
+        drinkButton = botones[3];
+        woolBallButton = botones[4];
+        laserButton = botones[5];
+        torchButton = botones[6];
+        mainMenu = botones[7];
+        cancelButton = botones[8];
     }
 }
