@@ -58,6 +58,7 @@ public class CanvasController : MonoBehaviour
         drinkButton.onClick.AddListener(GameManager.instance.player.Drink);
         woolBallButton.onClick.AddListener(GameManager.instance.player.EnablePlacingWoolBall);
         torchButton.onClick.AddListener(GameManager.instance.player.EnablePlacingFlaslight);
+        laserButton.onClick.AddListener(GameManager.instance.player.EnablePlacingLaser);
         cancelButton.onClick.AddListener(GameManager.instance.CancelAction);
         attackButton.onClick.AddListener(GameManager.instance.player.KnockOutEnemies);
         mainMenuButton.onClick.AddListener(GameManager.instance.MainMenu);
