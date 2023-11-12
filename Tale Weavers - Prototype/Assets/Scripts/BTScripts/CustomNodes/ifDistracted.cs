@@ -11,7 +11,11 @@ namespace CustomNodes
         private Enemy _thisEnemy;
         public override NodeResult Execute()
         {
-            if (_thisEnemy.GetDistracted()) return NodeResult.success;
+            if (_thisEnemy.GetDistracted())
+            {
+                Debug.Log("Distraido");
+                return NodeResult.success;
+            }
             return NodeResult.failure;
         }
 
