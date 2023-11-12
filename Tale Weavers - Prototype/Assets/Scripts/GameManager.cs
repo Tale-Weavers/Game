@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public CanvasController canvasC;
 
+    public int nextLevelIndx;
 
     [HideInInspector] public Button attackButton;
     [HideInInspector] public Button skipButton;
@@ -138,10 +139,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
     }
 
+    public void NextLevel()
+    {
+        LevelManager.instance.LoadScene(nextLevelIndx);
+    }
+
     private IEnumerator SetupLevel()
     {
-        yield return new WaitForSecondsRealtime(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        yield return new WaitForSecondsRealtime(0.1f);
+        LevelManager.instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
     }
 
@@ -165,7 +171,7 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         canvasC.EndLevel();
-        RestartLevel();
+        NextLevel();
     }
 
     public void EndLevelLost()

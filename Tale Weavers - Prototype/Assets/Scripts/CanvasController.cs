@@ -18,6 +18,10 @@ public class CanvasController : MonoBehaviour
     public Button mainMenuButton;
     public Button cancelButton;
 
+    public Button restartButton;
+    public Button optionsButton;
+    public Button skipLevelButton;
+
     public TextMeshProUGUI turnText;
     public TextMeshProUGUI winText;
 
@@ -62,6 +66,12 @@ public class CanvasController : MonoBehaviour
         cancelButton.onClick.AddListener(GameManager.instance.CancelAction);
         attackButton.onClick.AddListener(GameManager.instance.player.KnockOutEnemies);
         mainMenuButton.onClick.AddListener(GameManager.instance.MainMenu);
+
+        skipLevelButton.onClick.AddListener(GameManager.instance.NextLevel);
+
+        restartButton.onClick.AddListener(GameManager.instance.RestartLevel);
+
+        //optionsButton.onClick.AddListener(GameManager.instance.Optiones);
 
         GameManager.instance.SetUpButtons(buttons);
     }
