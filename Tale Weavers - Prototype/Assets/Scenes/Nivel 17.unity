@@ -1290,14 +1290,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &45632241 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3777692973703712871, guid: 50f2da89fe0a985458baac9f2257cc56,
+  m_CorrespondingSourceObject: {fileID: 938073338383291179, guid: 50f2da89fe0a985458baac9f2257cc56,
     type: 3}
   m_PrefabInstance: {fileID: 45632239}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 65fdbfa8aeb89b04a87bddd5031565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &47025285
@@ -3093,14 +3093,14 @@ MonoBehaviour:
   - {fileID: 1662220557}
   - {fileID: 633494616}
   player: {fileID: 244428632}
-  turnText: {fileID: 712548132}
-  winText: {fileID: 45632241}
+  canvasC: {fileID: 45632241}
   attackButton: {fileID: 1654723508}
   skipButton: {fileID: 161098163}
   squawkButton: {fileID: 1266168338}
   drinkButton: {fileID: 1958045447}
   woolBallButton: {fileID: 1836280164}
   laserButton: {fileID: 0}
+  torchButton: {fileID: 0}
   mainMenu: {fileID: 45632240}
   cancelButton: {fileID: 165017624}
   _squawkRange: 3.5
@@ -11190,18 +11190,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 712352d71f6ae9842a0f57287b957705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &712548132 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6255572541081846009, guid: 50f2da89fe0a985458baac9f2257cc56,
-    type: 3}
-  m_PrefabInstance: {fileID: 45632239}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &714746729
