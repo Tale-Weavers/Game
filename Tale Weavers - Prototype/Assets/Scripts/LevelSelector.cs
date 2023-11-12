@@ -20,6 +20,6 @@ public class LevelSelector : MonoBehaviour
 
     public void Salir()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
 }
