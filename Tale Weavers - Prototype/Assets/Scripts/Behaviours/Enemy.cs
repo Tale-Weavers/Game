@@ -108,7 +108,6 @@ public abstract class Enemy : MoveableCharacter
     public void KnockEnemy()
     {
         knockOut = true;
-        currentMaterial.color = Color.red;
         Debug.Log("Me mueroaaaaaa");
         transform.Rotate(90, 0, 0);
         currentPos.isWalkable = true;
