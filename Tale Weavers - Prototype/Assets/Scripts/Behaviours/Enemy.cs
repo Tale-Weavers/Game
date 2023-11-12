@@ -120,7 +120,6 @@ public abstract class Enemy : MoveableCharacter
     {
         if (!moveDone)
         {
-            Debug.Log("hola");
             moveDone = true;
             Vector3 targetPosition = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
             facingDirection = targetPosition - transform.position;
@@ -262,7 +261,15 @@ public abstract class Enemy : MoveableCharacter
             Debug.Log("Estoy jugando");
             woolBall.NotifyEnemies(this);
         }
-        else ExploreSquawk(woolBallTile);
+        else
+        {
+            if (woolBallTile.containsWool) ExploreSquawk(woolBallTile);
+            else
+            {
+                _distracted = false;
+                CheckVision();
+            }
+        }
     }
 
     public void Investigar()

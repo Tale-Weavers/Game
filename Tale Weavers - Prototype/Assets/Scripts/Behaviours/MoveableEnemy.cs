@@ -98,7 +98,6 @@ public class MoveableEnemy : Enemy
 
     public void Patrullar()
     {
-        Debug.Log("patrullo");
         CheckVision();
         if (currentWaypoint == currentPos)
         {
