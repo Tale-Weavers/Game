@@ -21,12 +21,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(int esceneIndx)
+    public void LoadScene(string esceneIndx)
     {
         SceneManager.LoadScene(esceneIndx);
     }
 
-    public async void LoadSceneA(int esceneIndx)
+    public async void LoadSceneA(string esceneIndx)
     {
         var scene = SceneManager.LoadSceneAsync(esceneIndx);
         scene.allowSceneActivation = false;
