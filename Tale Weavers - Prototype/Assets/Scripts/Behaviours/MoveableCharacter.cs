@@ -11,7 +11,7 @@ public class MoveableCharacter : MonoBehaviour
 
     public bool moveDone = false;
 
-    protected Material currentMaterial;
+
 
     protected int currentTurn;
 
@@ -22,9 +22,6 @@ public class MoveableCharacter : MonoBehaviour
         MoveablePositions();
         currentTurn = 0;
         initSpawn.isWalkable = false;
-
-        Renderer renderer = GetComponent<Renderer>();
-        currentMaterial = renderer.material;
     }
 
     protected void MoveablePositions()
