@@ -41,6 +41,7 @@ public class Square : MonoBehaviour
         if (isDoor) { currentMaterial.color = Color.yellow; isWalkable = false; }
         if (containsButton) currentMaterial.color = Color.red;
         if (isOilPuddle) currentMaterial.color = new Color(0.43f, 0.29f, 0.11f);
+        if (containsFlashlight) currentMaterial.color = new Color(0.43f, 0.82f, 0.51f);
         _colorInit = currentMaterial.color;
 
         //if (containsWool)

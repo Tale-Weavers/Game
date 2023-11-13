@@ -349,7 +349,7 @@ public class GridManager : MonoBehaviour
                 }
                 break;
             case 3:
-                areaToPaint.AddRange(GetMultipleAdjacentsStopAtWalls(pos, 4));
+                areaToPaint.AddRange(GetMultipleAdjacentsStopAtWalls(pos, 15));
                 foreach (Square square in areaToPaint)
                 {
                     square.OnRange();

@@ -55,23 +55,27 @@ public class Player : MoveableCharacter
         {
             PlaceLaser();
         }
+        else if(Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _usingFlashlight && hasFlashlight)
+        {
+            UseFlashlight();
+        }
 
-        if(Input.GetKeyUp(KeyCode.DownArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight ) 
-        {
-            UseFlashlight(new Vector3(0,0,-1));
-        }
-        if (Input.GetKeyUp(KeyCode.UpArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
-        {
-            UseFlashlight(new Vector3(0, 0, 1));
-        }
-        if (Input.GetKeyUp(KeyCode.LeftArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
-        {
-            UseFlashlight(new Vector3(-1, 0, 0));
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
-        {
-            UseFlashlight(new Vector3(1, 0, 0));
-        }
+        //if(Input.GetKeyUp(KeyCode.DownArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight ) 
+        //{
+        //    UseFlashlight(new Vector3(0,0,-1));
+        //}
+        //if (Input.GetKeyUp(KeyCode.UpArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        //{
+        //    UseFlashlight(new Vector3(0, 0, 1));
+        //}
+        //if (Input.GetKeyUp(KeyCode.LeftArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        //{
+        //    UseFlashlight(new Vector3(-1, 0, 0));
+        //}
+        //if (Input.GetKeyUp(KeyCode.RightArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight)
+        //{
+        //    UseFlashlight(new Vector3(1, 0, 0));
+        //}
 
         if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
 
@@ -279,19 +283,46 @@ public class Player : MoveableCharacter
         }
     }
 
-    private void UseFlashlight(Vector3 direction)
+    private Vector3 GetPlacingDirection()
     {
-        hasFlashlight = false;
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 direction = new();
 
-        RaycastHit hit; 
-        if(Physics.Raycast(transform.position, direction, out hit))
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+        RaycastHit hit;
+        List<Square> posibles = GridManager.instance.GetMultipleAdjacentsStopAtWalls(currentPos, 15);
+
+        if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.CompareTag("Enemy"))
+            if (posibles.Contains(hit.transform.GetComponent<Square>()))
             {
-                hit.collider.GetComponent<Enemy>().GetBlinded(direction);
+                Square target = hit.transform.GetComponent<Square>();
+                Vector3 aux = target.transform.position - this.transform.position;
+                direction = new Vector3(aux.x, 0, aux.z);
+                direction = direction.normalized;
             }
         }
-        GameManager.instance.CancelAction();
+        return direction;
+    }
+
+    private void UseFlashlight()
+    {
+        Vector3 direction = GetPlacingDirection();
+        if (direction != new Vector3(0,0,0))
+        {
+            hasFlashlight = false;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction, out hit))
+            {
+                if (hit.collider.CompareTag("Enemy"))
+                {
+                    hit.collider.GetComponent<Enemy>().GetBlinded(direction);
+                }
+            }
+            GameManager.instance.CancelAction();
+        }
     }
 
     public void UpdateMoveable()

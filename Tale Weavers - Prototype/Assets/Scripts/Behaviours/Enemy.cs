@@ -343,4 +343,13 @@ public abstract class Enemy : MoveableCharacter
         _goAwake = goAwake;
     }
 
+    public bool GetBlinded()
+    {
+        return isBlinded;
+    }
+    public void SetBlinded(bool blinded)
+    {
+         isBlinded = blinded;
+    }
+
 }

@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
             foreach (Enemy enemy in listOfEnemies)
             {
                 Vector3 distance = enemy.transform.position - player.transform.position;
-                if (distance.magnitude < 1.1f && !enemy.knockOut && enemy.GetDistracted())
+                if (distance.magnitude < 1.1f && !enemy.knockOut && (enemy.GetDistracted()||enemy.GetBlinded()))
                 {
                     enemy.KnockEnemy();
                     enemyHit = true;
