@@ -10,9 +10,10 @@ public class AStarMind : MonoBehaviour
     private Stack<Square> currentPlan = new();
     public Square GetNextMove(Square currentPos, Square goal)
     {
-        if (currentPlan.Count != 0)
-            return currentPlan.Pop();
+        //if (currentPlan.Count != 0)
+        //    return currentPlan.Pop();
         // calcular camino, devuelve resultado de A*
+        currentPlan.Clear();
         var searchResult = Search(currentPos, goal);
 
         // recorre searchResult and copia el camino a currentPlan

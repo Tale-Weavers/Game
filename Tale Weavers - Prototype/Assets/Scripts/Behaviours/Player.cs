@@ -75,7 +75,7 @@ public class Player : MoveableCharacter
 
         if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.X) && !_isSeen) { KnockOutEnemies(); } //For debugging purposes, temporal
+        if (Input.GetKeyDown(KeyCode.X)) { KnockOutEnemies(); } //For debugging purposes, temporal
 
         if (Input.GetKeyDown(KeyCode.S)) { Squawk(); } //For debugging purposes, temporal
 
@@ -90,11 +90,8 @@ public class Player : MoveableCharacter
 
     public void KnockOutEnemies()
     {
-        if (_isSeen)
-        {
-            return;
-        }
-        if (GameManager.instance.CloseEnemies())
+
+        if (GameManager.instance.CloseEnemies(_isSeen))
         {
             actionDone = true;
             UpdateMoveable();

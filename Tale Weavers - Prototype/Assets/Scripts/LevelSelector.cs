@@ -13,7 +13,7 @@ public class LevelSelector : MonoBehaviour
     public Button Nivel2;
     public Button Nivel3;
 
-    public void LevelSelect(int level)
+    public void LevelSelect(string level)
     {
         SceneManager.LoadScene(level);
     }

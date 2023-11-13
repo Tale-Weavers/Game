@@ -111,7 +111,11 @@ public abstract class Enemy : MoveableCharacter
         Debug.Log("Me mueroaaaaaa");
         transform.Rotate(90, 0, 0);
         currentPos.isWalkable = true;
-        if(woolBall!=null) woolBall.gameObject.SetActive(false);
+        if (woolBall != null)
+        {
+            currentPos.containsWool = false;
+            woolBall.gameObject.SetActive(false);
+        }
         GetComponent<CapsuleCollider>().enabled = false;
     }
 
@@ -127,7 +131,21 @@ public abstract class Enemy : MoveableCharacter
             currentPos = destination.transform.GetComponent<Square>();
             currentPos.isWalkable = false;
             RotateEnemy();
-            if (_distracted && currentPos == woolBallTile) woolBall.beingPlayed = true;
+            if (currentPos.containsWool)
+            {
+                woolBall = currentPos.wool;
+                if (!woolBall.beingPlayed)
+                {
+                    _distracted = true;
+                    woolBallTile = woolBall.tile;
+                    woolBall.AddEnemy(this);
+                    woolBall.beingPlayed = true;
+                }
+                else
+                {
+                    _goAwake = true;
+                }
+            }
         }
     }
 

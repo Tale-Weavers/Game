@@ -151,19 +151,38 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    public bool CloseEnemies()
+    public bool CloseEnemies(bool isSeen)
     {
+        
         bool enemyHit = false;
-        foreach (Enemy enemy in listOfEnemies)
+
+        if (!isSeen)
         {
-            Vector3 distance = enemy.transform.position - player.transform.position;
-            if (distance.magnitude < 1.1f && !enemy.knockOut)
+            foreach (Enemy enemy in listOfEnemies)
             {
-                enemy.KnockEnemy();
-                enemyHit = true;
-                attackButton.gameObject.SetActive(false);
+                Vector3 distance = enemy.transform.position - player.transform.position;
+                if (distance.magnitude < 1.1f && !enemy.knockOut)
+                {
+                    enemy.KnockEnemy();
+                    enemyHit = true;
+                    attackButton.gameObject.SetActive(false);
+                }
             }
         }
+        else
+        {
+            foreach (Enemy enemy in listOfEnemies)
+            {
+                Vector3 distance = enemy.transform.position - player.transform.position;
+                if (distance.magnitude < 1.1f && !enemy.knockOut && enemy.GetDistracted())
+                {
+                    enemy.KnockEnemy();
+                    enemyHit = true;
+                    attackButton.gameObject.SetActive(false);
+                }
+            }
+        }
+        
         if (!enemyHit) { Debug.Log("NO HAY ENEMIGOS CERCA"); }
         return enemyHit;
     }
