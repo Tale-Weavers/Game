@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public int currentTurn;
     public Enemy[] listOfEnemies;
     public Player player;
+    public bool paused;
+    public bool inDialogue;
 
     public CanvasController canvasC;
 
