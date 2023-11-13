@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6688574734701201165}
   - component: {fileID: 6390013831791525692}
   m_Layer: 0
-  m_Name: FoodBowl
+  m_Name: FoodBowll
   m_TagString: WoolBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 4311365701001782848}
+  - {fileID: 6808612902125544681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7819880093776135761
@@ -123,7 +123,7 @@ MonoBehaviour:
   beingPlayed: 0
   isLaser: 0
   enemyList: []
---- !u!1001 &8752298318776982925
+--- !u!1001 &2080216541695401764
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -136,45 +136,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOODBOWL
       objectReference: {fileID: 0}
-    - target: {fileID: 3679391825803530787, guid: 60a2172f6de913843bc9c766dad868ba,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3679391825803530787, guid: 60a2172f6de913843bc9c766dad868ba,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.795
       objectReference: {fileID: 0}
     - target: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.579
       objectReference: {fileID: 0}
     - target: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
         type: 3}
@@ -211,24 +186,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6251735696874177494, guid: 60a2172f6de913843bc9c766dad868ba,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6251735696874177494, guid: 60a2172f6de913843bc9c766dad868ba,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a2172f6de913843bc9c766dad868ba, type: 3}
---- !u!4 &4311365701001782848 stripped
+--- !u!4 &6808612902125544681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4801792335655533517, guid: 60a2172f6de913843bc9c766dad868ba,
     type: 3}
-  m_PrefabInstance: {fileID: 8752298318776982925}
+  m_PrefabInstance: {fileID: 2080216541695401764}
   m_PrefabAsset: {fileID: 0}
