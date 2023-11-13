@@ -228,4 +228,16 @@ public class AudioManager : MonoBehaviour
         sliderMusic.value = 100;
         sliderSFX.value = 100;
     }
+    
+
+    public void PlaySchedule(string name,float time)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogError("Sound " + name + " not found!");
+            return;
+        }
+        s.source.PlayScheduled(AudioSettings.dspTime +time);
+    }
 }

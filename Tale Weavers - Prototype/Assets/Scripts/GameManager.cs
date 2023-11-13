@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public CanvasController canvasC;
 
-    public string nextLevelIndx;
+    public string nextLevelName;
 
     [HideInInspector] public Button attackButton;
     [HideInInspector] public Button skipButton;
@@ -52,7 +52,8 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
-        AudioManager.instance.Play("cancion");
+        AudioManager.instance.PlaySchedule("cancion",0);
+
     }
 
     public void NextTurn()
@@ -141,13 +142,14 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        LevelManager.instance.LoadScene(nextLevelIndx);
+        LevelManager.instance.LoadScene(nextLevelName);
     }
 
     private IEnumerator SetupLevel()
     {
         yield return new WaitForSecondsRealtime(0.1f);
-        LevelManager.instance.LoadScene(SceneManager.GetActiveScene().name);
+        string name = SceneManager.GetActiveScene().name;
+        LevelManager.instance.LoadScene(name);
         Time.timeScale = 1.0f;
     }
 

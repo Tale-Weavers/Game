@@ -447,7 +447,7 @@ MonoBehaviour:
   - {fileID: 108031107}
   player: {fileID: 244428632}
   canvasC: {fileID: 1135070460}
-  nextLevelIndx: 2
+  nextLevelIndx: 
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -1339,6 +1339,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348136735236689134, guid: 41c72fccab17c044c94782cf58560059,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348136735236689134, guid: 41c72fccab17c044c94782cf58560059,
+        type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c44a1168e85e58448a9d7a738ce00d2, type: 3}
+    - target: {fileID: 4348136735236689134, guid: 41c72fccab17c044c94782cf58560059,
+        type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348136735236689134, guid: 41c72fccab17c044c94782cf58560059,
+        type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: cancion2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348136735236689134, guid: 41c72fccab17c044c94782cf58560059,
+        type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348136735236689134, guid: 41c72fccab17c044c94782cf58560059,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.528
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348136735236689134, guid: 41c72fccab17c044c94782cf58560059,
+        type: 3}
+      propertyPath: sounds.Array.data[1].audioType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5614523671521803396, guid: 41c72fccab17c044c94782cf58560059,
         type: 3}
