@@ -407,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167176613}
   - component: {fileID: 167176614}
-  - component: {fileID: 167176616}
+  - component: {fileID: 167176615}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -463,6 +463,33 @@ MonoBehaviour:
   _squawkRange: 3.5
   _woolBall:
   - {fileID: 622456009}
+  _checkLevelCompletion: {fileID: 167176615}
+  enemiesKnockedOut: 0
+  enemiesDistracted: 0
+  woolBallUsed: 0
+  laserUsed: 0
+  squawkUsed: 0
+  flashlightUsed: 0
+--- !u!114 &167176615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167176612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d28ccfa96a33545970f4e573a4e9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nOfSteps2star: 20
+  nOfSteps3star: 15
+  nOfEnemiesKnockedOut: 1
+  nOfEnemiesDistracted: 0
+  notUsedWoolball: 0
+  notUsedLaser: 0
+  notUsedSquawk: 0
+  notUsedFlashlight: 0
 --- !u!1 &170734730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,12 +3541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712352d71f6ae9842a0f57287b957705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &705700804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8020989469239475790, guid: aee3069a73ea52447bbe7209a41f9e65,
-    type: 3}
-  m_PrefabInstance: {fileID: 5111561706137936327}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &705700805 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6196530470200397058, guid: aee3069a73ea52447bbe7209a41f9e65,
@@ -4991,18 +5012,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1066745527}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1102353358 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 421846882344350928, guid: aee3069a73ea52447bbe7209a41f9e65,
-    type: 3}
-  m_PrefabInstance: {fileID: 5111561706137936327}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1115059750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6622,18 +6631,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 712352d71f6ae9842a0f57287b957705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1574198731 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7391367722413532280, guid: aee3069a73ea52447bbe7209a41f9e65,
-    type: 3}
-  m_PrefabInstance: {fileID: 5111561706137936327}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1606020596
@@ -8428,6 +8425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020989469239475790, guid: aee3069a73ea52447bbe7209a41f9e65,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

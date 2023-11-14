@@ -31,6 +31,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _squawkRange;
     [SerializeField] private List<WoolBall> _woolBall = new();
 
+
+    [SerializeField] private CheckLevelCompletion _checkLevelCompletion;
+
+    public int enemiesKnockedOut;
+    public int enemiesDistracted;
+
+    public bool woolBallUsed;
+    public bool laserUsed;
+    public bool squawkUsed;
+    public bool flashlightUsed;
+
     private void Awake()
     {
         Time.timeScale = 1.0f;
@@ -46,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void StartCharacters()
     {
-        
+
         foreach (Enemy enemy in listOfEnemies)
         {
             enemy.gameObject.SetActive(true);
@@ -54,7 +65,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
-        AudioManager.instance.PlaySchedule("cancion",0);
+        AudioManager.instance.PlaySchedule("cancion", 0);
 
     }
 
@@ -157,7 +168,7 @@ public class GameManager : MonoBehaviour
 
     public bool CloseEnemies(bool isSeen)
     {
-        
+
         bool enemyHit = false;
 
         if (!isSeen)
@@ -178,7 +189,7 @@ public class GameManager : MonoBehaviour
             foreach (Enemy enemy in listOfEnemies)
             {
                 Vector3 distance = enemy.transform.position - player.transform.position;
-                if (distance.magnitude < 1.1f && !enemy.knockOut && (enemy.GetDistracted()||enemy.GetBlinded()))
+                if (distance.magnitude < 1.1f && !enemy.knockOut && (enemy.GetDistracted() || enemy.GetBlinded()))
                 {
                     enemy.KnockEnemy();
                     enemyHit = true;
@@ -186,7 +197,7 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        
+
         if (!enemyHit) { Debug.Log("NO HAY ENEMIGOS CERCA"); }
         return enemyHit;
     }
@@ -195,6 +206,7 @@ public class GameManager : MonoBehaviour
     {
         canvasC.EndLevel();
         NextLevel();
+        Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
     }
 
     public void EndLevelLost()
@@ -213,6 +225,7 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
+                squawkUsed = true;
             }
         }
         CancelAction();
@@ -230,23 +243,26 @@ public class GameManager : MonoBehaviour
     {
         woolBallButton.gameObject.SetActive(false);
         CancelAction();
+        woolBallUsed = true;
     }
 
     public void PlayerPlaceLaser()
     {
         laserButton?.gameObject.SetActive(false);
         CancelAction();
+        laserUsed = true;
     }
 
     public void PlayerPlaceTorch()
     {
         torchButton?.gameObject.SetActive(false);
         CancelAction();
+        flashlightUsed = true;
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void SetUpSquawk()

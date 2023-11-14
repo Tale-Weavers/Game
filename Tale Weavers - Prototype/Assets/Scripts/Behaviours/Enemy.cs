@@ -2,6 +2,7 @@ using MBT;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public abstract class Enemy : MoveableCharacter
 {
@@ -24,7 +25,7 @@ public abstract class Enemy : MoveableCharacter
     protected Square alertedTile;
     protected Square woolBallTile;
     protected WoolBall woolBall;
-    
+
     [SerializeField] protected bool isBlinded;
     [SerializeField] protected int blindedCounter = 3;
     [SerializeField] protected AStarMind pathfinder;
@@ -73,6 +74,7 @@ public abstract class Enemy : MoveableCharacter
                     _distracted = true;
                     woolBallTile = woolBall.tile;
                     woolBall.AddEnemy(this);
+                    GameManager.instance.enemiesDistracted++;
                 }
                 else
                 {
@@ -114,9 +116,12 @@ public abstract class Enemy : MoveableCharacter
         if (woolBall != null)
         {
             currentPos.containsWool = false;
+            woolBall.ForgetWoolball();
             woolBall.gameObject.SetActive(false);
         }
         GetComponent<CapsuleCollider>().enabled = false;
+        GameManager.instance.enemiesKnockedOut++;
+
     }
 
     protected void MoveTowards(Square destination)
@@ -205,6 +210,7 @@ public abstract class Enemy : MoveableCharacter
     {
         alertedTile = destination;
         _alerted = true;
+        GameManager.instance.enemiesDistracted++;
     }
 
     public void EndExploring()
@@ -251,17 +257,17 @@ public abstract class Enemy : MoveableCharacter
 
     public void GetBlinded(Vector3 lightDirection)
     {
-        if(lightDirection + facingDirection == Vector3.zero) { isBlinded = true; }
-        
+        if (lightDirection + facingDirection == Vector3.zero) { isBlinded = true; GameManager.instance.enemiesDistracted++; }
+
     }
 
     protected void AwakeEnemies()
     {
 
-            woolBall.ForgetWoolball();
-            if(woolBall != null) woolBall.gameObject.SetActive(false);
-            woolBall = null;
-        
+        woolBall.ForgetWoolball();
+        if (woolBall != null) woolBall.gameObject.SetActive(false);
+        woolBall = null;
+
     }
     public void Perseguir()
     {
@@ -293,9 +299,21 @@ public abstract class Enemy : MoveableCharacter
     {
         CheckVision();
         ExploreSquawk(alertedTile);
-        if (currentPos == alertedTile)
+        if (alertedTile.isWalkable)
         {
-            GameManager.instance.EnemyFinishedExploring();
+            if (currentPos == alertedTile)
+            {
+                GameManager.instance.EnemyFinishedExploring();
+            }
+        }
+        else
+        {
+            float distToGoal = (currentPos.transform.position - alertedTile.transform.position).magnitude;
+
+            if (distToGoal <= 1.3)
+            {
+                GameManager.instance.EnemyFinishedExploring();
+            }
         }
         CheckVision();
     }
@@ -349,7 +367,7 @@ public abstract class Enemy : MoveableCharacter
     }
     public void SetBlinded(bool blinded)
     {
-         isBlinded = blinded;
+        isBlinded = blinded;
     }
 
 }

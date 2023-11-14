@@ -32,7 +32,7 @@ public class WoolBall : MonoBehaviour
     {
         foreach(Enemy enemigo in enemyList)
         {
-            if (enemy != enemigo) enemigo.SetDistracted(false); enemigo.SetGoAwake(true);
+            if (enemy != enemigo) { enemigo.SetDistracted(false); enemigo.SetGoAwake(true); }
         }
     }
 
