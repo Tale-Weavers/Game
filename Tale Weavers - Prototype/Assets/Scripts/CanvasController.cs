@@ -38,6 +38,8 @@ public class CanvasController : MonoBehaviour
     public Button homeButtonFS;
     [SerializeField] private GameObject _failScreenGO;
 
+    [Header("Options Screen")]
+    [SerializeField] private GameObject _optionsScreenGO;
 
 
 
