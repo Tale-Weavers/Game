@@ -206,14 +206,13 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         canvasC.EndLevel();
-        NextLevel();
         Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
     }
 
     public void EndLevelLost()
     {
         canvasC.LostLevel();
-        RestartLevel();
+        
     }
 
     public void PlayerSquawk()
