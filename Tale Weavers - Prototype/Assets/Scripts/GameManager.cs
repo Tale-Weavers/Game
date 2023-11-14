@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        _checkLevelCompletion = GetComponent<CheckLevelCompletion>();
     }
 
     public void StartCharacters()
