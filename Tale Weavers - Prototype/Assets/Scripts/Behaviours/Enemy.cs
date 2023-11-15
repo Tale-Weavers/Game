@@ -53,7 +53,7 @@ public abstract class Enemy : MoveableCharacter
 
         if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f))
         {
-            if (hit.collider.CompareTag("Player") && !GameManager.instance.player._isHiding)
+            if (hit.collider.CompareTag("Player") && !GameManager.instance.player.IsHiding)
             {
                 Debug.Log("Atrapada");
                 GameManager.instance.player.Seen(true);
