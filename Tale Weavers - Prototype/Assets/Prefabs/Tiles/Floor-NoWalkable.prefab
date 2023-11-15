@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7270719245958349523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -121,8 +121,10 @@ MonoBehaviour:
   isWalkable: 0
   isFountain: 0
   containsWool: 0
+  containsFlashlight: 0
   isDoor: 0
   containsButton: 0
+  isOilPuddle: 0
   _fountainCounter: 0
   isExit: 0
   isHidingSpot: 0

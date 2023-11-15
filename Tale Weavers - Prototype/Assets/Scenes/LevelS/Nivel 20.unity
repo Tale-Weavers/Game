@@ -2977,7 +2977,7 @@ PrefabInstance:
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: _fountainCounter
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
@@ -3090,6 +3090,13 @@ MonoBehaviour:
   _woolBall:
   - {fileID: 673201692}
   - {fileID: 1711139801}
+  _checkLevelCompletion: {fileID: 0}
+  enemiesKnockedOut: 0
+  enemiesDistracted: 0
+  woolBallUsed: 0
+  laserUsed: 0
+  squawkUsed: 0
+  flashlightUsed: 0
 --- !u!1001 &175954828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31410,7 +31417,7 @@ PrefabInstance:
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: _fountainCounter
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
