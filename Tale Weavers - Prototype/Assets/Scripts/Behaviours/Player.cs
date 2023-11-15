@@ -2,10 +2,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : MoveableCharacter
+public class Player : MoveableCharacter, ISubject<bool>
 {
     [SerializeField] private bool _isSeen;
-    [SerializeField] public bool _isHiding;
+    [SerializeField] private bool _isHiding = false;
+
+    public bool IsHiding
+    {
+        get { return _isHiding; }
+
+        set
+        {
+            _isHiding = value;
+            NotifyObservers();
+        }
+    }
 
     private Square fountain;
 
@@ -25,6 +36,8 @@ public class Player : MoveableCharacter
     [SerializeField] private bool _placingWool;
     [SerializeField] private bool _placingLaser;
     [SerializeField] private bool _usingFlashlight;
+
+    private List<IObserver<bool>> _boolObservers = new();
 
     // Start is called before the first frame update
     private void Start()
@@ -134,7 +147,7 @@ public class Player : MoveableCharacter
                     transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
                     currentPos.isWalkable = true;
                     currentPos.occupiedByPlayer = false;
-                    if (currentPos.isHidingSpot) _isHiding = false;
+                    if (currentPos.isHidingSpot) IsHiding = false;
                     currentPos = target;
                     target.isWalkable = false;
                     target.occupiedByPlayer = true;
@@ -159,7 +172,7 @@ public class Player : MoveableCharacter
                 }
                 else if (currentPos.isHidingSpot)
                 {
-                    _isHiding = true;
+                    IsHiding = true;
 
                 }
                 else if (currentPos.containsWool)
@@ -208,8 +221,8 @@ public class Player : MoveableCharacter
         Vector3 direction = target.transform.position - currentPos.transform.position;
         transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
         currentPos.isWalkable = true;
-        currentPos.occupiedByPlayer = false;
-        if (currentPos.isHidingSpot) _isHiding = false;
+        currentPos.occupiedByPlayer = false;    
+        if (currentPos.isHidingSpot) IsHiding = false;
         currentPos = target;
         target.isWalkable = false;
         target.occupiedByPlayer = true;
@@ -416,4 +429,21 @@ public class Player : MoveableCharacter
         _usingFlashlight = false;
     }
 
+    public void AddObserver(IObserver<bool> observer)
+    {
+        _boolObservers.Add(observer);
+    }
+
+    public void RemoveObserver(IObserver<bool> observer)
+    {
+        _boolObservers.Remove(observer);
+    }
+
+    public void NotifyObservers()
+    {
+        foreach (var observer in _boolObservers)
+        {
+            observer?.UpdateObserver(IsHiding);
+        }
+    }
 }

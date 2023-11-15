@@ -9,7 +9,7 @@ public class VisionCone : MonoBehaviour
     public float VisionRange;
     public float VisionAngle;
     public LayerMask VisionObstructingLayer;//layer with objects that obstruct the enemy view, like walls, for example
-    public int VisionConeResolution = 120;//the vision cone will be made up of triangles, the higher this value is the pretier the vision cone will be
+    public int VisionConeResolution = 300;//the vision cone will be made up of triangles, the higher this value is the pretier the vision cone will be
     Mesh VisionConeMesh;
     MeshFilter MeshFilter_;
     //Create all of these variables, most of them are self explanatory, but for the ones that aren't i've added a comment to clue you in on what they do
@@ -47,6 +47,7 @@ public class VisionCone : MonoBehaviour
             if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit hit, VisionRange, VisionObstructingLayer))
             {
                 Vertices[i + 1] = VertForward * hit.distance+new Vector3(0,0,1f);
+
             }
             else
             {
