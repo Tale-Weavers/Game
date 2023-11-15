@@ -17,7 +17,7 @@ public class AStarMind : MonoBehaviour
         var searchResult = Search(currentPos, goal);
 
         // recorre searchResult and copia el camino a currentPlan
-        while (searchResult.parent != null)
+        while (searchResult?.parent != null)
         {
             currentPlan.Push(searchResult.cellData);
             searchResult = searchResult.parent;

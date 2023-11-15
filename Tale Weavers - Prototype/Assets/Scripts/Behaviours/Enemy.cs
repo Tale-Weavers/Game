@@ -282,6 +282,7 @@ public abstract class Enemy : MoveableCharacter
         if (currentPos == woolBallTile)
         {
             Debug.Log("Estoy jugando");
+            if (!AudioManager.instance.IsPlaying("eat") && !woolBall.isLaser) AudioManager.instance.Play("eat");
             woolBall.NotifyEnemies(this);
         }
         else
