@@ -116,6 +116,8 @@ public class Player : MoveableCharacter
 
         RaycastHit hit;
 
+        if (currentPos.isHidingSpot) AudioManager.instance.Play("openBox");
+
         if (Physics.Raycast(ray, out hit))
         {
             if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
@@ -124,6 +126,7 @@ public class Player : MoveableCharacter
                 if (target.isHidingSpot)
                 {
                     GameManager.instance.CheckEnemiesVision();
+                    AudioManager.instance.Play("closeBox");
                 }
                 if (target.isOilPuddle) Slip(target);
                 else

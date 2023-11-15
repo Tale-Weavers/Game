@@ -113,6 +113,32 @@ MonoBehaviour:
     minDistance: 0
     maxDistance: 0
     source: {fileID: 0}
+  - audioType: 1
+    name: openBox
+    clip: {fileID: 8300000, guid: da7fb2746b5e5704485f8d9327817336, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: closeBox
+    clip: {fileID: 8300000, guid: bbb59b49f642f674a96fa7d69972501b, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
   masterMixer: MasterVolume
   sfxMixer: SFXVolume
   musicMixer: MusicVolume
