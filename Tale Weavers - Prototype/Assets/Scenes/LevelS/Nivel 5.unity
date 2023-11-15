@@ -3082,6 +3082,8 @@ MonoBehaviour:
   - {fileID: 2082404454}
   - {fileID: 429451264}
   player: {fileID: 244428632}
+  paused: 0
+  inDialogue: 0
   canvasC: {fileID: 45632241}
   nextLevelName: 
   attackButton: {fileID: 1654723508}
@@ -3096,6 +3098,13 @@ MonoBehaviour:
   _squawkRange: 3.5
   _woolBall:
   - {fileID: 424673779}
+  _checkLevelCompletion: {fileID: 0}
+  enemiesKnockedOut: 0
+  enemiesDistracted: 0
+  woolBallUsed: 0
+  laserUsed: 0
+  squawkUsed: 0
+  flashlightUsed: 0
 --- !u!1001 &180068907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11032,6 +11041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moveable EnemyBT Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996683837456467459, guid: 37027bda0389dcd4f96e87d98ff5e799,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8963029965711906559, guid: 37027bda0389dcd4f96e87d98ff5e799,
         type: 3}
