@@ -121,7 +121,7 @@ public abstract class Enemy : MoveableCharacter
         }
         GetComponent<CapsuleCollider>().enabled = false;
         GameManager.instance.enemiesKnockedOut++;
-
+        AudioManager.instance.Play("knockout");
     }
 
     protected void MoveTowards(Square destination)

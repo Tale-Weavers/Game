@@ -206,7 +206,8 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         canvasC.EndLevel();
-        Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
+        //Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
+        AudioManager.instance.Play("victory");
     }
 
     public void EndLevelLost()
@@ -229,6 +230,7 @@ public class GameManager : MonoBehaviour
             }
         }
         CancelAction();
+        AudioManager.instance.Play("squawk");
     }
 
     public void EnemyFinishedExploring()
