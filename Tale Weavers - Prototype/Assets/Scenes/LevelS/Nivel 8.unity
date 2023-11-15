@@ -2184,6 +2184,13 @@ MonoBehaviour:
   _squawkRange: 3.5
   _woolBall:
   - {fileID: 1605013789}
+  _checkLevelCompletion: {fileID: 0}
+  enemiesKnockedOut: 0
+  enemiesDistracted: 0
+  woolBallUsed: 0
+  laserUsed: 0
+  squawkUsed: 0
+  flashlightUsed: 0
 --- !u!1001 &174494441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21281,12 +21288,6 @@ PrefabInstance:
       objectReference: {fileID: 2100718946}
     - target: {fileID: 8963029965711906559, guid: 37027bda0389dcd4f96e87d98ff5e799,
         type: 3}
-      propertyPath: inspectorFacingDir
-      value: 
-      objectReference: {fileID: 1638328618019092073, guid: 1f58b37c5b8efc04babe187222af7340,
-        type: 3}
-    - target: {fileID: 8963029965711906559, guid: 37027bda0389dcd4f96e87d98ff5e799,
-        type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 2100718946}
@@ -21295,16 +21296,6 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[1]
       value: 
       objectReference: {fileID: 208893219}
-    - target: {fileID: 8963029965711906559, guid: 37027bda0389dcd4f96e87d98ff5e799,
-        type: 3}
-      propertyPath: wayPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1501290393}
-    - target: {fileID: 8963029965711906559, guid: 37027bda0389dcd4f96e87d98ff5e799,
-        type: 3}
-      propertyPath: wayPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 1462921760}
     - target: {fileID: 8982809237043085788, guid: 37027bda0389dcd4f96e87d98ff5e799,
         type: 3}
       propertyPath: m_LocalPosition.x
