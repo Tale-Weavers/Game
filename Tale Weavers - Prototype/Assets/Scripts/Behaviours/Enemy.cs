@@ -1,5 +1,6 @@
 using MBT;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
@@ -13,6 +14,7 @@ public abstract class Enemy : MoveableCharacter
     public bool knockOut = false;
 
     protected Vector3 facingDirection;
+    protected Vector3 oldFacingDirection;
 
     [SerializeField] protected bool _playerSeen;
 
@@ -30,17 +32,44 @@ public abstract class Enemy : MoveableCharacter
     [SerializeField] protected int blindedCounter = 3;
     [SerializeField] protected AStarMind pathfinder;
 
+    [SerializeField] protected const float MOV_SPEED = 0.05f;
+
+    protected Animator animator;
+    protected Vector3 target;
+    protected bool moving;
+    protected bool jumping;
+    protected bool playerCaught;
     // Start is called before the first frame update
     protected void Start()
     {
         facingDirection = inspectorFacingDir.position;
 
         transform.rotation = Quaternion.LookRotation(facingDirection);
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
+        if (moving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED);
+            if ((transform.position - target).magnitude <= 0.01) 
+            {
+                moving = false;
+                animator.SetTrigger("Idle");
+            }
+        }
+        else if (jumping)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED);
+            if ((transform.position - target).magnitude <= 0.01) 
+            {
+                jumping = false;
+                
+            }
+        }
     }
 
     public abstract void StartAction();
@@ -122,16 +151,18 @@ public abstract class Enemy : MoveableCharacter
         GetComponent<CapsuleCollider>().enabled = false;
         GameManager.instance.enemiesKnockedOut++;
         AudioManager.instance.Play("knockout");
+        gameObject.SetActive(false);
     }
 
     protected void MoveTowards(Square destination)
     {
+        animator.SetTrigger("Step");
         if (!moveDone)
         {
             moveDone = true;
-            Vector3 targetPosition = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
-            facingDirection = targetPosition - transform.position;
-            transform.position = targetPosition;
+            target = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
+            facingDirection = target - transform.position;
+            moving = true;
             currentPos.isWalkable = true;
             currentPos = destination.transform.GetComponent<Square>();
             currentPos.isWalkable = false;
@@ -194,6 +225,10 @@ public abstract class Enemy : MoveableCharacter
         playerPos = GridManager.instance.LookForPlayer(currentPos);
         if (playerPos != null)
         {
+            playerCaught = true;
+            StartCoroutine(DelayJump());
+            target = new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z);
+            animator.SetTrigger("Jump");
             Debug.Log("Cachete");
             GameManager.instance.EndLevelLost();
             return true;
@@ -221,34 +256,7 @@ public abstract class Enemy : MoveableCharacter
 
     protected void ExploreSquawk(Square targetTile)
     {
-        //List<Square> list = new List<Square>();
-        //list = GridManager.instance.GetAdjacents(currentPos);
-        //Square optimalMovement = null;
-        //float distance = 999;
 
-        //foreach (Square square in list)
-        //{
-        //    Vector3 aux = square.transform.position - targetTile.transform.position;
-
-        //    if (aux.magnitude < distance)
-        //    {
-        //        distance = aux.magnitude;
-        //        optimalMovement = square;
-        //    }
-
-        //    List<Square> recursiveList = new();
-        //    recursiveList = GridManager.instance.GetAdjacents(square);
-
-        //    foreach (Square square2 in recursiveList)
-        //    {
-        //        Vector3 aux2 = square2.transform.position - targetTile.transform.position;
-        //        if (aux2.magnitude < distance)
-        //        {
-        //            distance = aux2.magnitude;
-        //            optimalMovement = square;
-        //        }
-        //    }
-        //}
         Square optimalMovement = pathfinder.GetNextMove(currentPos, targetTile);
 
 
@@ -272,9 +280,12 @@ public abstract class Enemy : MoveableCharacter
     public void Perseguir()
     {
         CatchPlayer();
-        ChasePlayer();
-        CatchPlayer();
-        CheckVision();
+        if (!playerCaught)
+        {
+            ChasePlayer();
+            CatchPlayer();
+            CheckVision();
+        }
     }
 
     public void Jugar()
@@ -282,12 +293,24 @@ public abstract class Enemy : MoveableCharacter
         if (currentPos == woolBallTile)
         {
             Debug.Log("Estoy jugando");
+            
             if (!AudioManager.instance.IsPlaying("eat") && !woolBall.isLaser) AudioManager.instance.Play("eat");
             woolBall.NotifyEnemies(this);
         }
         else
         {
-            if (woolBallTile.containsWool) ExploreSquawk(woolBallTile);
+            if (woolBallTile.containsWool) 
+            { 
+                ExploreSquawk(woolBallTile);
+                if (woolBall.isLaser)
+                {
+                    animator.SetTrigger("Play");
+                }
+                else
+                {
+                    animator.SetTrigger("Eat");
+                }
+            }
             else
             {
                 _distracted = false;
@@ -371,4 +394,13 @@ public abstract class Enemy : MoveableCharacter
         isBlinded = blinded;
     }
 
+    public void ForgetWoolball()
+    {
+        animator.SetTrigger("Idle");
+    }
+    private IEnumerator DelayJump()
+    {
+        yield return new WaitForSeconds(0.65f);
+        jumping = true;
+    }
 }
