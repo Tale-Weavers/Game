@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
             {
                 enemy.moveDone = false;
                 enemy.StartAction();
+                enemy.UpdateVisionCone();
             }
         }
         NextTurn();

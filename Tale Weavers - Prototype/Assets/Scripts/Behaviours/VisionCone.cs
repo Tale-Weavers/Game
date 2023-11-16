@@ -20,16 +20,19 @@ public class VisionCone : MonoBehaviour
         MeshFilter_ = transform.AddComponent<MeshFilter>();
         VisionConeMesh = new Mesh();
         VisionAngle *= Mathf.Deg2Rad;
+        DrawVisionCone();
     }
 
 
     void Update()
     {
-        DrawVisionCone();//calling the vision cone function everyframe just so the cone is updated every frame
+        //DrawVisionCone();//calling the vision cone function everyframe just so the cone is updated every frame
     }
 
-    void DrawVisionCone()//this method creates the vision cone mesh
+    public void DrawVisionCone()//this method creates the vision cone mesh
     {
+
+        float originalRange = VisionRange;
         int[] triangles = new int[(VisionConeResolution - 1) * 3];
         Vector3[] Vertices = new Vector3[VisionConeResolution + 1];
         Vertices[0] = Vector3.zero;
@@ -38,21 +41,23 @@ public class VisionCone : MonoBehaviour
         float Sine;
         float Cosine;
 
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitWall, 3f, VisionObstructingLayer))
+        {
+            Debug.Log(hitWall.distance);
+            Debug.Log(hitWall.collider.gameObject);
+            VisionRange = hitWall.distance+1.5f;
+        }
+
+
+
         for (int i = 0; i < VisionConeResolution; i++)
         {
             Sine = Mathf.Sin(Currentangle);
             Cosine = Mathf.Cos(Currentangle);
             Vector3 RaycastDirection = (transform.forward * Cosine) + (transform.right * Sine);
             Vector3 VertForward = (Vector3.forward * Cosine) + (Vector3.right * Sine);
-            if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit hit, VisionRange, VisionObstructingLayer))
-            {
-                Vertices[i + 1] = VertForward * hit.distance+new Vector3(0,0,1f);
 
-            }
-            else
-            {
-                Vertices[i + 1] = VertForward * VisionRange;
-            }
+            Vertices[i + 1] = VertForward * VisionRange;
 
 
             Currentangle += angleIcrement;
@@ -67,6 +72,8 @@ public class VisionCone : MonoBehaviour
         VisionConeMesh.vertices = Vertices;
         VisionConeMesh.triangles = triangles;
         MeshFilter_.mesh = VisionConeMesh;
+
+        VisionRange = originalRange;
     }
 
 

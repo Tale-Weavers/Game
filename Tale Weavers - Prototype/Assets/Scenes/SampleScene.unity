@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -450,7 +450,7 @@ MonoBehaviour:
   paused: 0
   inDialogue: 0
   canvasC: {fileID: 1135070460}
-  nextLevelName: 
+  nextLevelName: SampleScene
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -4659,7 +4659,7 @@ PrefabInstance:
     - target: {fileID: 7270719245958349523, guid: 2947eef500ee17f4cbf33f5f3505c924,
         type: 3}
       propertyPath: m_Name
-      value: Tile 1
+      value: Juan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7190,7 +7190,7 @@ PrefabInstance:
     - target: {fileID: 7270719245958349523, guid: 2947eef500ee17f4cbf33f5f3505c924,
         type: 3}
       propertyPath: m_Name
-      value: Tile 1
+      value: Emilio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7738,7 +7738,7 @@ PrefabInstance:
     - target: {fileID: 7270719245958349523, guid: 2947eef500ee17f4cbf33f5f3505c924,
         type: 3}
       propertyPath: m_Name
-      value: Tile 1
+      value: Paco
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8093,6 +8093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: VisionRange
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383147153739778996, guid: 37027bda0389dcd4f96e87d98ff5e799,
+        type: 3}
+      propertyPath: VisionConeResolution
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7468867693045074899, guid: 37027bda0389dcd4f96e87d98ff5e799,
         type: 3}
@@ -8619,6 +8624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Static EnemyBT
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944412141716603606, guid: 65db0c862278fe2468105a8872bb9b54,
+        type: 3}
+      propertyPath: VisionRange
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8758430441702519187, guid: 65db0c862278fe2468105a8872bb9b54,
         type: 3}
