@@ -13,6 +13,7 @@ public abstract class Enemy : MoveableCharacter
     public bool knockOut = false;
 
     protected Vector3 facingDirection;
+    protected Vector3 oldFacingDirection;
 
     [SerializeField] protected bool _playerSeen;
 
@@ -30,17 +31,34 @@ public abstract class Enemy : MoveableCharacter
     [SerializeField] protected int blindedCounter = 3;
     [SerializeField] protected AStarMind pathfinder;
 
+    [SerializeField] protected const float MOV_SPEED = 0.1f;
+
+    protected Animator animator;
+    protected Vector3 target;
+    protected bool moving;
+    protected bool rotating;
     // Start is called before the first frame update
     protected void Start()
     {
         facingDirection = inspectorFacingDir.position;
 
         transform.rotation = Quaternion.LookRotation(facingDirection);
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
+        if (moving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED);
+            if ((transform.position - target).magnitude <= 0.1) 
+            {
+                moving = false;
+                animator.SetTrigger("Idle");
+            }
+        }
     }
 
     public abstract void StartAction();
@@ -126,12 +144,13 @@ public abstract class Enemy : MoveableCharacter
 
     protected void MoveTowards(Square destination)
     {
+        animator.SetTrigger("Step");
         if (!moveDone)
         {
             moveDone = true;
-            Vector3 targetPosition = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
-            facingDirection = targetPosition - transform.position;
-            transform.position = targetPosition;
+            target = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
+            facingDirection = target - transform.position;
+            moving = true;
             currentPos.isWalkable = true;
             currentPos = destination.transform.GetComponent<Square>();
             currentPos.isWalkable = false;
@@ -221,34 +240,7 @@ public abstract class Enemy : MoveableCharacter
 
     protected void ExploreSquawk(Square targetTile)
     {
-        //List<Square> list = new List<Square>();
-        //list = GridManager.instance.GetAdjacents(currentPos);
-        //Square optimalMovement = null;
-        //float distance = 999;
 
-        //foreach (Square square in list)
-        //{
-        //    Vector3 aux = square.transform.position - targetTile.transform.position;
-
-        //    if (aux.magnitude < distance)
-        //    {
-        //        distance = aux.magnitude;
-        //        optimalMovement = square;
-        //    }
-
-        //    List<Square> recursiveList = new();
-        //    recursiveList = GridManager.instance.GetAdjacents(square);
-
-        //    foreach (Square square2 in recursiveList)
-        //    {
-        //        Vector3 aux2 = square2.transform.position - targetTile.transform.position;
-        //        if (aux2.magnitude < distance)
-        //        {
-        //            distance = aux2.magnitude;
-        //            optimalMovement = square;
-        //        }
-        //    }
-        //}
         Square optimalMovement = pathfinder.GetNextMove(currentPos, targetTile);
 
 
