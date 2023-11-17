@@ -209,6 +209,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                 else if(currentPos.containsFlashlight)
                 {
                     currentPos.containsFlashlight = false;
+                    currentPos.DisableFlashlight();
                     hasFlashlight = true;
                 }
                 //GameManager.instance.EndPlayerTurn();

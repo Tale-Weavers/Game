@@ -34,6 +34,7 @@ public class Square : MonoBehaviour
     [SerializeField] private Material _initMaterial;
     [SerializeField] private Material _rangeMaterial;
     [SerializeField] private Material _selectedMaterial;
+    [SerializeField] private GameObject _flashlight;
     [SerializeField] private Material emptyFountainMaterial;
     [SerializeField] private GameObject _fountainObject;
 
@@ -136,8 +137,16 @@ public class Square : MonoBehaviour
 
     public void OpenDoor()
     {
+        AudioManager.instance.Play("pinchos");
+        door.GetComponentInChildren<Animator>().SetTrigger("Open");
         door.isWalkable = true;
         door.currentMaterial.color = Color.grey;
         containsButton = false;
     }
+
+    public void DisableFlashlight()
+    {
+        _flashlight.SetActive(false);
+    }
+
 }
