@@ -172,6 +172,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                 }
                 else if (currentPos.isHidingSpot)
                 {
+                   
                     IsHiding = true;
 
                 }

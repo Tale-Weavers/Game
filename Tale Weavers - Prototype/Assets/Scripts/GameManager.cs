@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
-        AudioManager.instance.PlaySchedule("cancion", 0);
+        AudioManager.instance.Play("musicaNivel");
 
     }
 
@@ -224,7 +224,9 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     {
         canvasC.EndLevel();
         //Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
-        AudioManager.instance.Play("victory");
+        AudioManager.instance.Stop("musicaAtrapado");
+        AudioManager.instance.Stop("musicaNivel");
+        AudioManager.instance.Play("musicaVictoria");
     }
 
     public void EndLevelLost()
@@ -425,5 +427,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     {
         yield return new WaitForSeconds(2);
         canvasC.LostLevel();
+        AudioManager.instance.Stop("musicaAtrapado");
+        AudioManager.instance.Play("musicaDerrota");
     }
 }

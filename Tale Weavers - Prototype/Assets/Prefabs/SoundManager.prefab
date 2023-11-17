@@ -48,20 +48,7 @@ MonoBehaviour:
   sliderMusic: {fileID: 0}
   sliderSFX: {fileID: 0}
   sounds:
-  - audioType: 1
-    name: cancion
-    clip: {fileID: 8300000, guid: 6c44a1168e85e58448a9d7a738ce00d2, type: 3}
-    volume: 0.528
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-    dopplerLevel: 0
-    spatialBlend: 0
-    volumeRolloff: 0
-    minDistance: 0
-    maxDistance: 0
-    source: {fileID: 0}
-  - audioType: 1
+  - audioType: 0
     name: squawk
     clip: {fileID: 8300000, guid: 58e429cf95221ae49b3a6859d4de9805, type: 3}
     volume: 0.528
@@ -74,20 +61,7 @@ MonoBehaviour:
     minDistance: 0
     maxDistance: 0
     source: {fileID: 0}
-  - audioType: 1
-    name: victory
-    clip: {fileID: 8300000, guid: 6b86659e036e9f74480782bf5f61b8d6, type: 3}
-    volume: 0.528
-    pitch: 1
-    loop: 0
-    playOnAwake: 0
-    dopplerLevel: 0
-    spatialBlend: 0
-    volumeRolloff: 0
-    minDistance: 0
-    maxDistance: 0
-    source: {fileID: 0}
-  - audioType: 1
+  - audioType: 0
     name: knockout
     clip: {fileID: 8300000, guid: e68192f4ac0db3243ac46d8c4838c1fa, type: 3}
     volume: 0.528
@@ -100,7 +74,7 @@ MonoBehaviour:
     minDistance: 0
     maxDistance: 0
     source: {fileID: 0}
-  - audioType: 1
+  - audioType: 0
     name: eat
     clip: {fileID: 8300000, guid: 9291dd922376dde4ab86d0c5541a513a, type: 3}
     volume: 0.528
@@ -113,7 +87,7 @@ MonoBehaviour:
     minDistance: 0
     maxDistance: 0
     source: {fileID: 0}
-  - audioType: 1
+  - audioType: 0
     name: openBox
     clip: {fileID: 8300000, guid: da7fb2746b5e5704485f8d9327817336, type: 3}
     volume: 0.528
@@ -126,9 +100,139 @@ MonoBehaviour:
     minDistance: 0
     maxDistance: 0
     source: {fileID: 0}
-  - audioType: 1
+  - audioType: 0
     name: closeBox
     clip: {fileID: 8300000, guid: bbb59b49f642f674a96fa7d69972501b, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: musicaMenu
+    clip: {fileID: 8300000, guid: baeff04d96ca32347ac73f14b7cba559, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: musicaVictoria
+    clip: {fileID: 8300000, guid: dda695da73bf6284ca36b16315f2d202, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: musicaDerrota
+    clip: {fileID: 8300000, guid: cc7541ca5eaf78e41b17dda550c93ad9, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: musicaNivel
+    clip: {fileID: 8300000, guid: 39056c22c4a7d3e4fbf965776f0f7090, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: musicaAtrapado
+    clip: {fileID: 8300000, guid: 369a99b9f6b51c646b416175b73998e8, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: boton
+    clip: {fileID: 8300000, guid: a0233c3816ad9264a88e127a04544af8, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: pinchos
+    clip: {fileID: 8300000, guid: 8c6cc329864487341a18586f2fcac225, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: ronroneo
+    clip: {fileID: 8300000, guid: 6119cfa90f9233546b77f53816bdf7fa, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: sparkle
+    clip: {fileID: 8300000, guid: 6b86659e036e9f74480782bf5f61b8d6, type: 3}
+    volume: 0.528
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spatialBlend: 0
+    volumeRolloff: 0
+    minDistance: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: paso
+    clip: {fileID: 8300000, guid: f314aeb2636397741a064b1386bcd454, type: 3}
     volume: 0.528
     pitch: 1
     loop: 0
