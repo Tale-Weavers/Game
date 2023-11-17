@@ -43,8 +43,6 @@ public class VisionCone : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitWall, 3f, VisionObstructingLayer))
         {
-            Debug.Log(hitWall.distance);
-            Debug.Log(hitWall.collider.gameObject);
             VisionRange = hitWall.distance+1.5f;
         }
 

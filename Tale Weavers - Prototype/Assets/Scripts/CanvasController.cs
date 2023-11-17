@@ -5,12 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CanvasController : MonoBehaviour
+public class CanvasController : MonoBehaviour,IObserver<bool>
 {
     [Header ("UI in Game")]
     public Button skipButton;
     public Button attackButton;
     public Button squawkButton;
+    public Button squawkConfirmButton;
     public Button drinkButton;
     public Button woolBallButton;
     public Button laserButton;
@@ -26,6 +27,8 @@ public class CanvasController : MonoBehaviour
     public TextMeshProUGUI winText;
 
     [SerializeField] private GameObject _gameplayScreenGO;
+
+    [SerializeField]private ObjectMenu _menu;
 
     [Header("Win Screen")]
     public Button retryButtonWS;
@@ -44,7 +47,7 @@ public class CanvasController : MonoBehaviour
 
 
 
-    private Button[] buttons = new Button[9];
+    private Button[] buttons = new Button[10];
 
     public void Awake()
     {
@@ -74,10 +77,12 @@ public class CanvasController : MonoBehaviour
         buttons[6] = torchButton;
         buttons[7] = mainMenuButton;
         buttons[8] = cancelButton;
+        buttons[9] = squawkConfirmButton;
 
 
         skipButton.onClick.AddListener(GameManager.instance.player.SkipTurn);
         squawkButton.onClick.AddListener(GameManager.instance.player.Squawk);
+        squawkConfirmButton.onClick.AddListener(GameManager.instance.player.Squawk);
         drinkButton.onClick.AddListener(GameManager.instance.player.Drink);
         woolBallButton.onClick.AddListener(GameManager.instance.player.EnablePlacingWoolBall);
         torchButton.onClick.AddListener(GameManager.instance.player.EnablePlacingFlaslight);
@@ -101,6 +106,9 @@ public class CanvasController : MonoBehaviour
         //optionsButton.onClick.AddListener(GameManager.instance.Optiones);
 
         GameManager.instance.SetUpButtons(buttons);
+
+        GameManager.instance.AddObserver(this);
+
     }
 
     public void AddTurn(int currentTurn)
@@ -120,13 +128,21 @@ public class CanvasController : MonoBehaviour
         _failScreenGO.SetActive(true);
     }
 
-    public void EnableWinScreen()
+    public void EndTurn()
     {
-       
-    }
-    public void EnableFailScreen()
-    {
-        
+        _menu.EndTurn();
     }
 
+    public void UpdateObserver(bool data)
+    {
+        if (data)
+        {
+            EndTurn();
+        }
+        else
+        {
+            _menu.UpdateMenu();
+        }
+
+    }
 }

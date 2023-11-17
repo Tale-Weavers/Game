@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class ObjectMenuItem : MonoBehaviour
 {
-    [HideInInspector] public Image img;
+    public Image img;
 
     private void Awake()
     {
-        img = GetComponent<Image>();
         
     }
 }

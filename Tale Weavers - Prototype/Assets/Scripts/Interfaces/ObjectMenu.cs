@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
@@ -45,7 +46,9 @@ public class ObjectMenu : MonoBehaviour
 
         mainButton.onClick.AddListener(ToggleMenu);
         mainButtonPosition = transform.GetChild(0).position;
-
+        mainButton.transform.SetAsLastSibling();
+        
+        ResetPositions();
     }
 
     // Update is called once per frame
@@ -59,36 +62,28 @@ public class ObjectMenu : MonoBehaviour
         foreach (ObjectMenuItem item in menuItems)
         {
             item.transform.position = mainButtonPosition;
-            item.gameObject.SetActive(false);
-
+            Color tusmuertos = item.img.color;
+            tusmuertos.a = 0f;
+            item.img.color = tusmuertos;
         }
     }
 
     void ToggleMenu()
     {
+        if (GameManager.instance.enemyTurn)
+        {
+            return;
+        }
+
         isExpanded = !isExpanded;
 
         if(isExpanded)
         {
-            for (int i = 0; i < itemsCount; i++)
-            {
-                //menuItems[i].transform.position = mainButtonPosition + spacing*(i+1);
-                menuItems[i].gameObject.SetActive(true);
-                menuItems[i].transform.DOMove(mainButtonPosition + spacing * (i + 1), expandDuration).SetEase(expandEase);
-                //menuItems[i].img.DOFade(1f, expandFadeDuration).From(0f);
-
-            }
+            Open(false);
         }
         else
         {
-            for (int i = 0; i < itemsCount; i++)
-            {
-                //menuItems[i].transform.position = mainButtonPosition + spacing*(i+1);
-                menuItems[i].transform.DOMove(mainButtonPosition, collapseDuration).SetEase(collapseEase);
-                //menuItems[i].img.DOFade(0f, collapseFadeDuration);
-
-
-            }
+            Close();
         }
 
         mainButton.transform.DOShakePosition(rotationDuration).SetEase(rotationEase);
@@ -97,5 +92,51 @@ public class ObjectMenu : MonoBehaviour
     private void OnDestroy()
     {
         mainButton.onClick.RemoveListener(ToggleMenu);
+    }
+
+    public void UpdateMenu()
+    {
+        Open(true);
+    }
+
+    public void EndTurn()
+    {
+        if (isExpanded)
+        {
+            Close();
+            isExpanded = false;
+        }
+    }
+
+
+    private void Close()
+    {
+        for (int i = 0; i < itemsCount; i++)
+        {
+            //menuItems[i].transform.position = mainButtonPosition + spacing*(i+1);
+            menuItems[i].transform.DOMove(mainButtonPosition, collapseDuration).SetEase(collapseEase);
+            menuItems[i].img.DOFade(0f, collapseFadeDuration);
+
+
+        }
+    }
+
+    private void Open(bool type)
+    {
+        float time = type ? 0 : expandFadeDuration;
+        int cont = 0;
+        for (int i = 0; i < itemsCount; i++)
+        {
+            if (menuItems[i].gameObject.activeSelf)
+            {
+
+                //menuItems[i].transform.position = mainButtonPosition + spacing*(i+1);
+                menuItems[i].transform.DOMove(mainButtonPosition + spacing * (cont + 1), expandDuration).SetEase(expandEase);
+                menuItems[i].img.DOFade(1f, time).From(0f);
+                cont++;
+            }
+
+
+        }
     }
 }
