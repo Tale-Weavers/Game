@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour,ISubject<bool>
 {
     public static GameManager instance;
     public int currentTurn;
@@ -18,9 +18,12 @@ public class GameManager : MonoBehaviour
 
     public string nextLevelName;
 
+    private List<IObserver<bool>> _observers = new List<IObserver<bool>>();
+
     [HideInInspector] public Button attackButton;
     [HideInInspector] public Button skipButton;
     [HideInInspector] public Button squawkButton;
+    [HideInInspector] public Button squawkConfirmButton;
     [HideInInspector] public Button drinkButton;
     [HideInInspector] public Button woolBallButton;
     [HideInInspector] public Button laserButton;
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _squawkRange;
     [SerializeField] private List<WoolBall> _woolBall = new();
+    [HideInInspector] public bool enemyTurn;
 
 
     [SerializeField] private CheckLevelCompletion _checkLevelCompletion;
@@ -72,7 +76,12 @@ public class GameManager : MonoBehaviour
 
     public void NextTurn()
     {
+
+        enemyTurn = false;
+        //StartCoroutine(TimeWaste(0));
+
         StartCoroutine(TimeWaste(1));
+
         player.UpdateMoveable();
         if (player.canSquawk) squawkButton.gameObject.SetActive(true);
         if (player.fountainClose) drinkButton.gameObject.SetActive(true);
@@ -91,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
+        enemyTurn = true;
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
@@ -98,12 +108,14 @@ public class GameManager : MonoBehaviour
         woolBallButton.gameObject.SetActive(false);
         laserButton?.gameObject.SetActive(false);
         torchButton?.gameObject.SetActive(false);
+
         player.moveDone = false;
         player.actionDone = false;
         foreach (WoolBall woolBall in _woolBall)
         {
             woolBall.GetComponent<Collider>().enabled = true;
         }
+        NotifyObservers(true);
         StartCoroutine(EnemyMovement());
     }
 
@@ -121,6 +133,9 @@ public class GameManager : MonoBehaviour
                 enemy.moveDone = false;
 
                 enemy.StartAction();
+
+                enemy.UpdateVisionCone();
+
                 
             }
         }
@@ -230,7 +245,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
                 squawkUsed = true;
+                
             }
+            player.canSquawk = false;
         }
         CancelAction();
         AudioManager.instance.Play("squawk");
@@ -279,6 +296,8 @@ public class GameManager : MonoBehaviour
         drinkButton.gameObject.SetActive(false);
         woolBallButton.gameObject.SetActive(false);
         laserButton?.gameObject.SetActive(false);
+        squawkButton.gameObject.SetActive(false);
+        squawkConfirmButton.gameObject.SetActive(true);
 
         cancelButton.gameObject.SetActive(true);
     }
@@ -334,6 +353,7 @@ public class GameManager : MonoBehaviour
         player.DisablePlacingWoolBall();
         player.DisablePlacingLaser();
         player.DisablePlacingFlashlight();
+        squawkConfirmButton.gameObject.SetActive(false);
         if (player.fountainClose)
         {
             drinkButton.gameObject.SetActive(true);
@@ -354,8 +374,13 @@ public class GameManager : MonoBehaviour
         {
             torchButton?.gameObject.SetActive(false);
         }
+        if (player.canSquawk)
+        {
+            squawkButton.gameObject.SetActive(true);
+        }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;
+        NotifyObservers(false);
     }
 
     public void SetUpButtons(Button[] botones)
@@ -370,6 +395,30 @@ public class GameManager : MonoBehaviour
         torchButton = botones[6];
         mainMenu = botones[7];
         cancelButton = botones[8];
+        squawkConfirmButton = botones[9];
+    }
+
+    public void AddObserver(IObserver<bool> observer)
+    {
+        _observers.Add(observer);
+    }
+
+    public void RemoveObserver(IObserver<bool> observer)
+    {
+        _observers.Remove(observer);
+    }
+
+    public void NotifyObservers(bool data)
+    {
+        foreach (IObserver<bool> observer in _observers)
+        {
+            observer?.UpdateObserver(data);
+        }
+    }
+
+    public void NotifyObservers()
+    {
+        throw new System.NotImplementedException();
     }
 
     private IEnumerator EndLevelCoroutine()

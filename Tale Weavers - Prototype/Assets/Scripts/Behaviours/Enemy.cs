@@ -32,6 +32,10 @@ public abstract class Enemy : MoveableCharacter
     [SerializeField] protected int blindedCounter = 3;
     [SerializeField] protected AStarMind pathfinder;
 
+
+    [SerializeField] private VisionCone visionCone;
+
+
     [SerializeField] protected const float MOV_SPEED = 0.05f;
 
     protected Animator animator;
@@ -39,9 +43,12 @@ public abstract class Enemy : MoveableCharacter
     protected bool moving;
     protected bool jumping;
     protected bool playerCaught;
+
     // Start is called before the first frame update
     protected void Start()
     {
+        
+
         facingDirection = inspectorFacingDir.position;
 
         transform.rotation = Quaternion.LookRotation(facingDirection);
@@ -394,6 +401,13 @@ public abstract class Enemy : MoveableCharacter
         isBlinded = blinded;
     }
 
+
+    public void UpdateVisionCone()
+    {
+        visionCone.DrawVisionCone();
+    }
+
+
     public void ForgetWoolball()
     {
         animator.SetTrigger("Idle");
@@ -403,4 +417,5 @@ public abstract class Enemy : MoveableCharacter
         yield return new WaitForSeconds(0.65f);
         jumping = true;
     }
+
 }
