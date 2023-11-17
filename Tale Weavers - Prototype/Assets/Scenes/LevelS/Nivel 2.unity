@@ -1969,6 +1969,7 @@ MonoBehaviour:
   attackButton: {fileID: 2017888003}
   skipButton: {fileID: 23049598}
   squawkButton: {fileID: 626164713}
+  squawkConfirmButton: {fileID: 0}
   drinkButton: {fileID: 1123626366}
   woolBallButton: {fileID: 653100428}
   laserButton: {fileID: 0}
@@ -1977,6 +1978,7 @@ MonoBehaviour:
   cancelButton: {fileID: 0}
   _squawkRange: 3.5
   _woolBall: []
+  enemyTurn: 0
   _checkLevelCompletion: {fileID: 0}
   enemiesKnockedOut: 0
   enemiesDistracted: 0
@@ -3435,6 +3437,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5225218721541078947, guid: bfac0ad8ace252046bd1b14451922893,
         type: 3}
+    - target: {fileID: 3872084843349204026, guid: 65db0c862278fe2468105a8872bb9b54,
+        type: 3}
+      propertyPath: directions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3872084843349204026, guid: 65db0c862278fe2468105a8872bb9b54,
         type: 3}
       propertyPath: directions.Array.data[0]
@@ -13232,6 +13239,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3872084843349204026, guid: 65db0c862278fe2468105a8872bb9b54,
         type: 3}
+      propertyPath: directions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872084843349204026, guid: 65db0c862278fe2468105a8872bb9b54,
+        type: 3}
       propertyPath: directions.Array.data[0]
       value: 
       objectReference: {fileID: 1638328618019092073, guid: 1f58b37c5b8efc04babe187222af7340,
@@ -18489,6 +18501,26 @@ PrefabInstance:
     - target: {fileID: 1807361252523598297, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2607899666718854091, guid: 50f2da89fe0a985458baac9f2257cc56,
