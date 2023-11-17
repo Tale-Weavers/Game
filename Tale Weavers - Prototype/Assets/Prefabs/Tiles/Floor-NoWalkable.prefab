@@ -28,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7270719245958349523}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.5, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7270719245958349523}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 889830630d8ddd84db8c615c3a8b1031, type: 2}
+  - {fileID: 2100000, guid: a030f7383d6355e4d889d9dfe0e8d1ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,3 +132,6 @@ MonoBehaviour:
   isAdjacent: 0
   wool: {fileID: 0}
   door: {fileID: 0}
+  _initMaterial: {fileID: 2100000, guid: a030f7383d6355e4d889d9dfe0e8d1ce, type: 2}
+  _rangeMaterial: {fileID: 2100000, guid: 4a9d4dd10e158a343bd81ae26e6168a1, type: 2}
+  _selectedMaterial: {fileID: 2100000, guid: 385f810b282987c42850d27696813b28, type: 2}

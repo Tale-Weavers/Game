@@ -76,8 +76,12 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void NextTurn()
     {
+
         enemyTurn = false;
         //StartCoroutine(TimeWaste(0));
+
+        StartCoroutine(TimeWaste(1));
+
         player.UpdateMoveable();
         if (player.canSquawk) squawkButton.gameObject.SetActive(true);
         if (player.fountainClose) drinkButton.gameObject.SetActive(true);
@@ -115,10 +119,10 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         StartCoroutine(EnemyMovement());
     }
 
-    //private IEnumerator TimeWaste(int time)
-    //{
-    //    yield return new WaitForSeconds(time);
-    //}
+    private IEnumerator TimeWaste(int time)
+    {
+        yield return new WaitForSeconds(time);
+    }
 
     private IEnumerator EnemyMovement()
     {
@@ -127,8 +131,12 @@ public class GameManager : MonoBehaviour,ISubject<bool>
             if (!enemy.knockOut)
             {
                 enemy.moveDone = false;
+
                 enemy.StartAction();
+
                 enemy.UpdateVisionCone();
+
+                
             }
         }
         NextTurn();
@@ -221,7 +229,8 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void EndLevelLost()
     {
-        canvasC.LostLevel();
+
+        StartCoroutine(EndLevelCoroutine());
         
     }
 
@@ -410,5 +419,11 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public void NotifyObservers()
     {
         throw new System.NotImplementedException();
+    }
+
+    private IEnumerator EndLevelCoroutine()
+    {
+        yield return new WaitForSeconds(2);
+        canvasC.LostLevel();
     }
 }

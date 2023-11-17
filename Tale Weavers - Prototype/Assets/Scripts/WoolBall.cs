@@ -40,6 +40,7 @@ public class WoolBall : MonoBehaviour
     {
        foreach (Enemy enemy in enemyList)
         {
+            enemy.ForgetWoolball();
             enemy.SetDistracted(false);
             enemy.SetGoAwake(false);
         }

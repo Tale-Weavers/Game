@@ -31,18 +31,26 @@ public class Square : MonoBehaviour
     public WoolBall wool;
     public Square door;
 
+    [SerializeField] private Material _initMaterial;
+    [SerializeField] private Material _rangeMaterial;
+    [SerializeField] private Material _selectedMaterial;
+    [SerializeField] private Material emptyFountainMaterial;
+    [SerializeField] private GameObject _fountainObject;
+
+    private Renderer renderer;
+
     public void Start()
     {
-        Renderer renderer = GetComponent<Renderer>();
+        renderer = GetComponent<Renderer>();
         currentMaterial = renderer.material;
-        if (isHidingSpot) currentMaterial.color = Color.magenta;
-        if (isExit) currentMaterial.color = Color.cyan;
-        if (isFountain) { currentMaterial.color = Color.blue; isWalkable = false; }
-        if (isDoor) { currentMaterial.color = Color.yellow; isWalkable = false; }
-        if (containsButton) currentMaterial.color = Color.red;
-        if (isOilPuddle) currentMaterial.color = new Color(0.43f, 0.29f, 0.11f);
-        if (containsFlashlight) currentMaterial.color = new Color(0.43f, 0.82f, 0.51f);
-        _colorInit = currentMaterial.color;
+        //if (isHidingSpot) currentMaterial.color = Color.magenta;
+        //if (isExit) currentMaterial.color = Color.cyan;
+        if (isFountain) {  isWalkable = false; }
+        if (isDoor) {  isWalkable = false; }
+        //if (containsButton) currentMaterial.color = Color.red;
+        //if (isOilPuddle) currentMaterial.color = new Color(0.43f, 0.29f, 0.11f);
+        //if (containsFlashlight) currentMaterial.color = new Color(0.43f, 0.82f, 0.51f);
+        //_colorInit = currentMaterial.color;
 
         //if (containsWool)
         //{
@@ -75,9 +83,9 @@ public class Square : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (isAdjacent || _drawingrange)
+        if (isAdjacent && !_drawingrange)
         {
-            currentMaterial.color = Color.green;
+            renderer.material = _selectedMaterial;
         }
     }
 
@@ -85,12 +93,9 @@ public class Square : MonoBehaviour
     {
         if (!_drawingrange)
         {
-            currentMaterial.color = _colorInit;
+            renderer.material = _initMaterial;
         }
-        else
-        {
-            currentMaterial.color = Color.black;
-        }
+       
     }
 
     public void SetAdjacent(bool adjacent)
@@ -108,6 +113,10 @@ public class Square : MonoBehaviour
         if (_fountainCounter > 0)
         {
             _fountainCounter--;
+            if(_fountainCounter == 0)
+            {
+                _fountainObject.GetComponentInChildren<Renderer>().material = emptyFountainMaterial;
+            }
             return true;
         }
         else return false;
@@ -116,12 +125,12 @@ public class Square : MonoBehaviour
     public void OnRange()
     {
         _drawingrange = true;
-        currentMaterial.color = Color.black;
+        renderer.material = _rangeMaterial;
     }
 
     public void ClearRange()
     {
-        currentMaterial.color = _colorInit;
+        renderer.material = _initMaterial;
         _drawingrange = false;
     }
 
