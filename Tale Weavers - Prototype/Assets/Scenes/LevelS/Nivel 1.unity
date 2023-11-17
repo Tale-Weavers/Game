@@ -1475,6 +1475,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33d10214d255a114a98f89cc6cae67a3, type: 3}
+--- !u!1 &95460952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120377535335304654, guid: 33d10214d255a114a98f89cc6cae67a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 95460951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &95770922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2366,6 +2372,7 @@ MonoBehaviour:
   attackButton: {fileID: 504735668}
   skipButton: {fileID: 1448780227}
   squawkButton: {fileID: 1321695529}
+  squawkConfirmButton: {fileID: 0}
   drinkButton: {fileID: 865941314}
   woolBallButton: {fileID: 1258676881}
   laserButton: {fileID: 0}
@@ -2375,6 +2382,7 @@ MonoBehaviour:
   _squawkRange: 3.5
   _woolBall:
   - {fileID: 1343731635}
+  enemyTurn: 0
   _checkLevelCompletion: {fileID: 0}
   enemiesKnockedOut: 0
   enemiesDistracted: 0
@@ -9419,6 +9427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
+      propertyPath: _fountainObject
+      value: 
+      objectReference: {fileID: 95460952}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
       propertyPath: _fountainCounter
       value: 1
       objectReference: {fileID: 0}
@@ -13410,6 +13423,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CancelAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2607899666718854091, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
