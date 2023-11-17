@@ -397,6 +397,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7825695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7825697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120377535335304654, guid: 33d10214d255a114a98f89cc6cae67a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7825695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8731384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2595,6 +2601,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521572201153451874, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3081397330182242732, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3949,6 +3975,7 @@ MonoBehaviour:
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
+  squawkConfirmButton: {fileID: 0}
   drinkButton: {fileID: 0}
   woolBallButton: {fileID: 0}
   laserButton: {fileID: 0}
@@ -3959,6 +3986,7 @@ MonoBehaviour:
   _woolBall:
   - {fileID: 981742306}
   - {fileID: 200857073}
+  enemyTurn: 0
   _checkLevelCompletion: {fileID: 0}
   enemiesKnockedOut: 0
   enemiesDistracted: 0
@@ -9690,6 +9718,11 @@ PrefabInstance:
       propertyPath: isFountain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: _fountainObject
+      value: 
+      objectReference: {fileID: 1720492983}
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: _fountainCounter
@@ -21148,6 +21181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
+      propertyPath: _fountainObject
+      value: 
+      objectReference: {fileID: 1386253523}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
       propertyPath: _fountainCounter
       value: 1
       objectReference: {fileID: 0}
@@ -24405,6 +24443,12 @@ PrefabInstance:
 --- !u!4 &1386253522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8933647376502577012, guid: 33d10214d255a114a98f89cc6cae67a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1386253521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1386253523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120377535335304654, guid: 33d10214d255a114a98f89cc6cae67a3,
     type: 3}
   m_PrefabInstance: {fileID: 1386253521}
   m_PrefabAsset: {fileID: 0}
@@ -29624,6 +29668,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1720492981}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1720492983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120377535335304654, guid: 33d10214d255a114a98f89cc6cae67a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1720492981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1728061553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32776,6 +32826,11 @@ PrefabInstance:
       propertyPath: isFountain
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: _fountainObject
+      value: 
+      objectReference: {fileID: 7825697}
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: _fountainCounter
