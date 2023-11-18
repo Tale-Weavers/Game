@@ -21,13 +21,11 @@ public class BoxAnimatorStateController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entra");
         if (other.gameObject.tag == "Player") { animator.SetBool("PlayerIn", true); }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Sale");
         if (other.gameObject.tag == "Player") { animator.SetBool("PlayerIn", false); }
     }
 }
