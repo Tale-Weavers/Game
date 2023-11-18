@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
+        AudioManager.instance.InilitializeVolumen();
         AudioManager.instance.Play("musicaNivel");
 
     }
