@@ -668,9 +668,6 @@ Los gatos pueden llegar a tener 1 objeto equipado, lo que le permite protegerse 
 - **Gafas:** El rango de visión del gato aumenta 2 casillas.
 - **Gafas de sol:** El enemigo es inmune a los objetos: ovillo y linterna.
 
-#
-
-
 ## Arte Conceptual
 
 ### Estilo Artístico
@@ -723,14 +720,22 @@ Mientras que en nuestro juego el ambiente no tiene tanto peso como en este, toma
 
 Al haberse ambientado el juego en un mundo de gangsters reminiscente de la época de los speakeasy, contemporánea al art deco y a la bauhaus, ambos movimientos de gran inspiración geométrica, hemos decidido apoyarnos en estos para decorar los escenarios.
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image56.jpg)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image66.png)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image58.png)
+
 La idea es utilizar motivos geométricos y principios racionalistas para diseñar los entornos, aprovechando los mismos para guiar la mirada del jugador y hacer el juego más intuitivo, usando el entorno como apoyo o acompañamiento a la interfaz. 
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image44.png)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image86.jpg)
+
 La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta manera ayude a personaje, enemigos y objetos a destacar por color. En principio nos apoyaremos en la iluminación para aumentar este efecto como en estos escenarios de Eddy Loukil:
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image51.jpg)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image82.jpg)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image34.jpg)
 
 ### Diseño de Objetos y Requisitos Gráficos
