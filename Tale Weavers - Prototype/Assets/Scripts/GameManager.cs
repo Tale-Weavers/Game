@@ -194,9 +194,9 @@ public class GameManager : MonoBehaviour,ISubject<bool>
             foreach (Enemy enemy in listOfEnemies)
             {
                 Vector3 distance = enemy.transform.position - player.transform.position;
-                if (distance.magnitude < 1.1f && !enemy.knockOut)
+                if (distance.magnitude < 1.3f && !enemy.knockOut)
                 {
-                    enemy.KnockEnemy();
+                    StartCoroutine(WaitForKnockOut(enemy));
                     enemyHit = true;
                     attackButton.gameObject.SetActive(false);
                 }
@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
                 Vector3 distance = enemy.transform.position - player.transform.position;
                 if (distance.magnitude < 1.1f && !enemy.knockOut && (enemy.GetDistracted() || enemy.GetBlinded()))
                 {
-                    enemy.KnockEnemy();
+                    StartCoroutine(WaitForKnockOut(enemy));
                     enemyHit = true;
                     attackButton.gameObject.SetActive(false);
                 }
@@ -425,9 +425,15 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     private IEnumerator EndLevelCoroutine()
     {
+        player.Die();
         yield return new WaitForSeconds(2);
         canvasC.LostLevel();
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Play("musicaDerrota");
+    }
+    private IEnumerator WaitForKnockOut(Enemy enemy)
+    {
+        yield return new WaitForSeconds(1);
+        enemy.KnockEnemy();
     }
 }

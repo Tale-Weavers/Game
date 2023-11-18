@@ -18,7 +18,6 @@ public class MoveableCharacter : MonoBehaviour
     protected void Awake()
     {
         currentPos = initSpawn;
-        transform.position = new Vector3(currentPos.transform.position.x, 1, currentPos.transform.position.z);
         MoveablePositions();
         currentTurn = 0;
         initSpawn.isWalkable = false;

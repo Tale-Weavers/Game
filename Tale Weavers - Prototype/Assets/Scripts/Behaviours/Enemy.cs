@@ -53,6 +53,7 @@ public abstract class Enemy : MoveableCharacter
 
         transform.rotation = Quaternion.LookRotation(facingDirection);
         animator = GetComponentInChildren<Animator>();
+        transform.position = new Vector3(currentPos.transform.position.x, 1, currentPos.transform.position.z);
 
     }
 

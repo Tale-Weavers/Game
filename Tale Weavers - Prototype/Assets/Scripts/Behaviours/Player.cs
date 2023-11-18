@@ -39,6 +39,14 @@ public class Player : MoveableCharacter, ISubject<bool>
 
     private List<IObserver<bool>> _boolObservers = new();
 
+    private Animator animator;
+    private bool moving;
+    private const float MOV_SPEED = 0.05f;
+    private Vector3 target;
+
+    public Transform inspectorFacingDir;
+    protected Vector3 facingDirection;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -47,15 +55,30 @@ public class Player : MoveableCharacter, ISubject<bool>
     private void Awake()
     {
         base.Awake();
-        transform.position = new Vector3(currentPos.transform.position.x, transform.position.y, currentPos.transform.position.z);
+        transform.position = new Vector3(currentPos.transform.position.x, 0.5f, currentPos.transform.position.z);
         currentPos.occupiedByPlayer = true;
+        animator = GetComponentInChildren<Animator>();
+        facingDirection = inspectorFacingDir.position;
+        transform.rotation = Quaternion.LookRotation(facingDirection);
     }
 
+    void FixedUpdate()
+    {
+        if (moving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED);
+            if ((transform.position - target).magnitude <= 0.01)
+            {
+                moving = false;
+                animator.SetTrigger("Idle");
+            }
+        }
+    }
     // Update is called once per frame
     private void Update()
     {
 
-        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser &&!_usingFlashlight)
+        if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
         {
             MoveCharacter();
             MoveablePositions();
@@ -68,7 +91,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         {
             PlaceLaser();
         }
-        else if(Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _usingFlashlight && hasFlashlight)
+        else if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _usingFlashlight && hasFlashlight)
         {
             UseFlashlight();
         }
@@ -112,6 +135,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         {
             actionDone = true;
             UpdateMoveable();
+            animator.SetTrigger("Attack");
         }
     }
 
@@ -135,23 +159,29 @@ public class Player : MoveableCharacter, ISubject<bool>
         {
             if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
             {
-                Square target = hit.transform.GetComponent<Square>();
-                if (target.isHidingSpot)
+                
+                Square squareTarget = hit.transform.GetComponent<Square>();
+
+                if (squareTarget.isHidingSpot)
                 {
                     GameManager.instance.CheckEnemiesVision();
                     AudioManager.instance.Play("closeBox");
                 }
-                if (target.isOilPuddle) Slip(target);
+                if (squareTarget.isOilPuddle) { Slip(squareTarget); animator.SetTrigger("Idle"); }
                 else
                 {
-                    transform.position = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
+                    animator.SetTrigger("Step");
+                    target = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
+                    moving = true;
                     currentPos.isWalkable = true;
                     currentPos.occupiedByPlayer = false;
                     if (currentPos.isHidingSpot) IsHiding = false;
-                    currentPos = target;
-                    target.isWalkable = false;
-                    target.occupiedByPlayer = true;
+                    currentPos = squareTarget;
+                    squareTarget.isWalkable = false;
+                    squareTarget.occupiedByPlayer = true;
                     moveDone = true;
+                    facingDirection = target - transform.position;
+                    RotateCharacter();
                 }
 
                 fountain = GridManager.instance.LookForFountain(currentPos);
@@ -172,7 +202,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                 }
                 else if (currentPos.isHidingSpot)
                 {
-                   
+
                     IsHiding = true;
 
                 }
@@ -202,11 +232,11 @@ public class Player : MoveableCharacter, ISubject<bool>
                     }
 
                 }
-                else if(currentPos.containsButton)
+                else if (currentPos.containsButton)
                 {
                     currentPos.OpenDoor();
                 }
-                else if(currentPos.containsFlashlight)
+                else if (currentPos.containsFlashlight)
                 {
                     currentPos.containsFlashlight = false;
                     currentPos.DisableFlashlight();
@@ -218,23 +248,24 @@ public class Player : MoveableCharacter, ISubject<bool>
         }
     }
 
-    private void Slip(Square target)
+    private void Slip(Square targetSquare)
     {
-        Vector3 direction = target.transform.position - currentPos.transform.position;
-        transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+        Vector3 direction = targetSquare.transform.position - currentPos.transform.position;
+        target = new Vector3(targetSquare.transform.position.x, transform.position.y, targetSquare.transform.position.z);
+        moving = true;
         currentPos.isWalkable = true;
-        currentPos.occupiedByPlayer = false;    
+        currentPos.occupiedByPlayer = false;
         if (currentPos.isHidingSpot) IsHiding = false;
-        currentPos = target;
-        target.isWalkable = false;
-        target.occupiedByPlayer = true;
+        currentPos = targetSquare;
+        targetSquare.isWalkable = false;
+        targetSquare.occupiedByPlayer = true;
         moveDone = true;
-        if(currentPos.isOilPuddle)
+        if (currentPos.isOilPuddle)
         {
             List<Square> adjacents = GridManager.instance.GetAdjacents(currentPos);
-            foreach(Square adjacent in adjacents)
+            foreach (Square adjacent in adjacents)
             {
-                if(adjacent.transform.position == currentPos.transform.position + direction) 
+                if (adjacent.transform.position == currentPos.transform.position + direction)
                 {
                     Slip(adjacent);
                 }
@@ -253,21 +284,21 @@ public class Player : MoveableCharacter, ISubject<bool>
 
         if (Physics.Raycast(ray, out hit))
         {
-                if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
+            if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
+            {
+                Square target = hit.transform.GetComponent<Square>();
+                if (!target.containsWool)
                 {
-                    Square target = hit.transform.GetComponent<Square>();
-                    if (!target.containsWool)
-                    {
-                        target.containsWool = true;
-                        target.wool = _woolball;
-                        hasWoolBall = false;
-                        _woolball.transform.position = new Vector3(hit.transform.position.x, _woolball.transform.position.y, hit.transform.position.z);
-                        _woolball.tile = target;
-                        _woolball.gameObject.SetActive(true);
-                        _placingWool = false;
-                        GameManager.instance.PlayerPlaceWoolball();
-                    }
+                    target.containsWool = true;
+                    target.wool = _woolball;
+                    hasWoolBall = false;
+                    _woolball.transform.position = new Vector3(hit.transform.position.x, _woolball.transform.position.y, hit.transform.position.z);
+                    _woolball.tile = target;
+                    _woolball.gameObject.SetActive(true);
+                    _placingWool = false;
+                    GameManager.instance.PlayerPlaceWoolball();
                 }
+            }
         }
     }
 
@@ -327,7 +358,7 @@ public class Player : MoveableCharacter, ISubject<bool>
     private void UseFlashlight()
     {
         Vector3 direction = GetPlacingDirection();
-        if (direction != new Vector3(0,0,0))
+        if (direction != new Vector3(0, 0, 0))
         {
             hasFlashlight = false;
 
@@ -368,6 +399,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             }
             else
             {
+                animator.SetTrigger("Squawk");
                 GameManager.instance.PlayerSquawk();
                 canSquawk = false;
             }
@@ -447,5 +479,16 @@ public class Player : MoveableCharacter, ISubject<bool>
         {
             observer?.UpdateObserver(IsHiding);
         }
+    }
+
+    private void RotateCharacter()
+    {
+
+        transform.rotation = Quaternion.LookRotation(facingDirection);
+
+    }
+    public void Die()
+    {
+        animator.SetTrigger("Die");
     }
 }
