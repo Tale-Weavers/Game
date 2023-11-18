@@ -115,7 +115,13 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         homeButtonFS.onClick.AddListener(GameManager.instance.MainMenu);
         retryButtonFS.onClick.AddListener(GameManager.instance.RestartLevel);
 
-        
+        masterSlider.onValueChanged.AddListener(AudioManager.instance.GeneralSound);
+        sfxSlider.onValueChanged.AddListener(AudioManager.instance.SFXSound);
+        musicSlider.onValueChanged.AddListener(AudioManager.instance.MusicSound);
+        AudioManager.instance.sliderGeneral = masterSlider;
+        AudioManager.instance.sliderSFX = sfxSlider;
+        AudioManager.instance.sliderMusic = musicSlider;
+
 
         GameManager.instance.SetUpButtons(buttons);
 
