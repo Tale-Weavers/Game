@@ -42,6 +42,10 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     [SerializeField] private GameObject _failScreenGO;
 
     [Header("Options Screen")]
+    public Slider masterSlider;
+    public Slider sfxSlider;
+    public Slider musicSlider;
+    public Button returnButton;
     [SerializeField] private GameObject _optionsScreenGO;
 
 
@@ -51,7 +55,12 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
 
     public void Awake()
     {
-        
+        masterSlider.onValueChanged.AddListener(AudioManager.instance.GeneralSound);
+        sfxSlider.onValueChanged.AddListener(AudioManager.instance.SFXSound);
+        musicSlider.onValueChanged.AddListener(AudioManager.instance.MusicSound);
+        AudioManager.instance.sliderGeneral = masterSlider;
+        AudioManager.instance.sliderSFX = sfxSlider;
+        AudioManager.instance.sliderMusic = musicSlider;
     }
 
     // Start is called before the first frame update
@@ -95,6 +104,9 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
 
         restartButton.onClick.AddListener(GameManager.instance.RestartLevel);
 
+        optionsButton.onClick.AddListener(OpenSettings);
+        returnButton.onClick.AddListener(CloseSettings);
+
 
         retryButtonWS.onClick.AddListener(GameManager.instance.RestartLevel);
         nextLevelButtonWS.onClick.AddListener(GameManager.instance.NextLevel);
@@ -103,11 +115,13 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         homeButtonFS.onClick.AddListener(GameManager.instance.MainMenu);
         retryButtonFS.onClick.AddListener(GameManager.instance.RestartLevel);
 
-        //optionsButton.onClick.AddListener(GameManager.instance.Optiones);
+        
 
         GameManager.instance.SetUpButtons(buttons);
 
         GameManager.instance.AddObserver(this);
+
+
 
     }
 
@@ -144,5 +158,17 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
             _menu.UpdateMenu();
         }
 
+    }
+
+    public void OpenSettings()
+    {
+        _optionsScreenGO.SetActive(true);
+        GameManager.instance.onMenu = true;
+    }
+
+    public void CloseSettings()
+    {
+        _optionsScreenGO.SetActive(false);
+        GameManager.instance.onMenu = false;
     }
 }

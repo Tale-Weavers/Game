@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     private List<IObserver<bool>> _observers = new List<IObserver<bool>>();
 
+    public bool onMenu;
+
     [HideInInspector] public Button attackButton;
     [HideInInspector] public Button skipButton;
     [HideInInspector] public Button squawkButton;
@@ -300,6 +302,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         laserButton?.gameObject.SetActive(false);
         squawkButton.gameObject.SetActive(false);
         squawkConfirmButton.gameObject.SetActive(true);
+        torchButton?.gameObject.SetActive(false);
 
         cancelButton.gameObject.SetActive(true);
     }

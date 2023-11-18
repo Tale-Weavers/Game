@@ -59,7 +59,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //InilitializeVolumen();
+        InilitializeVolumen();
     }
 
     //Inicializa los volumenes segun los ajustes del jugador o al maximo si no los ha tocado

@@ -77,7 +77,10 @@ public class Player : MoveableCharacter, ISubject<bool>
     // Update is called once per frame
     private void Update()
     {
-
+        if (GameManager.instance.onMenu)
+        {
+            return;
+        }
         if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
         {
             MoveCharacter();
@@ -363,8 +366,10 @@ public class Player : MoveableCharacter, ISubject<bool>
             hasFlashlight = false;
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, direction, out hit))
+            Vector3 pos = new Vector3(transform.position.x,transform.position.y+0.5f,transform.position.z);
+            if (Physics.Raycast(pos, direction, out hit))
             {
+                Debug.DrawRay(pos, direction, Color.green, 50f);
                 if (hit.collider.CompareTag("Enemy"))
                 {
                     hit.collider.GetComponent<Enemy>().GetBlinded(direction);
