@@ -149,7 +149,7 @@ La interfaz debe mostrarle al jugador información relevante para que complete e
 
 Boceto de la interfaz In-Game:
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image36.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image36.jpg)
 ###
 
 
@@ -177,7 +177,7 @@ El menú principal del juego contará con una imagen que introduzca al jugador a
 
 #### Tutorial: Movimiento básico
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image71.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image71.jpg)
 
 **Explicación:** El camino esperado para el jugador es el marcado con la línea negra. El cuervo tendrá que moverse hacia el gato para noquearlo y posteriormente avanzar hasta la casilla de salida.
 
@@ -198,7 +198,7 @@ El menú principal del juego contará con una imagen que introduzca al jugador a
 "Tendré que buscar un camino alternativo y noquearlo si quiero pasar"
 
 #### Tutorial: Esconderse y esperar 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image15.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image15.jpg)
 
 **Explicación:** El camino superior se encuentra bloqueado por la presencia del gato número 1 que se encuentra vigilando siempre en la misma dirección.
 
@@ -303,7 +303,7 @@ Las áreas del pensamiento computacional a explorar en este nivel son Abstracci�
 
 #### Nivel 1
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image2.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image2.jpg)
 
 **Explicación:** El jugador tendrá que hacer una gestión adecuada del bol de comida y la fuente para terminar el nivel de forma adecuada. Como se puede observar, el nivel tiene varios caminos que se pueden tomar, aunque el más óptimo se encuentra pasando por la zona izquierda. Un ejemplo para completar el nivel sería distraer al gato número 2 con el bol de comida y distraer al número 1 con la fuente para despejar el camino. Un camino óptimo se representa con la línea negra del diagrama del nivel.
 
@@ -311,7 +311,7 @@ Las áreas del pensamiento computacional a explorar en este nivel son Abstracci�
 
 #### Nivel 2 
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image57.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image57.jpg)
 
 **Explicación:** El camino esperado por el jugador es esconderse del gato número 1 en el escondite para poder noquearlo y posteriormente pasar a la siguiente zona del nivel.
 
@@ -668,9 +668,6 @@ Los gatos pueden llegar a tener 1 objeto equipado, lo que le permite protegerse 
 - **Gafas:** El rango de visión del gato aumenta 2 casillas.
 - **Gafas de sol:** El enemigo es inmune a los objetos: ovillo y linterna.
 
-#
-
-
 ## Arte Conceptual
 
 ### Estilo Artístico
@@ -680,8 +677,8 @@ El estilo visual es simple y amigable, orientado a una audiencia joven y cuidado
 Se usarán colores neutros para el entorno con colores vivos o fuertes para elementos importantes como personajes, objetos, campos de visión etc.
 
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image73.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image65.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image21.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image65.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image21.jpg)
 
 ### Paleta de Colores
 
@@ -713,25 +710,33 @@ En este aspecto hemos tomado como referencia animales de cómic y personajes de 
 Para mayor claridad y que el entorno no distraiga del puzle que conforman las mecánicas del juego, se ha decidido utilizar un estilo que, mientras que sea simple sin dejar de aportar cierto interés visual.
 
 Un ejemplo e inspiración en este aspecto es el juego Monument Valley. 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image49.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image42.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image61.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image49.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image42.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image61.jpg)
 
 A pesar de su relativa simpleza, los escenarios son memorables y cautivadores, a la vez que dejan claro al jugador de una mirada su objetivo, el camino a seguir, y los recursos en su mano.
 
 Mientras que en nuestro juego el ambiente no tiene tanto peso como en este, tomaremos inspiración en lo que a estilo se refiere. Queremos capturar la misma limpieza y estilización de la arquitectura.
 
 Al haberse ambientado el juego en un mundo de gangsters reminiscente de la época de los speakeasy, contemporánea al art deco y a la bauhaus, ambos movimientos de gran inspiración geométrica, hemos decidido apoyarnos en estos para decorar los escenarios.
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image56.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image56.jpg)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image66.png)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image58.png)
+
 La idea es utilizar motivos geométricos y principios racionalistas para diseñar los entornos, aprovechando los mismos para guiar la mirada del jugador y hacer el juego más intuitivo, usando el entorno como apoyo o acompañamiento a la interfaz. 
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image44.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image86.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image86.jpg)
+
 La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta manera ayude a personaje, enemigos y objetos a destacar por color. En principio nos apoyaremos en la iluminación para aumentar este efecto como en estos escenarios de Eddy Loukil:
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image51.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image82.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image34.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image51.jpg)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image82.jpg)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image34.jpg)
 
 ### Diseño de Objetos y Requisitos Gráficos
 
