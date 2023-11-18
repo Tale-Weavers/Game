@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        //DontDestroyOnLoad(this); Por si tenemos musica y queremos cambiar de escenay no se resetee
+        DontDestroyOnLoad(this); //Por si tenemos musica y queremos cambiar de escenay no se resetee
 
         foreach (Sound s in sounds)
         {
