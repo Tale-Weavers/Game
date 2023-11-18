@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2375,6 +2375,7 @@ MonoBehaviour:
   inDialogue: 0
   canvasC: {fileID: 1451272251}
   nextLevelName: 
+  onMenu: 0
   attackButton: {fileID: 504735668}
   skipButton: {fileID: 1448780227}
   squawkButton: {fileID: 1321695529}
@@ -17245,6 +17246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794368474275745318, guid: 88a986d5a9ac35a4a922f6ff7949215a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6785319732827773939, guid: 88a986d5a9ac35a4a922f6ff7949215a,
         type: 3}
