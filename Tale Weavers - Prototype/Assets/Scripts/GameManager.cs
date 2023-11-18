@@ -69,9 +69,11 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         {
             enemy.gameObject.SetActive(true);
         }
+        canvasC.Initiate();
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
+       
         AudioManager.instance.InilitializeVolumen();
         AudioManager.instance.Play("musicaNivel");
 

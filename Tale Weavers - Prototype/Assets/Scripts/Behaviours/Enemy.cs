@@ -67,6 +67,7 @@ public abstract class Enemy : MoveableCharacter
             {
                 moving = false;
                 animator.SetTrigger("Idle");
+                CheckVision();
             }
         }
         else if (jumping)

@@ -66,7 +66,7 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     // Start is called before the first frame update
     void Start()
     {
-        Initiate();
+        
     }
 
     // Update is called once per frame
@@ -75,7 +75,7 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         
     }
 
-    void Initiate()
+    public void Initiate()
     {
         buttons[0] = attackButton;
         buttons[1] = skipButton;
