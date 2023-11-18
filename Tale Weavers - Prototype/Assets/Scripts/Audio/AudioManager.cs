@@ -59,11 +59,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InilitializeVolumen();
+
     }
 
     //Inicializa los volumenes segun los ajustes del jugador o al maximo si no los ha tocado
-    private void InilitializeVolumen()
+    public void InilitializeVolumen()
     {
 
         sliderGeneral.value = PlayerPrefs.GetFloat("SliderGeneral", 100.0f);

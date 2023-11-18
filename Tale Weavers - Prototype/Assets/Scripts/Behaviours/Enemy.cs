@@ -125,7 +125,6 @@ public abstract class Enemy : MoveableCharacter
     {
         RaycastHit hit;
         bool playerHid = true;
-        Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
 
         if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f))
         {
