@@ -7,7 +7,11 @@ public class MainMenuScript : MonoBehaviour
 {
    private void Start()
     {
-        AudioManager.instance.Play("musicaMenu");
+        if (!AudioManager.instance.IsPlaying("musicaMenu")) AudioManager.instance.Play("musicaMenu");
+        AudioManager.instance.Stop("musicaVictoria");
+        AudioManager.instance.Stop("musicaDerrota");
+        AudioManager.instance.Stop("musicaNivel");
+        AudioManager.instance.Stop("musicaAtrapado");
     }
    public void Play()
     {

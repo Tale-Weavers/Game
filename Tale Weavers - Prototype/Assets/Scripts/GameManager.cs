@@ -75,8 +75,16 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         skipButton.gameObject.SetActive(true);
        
         AudioManager.instance.InilitializeVolumen();
+        SetUpMusic();
         AudioManager.instance.Play("musicaNivel");
+    }
 
+    public void SetUpMusic()
+    {
+        AudioManager.instance.Stop("musicaVictoria");
+        AudioManager.instance.Stop("musicaDerrota");
+        AudioManager.instance.Stop("musicaMenu");
+        AudioManager.instance.Stop("musicaAtrapado");
     }
 
     public void NextTurn()
@@ -291,7 +299,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LevelSelector");
     }
 
     public void SetUpSquawk()

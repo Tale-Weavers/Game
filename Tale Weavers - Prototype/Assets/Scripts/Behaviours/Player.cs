@@ -237,6 +237,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                 }
                 else if (currentPos.containsButton)
                 {
+                    AudioManager.instance.Play("boton");
                     currentPos.OpenDoor();
                 }
                 else if (currentPos.containsFlashlight)
