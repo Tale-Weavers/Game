@@ -26,6 +26,9 @@ public class SwipeController : MonoBehaviour,IEndDragHandler
     [SerializeField] private Button previousButton;
     [SerializeField] private Button nextButton;
 
+    [SerializeField] private GameObject tutorial;
+    [SerializeField] private GameObject levels;
+
     private void Awake()
     {
         currentPage = 1;
@@ -60,6 +63,15 @@ public class SwipeController : MonoBehaviour,IEndDragHandler
         levelPagesRect.DOLocalMove(targetPos, tweenTime).SetEase(easeType);
         //UpdateBar();
         UpdateArrowButton();
+
+        if(currentPage == 1) {
+            tutorial.SetActive(true);
+            levels.SetActive(false);
+        }
+        else {
+            tutorial.SetActive(false);
+            levels.SetActive(true);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)

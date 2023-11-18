@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+   private void Start()
+    {
+        AudioManager.instance.Play("musicaMenu");
+    }
    public void Play()
     {
         SceneManager.LoadScene("LevelSelector");
@@ -12,7 +16,6 @@ public class MainMenuScript : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Adios adios");
         Application.Quit();
     }
 }

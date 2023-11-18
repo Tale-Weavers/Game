@@ -5,7 +5,6 @@ using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class ObjectMenu : MonoBehaviour
 {

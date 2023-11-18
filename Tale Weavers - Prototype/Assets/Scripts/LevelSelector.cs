@@ -13,6 +13,11 @@ public class LevelSelector : MonoBehaviour
     public Button Nivel2;
     public Button Nivel3;
 
+    private void Start()
+    {
+        if (!AudioManager.instance.IsPlaying("musicaMenu")) AudioManager.instance.Play("musicaMenu");
+    }
+
     public void LevelSelect(string level)
     {
         SceneManager.LoadScene(level);
