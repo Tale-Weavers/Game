@@ -394,6 +394,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 1556312423}
   optionsMenuImage: {fileID: 1556312426}
+  generalAudio: {fileID: 284688495}
+  Music: {fileID: 569917393}
+  SFX: {fileID: 1317143638}
 --- !u!1 &213465722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -386, y: -176}
+  m_AnchoredPosition: {x: -386, y: -154.4}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.6583755}
 --- !u!114 &404149922
@@ -2743,7 +2746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d50f832cf81f858418e0f6229418d3b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f443579f57e283946bd441fef99a04c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

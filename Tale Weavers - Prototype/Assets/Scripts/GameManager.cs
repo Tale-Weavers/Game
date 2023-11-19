@@ -222,7 +222,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
             foreach (Enemy enemy in listOfEnemies)
             {
                 Vector3 distance = enemy.transform.position - player.transform.position;
-                if (distance.magnitude < 1.1f && !enemy.knockOut && (enemy.GetDistracted() || enemy.GetBlinded()))
+                if (distance.magnitude < 1.3f && !enemy.knockOut && (enemy.GetDistracted() || enemy.GetBlinded()))
                 {
                     StartCoroutine(WaitForKnockOut(enemy));
                     enemyHit = true;
@@ -301,7 +301,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("LevelSelector");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void SetUpSquawk()

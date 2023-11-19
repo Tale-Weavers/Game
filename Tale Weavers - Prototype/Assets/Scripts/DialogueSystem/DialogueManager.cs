@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        continueButton.GetComponentInChildren<TextMeshProUGUI>().text = "Continuar";
+        
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
 

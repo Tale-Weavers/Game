@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1793822, g: 0.1793822, b: 0.1793822, a: 1}
+  m_IndirectSpecularColor: {r: 0.34346488, g: 0.34346488, b: 0.34346488, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -403,12 +403,12 @@ MonoBehaviour:
   dialogueBox: {fileID: 1519337628}
   continueButton: {fileID: 1519337626}
   startSentences:
-  - "Bien, he conseguido salir de la celda. Ahora tengo que encontrar a Midnight
-    Wing y salir de aqu\xED con \xE9l."
-  - "Los guardias ven s\xF3lo en el cono rojo que sale de ellos, as\xED que ser\xE1
-    mejor que evite entrar en su visi\xF3n."
-  - Vaya, veo que hay un guardia mirando hacia el pasillo de la salida.
-  - "Tendr\xE9 que buscar un camino alternativo y noquearlo si quiero pasar"
+  - Great, I finally got out of the cage. Now I just have to find Midnight Wing and
+    get out of here.
+  - Guards can only whatever's inside the cone in front of them, so I'll better keep
+    myself out of ther sight.
+  - 'Crap, I think there''s a guard looking to the exit. '
+  - I'll have to knock him out if I want to get out.
 --- !u!1001 &172534409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8038,7 +8038,8 @@ PrefabInstance:
       value: DialogueBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3729924268373861006, guid: aee3069a73ea52447bbe7209a41f9e65, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee3069a73ea52447bbe7209a41f9e65, type: 3}

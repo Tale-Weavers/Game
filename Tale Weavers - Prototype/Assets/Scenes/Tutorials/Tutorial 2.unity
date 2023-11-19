@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1793822, g: 0.1793822, b: 0.1793822, a: 1}
+  m_IndirectSpecularColor: {r: 0.34346488, g: 0.34346488, b: 0.34346488, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -754,12 +754,14 @@ MonoBehaviour:
   dialogueBox: {fileID: 688595388}
   continueButton: {fileID: 688595386}
   startSentences:
-  - "\xA1Vaya, aqu\xED hay dos guardias patrullando!"
-  - "El de arriba parece que va a mirar hacia este pasillo todo el rato. Tendr\xE9
-    que ir por abajo."
-  - "Si voy por abajo podr\xE9 aprovechar ese escondite para noquear al guardia"
-  - "Tendr\xE9 que esperar al momento oportuno para avanzar y colarme en el escondite"
-  - "Desde el escondite podr\xE9 noquear al guardia sin que me vea nadie"
+  - Wow, there are two guards on patrol here!
+  - The top one seems to only be looking towards this way. I'll have to go the other
+    way.
+  - 'If I take the bottom path I''ll be able to take advantadge of the hiding spot
+    to take him out. '
+  - I'll need to wait for the right moment to hide.
+  - 'From the hiding spot I''ll be able to knock him out. '
+  - Also I can hide there if they happen to spot me.
 --- !u!4 &171645004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,

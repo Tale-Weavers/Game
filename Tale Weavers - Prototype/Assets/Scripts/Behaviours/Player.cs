@@ -18,6 +18,24 @@ public class Player : MoveableCharacter, ISubject<bool>
         }
     }
 
+    public bool IsSeen
+    {
+        get { return _isSeen; }
+        set 
+        { 
+            _isSeen = value;
+            if (value && AudioManager.instance.IsPlaying("musicaNivel")) { 
+                AudioManager.instance.Stop("musicaNivel"); 
+                AudioManager.instance.Play("musicaAtrapado"); 
+            }
+            else if(!value)
+            {
+                AudioManager.instance.Play("musicaNivel");
+                AudioManager.instance.Stop("musicaAtrapado");
+            }
+
+        }
+    }
     private Square fountain;
 
     public bool checkingRange;
@@ -387,7 +405,7 @@ public class Player : MoveableCharacter, ISubject<bool>
 
     public void Seen(bool seen)
     {
-        _isSeen = seen;
+        IsSeen = seen;
     }
 
     public void NewTurn()

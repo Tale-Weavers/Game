@@ -149,7 +149,7 @@ public abstract class Enemy : MoveableCharacter
             {
                 playerHid = false;
                 Debug.Log("Atrapada");
-                GameManager.instance.player.Seen(false);
+                GameManager.instance.player.Seen(true);
             }
         }
         return playerHid;

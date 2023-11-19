@@ -69,8 +69,10 @@ public class ObjectMenu : MonoBehaviour
 
     void ToggleMenu()
     {
-        if (!Screen.fullScreen) spacing.y = 95;
-        else spacing.y = 170;
+        spacing.y = (Screen.height * 170) / Screen.currentResolution.height;
+
+        ResetSpacing();
+       
 
         if (GameManager.instance.enemyTurn)
         {
@@ -139,6 +141,14 @@ public class ObjectMenu : MonoBehaviour
             }
 
 
+        }
+    }
+
+    private void ResetSpacing()
+    {
+        foreach (ObjectMenuItem item in menuItems)
+        {
+            item.gameObject.transform.position =  new Vector3(mainButton.transform.position.x, item.gameObject.transform.position.y, item.gameObject.transform.position.z);
         }
     }
 }
