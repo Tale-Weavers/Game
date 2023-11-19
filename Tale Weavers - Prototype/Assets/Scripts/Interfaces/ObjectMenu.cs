@@ -20,8 +20,8 @@ public class ObjectMenu : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private float expandDuration;
     [SerializeField] private float collapseDuration;
-    [SerializeField] Ease expandEase;//Dani putero
-    [SerializeField] Ease collapseEase;//Dani putero
+    [SerializeField] Ease expandEase;
+    [SerializeField] Ease collapseEase;
 
     [Space]
     [Header("Fading")]
@@ -69,6 +69,9 @@ public class ObjectMenu : MonoBehaviour
 
     void ToggleMenu()
     {
+        if (!Screen.fullScreen) spacing.y = 95;
+        else spacing.y = 170;
+
         if (GameManager.instance.enemyTurn)
         {
             return;
