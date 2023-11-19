@@ -134,19 +134,19 @@ public class Player : MoveableCharacter, ISubject<bool>
         //    UseFlashlight(new Vector3(1, 0, 0));
         //}
 
-        if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
+        //if (Input.GetKeyDown(KeyCode.Y)) { GameManager.instance.EndPlayerTurn(); currentTurn++; } //For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.X)) { KnockOutEnemies(); } //For debugging purposes, temporal
+        //if (Input.GetKeyDown(KeyCode.X)) { KnockOutEnemies(); } //For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.S)) { Squawk(); } //For debugging purposes, temporal
+        //if (Input.GetKeyDown(KeyCode.S)) { Squawk(); } //For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.D)) { Drink(); }//For debugging purposes, temporal
+        //if (Input.GetKeyDown(KeyCode.D)) { Drink(); }//For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.W)) { _placingWool = !_placingWool; }//For debugging purposes, temporal
+        //if (Input.GetKeyDown(KeyCode.W)) { _placingWool = !_placingWool; }//For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.L)) { _placingLaser = !_placingLaser; }//For debugging purposes, temporal
+        //if (Input.GetKeyDown(KeyCode.L)) { _placingLaser = !_placingLaser; }//For debugging purposes, temporal
 
-        if (Input.GetKeyDown(KeyCode.F)) { _usingFlashlight = !_usingFlashlight; }//For debugging purposes, temporal
+        //if (Input.GetKeyDown(KeyCode.F)) { _usingFlashlight = !_usingFlashlight; }//For debugging purposes, temporal
     }
 
     public void KnockOutEnemies()
