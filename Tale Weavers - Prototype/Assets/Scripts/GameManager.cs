@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
             Vector3 distance = (enemy.transform.position - player.transform.position);
             if (distance.magnitude < _squawkRange)
             {
-                Debug.Log(enemy.name);
+                //Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
                 squawkUsed = true;
                 
