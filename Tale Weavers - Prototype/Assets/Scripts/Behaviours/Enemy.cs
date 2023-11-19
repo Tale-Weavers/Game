@@ -2,6 +2,7 @@ using MBT;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -180,9 +181,15 @@ public abstract class Enemy : MoveableCharacter
 
     protected void MoveTowards(Square destination)
     {
+
         animator.SetTrigger("Step");
         if (!moveDone)
         {
+            if(destination == null)
+            {
+                destination = GameManager.instance.player.currentPos;
+                destination = pathfinder.GetNextMove(currentPos, destination);
+            }
             moveDone = true;
             target = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
             facingDirection = target - transform.position;

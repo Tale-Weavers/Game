@@ -2076,6 +2076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712352d71f6ae9842a0f57287b957705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &267534218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120377535335304654, guid: 33d10214d255a114a98f89cc6cae67a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032646392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &286648597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6463,7 +6469,7 @@ PrefabInstance:
     - target: {fileID: 8933647376502577012, guid: 33d10214d255a114a98f89cc6cae67a3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -1.48
       objectReference: {fileID: 0}
     - target: {fileID: 8933647376502577012, guid: 33d10214d255a114a98f89cc6cae67a3,
         type: 3}
@@ -10764,12 +10770,12 @@ PrefabInstance:
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: isFountain
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: _fountainCounter
-      value: 9999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
@@ -11832,6 +11838,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: isFountain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: _fountainObject
+      value: 
+      objectReference: {fileID: 267534218}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: _fountainCounter
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
