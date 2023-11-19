@@ -70,6 +70,20 @@ public abstract class Enemy : MoveableCharacter
                 animator.SetTrigger("Idle");
                 CheckVision();
                 if (jumping) { animator.SetTrigger("Jump"); facingDirection = playerTarget-transform.position; RotateEnemy(); }
+
+                else if (_distracted)
+                {
+                    if (woolBall.isLaser)
+                    {
+                        animator.SetTrigger("Play");
+                    }
+                    else
+                    {
+                        animator.SetTrigger("Eat");
+                    }
+                }
+
+                
             }
         }
         else if (jumping)
@@ -186,6 +200,7 @@ public abstract class Enemy : MoveableCharacter
                     woolBallTile = woolBall.tile;
                     woolBall.AddEnemy(this);
                     woolBall.beingPlayed = true;
+                    woolBall.NotifyEnemies(this);
                 }
                 else
                 {
@@ -313,14 +328,7 @@ public abstract class Enemy : MoveableCharacter
             if (woolBallTile.containsWool) 
             { 
                 ExploreSquawk(woolBallTile);
-                if (woolBall.isLaser)
-                {
-                    animator.SetTrigger("Play");
-                }
-                else
-                {
-                    animator.SetTrigger("Eat");
-                }
+                
             }
             else
             {
@@ -367,6 +375,7 @@ public abstract class Enemy : MoveableCharacter
     public void SetDistracted(bool distracted)
     {
         _distracted = distracted;
+        if (distracted = false) animator.SetTrigger("Idle");
     }
 
     public bool GetAlerted()
