@@ -28,7 +28,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                 AudioManager.instance.Stop("musicaNivel"); 
                 AudioManager.instance.Play("musicaAtrapado"); 
             }
-            else if(!value)
+            else if(!value && AudioManager.instance.IsPlaying("musicaAtrapado"))
             {
                 AudioManager.instance.Play("musicaNivel");
                 AudioManager.instance.Stop("musicaAtrapado");
