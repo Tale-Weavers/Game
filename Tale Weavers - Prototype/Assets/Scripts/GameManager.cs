@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public bool squawkUsed;
     public bool flashlightUsed;
 
+
     private void Awake()
     {
         Time.timeScale = 1.0f;
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void NextTurn()
     {
-
+        skipButton.gameObject.SetActive(true);
         enemyTurn = false;
         //StartCoroutine(TimeWaste(0));
 
@@ -152,8 +153,9 @@ public class GameManager : MonoBehaviour,ISubject<bool>
                 
             }
         }
+        
+        yield return new WaitForSeconds(1);
         NextTurn();
-        yield return null;
     }
 
     public void NotifyEnemies(bool seen)
