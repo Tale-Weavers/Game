@@ -110,7 +110,7 @@ public abstract class Enemy : MoveableCharacter
         {
             if (hit.collider.CompareTag("Player") && !GameManager.instance.player.IsHiding)
             {
-                Debug.Log("Atrapada");
+                //Debug.Log("Atrapada");
                 GameManager.instance.player.Seen(true);
                 GameManager.instance.NotifyEnemies(true);
 
@@ -122,7 +122,7 @@ public abstract class Enemy : MoveableCharacter
             }
             else if (hit.collider.CompareTag("WoolBall"))
             {
-                Debug.Log($"Soy {gameObject.name} y he encontrado el ovillo");
+                //Debug.Log($"Soy {gameObject.name} y he encontrado el ovillo");
                 woolBall = hit.collider.GetComponent<WoolBall>();
                 if (!woolBall.beingPlayed)
                 {
@@ -149,7 +149,7 @@ public abstract class Enemy : MoveableCharacter
             if (hit.collider.CompareTag("Player"))
             {
                 playerHid = false;
-                Debug.Log("Atrapada");
+                //Debug.Log("Atrapada");
                 GameManager.instance.player.Seen(true);
             }
         }
@@ -164,7 +164,7 @@ public abstract class Enemy : MoveableCharacter
     public void KnockEnemy()
     {
         knockOut = true;
-        Debug.Log("Me mueroaaaaaa");
+        //Debug.Log("Me mueroaaaaaa");
         transform.Rotate(90, 0, 0);
         currentPos.isWalkable = true;
         if (woolBall != null)
@@ -262,7 +262,7 @@ public abstract class Enemy : MoveableCharacter
             playerTarget = new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z);
             jumping = true;
             //animator.SetTrigger("Jump");
-            Debug.Log("Cachete");
+            //Debug.Log("Cachete");
             GameManager.instance.EndLevelLost();
             return true;
         }
@@ -325,7 +325,7 @@ public abstract class Enemy : MoveableCharacter
     {
         if (currentPos == woolBallTile)
         {
-            Debug.Log("Estoy jugando");
+            //Debug.Log("Estoy jugando");
             
             if (!AudioManager.instance.IsPlaying("eat") && !woolBall.isLaser) AudioManager.instance.Play("eat");
             woolBall.NotifyEnemies(this);

@@ -431,7 +431,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         }
         else
         {
-            Debug.Log("Tienes la garganta seca");
+            //Debug.Log("Tienes la garganta seca");
         }
     }
 
@@ -445,12 +445,12 @@ public class Player : MoveableCharacter, ISubject<bool>
             }
             else
             {
-                Debug.Log("Fuente Seca");
+                //Debug.Log("Fuente Seca");
             }
         }
         else
         {
-            Debug.Log("No hay agua cerca");
+            //Debug.Log("No hay agua cerca");
         }
     }
 
