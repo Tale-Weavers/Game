@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] private RectTransform optionsMenu;
+    [SerializeField] private CanvasGroup credits;
     [SerializeField] private CanvasGroup optionsMenuImage;
 
     public Slider generalAudio;
@@ -51,5 +52,16 @@ public class MainMenuScript : MonoBehaviour
     {
         Sequence sequence = DOTween.Sequence();
         sequence.Append(optionsMenuImage.DOFade(0, 0.5f).SetEase(Ease.InCubic));
+    }
+    public void OpenCredits()
+    {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(credits.DOFade(1, 0.5f).SetEase(Ease.InCubic));
+    }
+
+    public void CloseCredits()
+    {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(credits.DOFade(0, 0.5f).SetEase(Ease.InCubic));
     }
 }
