@@ -40,6 +40,7 @@ public abstract class Enemy : MoveableCharacter
 
     protected Animator animator;
     protected Vector3 target;
+    protected Vector3 playerTarget;
     protected bool moving;
     protected bool jumping;
     protected bool playerCaught;
@@ -68,12 +69,13 @@ public abstract class Enemy : MoveableCharacter
                 moving = false;
                 animator.SetTrigger("Idle");
                 CheckVision();
+                if (jumping) { animator.SetTrigger("Jump"); facingDirection = playerTarget-transform.position; RotateEnemy(); }
             }
         }
         else if (jumping)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED);
-            if ((transform.position - target).magnitude <= 0.01) 
+            transform.position = Vector3.MoveTowards(transform.position, playerTarget, MOV_SPEED);
+            if ((transform.position - playerTarget).magnitude <= 0.01) 
             {
                 jumping = false;
                 
@@ -235,8 +237,9 @@ public abstract class Enemy : MoveableCharacter
         {
             playerCaught = true;
             StartCoroutine(DelayJump());
-            target = new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z);
-            animator.SetTrigger("Jump");
+            playerTarget = new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z);
+            jumping = true;
+            //animator.SetTrigger("Jump");
             Debug.Log("Cachete");
             GameManager.instance.EndLevelLost();
             return true;
