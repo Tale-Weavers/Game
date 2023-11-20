@@ -199,10 +199,11 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         Time.timeScale = 1.0f;
     }
 
-    public bool CloseEnemies(bool isSeen)
+    public bool CloseEnemies(bool isSeen, out Enemy knockedEnemy)
     {
-
+        knockedEnemy = null;
         bool enemyHit = false;
+        
 
         if (!isSeen)
         {
@@ -213,6 +214,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
                 {
                     StartCoroutine(WaitForKnockOut(enemy));
                     enemyHit = true;
+                    knockedEnemy = enemy;
                     attackButton.gameObject.SetActive(false);
                 }
             }
@@ -226,6 +228,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
                 {
                     StartCoroutine(WaitForKnockOut(enemy));
                     enemyHit = true;
+                    knockedEnemy = enemy;
                     attackButton.gameObject.SetActive(false);
                 }
             }

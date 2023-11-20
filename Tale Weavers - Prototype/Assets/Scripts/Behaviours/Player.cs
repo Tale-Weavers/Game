@@ -151,9 +151,11 @@ public class Player : MoveableCharacter, ISubject<bool>
 
     public void KnockOutEnemies()
     {
-
-        if (GameManager.instance.CloseEnemies(_isSeen))
+        if (GameManager.instance.CloseEnemies(_isSeen, out Enemy knockedEnemy))
         {
+            facingDirection = knockedEnemy.transform.position - transform.position;
+            facingDirection.y = transform.position.y;
+            RotateCharacter();
             actionDone = true;
             UpdateMoveable();
             animator.SetTrigger("Attack");
