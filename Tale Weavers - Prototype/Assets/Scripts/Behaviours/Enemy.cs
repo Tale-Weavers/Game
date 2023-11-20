@@ -69,16 +69,15 @@ public abstract class Enemy : MoveableCharacter
             {
                 moving = false;
                 animator.SetTrigger("Idle");
-                CheckVision();
                 if (jumping) { animator.SetTrigger("Jump"); facingDirection = playerTarget-transform.position; RotateEnemy(); }
 
                 else if (_distracted)
                 {
-                    if (woolBall.isLaser)
+                    if (woolBall.isLaser && currentPos == woolBallTile)
                     {
                         animator.SetTrigger("Play");
                     }
-                    else
+                    else if(!woolBall.isLaser && currentPos == woolBallTile)
                     {
                         animator.SetTrigger("Eat");
                     }
@@ -102,6 +101,7 @@ public abstract class Enemy : MoveableCharacter
 
     public void CheckVision()
     {
+
         RaycastHit hit;
 
         Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
@@ -126,7 +126,7 @@ public abstract class Enemy : MoveableCharacter
                 woolBall = hit.collider.GetComponent<WoolBall>();
                 if (!woolBall.beingPlayed)
                 {
-                    _distracted = true;
+                    SetDistracted(true);
                     woolBallTile = woolBall.tile;
                     woolBall.AddEnemy(this);
                     GameManager.instance.enemiesDistracted++;
@@ -203,7 +203,7 @@ public abstract class Enemy : MoveableCharacter
                 woolBall = currentPos.wool;
                 if (!woolBall.beingPlayed)
                 {
-                    _distracted = true;
+                    SetDistracted(true);
                     woolBallTile = woolBall.tile;
                     woolBall.AddEnemy(this);
                     woolBall.beingPlayed = true;
@@ -298,7 +298,7 @@ public abstract class Enemy : MoveableCharacter
 
     public void GetBlinded(Vector3 lightDirection)
     {
-        if (lightDirection + facingDirection == Vector3.zero) { isBlinded = true; GameManager.instance.enemiesDistracted++; }
+        if (lightDirection + facingDirection == Vector3.zero) { SetBlinded(true); GameManager.instance.enemiesDistracted++; }
 
     }
 
@@ -339,7 +339,7 @@ public abstract class Enemy : MoveableCharacter
             }
             else
             {
-                _distracted = false;
+                SetDistracted(false);
                 CheckVision();
             }
         }
@@ -382,7 +382,8 @@ public abstract class Enemy : MoveableCharacter
     public void SetDistracted(bool distracted)
     {
         _distracted = distracted;
-        if (distracted = false) animator.SetTrigger("Idle");
+        if (!distracted) { animator.SetTrigger("Idle"); visionCone.gameObject.SetActive(true); }
+        else visionCone.gameObject.SetActive(false);
     }
 
     public bool GetAlerted()
@@ -419,6 +420,8 @@ public abstract class Enemy : MoveableCharacter
     public void SetBlinded(bool blinded)
     {
         isBlinded = blinded;
+        if (!blinded) { animator.SetTrigger("Idle"); visionCone.gameObject.SetActive(true); }
+        else visionCone.gameObject.SetActive(false);
     }
 
 

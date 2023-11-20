@@ -36,7 +36,7 @@ public class MoveableEnemy : Enemy
         else
         {
             blindedCounter--;
-            if (blindedCounter == 0) { isBlinded = false; blindedCounter = 3; }
+            if (blindedCounter == 0) { SetBlinded(false); blindedCounter = 3; }
         }
     }
 
