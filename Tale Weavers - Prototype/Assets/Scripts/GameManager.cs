@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public int currentTurn;
     public Enemy[] listOfEnemies;
     public Player player;
-    public bool paused;
-    public bool inDialogue;
+
 
     public CanvasController canvasC;
 
@@ -20,7 +19,12 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     private List<IObserver<bool>> _observers = new List<IObserver<bool>>();
 
-    public bool onMenu;
+    public bool _onMenu;
+    public bool OnMenu
+    {
+        get { return _onMenu; }
+        set { _onMenu = value; if(!value) skipButton.gameObject.SetActive(true); }
+    }
 
     [HideInInspector] public Button attackButton;
     [HideInInspector] public Button skipButton;
@@ -61,6 +65,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
             instance = this;
         }
         _checkLevelCompletion = GetComponent<CheckLevelCompletion>();
+        
     }
 
     public void StartCharacters()
@@ -78,6 +83,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         AudioManager.instance.InilitializeVolumen();
         SetUpMusic();
         AudioManager.instance.Play("musicaNivel");
+        if (OnMenu) { skipButton.gameObject.SetActive(false); }
     }
 
     public void SetUpMusic()

@@ -58,7 +58,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueBox.SetActive(false);
         Time.timeScale = 1.0f;
-        GameManager.instance.onMenu = false;
+        GameManager.instance.OnMenu = false;
+        
     }
 
 }

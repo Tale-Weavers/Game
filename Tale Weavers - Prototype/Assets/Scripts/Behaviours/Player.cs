@@ -95,7 +95,7 @@ public class Player : MoveableCharacter, ISubject<bool>
     // Update is called once per frame
     private void Update()
     {
-        if (GameManager.instance.onMenu)
+        if (GameManager.instance.OnMenu)
         {
             return;
         }
@@ -153,7 +153,10 @@ public class Player : MoveableCharacter, ISubject<bool>
     {
         foreach(Enemy enemy in GameManager.instance.listOfEnemies)
         {
-            enemy.CheckVision();
+            if (!enemy.GetBlinded() && !enemy.GetDistracted())
+            {
+                enemy.CheckVision();
+            }
         }
         if (GameManager.instance.CloseEnemies(_isSeen, out Enemy knockedEnemy))
         {

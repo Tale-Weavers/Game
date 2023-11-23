@@ -173,12 +173,12 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     public void OpenSettings()
     {
         _optionsScreenGO.SetActive(true);
-        GameManager.instance.onMenu = true;
+        GameManager.instance.OnMenu = true;
     }
 
     public void CloseSettings()
     {
         _optionsScreenGO.SetActive(false);
-        GameManager.instance.onMenu = false;
+        GameManager.instance.OnMenu = false;
     }
 }
