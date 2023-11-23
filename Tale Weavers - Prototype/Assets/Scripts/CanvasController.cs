@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class CanvasController : MonoBehaviour,IObserver<bool>
 {
     [Header ("UI in Game")]
@@ -48,7 +49,9 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     public Button returnButton;
     [SerializeField] private GameObject _optionsScreenGO;
 
-
+    [Header("Loading Screen")]
+    public Image loadingProgressBar;
+    public GameObject loadingScreenGO;
 
 
     private Button[] buttons = new Button[10];
@@ -122,6 +125,7 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         AudioManager.instance.sliderSFX = sfxSlider;
         AudioManager.instance.sliderMusic = musicSlider;
 
+        LevelManager.instance.AddReferneces(loadingScreenGO, loadingProgressBar);
 
         GameManager.instance.SetUpButtons(buttons);
 

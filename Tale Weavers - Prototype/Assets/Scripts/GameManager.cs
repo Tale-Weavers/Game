@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void NextLevel()
     {
-        LevelManager.instance.LoadScene(nextLevelName);
+        LevelManager.instance.LoadSceneA(nextLevelName);
     }
 
     private IEnumerator SetupLevel()

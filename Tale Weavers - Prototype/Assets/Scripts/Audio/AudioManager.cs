@@ -66,9 +66,9 @@ public class AudioManager : MonoBehaviour
     public void InilitializeVolumen()
     {
 
-        sliderGeneral.value = PlayerPrefs.GetFloat("SliderGeneral", 100.0f);
-        sliderMusic.value = PlayerPrefs.GetFloat("SliderMusic", 100.0f);
-        sliderSFX.value = PlayerPrefs.GetFloat("SliderSFX", 100.0f);
+        sliderGeneral.value = PlayerPrefs.GetFloat(masterMixer, 100.0f);
+        sliderMusic.value = PlayerPrefs.GetFloat(musicMixer, 100.0f);
+        sliderSFX.value = PlayerPrefs.GetFloat(sfxMixer, 100.0f);
         if (sliderGeneral.value == 0)
         {
             GeneralMixerGroup.audioMixer.SetFloat(masterMixer, -80);
@@ -216,7 +216,7 @@ public class AudioManager : MonoBehaviour
             SoundsEffectsMixerGroup.audioMixer.SetFloat(musicMixer, Mathf.Log10(sliderValue / 100) * 20);
         }
 
-        PlayerPrefs.SetFloat("SliderMusic", sliderValue);
+        PlayerPrefs.SetFloat(musicMixer, sliderValue);
         PlayerPrefs.Save();
     }
 
