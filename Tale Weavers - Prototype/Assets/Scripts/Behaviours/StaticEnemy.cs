@@ -50,34 +50,6 @@ public class StaticEnemy : Enemy
 
     private void ReturnSpawn()
     {
-        //List<Square> list = new List<Square>();
-        //list = GridManager.instance.GetAdjacents(currentPos);
-        //Square optimalMovement = null;
-        //float distance = 999;
-
-        //foreach (Square square in list)
-        //{
-        //    Vector3 aux = square.transform.position - initSpawn.transform.position;
-
-        //    if (square == initSpawn)
-        //    {
-        //        distance = 0;
-        //        optimalMovement = square;
-        //    }
-
-        //    List<Square> recursiveList = new();
-        //    recursiveList = GridManager.instance.GetAdjacents(square);
-
-        //    foreach (Square square2 in recursiveList)
-        //    {
-        //        Vector3 aux2 = square2.transform.position - initSpawn.transform.position;
-        //        if (aux2.magnitude < distance)
-        //        {
-        //            distance = aux2.magnitude;
-        //            optimalMovement = square;
-        //        }
-        //    }
-        //}
 
         MoveTowards(pathfinder.GetNextMove(currentPos, initSpawn));
     }

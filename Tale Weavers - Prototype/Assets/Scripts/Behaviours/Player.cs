@@ -151,6 +151,10 @@ public class Player : MoveableCharacter, ISubject<bool>
 
     public void KnockOutEnemies()
     {
+        foreach(Enemy enemy in GameManager.instance.listOfEnemies)
+        {
+            enemy.CheckVision();
+        }
         if (GameManager.instance.CloseEnemies(_isSeen, out Enemy knockedEnemy))
         {
             facingDirection = knockedEnemy.transform.position - transform.position;
