@@ -21,14 +21,15 @@ public class Player : MoveableCharacter, ISubject<bool>
     public bool IsSeen
     {
         get { return _isSeen; }
-        set 
-        { 
+        set
+        {
             _isSeen = value;
-            if (value && AudioManager.instance.IsPlaying("musicaNivel")) { 
-                AudioManager.instance.Stop("musicaNivel"); 
-                AudioManager.instance.Play("musicaAtrapado"); 
+            if (value && AudioManager.instance.IsPlaying("musicaNivel"))
+            {
+                AudioManager.instance.Stop("musicaNivel");
+                AudioManager.instance.Play("musicaAtrapado");
             }
-            else if(!value && AudioManager.instance.IsPlaying("musicaAtrapado"))
+            else if (!value && AudioManager.instance.IsPlaying("musicaAtrapado"))
             {
                 AudioManager.instance.Play("musicaNivel");
                 AudioManager.instance.Stop("musicaAtrapado");
@@ -101,7 +102,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         }
         if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
         {
-            MoveCharacter();
+            GetSquareClicked();
             MoveablePositions();
         }
         else if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && _placingWool && hasWoolBall)
@@ -117,6 +118,30 @@ public class Player : MoveableCharacter, ISubject<bool>
             UseFlashlight();
         }
 
+        if((Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow)) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
+        {
+            CheckMove("north");
+        }
+        else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
+        {
+            CheckMove("south");
+        }
+        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
+        {
+            CheckMove("east");
+        }
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
+        {
+            CheckMove("west");
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && currentTurn == GameManager.instance.currentTurn && !checkingRange)
+        {
+            GameManager.instance.EndPlayerTurn();
+            currentTurn++;
+        }
+
+        #region oldShortcuts
         //if(Input.GetKeyUp(KeyCode.DownArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight ) 
         //{
         //    UseFlashlight(new Vector3(0,0,-1));
@@ -147,11 +172,13 @@ public class Player : MoveableCharacter, ISubject<bool>
         //if (Input.GetKeyDown(KeyCode.L)) { _placingLaser = !_placingLaser; }//For debugging purposes, temporal
 
         //if (Input.GetKeyDown(KeyCode.F)) { _usingFlashlight = !_usingFlashlight; }//For debugging purposes, temporal
+        #endregion
     }
 
     public void KnockOutEnemies()
     {
-        foreach(Enemy enemy in GameManager.instance.listOfEnemies)
+        Debug.Log("pum te pego");
+        foreach (Enemy enemy in GameManager.instance.listOfEnemies)
         {
             if (!enemy.GetBlinded() && !enemy.GetDistracted())
             {
@@ -160,8 +187,9 @@ public class Player : MoveableCharacter, ISubject<bool>
         }
         if (GameManager.instance.CloseEnemies(_isSeen, out Enemy knockedEnemy))
         {
+            float oldFacingDirectionY = facingDirection.y;
             facingDirection = knockedEnemy.transform.position - transform.position;
-            facingDirection.y = transform.position.y;
+            facingDirection.y = oldFacingDirectionY;
             RotateCharacter();
             actionDone = true;
             UpdateMoveable();
@@ -175,7 +203,112 @@ public class Player : MoveableCharacter, ISubject<bool>
         currentTurn++;
     }
 
-    private void MoveCharacter()
+    private void MoveCharacter(Square squareTarget)
+    {
+        //Vector3 mousePosition = Input.mousePosition;
+
+        //Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+        //RaycastHit hit;
+
+        //if (currentPos.isHidingSpot) AudioManager.instance.Play("openBox");
+
+        //if (Physics.Raycast(ray, out hit))
+        //{
+        //    if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
+        //    {
+
+        //        Square squareTarget = hit.transform.GetComponent<Square>();
+
+        if (squareTarget.isHidingSpot)
+        {
+            GameManager.instance.CheckEnemiesVision();
+            AudioManager.instance.Play("closeBox");
+        }
+        if (squareTarget.isOilPuddle) { Slip(squareTarget); animator.SetTrigger("Idle"); facingDirection = target - transform.position; RotateCharacter(); }
+        else
+        {
+            animator.SetTrigger("Step");
+            target = new Vector3(squareTarget.transform.position.x, transform.position.y, squareTarget.transform.position.z);
+            moving = true;
+            currentPos.isWalkable = true;
+            currentPos.occupiedByPlayer = false;
+            if (currentPos.isHidingSpot) IsHiding = false;
+            currentPos = squareTarget;
+            squareTarget.isWalkable = false;
+            squareTarget.occupiedByPlayer = true;
+            moveDone = true;
+            facingDirection = target - transform.position;
+            RotateCharacter();
+            UpdateMoveable();
+        }
+
+        fountain = GridManager.instance.LookForFountain(currentPos);
+        if (fountain != null)
+        {
+            fountainClose = true;
+            GameManager.instance.drinkButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            fountainClose = false;
+            GameManager.instance.drinkButton.gameObject.SetActive(false);
+        }
+
+        if (currentPos.isExit)
+        {
+            GameManager.instance.EndLevel();
+        }
+        else if (currentPos.isHidingSpot)
+        {
+
+            IsHiding = true;
+
+        }
+        else if (currentPos.containsWool)
+        {
+            if (!currentPos.wool.isLaser)
+            {
+                if (!hasWoolBall && currentPos.wool.isActiveAndEnabled)
+                {
+                    hasWoolBall = true;
+                    currentPos.containsWool = false;
+                    _woolball = currentPos.wool;
+                    currentPos.wool = null;
+                    _woolball.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                if (!hasLaser && currentPos.wool.isActiveAndEnabled)
+                {
+                    hasLaser = true;
+                    currentPos.containsWool = false;
+                    _laser = currentPos.wool;
+                    currentPos.wool = null;
+                    _laser.gameObject.SetActive(false);
+                }
+            }
+
+        }
+        else if (currentPos.containsButton)
+        {
+            AudioManager.instance.Play("boton");
+            currentPos.OpenDoor();
+        }
+        else if (currentPos.containsFlashlight)
+        {
+            currentPos.containsFlashlight = false;
+            currentPos.DisableFlashlight();
+            hasFlashlight = true;
+        }
+        //GameManager.instance.EndPlayerTurn();
+        //currentTurn++;
+        //        }
+        //    }
+    }
+
+    private void GetSquareClicked()
     {
         Vector3 mousePosition = Input.mousePosition;
 
@@ -189,92 +322,40 @@ public class Player : MoveableCharacter, ISubject<bool>
         {
             if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
             {
-                
-                Square squareTarget = hit.transform.GetComponent<Square>();
+                Square targetSquare = hit.transform.GetComponent<Square>();
+                MoveCharacter(targetSquare);
+            }
+        }
+    }
 
-                if (squareTarget.isHidingSpot)
-                {
-                    GameManager.instance.CheckEnemiesVision();
-                    AudioManager.instance.Play("closeBox");
-                }
-                if (squareTarget.isOilPuddle) { Slip(squareTarget); animator.SetTrigger("Idle"); facingDirection = target - transform.position; RotateCharacter(); }
-                else
-                {
-                    animator.SetTrigger("Step");
-                    target = new Vector3(hit.transform.position.x, transform.position.y, hit.transform.position.z);
-                    moving = true;
-                    currentPos.isWalkable = true;
-                    currentPos.occupiedByPlayer = false;
-                    if (currentPos.isHidingSpot) IsHiding = false;
-                    currentPos = squareTarget;
-                    squareTarget.isWalkable = false;
-                    squareTarget.occupiedByPlayer = true;
-                    moveDone = true;
-                    facingDirection = target - transform.position;
-                    RotateCharacter();
-                }
+    private void CheckMove(string direction)
+    {
+        Vector3 possibleSquare = new();
+        switch (direction)
+        {
+            case "north":
+                possibleSquare = new Vector3(transform.position.x, 0, transform.position.z + 1);
+                break;
 
-                fountain = GridManager.instance.LookForFountain(currentPos);
-                if (fountain != null)
-                {
-                    fountainClose = true;
-                    GameManager.instance.drinkButton.gameObject.SetActive(true);
-                }
-                else
-                {
-                    fountainClose = false;
-                    GameManager.instance.drinkButton.gameObject.SetActive(false);
-                }
+            case "south":
+                possibleSquare = new Vector3(transform.position.x, 0, transform.position.z - 1);
+                break;
 
-                if (currentPos.isExit)
-                {
-                    GameManager.instance.EndLevel();
-                }
-                else if (currentPos.isHidingSpot)
-                {
+            case "east":
+                possibleSquare = new Vector3(transform.position.x + 1, 0, transform.position.z);
+                break;
 
-                    IsHiding = true;
+            case "west":
+                possibleSquare = new Vector3(transform.position.x - 1, 0, transform.position.z);
+                break;
 
-                }
-                else if (currentPos.containsWool)
-                {
-                    if (!currentPos.wool.isLaser)
-                    {
-                        if (!hasWoolBall && currentPos.wool.isActiveAndEnabled)
-                        {
-                            hasWoolBall = true;
-                            currentPos.containsWool = false;
-                            _woolball = currentPos.wool;
-                            currentPos.wool = null;
-                            _woolball.gameObject.SetActive(false);
-                        }
-                    }
-                    else
-                    {
-                        if (!hasLaser && currentPos.wool.isActiveAndEnabled)
-                        {
-                            hasLaser = true;
-                            currentPos.containsWool = false;
-                            _laser = currentPos.wool;
-                            currentPos.wool = null;
-                            _laser.gameObject.SetActive(false);
-                        }
-                    }
-
-                }
-                else if (currentPos.containsButton)
-                {
-                    AudioManager.instance.Play("boton");
-                    currentPos.OpenDoor();
-                }
-                else if (currentPos.containsFlashlight)
-                {
-                    currentPos.containsFlashlight = false;
-                    currentPos.DisableFlashlight();
-                    hasFlashlight = true;
-                }
-                //GameManager.instance.EndPlayerTurn();
-                //currentTurn++;
+        }
+        foreach(Square square in walkablePositions)
+        {
+            if(square.transform.position == possibleSquare)
+            {
+                MoveCharacter(square);
+                break;
             }
         }
     }
@@ -394,7 +475,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             hasFlashlight = false;
 
             RaycastHit hit;
-            Vector3 pos = new Vector3(transform.position.x,transform.position.y+0.5f,transform.position.z);
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
             if (Physics.Raycast(pos, direction, out hit))
             {
                 Debug.DrawRay(pos, direction, Color.green, 50f);

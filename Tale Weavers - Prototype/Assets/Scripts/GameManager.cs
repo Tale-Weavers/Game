@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
             }
         }
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         NextTurn();
     }
 
@@ -221,6 +221,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
                     StartCoroutine(WaitForKnockOut(enemy));
                     enemyHit = true;
                     knockedEnemy = enemy;
+                    enemy.currentPos.isWalkable = true;
                     attackButton.gameObject.SetActive(false);
                 }
             }
@@ -316,6 +317,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public void SetUpSquawk()
     {
         GridManager.instance.DrawRange(0, player.currentPos);
+        player.checkingRange = true;
 
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -332,6 +334,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public void SetUpWoolBall()
     {
         GridManager.instance.DrawRange(1, player.currentPos);
+        player.checkingRange = true;
 
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -346,6 +349,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public void SetUpLaser()
     {
         GridManager.instance.DrawRange(2, player.currentPos);
+        player.checkingRange = true;
 
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -360,6 +364,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public void SetUpTorch()
     {
         GridManager.instance.DrawRange(3, player.currentPos);
+        player.checkingRange = true;
 
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);

@@ -135,6 +135,10 @@ public abstract class Enemy : MoveableCharacter
                 {
                     _goAwake = true;
                 }
+                if (!moveDone)
+                {
+                    ExploreSquawk(woolBallTile);
+                }
             }
         }
     }
