@@ -366,4 +366,12 @@ public class GridManager : MonoBehaviour
         }
         areaToPaint.Clear();
     }
+
+    public void CleanAllSquares()
+    {
+        foreach(Square square in _tiles)
+        {
+            square.ClearRange();
+        }
+    }
 }
