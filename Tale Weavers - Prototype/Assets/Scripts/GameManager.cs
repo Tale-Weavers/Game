@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour,ISubject<bool>
+public class GameManager : MonoBehaviour, ISubject<bool>
 {
     public static GameManager instance;
     public int currentTurn;
     public Enemy[] listOfEnemies;
     public Player player;
-
 
     public CanvasController canvasC;
 
@@ -20,10 +18,11 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     private List<IObserver<bool>> _observers = new List<IObserver<bool>>();
 
     public bool _onMenu;
+
     public bool OnMenu
     {
         get { return _onMenu; }
-        set { _onMenu = value; if(!value) skipButton.gameObject.SetActive(true); }
+        set { _onMenu = value; if (!value) skipButton.gameObject.SetActive(true); }
     }
 
     [HideInInspector] public Button attackButton;
@@ -41,7 +40,6 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     [SerializeField] private List<WoolBall> _woolBall = new();
     [HideInInspector] public bool enemyTurn;
 
-
     [SerializeField] private CheckLevelCompletion _checkLevelCompletion;
 
     public int enemiesKnockedOut;
@@ -51,7 +49,6 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     public bool laserUsed;
     public bool squawkUsed;
     public bool flashlightUsed;
-
 
     private void Awake()
     {
@@ -65,12 +62,10 @@ public class GameManager : MonoBehaviour,ISubject<bool>
             instance = this;
         }
         _checkLevelCompletion = GetComponent<CheckLevelCompletion>();
-        
     }
 
     public void StartCharacters()
     {
-
         foreach (Enemy enemy in listOfEnemies)
         {
             enemy.gameObject.SetActive(true);
@@ -79,7 +74,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         player.gameObject.SetActive(true);
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
-       
+
         AudioManager.instance.InilitializeVolumen();
         SetUpMusic();
         AudioManager.instance.Play("musicaNivel");
@@ -155,11 +150,9 @@ public class GameManager : MonoBehaviour,ISubject<bool>
                 enemy.StartAction();
 
                 enemy.UpdateVisionCone();
-
-                
             }
         }
-        
+
         yield return new WaitForSeconds(0.5f);
         NextTurn();
     }
@@ -194,7 +187,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void NextLevel()
     {
-        LevelManager.instance.LoadSceneA(nextLevelName);
+        LevelManager.instance.LoadSceneCoroutine(nextLevelName);
     }
 
     private IEnumerator SetupLevel()
@@ -209,7 +202,6 @@ public class GameManager : MonoBehaviour,ISubject<bool>
     {
         knockedEnemy = null;
         bool enemyHit = false;
-        
 
         if (!isSeen)
         {
@@ -256,9 +248,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
 
     public void EndLevelLost()
     {
-
         StartCoroutine(EndLevelCoroutine());
-        
     }
 
     public void PlayerSquawk()
@@ -272,7 +262,6 @@ public class GameManager : MonoBehaviour,ISubject<bool>
                 Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
                 squawkUsed = true;
-                
             }
             player.canSquawk = false;
         }
@@ -461,6 +450,7 @@ public class GameManager : MonoBehaviour,ISubject<bool>
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Play("musicaDerrota");
     }
+
     private IEnumerator WaitForKnockOut(Enemy enemy)
     {
         yield return new WaitForSeconds(1);

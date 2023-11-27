@@ -99,6 +99,7 @@ public class MoveableEnemy : Enemy
     public void Patrullar()
     {
         CheckVision();
+        if (_distracted || _playerSeen) return;
         if (currentWaypoint == currentPos)
         {
             SelectWaypoint();

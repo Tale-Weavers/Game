@@ -59,14 +59,15 @@ public class StaticEnemy : Enemy
         if (currentPos == initSpawn)
         {
             CheckVision();
-            if(_distracted) return;
+            if(_distracted || _playerSeen) return;
+            
             RotateVision();
             CheckVision();
         }
         else
         {
             CheckVision();
-            if (_distracted) return;
+            if (_distracted || _playerSeen) return;
             ReturnSpawn();
             CheckVision();
         }

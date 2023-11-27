@@ -37,6 +37,13 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(esceneIndx);
     }
 
+    public void LoadSceneCoroutine(string esceneIndx)
+    {
+        _progressBar.fillAmount = 0;
+        _loadingScreen.SetActive(true);
+        StartCoroutine(LoadLevelASync(esceneIndx));
+    }
+
     public async void LoadSceneA(string esceneIndx)
     {
         _target = 0;
@@ -59,12 +66,25 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount,_target, 3*Time.deltaTime);
+        //_progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount,_target, 3*Time.deltaTime);
     }
 
     public void AddReferneces(GameObject loadScreen, Image bar)
     {
         _loadingScreen = loadScreen;
         _progressBar = bar;
+    }
+
+    IEnumerator LoadLevelASync(string levelName)
+    {
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelName);
+
+        while (!loadOperation.isDone)
+        {
+            float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
+            _progressBar.fillAmount = progressValue;
+            yield return null;
+        }
+        _loadingScreen.SetActive(false);
     }
 }
