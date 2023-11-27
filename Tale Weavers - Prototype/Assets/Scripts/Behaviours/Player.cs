@@ -135,7 +135,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             CheckMove("west");
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && currentTurn == GameManager.instance.currentTurn && !checkingRange)
+        if(Input.GetKeyDown(KeyCode.Space) && currentTurn == GameManager.instance.currentTurn && !checkingRange && !GameManager.instance.waitingForAttack)
         {
             GameManager.instance.EndPlayerTurn();
             currentTurn++;
@@ -205,20 +205,6 @@ public class Player : MoveableCharacter, ISubject<bool>
 
     private void MoveCharacter(Square squareTarget)
     {
-        //Vector3 mousePosition = Input.mousePosition;
-
-        //Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-
-        //RaycastHit hit;
-
-        //if (currentPos.isHidingSpot) AudioManager.instance.Play("openBox");
-
-        //if (Physics.Raycast(ray, out hit))
-        //{
-        //    if (walkablePositions.Contains(hit.transform.GetComponent<Square>()))
-        //    {
-
-        //        Square squareTarget = hit.transform.GetComponent<Square>();
 
         if (squareTarget.isHidingSpot)
         {
@@ -302,10 +288,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             currentPos.DisableFlashlight();
             hasFlashlight = true;
         }
-        //GameManager.instance.EndPlayerTurn();
-        //currentTurn++;
-        //        }
-        //    }
+
     }
 
     private void GetSquareClicked()

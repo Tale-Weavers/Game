@@ -105,11 +105,11 @@ public class ObjectMenu : MonoBehaviour
 
     public void EndTurn()
     {
-        if (isExpanded)
-        {
-            Close();
-            isExpanded = false;
-        }
+        //if (isExpanded)
+        //{
+        //    Close();
+        //    isExpanded = false;
+        //}
     }
 
 

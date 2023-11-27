@@ -181,4 +181,9 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         _optionsScreenGO.SetActive(false);
         GameManager.instance.OnMenu = false;
     }
+
+    public void UpdateMenu()
+    {
+        _menu.UpdateMenu();
+    }
 }

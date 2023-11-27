@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     public bool squawkUsed;
     public bool flashlightUsed;
 
+    public bool waitingForAttack = false;
+
     private void Awake()
     {
         Time.timeScale = 1.0f;
@@ -93,9 +95,6 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     {
         skipButton.gameObject.SetActive(true);
         enemyTurn = false;
-        //StartCoroutine(TimeWaste(0));
-
-        StartCoroutine(TimeWaste(1));
 
         player.UpdateMoveable();
         if (player.canSquawk) squawkButton.gameObject.SetActive(true);
@@ -134,10 +133,16 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         StartCoroutine(EnemyMovement());
     }
 
-    private IEnumerator TimeWaste(int time)
+    private IEnumerator WaitForAttackCoroutine()
     {
-        yield return new WaitForSeconds(time);
+        skipButton.gameObject.SetActive(false);
+        waitingForAttack = true;
+        yield return new WaitForSeconds(1);
+        waitingForAttack = false;
+        skipButton.gameObject.SetActive(true);
     }
+
+
 
     private IEnumerator EnemyMovement()
     {
@@ -211,6 +216,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
                 if (distance.magnitude < 1.3f && !enemy.knockOut)
                 {
                     StartCoroutine(WaitForKnockOut(enemy));
+                    StartCoroutine(WaitForAttackCoroutine());
                     enemyHit = true;
                     knockedEnemy = enemy;
                     enemy.currentPos.isWalkable = true;
