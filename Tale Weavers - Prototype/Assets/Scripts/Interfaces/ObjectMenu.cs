@@ -105,11 +105,10 @@ public class ObjectMenu : MonoBehaviour
 
     public void EndTurn()
     {
-        //if (isExpanded)
-        //{
-        //    Close();
-        //    isExpanded = false;
-        //}
+        if (isExpanded)
+        {
+            Close();
+        }
     }
 
 
@@ -121,8 +120,8 @@ public class ObjectMenu : MonoBehaviour
             menuItems[i].transform.DOMove(mainButtonPosition, collapseDuration).SetEase(collapseEase);
             menuItems[i].img.DOFade(0f, collapseFadeDuration);
 
-
         }
+        isExpanded = false;
     }
 
     private void Open(bool type)
@@ -138,10 +137,12 @@ public class ObjectMenu : MonoBehaviour
                 menuItems[i].transform.DOMove(mainButtonPosition + spacing * (cont + 1), expandDuration).SetEase(expandEase);
                 menuItems[i].img.DOFade(1f, time).From(0f);
                 cont++;
+                
             }
 
 
         }
+        isExpanded = true;  
     }
 
     private void ResetSpacing()

@@ -289,6 +289,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             hasFlashlight = true;
         }
 
+        GameManager.instance.UpdateBackpack();
     }
 
     private void GetSquareClicked()
@@ -515,6 +516,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             if (fountain.DecreaseFountainCounter())
             {
                 canSquawk = true;
+                GameManager.instance.UpdateBackpack();
             }
             else
             {

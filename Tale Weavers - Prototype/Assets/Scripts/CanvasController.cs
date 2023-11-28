@@ -65,19 +65,6 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         AudioManager.instance.sliderSFX = sfxSlider;
         AudioManager.instance.sliderMusic = musicSlider;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Initiate()
     {
         buttons[0] = attackButton;
@@ -170,6 +157,11 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
 
     }
 
+    public void UpdateMenu()
+    {
+        _menu.UpdateMenu();
+    }
+
     public void OpenSettings()
     {
         _optionsScreenGO.SetActive(true);
@@ -182,8 +174,4 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         GameManager.instance.OnMenu = false;
     }
 
-    public void UpdateMenu()
-    {
-        _menu.UpdateMenu();
-    }
 }

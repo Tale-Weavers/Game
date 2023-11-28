@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -96,6 +97,8 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         skipButton.gameObject.SetActive(true);
         enemyTurn = false;
 
+
+
         player.UpdateMoveable();
         if (player.canSquawk) squawkButton.gameObject.SetActive(true);
         if (player.fountainClose) drinkButton.gameObject.SetActive(true);
@@ -105,6 +108,9 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         attackButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         currentTurn++;
+
+        UpdateBackpack();
+
         canvasC.AddTurn(currentTurn);
         foreach (WoolBall woolBall in _woolBall)
         {
@@ -115,21 +121,25 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     public void EndPlayerTurn()
     {
         enemyTurn = true;
+
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-        squawkButton.gameObject.SetActive(false);
+        //squawkButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
-        woolBallButton.gameObject.SetActive(false);
-        laserButton?.gameObject.SetActive(false);
-        torchButton?.gameObject.SetActive(false);
+        //woolBallButton.gameObject.SetActive(false);
+        //laserButton?.gameObject.SetActive(false);
+        //torchButton?.gameObject.SetActive(false);
+
+        NotifyObservers(true);
 
         player.moveDone = false;
         player.actionDone = false;
+
         foreach (WoolBall woolBall in _woolBall)
         {
             woolBall.GetComponent<Collider>().enabled = true;
         }
-        NotifyObservers(true);
+
         StartCoroutine(EnemyMovement());
     }
 
@@ -407,6 +417,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         }
         cancelButton.gameObject.SetActive(false);
         player.checkingRange = false;
+
         NotifyObservers(false);
     }
 
@@ -461,5 +472,16 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     {
         yield return new WaitForSeconds(1);
         enemy.KnockEnemy();
+    }
+
+    public void UpdateBackpack()
+    {
+        if (player.canSquawk) squawkButton.gameObject.SetActive(true);
+        if (player.fountainClose) drinkButton.gameObject.SetActive(true);
+        if (player.hasWoolBall) woolBallButton.gameObject.SetActive(true);
+        if (player.hasLaser) laserButton?.gameObject.SetActive(true);
+        if (player.hasFlashlight) torchButton?.gameObject.SetActive(true);
+
+        NotifyObservers(false);
     }
 }
