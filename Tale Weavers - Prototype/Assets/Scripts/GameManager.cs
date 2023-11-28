@@ -199,7 +199,10 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     {
         foreach(Enemy enemy in listOfEnemies)
         {
-            enemy.CheckVision();
+            if (!enemy.knockOut && !enemy.GetBlinded() && !enemy.GetDistracted())
+            {
+                enemy.CheckVision();
+            }
         }
     }
 
