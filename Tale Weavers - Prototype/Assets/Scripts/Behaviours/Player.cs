@@ -303,6 +303,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                     _laser = currentPos.wool;
                     currentPos.wool = null;
                     _laser.gameObject.SetActive(false);
+                    _laser.ForgetWoolball();
                 }
             }
 
