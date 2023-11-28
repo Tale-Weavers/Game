@@ -291,6 +291,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                     _woolball = currentPos.wool;
                     currentPos.wool = null;
                     _woolball.gameObject.SetActive(false);
+                    _woolball.ForgetWoolball();
                 }
             }
             else
