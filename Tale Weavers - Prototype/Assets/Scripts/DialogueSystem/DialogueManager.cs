@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         StartDialogue(startSentences);
         continueButton.onClick.AddListener(DisplayNextSentence);
+        continueButton.Select();
     }
 
     public void StartDialogue(string[] dialogueSentences)
@@ -59,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         Time.timeScale = 1.0f;
         GameManager.instance.OnMenu = false;
-        
+        GameManager.instance.pleaseDont = true;
     }
 
 }

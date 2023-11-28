@@ -90,6 +90,11 @@ public class Player : MoveableCharacter, ISubject<bool>
             {
                 moving = false;
                 animator.SetTrigger("Idle");
+
+                if (currentPos.isExit)
+                {
+                    GameManager.instance.EndLevel();
+                }
             }
         }
     }
@@ -100,6 +105,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         {
             return;
         }
+
         if (Input.GetMouseButtonUp(0) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
         {
             GetSquareClicked();
@@ -137,8 +143,12 @@ public class Player : MoveableCharacter, ISubject<bool>
 
         if(Input.GetKeyDown(KeyCode.Space) && currentTurn == GameManager.instance.currentTurn && !checkingRange && !GameManager.instance.waitingForAttack)
         {
-            GameManager.instance.EndPlayerTurn();
-            currentTurn++;
+            if (GameManager.instance.pleaseDont) GameManager.instance.pleaseDont = false;
+            else
+            {
+                GameManager.instance.EndPlayerTurn();
+                currentTurn++;
+            }
         }
 
         #region oldShortcuts
@@ -241,11 +251,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             GameManager.instance.drinkButton.gameObject.SetActive(false);
         }
 
-        if (currentPos.isExit)
-        {
-            GameManager.instance.EndLevel();
-        }
-        else if (currentPos.isHidingSpot)
+        if (currentPos.isHidingSpot)
         {
 
             IsHiding = true;
@@ -515,6 +521,10 @@ public class Player : MoveableCharacter, ISubject<bool>
         {
             if (fountain.DecreaseFountainCounter())
             {
+                float oldFacingDirectionY = facingDirection.y;
+                facingDirection = fountain.transform.position - transform.position;
+                facingDirection.y = oldFacingDirectionY;
+                RotateCharacter();
                 canSquawk = true;
                 GameManager.instance.UpdateBackpack();
             }

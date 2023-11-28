@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     private List<IObserver<bool>> _observers = new List<IObserver<bool>>();
 
     public bool _onMenu;
+    public bool pleaseDont;
 
     public bool OnMenu
     {
