@@ -122,16 +122,16 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     public void EndPlayerTurn()
     {
         enemyTurn = true;
-
+        player.lastPos = null;
         attackButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-        //squawkButton.gameObject.SetActive(false);
+        squawkButton.gameObject.SetActive(false);
         drinkButton.gameObject.SetActive(false);
-        //woolBallButton.gameObject.SetActive(false);
-        //laserButton?.gameObject.SetActive(false);
-        //torchButton?.gameObject.SetActive(false);
+        woolBallButton.gameObject.SetActive(false);
+        laserButton?.gameObject.SetActive(false);
+        torchButton?.gameObject.SetActive(false);
 
-        NotifyObservers(true);
+        //NotifyObservers(true);
 
         player.moveDone = false;
         player.actionDone = false;
@@ -192,6 +192,14 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         {
             player.Seen(false);
             NotifyEnemies(false);
+        }
+    }
+
+    public void EnemiesVision()
+    {
+        foreach(Enemy enemy in listOfEnemies)
+        {
+            enemy.CheckVision();
         }
     }
 

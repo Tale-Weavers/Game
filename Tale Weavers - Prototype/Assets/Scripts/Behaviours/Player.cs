@@ -66,6 +66,7 @@ public class Player : MoveableCharacter, ISubject<bool>
     public Transform inspectorFacingDir;
     protected Vector3 facingDirection;
 
+    public Square lastPos;
     // Start is called before the first frame update
     private void Start()
     {
@@ -94,6 +95,12 @@ public class Player : MoveableCharacter, ISubject<bool>
                 if (currentPos.isExit)
                 {
                     GameManager.instance.EndLevel();
+                }
+
+                else if (currentPos.containsButton)
+                {
+                    AudioManager.instance.Play("boton");
+                    currentPos.OpenDoor();
                 }
             }
         }
@@ -148,6 +155,15 @@ public class Player : MoveableCharacter, ISubject<bool>
             {
                 GameManager.instance.EndPlayerTurn();
                 currentTurn++;
+            }
+        }
+
+        else if (Input.GetKeyDown(KeyCode.U) && currentTurn == GameManager.instance.currentTurn && !checkingRange && !GameManager.instance.waitingForAttack)
+        {
+            if (GameManager.instance.pleaseDont) GameManager.instance.pleaseDont = false;
+            else
+            {
+                UndoMovement();
             }
         }
 
@@ -211,6 +227,7 @@ public class Player : MoveableCharacter, ISubject<bool>
     {
         GameManager.instance.EndPlayerTurn();
         currentTurn++;
+
     }
 
     private void MoveCharacter(Square squareTarget)
@@ -230,6 +247,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             currentPos.isWalkable = true;
             currentPos.occupiedByPlayer = false;
             if (currentPos.isHidingSpot) IsHiding = false;
+            lastPos = currentPos;
             currentPos = squareTarget;
             squareTarget.isWalkable = false;
             squareTarget.occupiedByPlayer = true;
@@ -237,6 +255,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             facingDirection = target - transform.position;
             RotateCharacter();
             UpdateMoveable();
+
         }
 
         fountain = GridManager.instance.LookForFountain(currentPos);
@@ -283,11 +302,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             }
 
         }
-        else if (currentPos.containsButton)
-        {
-            AudioManager.instance.Play("boton");
-            currentPos.OpenDoor();
-        }
+        
         else if (currentPos.containsFlashlight)
         {
             currentPos.containsFlashlight = false;
@@ -358,6 +373,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         currentPos.isWalkable = true;
         currentPos.occupiedByPlayer = false;
         if (currentPos.isHidingSpot) IsHiding = false;
+        lastPos = currentPos;
         currentPos = targetSquare;
         targetSquare.isWalkable = false;
         targetSquare.occupiedByPlayer = true;
@@ -599,5 +615,20 @@ public class Player : MoveableCharacter, ISubject<bool>
     public void Die()
     {
         animator.SetTrigger("Die");
+    }
+
+    private void UndoMovement()
+    {
+        Debug.Log("NOT IMPLEMENTED");
+        //if (lastPos == null) return;
+
+        //Debug.Log("undo");
+        //transform.position = new Vector3(lastPos.transform.position.x, transform.position.y, lastPos.transform.position.z);
+        //lastPos.isWalkable = false;
+        //currentPos.isWalkable = true;
+        //currentPos = lastPos;
+        //lastPos = null;
+        //moveDone = false;
+        //UpdateMoveable();
     }
 }
