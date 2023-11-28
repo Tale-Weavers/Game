@@ -3557,6 +3557,7 @@ MonoBehaviour:
   canvasC: {fileID: 45632241}
   nextLevelName: Nivel 13
   _onMenu: 0
+  pleaseDont: 0
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -3579,6 +3580,7 @@ MonoBehaviour:
   laserUsed: 0
   squawkUsed: 0
   flashlightUsed: 0
+  waitingForAttack: 0
 --- !u!1001 &167810688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16971,6 +16973,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpikedFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126268024336215414, guid: 0669595143378d14894755676e600d17,
+        type: 3}
+      propertyPath: isExit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9126268024336215414, guid: 0669595143378d14894755676e600d17,
         type: 3}
