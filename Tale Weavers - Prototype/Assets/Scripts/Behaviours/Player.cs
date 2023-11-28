@@ -60,6 +60,7 @@ public class Player : MoveableCharacter, ISubject<bool>
 
     private Animator animator;
     private bool moving;
+    private bool sliding;
     private const float MOV_SPEED = 0.05f;
     private Vector3 target;
 
@@ -86,10 +87,13 @@ public class Player : MoveableCharacter, ISubject<bool>
     {
         if (moving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED);
+            if(sliding) { transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED*2); }
+            else transform.position = Vector3.MoveTowards(transform.position, target, MOV_SPEED);
+
             if ((transform.position - target).magnitude <= 0.01)
             {
                 moving = false;
+                sliding = false;
                 animator.SetTrigger("Idle");
 
                 if (currentPos.isExit)
@@ -370,6 +374,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         Vector3 direction = targetSquare.transform.position - currentPos.transform.position;
         target = new Vector3(targetSquare.transform.position.x, transform.position.y, targetSquare.transform.position.z);
         moving = true;
+        sliding = true;
         currentPos.isWalkable = true;
         currentPos.occupiedByPlayer = false;
         if (currentPos.isHidingSpot) IsHiding = false;

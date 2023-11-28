@@ -110,7 +110,7 @@ public abstract class Enemy : MoveableCharacter
         {
             if (hit.collider.CompareTag("Player") && !GameManager.instance.player.IsHiding)
             {
-                //Debug.Log("Atrapada");
+                Debug.Log("Atrapada");
                 GameManager.instance.player.Seen(true);
                 GameManager.instance.NotifyEnemies(true);
 
