@@ -5244,11 +5244,10 @@ MonoBehaviour:
   - {fileID: 491636915}
   - {fileID: 2077855533}
   player: {fileID: 1738589917}
-  paused: 0
-  inDialogue: 0
   canvasC: {fileID: 45632241}
   nextLevelName: Nivel 17
-  onMenu: 0
+  _onMenu: 0
+  pleaseDont: 0
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -5269,6 +5268,7 @@ MonoBehaviour:
   laserUsed: 0
   squawkUsed: 0
   flashlightUsed: 0
+  waitingForAttack: 0
 --- !u!1001 &168596206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6449,7 +6449,7 @@ PrefabInstance:
     - target: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
@@ -6459,7 +6459,7 @@ PrefabInstance:
     - target: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
@@ -6474,7 +6474,7 @@ PrefabInstance:
     - target: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 44095401272392109, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
@@ -6486,11 +6486,21 @@ PrefabInstance:
       propertyPath: isExit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4704780141411118872, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: _initMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 73751830989275640a34e8ca88296e7e, type: 2}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 7780149557096227562, guid: 13e0a3300355ad649a8b97e2bbf266aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73751830989275640a34e8ca88296e7e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10300,7 +10310,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _initMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 73751830989275640a34e8ca88296e7e, type: 2}
+      objectReference: {fileID: 2100000, guid: a030f7383d6355e4d889d9dfe0e8d1ce, type: 2}
     - target: {fileID: 7270719245958349523, guid: 13e0a3300355ad649a8b97e2bbf266aa,
         type: 3}
       propertyPath: m_Name
@@ -10310,7 +10320,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 73751830989275640a34e8ca88296e7e, type: 2}
+      objectReference: {fileID: 2100000, guid: a030f7383d6355e4d889d9dfe0e8d1ce, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
