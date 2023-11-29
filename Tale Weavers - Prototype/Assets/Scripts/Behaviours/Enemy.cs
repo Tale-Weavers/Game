@@ -82,7 +82,10 @@ public abstract class Enemy : MoveableCharacter
                         animator.SetTrigger("Eat");
                     }
                 }
-
+                else if(!_distracted && !isBlinded)
+                {
+                    CheckVision();
+                }
                 
             }
         }

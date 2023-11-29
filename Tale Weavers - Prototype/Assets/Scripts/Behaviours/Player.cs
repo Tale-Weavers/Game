@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -242,7 +243,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             GameManager.instance.CheckEnemiesVision();
             AudioManager.instance.Play("closeBox");
         }
-        if (squareTarget.isOilPuddle) { Slip(squareTarget); animator.SetTrigger("Idle"); facingDirection = target - transform.position; RotateCharacter(); }
+        if (squareTarget.isOilPuddle) { Slip(squareTarget); animator.SetTrigger("Idle"); facingDirection = target - transform.position; RotateCharacter(); UpdateMoveable(); }
         else
         {
             animator.SetTrigger("Step");
