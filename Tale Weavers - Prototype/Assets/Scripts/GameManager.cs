@@ -186,7 +186,9 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         bool hidingSuccesful = true;
         foreach (Enemy enemy in listOfEnemies)
         {
+            if(!enemy.knockOut && !enemy.GetBlinded() && !enemy.GetDistracted())
             hidingSuccesful = enemy.PlayerHidCheck();
+            if (!hidingSuccesful) break;
         }
         if (hidingSuccesful)
         {
