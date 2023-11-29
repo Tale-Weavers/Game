@@ -5,13 +5,10 @@ using UnityEngine.UI;
 public class LevelSelector : MonoBehaviour
 {
 
-    public Button Tutorial1;
-    public Button Tutorial2;
-    public Button Tutorial3;
+    public Button[] levelButtons;
 
-    public Button Nivel1;
-    public Button Nivel2;
-    public Button Nivel3;
+
+
 
     private void Start()
     {
@@ -20,6 +17,11 @@ public class LevelSelector : MonoBehaviour
         AudioManager.instance.Stop("musicaDerrota");
         AudioManager.instance.Stop("musicaNivel");
         AudioManager.instance.Stop("musicaAtrapado");
+
+        for(int i = -1; i < ProgressManager.instance.lastLevelCompleted; i++)
+        {
+            levelButtons[i+1].interactable = true;
+        }
     }
 
     public void LevelSelect(string level)

@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour, ISubject<bool>
 
     public bool waitingForAttack = false;
 
+    [SerializeField] private int levelIndx;
+
     private void Awake()
     {
         Time.timeScale = 1.0f;
@@ -66,6 +68,8 @@ public class GameManager : MonoBehaviour, ISubject<bool>
             instance = this;
         }
         _checkLevelCompletion = GetComponent<CheckLevelCompletion>();
+
+
     }
 
     public void StartCharacters()
@@ -270,6 +274,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     public void EndLevel()
     {
         canvasC.EndLevel();
+        //ProgressManager.instance.UpdateLevel(levelIndx);
         //Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Stop("musicaNivel");
