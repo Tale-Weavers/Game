@@ -3162,6 +3162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167176613}
   - component: {fileID: 167176614}
+  - component: {fileID: 167176615}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3203,11 +3204,10 @@ MonoBehaviour:
   - {fileID: 2082404454}
   - {fileID: 429451264}
   player: {fileID: 1116307643}
-  paused: 0
-  inDialogue: 0
   canvasC: {fileID: 45632241}
   nextLevelName: Nivel 6
-  onMenu: 0
+  _onMenu: 0
+  pleaseDont: 0
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -3229,6 +3229,28 @@ MonoBehaviour:
   laserUsed: 0
   squawkUsed: 0
   flashlightUsed: 0
+  waitingForAttack: 0
+  levelIndx: 5
+--- !u!114 &167176615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167176612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d28ccfa96a33545970f4e573a4e9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nOfSteps2star: 35
+  nOfSteps3star: 20
+  nOfEnemiesKnockedOut: 0
+  nOfEnemiesDistracted: 1
+  notUsedWoolball: 0
+  notUsedLaser: 0
+  notUsedSquawk: 0
+  notUsedFlashlight: 0
 --- !u!1001 &180068907
 PrefabInstance:
   m_ObjectHideFlags: 0
