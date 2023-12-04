@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 396546006973487121}
   m_Layer: 0
-  m_Name: Center_Oil
+  m_Name: Oil_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,6 +105,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4e8a6bede69ce1043816e8f82c03d63f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38c885b2a320a8640a2e9def93f0b190, type: 2}
     - target: {fileID: 919132149155446097, guid: 4e8a6bede69ce1043816e8f82c03d63f,
         type: 3}
       propertyPath: m_Name
