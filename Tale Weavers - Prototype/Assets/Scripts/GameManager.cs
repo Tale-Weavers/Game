@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     public bool _onMenu;
     public bool pleaseDont;
 
+    [SerializeField] private bool isTutorial;
+
     public bool OnMenu
     {
         get { return _onMenu; }
@@ -276,7 +278,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         OnMenu = true;
         canvasC.EndLevel();
         //ProgressManager.instance.UpdateLevel(levelIndx);
-        Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
+        if(!isTutorial) Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Stop("musicaNivel");
         AudioManager.instance.Play("musicaVictoria");

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34346488, g: 0.34346488, b: 0.34346488, a: 1}
+  m_IndirectSpecularColor: {r: 0.34350556, g: 0.34350556, b: 0.34350556, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2364,11 +2364,11 @@ MonoBehaviour:
   listOfEnemies:
   - {fileID: 123570221}
   player: {fileID: 1793489471}
-  paused: 0
-  inDialogue: 0
   canvasC: {fileID: 45632241}
   nextLevelName: Tutorial Linterna
   _onMenu: 1
+  pleaseDont: 0
+  isTutorial: 1
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -2390,6 +2390,8 @@ MonoBehaviour:
   laserUsed: 0
   squawkUsed: 0
   flashlightUsed: 0
+  waitingForAttack: 0
+  levelIndx: 0
 --- !u!114 &167176615
 MonoBehaviour:
   m_ObjectHideFlags: 0
