@@ -335,6 +335,7 @@ public abstract class Enemy : MoveableCharacter
             //Debug.Log("Estoy jugando");
             
             if (!AudioManager.instance.IsPlaying("eat") && !woolBall.isLaser) AudioManager.instance.Play("eat");
+            else if (!AudioManager.instance.IsPlaying("eat") && woolBall.isLaser) AudioManager.instance.Play("ronroneo");
             woolBall.NotifyEnemies(this);
         }
         else
@@ -342,7 +343,13 @@ public abstract class Enemy : MoveableCharacter
             if (woolBallTile.containsWool) 
             { 
                 ExploreSquawk(woolBallTile);
-                
+                if (currentPos == woolBallTile)
+                {
+                    //Debug.Log("Estoy jugando");
+
+                    if (!AudioManager.instance.IsPlaying("eat") && !woolBall.isLaser) AudioManager.instance.Play("eat");
+                    else if (!AudioManager.instance.IsPlaying("eat") && woolBall.isLaser) AudioManager.instance.Play("ronroneo");
+                }
             }
             else
             {
