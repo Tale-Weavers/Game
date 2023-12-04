@@ -53,6 +53,8 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     public Image loadingProgressBar;
     public GameObject loadingScreenGO;
 
+    [Header("Other")]
+    public Button closeStarsInfoButton;
 
     private Button[] buttons = new Button[10];
 
@@ -104,6 +106,8 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
 
         homeButtonFS.onClick.AddListener(GameManager.instance.MainMenu);
         retryButtonFS.onClick.AddListener(GameManager.instance.RestartLevel);
+
+        closeStarsInfoButton?.onClick.AddListener(GameManager.instance.DeactivateOnMenu);
 
         masterSlider.onValueChanged.AddListener(AudioManager.instance.GeneralSound);
         sfxSlider.onValueChanged.AddListener(AudioManager.instance.SFXSound);

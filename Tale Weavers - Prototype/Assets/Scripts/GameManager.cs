@@ -506,4 +506,12 @@ public class GameManager : MonoBehaviour, ISubject<bool>
 
         NotifyObservers(false);
     }
+
+    public void DeactivateOnMenu()
+    {
+        if(GetComponent<DialogueManager>() == null)
+        {
+            OnMenu = false;
+        }
+    }
 }
