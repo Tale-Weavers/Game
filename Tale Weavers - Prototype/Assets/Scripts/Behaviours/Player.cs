@@ -105,6 +105,7 @@ public class Player : MoveableCharacter, ISubject<bool>
                 else if (currentPos.containsButton)
                 {
                     AudioManager.instance.Play("boton");
+                    AudioManager.instance.Play("pinchos");
                     currentPos.OpenDoor();
                 }
             }

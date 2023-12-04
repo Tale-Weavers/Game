@@ -273,6 +273,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
 
     public void EndLevel()
     {
+        OnMenu = true;
         canvasC.EndLevel();
         //ProgressManager.instance.UpdateLevel(levelIndx);
         Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
