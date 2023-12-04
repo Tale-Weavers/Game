@@ -437,11 +437,11 @@ MonoBehaviour:
   listOfEnemies:
   - {fileID: 1326783969}
   player: {fileID: 602545274}
-  paused: 0
-  inDialogue: 0
   canvasC: {fileID: 116025530}
   nextLevelName: Tutorial 2
   _onMenu: 1
+  pleaseDont: 0
+  isTutorial: 1
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -462,6 +462,8 @@ MonoBehaviour:
   laserUsed: 0
   squawkUsed: 0
   flashlightUsed: 0
+  waitingForAttack: 0
+  levelIndx: 0
 --- !u!114 &167176615
 MonoBehaviour:
   m_ObjectHideFlags: 0
