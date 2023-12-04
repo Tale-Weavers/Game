@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     {
         canvasC.EndLevel();
         //ProgressManager.instance.UpdateLevel(levelIndx);
-        //Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
+        Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Stop("musicaNivel");
         AudioManager.instance.Play("musicaVictoria");
