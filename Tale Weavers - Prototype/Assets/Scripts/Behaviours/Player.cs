@@ -624,6 +624,7 @@ public class Player : MoveableCharacter, ISubject<bool>
     public void Die()
     {
         animator.SetTrigger("Die");
+        GameManager.instance.OnMenu = true;
     }
 
     private void UndoMovement()
