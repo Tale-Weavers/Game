@@ -491,6 +491,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_text
+      value: IN UNDER 75 TURNS & KNOCKING OUT 3 MEWFIOSOS OR FEWER
+      objectReference: {fileID: 0}
     - target: {fileID: 1227353898028778753, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -971,6 +976,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8659596786909444115, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_text
+      value: 'IN UNDER 100 TURNS
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 9188718825498644763, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1020,6 +1032,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fdbfa8aeb89b04a87bddd5031565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &45632242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 472191202830711790, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 45632239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &45632243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1715309524595879698, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 45632239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &45632244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4288029556456557433, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 45632239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &50120084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2641,8 +2671,9 @@ MonoBehaviour:
   player: {fileID: 1330272506}
   canvasC: {fileID: 45632241}
   nextLevelName: Nivel 16
-  _onMenu: 0
+  _onMenu: 1
   pleaseDont: 0
+  isTutorial: 0
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -2688,6 +2719,10 @@ MonoBehaviour:
   notUsedLaser: 0
   notUsedSquawk: 0
   notUsedFlashlight: 0
+  stars:
+  - {fileID: 45632244}
+  - {fileID: 45632243}
+  - {fileID: 45632242}
 --- !u!1001 &167378852
 PrefabInstance:
   m_ObjectHideFlags: 0

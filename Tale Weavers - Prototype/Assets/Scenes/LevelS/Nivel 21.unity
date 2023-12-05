@@ -2019,6 +2019,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_text
+      value: IN UNDER 90 TURNS, WITHOUT BEING DETECTED & KNOCKING OUT 4 MEWFIOSOS
+        OR FEWER
+      objectReference: {fileID: 0}
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1227353898028778753, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2319,6 +2335,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8659596786909444115, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_text
+      value: 'IN UNDER 120 TURNS
+
+'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2336,6 +2359,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fdbfa8aeb89b04a87bddd5031565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &124849011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 472191202830711790, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 124849009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &124849012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1715309524595879698, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 124849009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &124849013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4288029556456557433, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 124849009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &130072639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3503,8 +3544,9 @@ MonoBehaviour:
   player: {fileID: 178116936}
   canvasC: {fileID: 124849010}
   nextLevelName: MainMenu
-  _onMenu: 0
+  _onMenu: 1
   pleaseDont: 0
+  isTutorial: 0
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -3549,6 +3591,10 @@ MonoBehaviour:
   notUsedLaser: 0
   notUsedSquawk: 0
   notUsedFlashlight: 0
+  stars:
+  - {fileID: 124849013}
+  - {fileID: 124849012}
+  - {fileID: 124849011}
 --- !u!1001 &172549371
 PrefabInstance:
   m_ObjectHideFlags: 0

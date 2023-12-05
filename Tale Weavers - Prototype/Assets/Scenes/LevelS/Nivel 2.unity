@@ -2128,8 +2128,9 @@ MonoBehaviour:
   player: {fileID: 1157395981}
   canvasC: {fileID: 3566674898532539245}
   nextLevelName: Nivel 3
-  _onMenu: 0
+  _onMenu: 1
   pleaseDont: 0
+  isTutorial: 0
   attackButton: {fileID: 0}
   skipButton: {fileID: 0}
   squawkButton: {fileID: 0}
@@ -2172,6 +2173,10 @@ MonoBehaviour:
   notUsedLaser: 0
   notUsedSquawk: 0
   notUsedFlashlight: 0
+  stars:
+  - {fileID: 3566674898532539248}
+  - {fileID: 3566674898532539247}
+  - {fileID: 3566674898532539246}
 --- !u!1001 &180536820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18925,6 +18930,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4241953056365688604, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0017089844
+      objectReference: {fileID: 0}
     - target: {fileID: 4477212391534162130, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -19024,6 +19034,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fdbfa8aeb89b04a87bddd5031565b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3566674898532539246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 472191202830711790, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 3566674898532539243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3566674898532539247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1715309524595879698, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 3566674898532539243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3566674898532539248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4288029556456557433, guid: 50f2da89fe0a985458baac9f2257cc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 3566674898532539243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
