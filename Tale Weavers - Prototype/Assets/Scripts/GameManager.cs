@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         SetUpMusic();
         AudioManager.instance.Play("musicaNivel");
         if (OnMenu) { skipButton.gameObject.SetActive(false); }
-        if(!isTutorial)_checkLevelCompletion.stars = canvasC.starsGO;
+        _checkLevelCompletion.stars = canvasC.starsGO;
     }
 
     public void SetUpMusic()
