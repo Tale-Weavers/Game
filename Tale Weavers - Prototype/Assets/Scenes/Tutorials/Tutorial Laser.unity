@@ -2331,6 +2331,7 @@ GameObject:
   - component: {fileID: 167176613}
   - component: {fileID: 167176614}
   - component: {fileID: 167176615}
+  - component: {fileID: 167176616}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2416,6 +2417,27 @@ MonoBehaviour:
   - A woolball, If I throw it through the obstacles I'll for sure distract the guard
     blocking the path to the exit.
   - I'll have to pick up the woolball and throw it to somewhere the guard sees it.
+--- !u!114 &167176616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167176612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d28ccfa96a33545970f4e573a4e9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nOfSteps2star: 0
+  nOfSteps3star: 0
+  nOfEnemiesKnockedOut: 0
+  nOfEnemiesDistracted: 0
+  notUsedWoolball: 0
+  notUsedLaser: 0
+  notUsedSquawk: 0
+  notUsedFlashlight: 0
+  stars: []
 --- !u!1001 &170483080
 PrefabInstance:
   m_ObjectHideFlags: 0
