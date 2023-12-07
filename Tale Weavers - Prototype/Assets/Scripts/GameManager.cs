@@ -290,6 +290,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         else
         {
             _checkLevelCompletion.ActivateStars();
+            //DatabaseManager.instance.SendLevelDataJSON(levelIndx, nStars, currentTurn, 1);
         }
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Stop("musicaNivel");
@@ -299,6 +300,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
 
     public void EndLevelLost()
     {
+        DatabaseManager.instance.SendLevelDataJSON(levelIndx, 0, currentTurn, 0);
         StartCoroutine(EndLevelCoroutine());
     }
 
@@ -308,7 +310,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         foreach (Enemy enemy in listOfEnemies)
         {
             Vector3 distance = (enemy.transform.position - player.transform.position);
-            if (distance.magnitude < _squawkRange)
+            if (distance.magnitude < _squawkRange && !enemy.knockOut && !enemy.GetBlinded() && !enemy.GetDistracted())
             {
                 Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
