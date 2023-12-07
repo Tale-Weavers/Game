@@ -18,7 +18,7 @@ public class CheckLevelCompletion : MonoBehaviour
     [SerializeField] private bool notUsedSquawk;
     [SerializeField] private bool notUsedFlashlight;
 
-    [SerializeField] private GameObject[] stars;
+    [SerializeField] public GameObject[] stars;
     public int CountStars()
     {
         if (Check3StarConditions()) nOfStars = 3;
@@ -50,5 +50,11 @@ public class CheckLevelCompletion : MonoBehaviour
 
 
         return star3;
+    }
+
+    public void ActivateStars()
+    {
+        stars[1].SetActive(true);
+        stars[2].SetActive(true);
     }
 }

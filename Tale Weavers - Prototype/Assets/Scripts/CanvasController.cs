@@ -55,6 +55,7 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
 
     [Header("Other")]
     public Button closeStarsInfoButton;
+    public GameObject[] starsGO;
 
     private Button[] buttons = new Button[10];
 

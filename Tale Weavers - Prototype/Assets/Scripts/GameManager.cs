@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         SetUpMusic();
         AudioManager.instance.Play("musicaNivel");
         if (OnMenu) { skipButton.gameObject.SetActive(false); }
+        if(!isTutorial)_checkLevelCompletion.stars = canvasC.starsGO;
     }
 
     public void SetUpMusic()
@@ -277,11 +278,23 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     {
         OnMenu = true;
         canvasC.EndLevel();
+
         //ProgressManager.instance.UpdateLevel(levelIndx);
-        if(!isTutorial) Debug.Log($"Numero de estrellas conseguido: {_checkLevelCompletion.CountStars()}");
+        if (!isTutorial) 
+        {
+            int nStars;
+            nStars = _checkLevelCompletion.CountStars();
+            Debug.Log($"Numero de estrellas conseguido: {nStars}");
+            DatabaseManager.instance.SendLevelDataJSON(levelIndx, nStars, currentTurn, 1);
+        }
+        else
+        {
+            _checkLevelCompletion.ActivateStars();
+        }
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Stop("musicaNivel");
         AudioManager.instance.Play("musicaVictoria");
+        
     }
 
     public void EndLevelLost()
