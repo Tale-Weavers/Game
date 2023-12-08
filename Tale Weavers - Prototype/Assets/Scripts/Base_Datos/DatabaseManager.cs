@@ -87,6 +87,53 @@ public class DatabaseManager : MonoBehaviour
 
        StartCoroutine(SendPostRequest(json));
     }
+
+    public void SendSignupDataJSON(string playerUsername, string playerPassword, int age, int gender)
+    {
+        string json;
+        
+            json = $@"{{
+            ""username"":""{username}"",
+            ""password"":""{password}"",
+            ""table"":""{userDataTable}"",
+            ""data"": {{
+                ""usuario"": ""{playerUsername}"",
+                ""password"": ""{playerPassword}"",
+                ""edad"": {age},
+                ""genero"": {gender}
+            }}
+        }}";
+        
+        
+
+        StartCoroutine(SendPostRequest(json));
+    }
+
+
+    public void StartQueryCoroutine(string playerUsername)
+    {
+        StartCoroutine(SendQuery(playerUsername));
+    }
+    IEnumerator SendQuery(string playerUsername)
+    {
+        // Construir la URL con la consulta
+        string url = uri + "?query=" + UnityWebRequest.EscapeURL("SELECT * FROM usuarios WHERE nombre='" + playerUsername + "'");
+
+        // Enviar la solicitud
+        UnityWebRequest www = UnityWebRequest.Get(url);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Error en la solicitud: " + www.error);
+        }
+        else
+        {
+            // Procesar la respuesta
+            string resultado = www.downloadHandler.text;
+            Debug.Log("Resultado de la consulta: " + resultado);
+        }
+    }
     IEnumerator SendPostRequest(string data)
     {
         //string data = CreateJSON("UserData", "Maria", "123calypso", 116 ,1);
