@@ -494,7 +494,33 @@ PrefabInstance:
     - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_text
-      value: IN UNDER 36, WITHOUT USING THE FLASHLIGHT
+      value: IN UNDER 36 TURNS, WITHOUT USING THE FLASHLIGHT & knocking out 2 meowfiosos
+        or fewer
+      objectReference: {fileID: 0}
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -218.47719
+      objectReference: {fileID: 0}
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 54.51513
+      objectReference: {fileID: 0}
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1227353898028778753, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
@@ -825,6 +851,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759917364542884590, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 281.0923
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759917364542884590, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -297.56186
       objectReference: {fileID: 0}
     - target: {fileID: 5076148346428944681, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
@@ -2960,7 +2996,7 @@ MonoBehaviour:
   nOfSteps2star: 50
   nOfSteps3star: 36
   nOfEnemiesKnockedOut: 2
-  nOfEnemiesDistracted: 2
+  nOfEnemiesDistracted: 6
   notUsedWoolball: 0
   notUsedLaser: 0
   notUsedSquawk: 0
