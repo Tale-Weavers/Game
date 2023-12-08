@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         OnMenu = true;
         canvasC.EndLevel();
 
-        //ProgressManager.instance.UpdateLevel(levelIndx);
+        ProgressManager.instance.UpdateLevel(levelIndx);
         if (!isTutorial) 
         {
             int nStars;
@@ -295,7 +295,6 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         AudioManager.instance.Stop("musicaAtrapado");
         AudioManager.instance.Stop("musicaNivel");
         AudioManager.instance.Play("musicaVictoria");
-        
     }
 
     public void EndLevelLost()
