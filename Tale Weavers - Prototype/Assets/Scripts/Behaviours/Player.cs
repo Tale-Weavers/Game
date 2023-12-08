@@ -164,15 +164,6 @@ public class Player : MoveableCharacter, ISubject<bool>
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.U) && currentTurn == GameManager.instance.currentTurn && !checkingRange && !GameManager.instance.waitingForAttack)
-        {
-            if (GameManager.instance.pleaseDont) GameManager.instance.pleaseDont = false;
-            else
-            {
-                UndoMovement();
-            }
-        }
-
         #region oldShortcuts
         //if(Input.GetKeyUp(KeyCode.DownArrow) && currentTurn == GameManager.instance.currentTurn && hasFlashlight && _usingFlashlight ) 
         //{
@@ -553,7 +544,6 @@ public class Player : MoveableCharacter, ISubject<bool>
                 canSquawk = true;
                 GameManager.instance.UpdateBackpack();
                 animator.SetTrigger("Drink");
-                Debug.Log("agluglu");
             }
         }
     }

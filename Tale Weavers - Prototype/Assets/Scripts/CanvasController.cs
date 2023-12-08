@@ -56,6 +56,7 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     [Header("Other")]
     public Button closeStarsInfoButton;
     public GameObject[] starsGO;
+    private bool lastOnMenu;
 
     private Button[] buttons = new Button[10];
 
@@ -136,12 +137,14 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     {
         _gameplayScreenGO.SetActive(false);
         _winScreenGO.SetActive(true);
+        optionsButton.gameObject.SetActive(false);
     }
 
     public void LostLevel()
     {
         _gameplayScreenGO.SetActive(false);
         _failScreenGO.SetActive(true);
+        optionsButton.gameObject.SetActive(false);
     }
 
     public void EndTurn()
@@ -170,13 +173,19 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     public void OpenSettings()
     {
         _optionsScreenGO.SetActive(true);
+        lastOnMenu = GameManager.instance.OnMenu;
         GameManager.instance.OnMenu = true;
+        returnButton.Select();
     }
 
     public void CloseSettings()
     {
         _optionsScreenGO.SetActive(false);
-        GameManager.instance.OnMenu = false;
+        GameManager.instance.OnMenu = lastOnMenu;
     }
 
+    public bool GetOpenSettings()
+    {
+        return _optionsScreenGO.activeSelf;
+    }
 }
