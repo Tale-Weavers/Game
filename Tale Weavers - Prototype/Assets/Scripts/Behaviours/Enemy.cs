@@ -305,7 +305,11 @@ public abstract class Enemy : MoveableCharacter
 
     public void GetBlinded(Vector3 lightDirection)
     {
-        if (lightDirection + facingDirection == Vector3.zero) { SetBlinded(true); GameManager.instance.enemiesDistracted++; }
+        if (lightDirection + facingDirection == Vector3.zero) 
+        { 
+            SetBlinded(true); GameManager.instance.enemiesDistracted++;
+            animator.SetTrigger("Flashed");
+        }
 
     }
 

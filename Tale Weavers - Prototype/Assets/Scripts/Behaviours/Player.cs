@@ -552,15 +552,9 @@ public class Player : MoveableCharacter, ISubject<bool>
                 RotateCharacter();
                 canSquawk = true;
                 GameManager.instance.UpdateBackpack();
+                animator.SetTrigger("Drink");
+                Debug.Log("agluglu");
             }
-            else
-            {
-                //Debug.Log("Fuente Seca");
-            }
-        }
-        else
-        {
-            //Debug.Log("No hay agua cerca");
         }
     }
 
