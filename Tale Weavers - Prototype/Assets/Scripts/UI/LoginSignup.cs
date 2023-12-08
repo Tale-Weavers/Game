@@ -45,6 +45,6 @@ public class LoginSignup : MonoBehaviour
         }
 
         Debug.Log(username + " " + password + " " + age + " " + gender);
-        DatabaseManager.instance.StartQueryCoroutine(username);
+        //DatabaseManager.instance.StartQueryCoroutine(username);
     }
 }
