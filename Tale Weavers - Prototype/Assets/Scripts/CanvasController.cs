@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -56,6 +58,7 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     [Header("Other")]
     public Button closeStarsInfoButton;
     public GameObject[] starsGO;
+    public TMP_Text levelText;
     private bool lastOnMenu;
 
     private Button[] buttons = new Button[10];
@@ -68,7 +71,9 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         AudioManager.instance.sliderGeneral = masterSlider;
         AudioManager.instance.sliderSFX = sfxSlider;
         AudioManager.instance.sliderMusic = musicSlider;
+        
     }
+
     public void Initiate()
     {
         buttons[0] = attackButton;
@@ -124,7 +129,17 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
 
         GameManager.instance.AddObserver(this);
 
-
+        if (GameManager.instance.isTutorial)
+        {
+            levelText.text = SceneManager.GetActiveScene().name;
+        }
+        else
+        {
+            string levelNameAux = SceneManager.GetActiveScene().name;
+            levelNameAux = levelNameAux[6..];
+            string leveltextaux = "Level ";
+            levelText.text = leveltextaux + levelNameAux;
+        }
 
     }
 
