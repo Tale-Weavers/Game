@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     public bool _onMenu;
     public bool pleaseDont;
 
-    [SerializeField] private bool isTutorial;
+    [SerializeField] public bool isTutorial;
 
     public bool OnMenu
     {
