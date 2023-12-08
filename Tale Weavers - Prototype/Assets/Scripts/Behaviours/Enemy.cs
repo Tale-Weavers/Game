@@ -104,6 +104,7 @@ public abstract class Enemy : MoveableCharacter
 
     public void CheckVision()
     {
+        visionCone.gameObject.SetActive(true);
 
         RaycastHit hit;
 
@@ -142,6 +143,10 @@ public abstract class Enemy : MoveableCharacter
                 {
                     ExploreSquawk(woolBallTile);
                 }
+            }
+            else if (hit.collider.CompareTag("wall") && hit.distance <= 0.6)
+            {
+                visionCone.gameObject.SetActive(false);
             }
         }
     }
