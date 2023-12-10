@@ -310,6 +310,7 @@ public class Player : MoveableCharacter, ISubject<bool>
         }
 
         GameManager.instance.UpdateBackpack();
+        StartCoroutine(DelaySkipTurn());
     }
 
     private void GetSquareClicked()
@@ -624,5 +625,13 @@ public class Player : MoveableCharacter, ISubject<bool>
         //lastPos = null;
         //moveDone = false;
         //UpdateMoveable();
+    }
+
+    IEnumerator DelaySkipTurn()
+    {
+        GameManager.instance.OnMenu = true;
+        yield return new WaitForSeconds(0.2f);
+        GameManager.instance.OnMenu = false;
+
     }
 }

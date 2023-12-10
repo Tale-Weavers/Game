@@ -68,7 +68,7 @@ public abstract class Enemy : MoveableCharacter
             if ((transform.position - target).magnitude <= 0.01) 
             {
                 moving = false;
-                animator.SetTrigger("Idle");
+                
                 if (jumping) { animator.SetTrigger("Jump"); facingDirection = playerTarget-transform.position; RotateEnemy(); }
 
                 else if (_distracted)
@@ -82,9 +82,11 @@ public abstract class Enemy : MoveableCharacter
                         animator.SetTrigger("Eat");
                     }
                 }
+
                 else if(!_distracted && !isBlinded)
                 {
                     CheckVision();
+                    animator.SetTrigger("Idle");
                 }
                 
             }
@@ -405,7 +407,9 @@ public abstract class Enemy : MoveableCharacter
     public void SetDistracted(bool distracted)
     {
         _distracted = distracted;
-        if (!distracted) { animator.SetTrigger("Idle"); visionCone.gameObject.SetActive(true); }
+        if (!distracted) { 
+            animator.SetTrigger("Idle"); visionCone.gameObject.SetActive(true);
+        }
         else visionCone.gameObject.SetActive(false);
     }
 
@@ -443,7 +447,9 @@ public abstract class Enemy : MoveableCharacter
     public void SetBlinded(bool blinded)
     {
         isBlinded = blinded;
-        if (!blinded) { animator.SetTrigger("Idle"); visionCone.gameObject.SetActive(true); }
+        if (!blinded) { 
+            animator.SetTrigger("Idle"); visionCone.gameObject.SetActive(true); 
+        }
         else visionCone.gameObject.SetActive(false);
     }
 

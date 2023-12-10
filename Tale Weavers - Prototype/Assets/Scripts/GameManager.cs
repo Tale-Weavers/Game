@@ -26,7 +26,11 @@ public class GameManager : MonoBehaviour, ISubject<bool>
     public bool OnMenu
     {
         get { return _onMenu; }
-        set { _onMenu = value; if (!value) skipButton.gameObject.SetActive(true); }
+        set {
+            _onMenu = value;
+            if (!value) skipButton.interactable = true;
+            else skipButton.interactable = false;
+        }
     }
 
     [HideInInspector] public Button attackButton;
@@ -88,7 +92,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         AudioManager.instance.InilitializeVolumen();
         SetUpMusic();
         AudioManager.instance.Play("musicaNivel");
-        if (OnMenu) { skipButton.gameObject.SetActive(false); }
+        if (OnMenu) { skipButton.interactable = false; }
         _checkLevelCompletion.stars = canvasC.starsGO;
     }
 

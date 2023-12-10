@@ -119,6 +119,11 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         retryButtonWS.onClick.AddListener(GameManager.instance.RestartLevel);
         nextLevelButtonWS.onClick.AddListener(GameManager.instance.NextLevel);
         homeButtonWS.onClick.AddListener(GameManager.instance.MainMenu);
+        if(SceneManager.GetActiveScene().name == "Nivel 21")
+        {
+            nextLevelButtonWS.onClick.RemoveAllListeners();
+            homeButtonWS.onClick.RemoveAllListeners();
+        }
 
         homeButtonFS.onClick.AddListener(GameManager.instance.MainMenu);
         retryButtonFS.onClick.AddListener(GameManager.instance.RestartLevel);
