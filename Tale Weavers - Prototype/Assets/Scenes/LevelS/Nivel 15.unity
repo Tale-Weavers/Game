@@ -504,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_text
-      value: IN UNDER 80 TURNS, KNOCKING OUT & DISTRACTING 3 MEWFIOSOS OR FEWER
+      value: IN UNDER 80 TURNS, KNOCKING OUT 3 MEWFIOSOS OR FEWER
       objectReference: {fileID: 0}
     - target: {fileID: 14742472719574707, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
@@ -644,6 +644,26 @@ PrefabInstance:
     - target: {fileID: 3176890119825463591, guid: 50f2da89fe0a985458baac9f2257cc56,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216659153638090728, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216659153638090728, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216659153638090728, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216659153638090728, guid: 50f2da89fe0a985458baac9f2257cc56,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3256966497167447757, guid: 50f2da89fe0a985458baac9f2257cc56,
@@ -2824,7 +2844,7 @@ MonoBehaviour:
   nOfSteps2star: 100
   nOfSteps3star: 80
   nOfEnemiesKnockedOut: 3
-  nOfEnemiesDistracted: 3
+  nOfEnemiesDistracted: 6
   notUsedWoolball: 0
   notUsedLaser: 0
   notUsedSquawk: 0
