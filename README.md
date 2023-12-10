@@ -42,19 +42,19 @@ El objetivo principal es que los niños aprendan pensamiento computacional a tra
 
 Se quieren fomentar las siguientes áreas de aprendizaje en los niños:
 
-- Abstracción: Reconocer los elementos clave de un problema y reconocimiento de patrones. Esta área se desarrolla en varios niveles, como por ejemplo en el [tutorial 1](https://github.com/Tale-Weavers/Game#tutorial-1), donde se busca que el jugador sea capaz de identificar qué camino debe elegir y cómo gestionar la presencia del enemigo guardando la salida, o en el [tutorial 2](https://github.com/Tale-Weavers/Game#tutorial-2), donde se necesita que el jugador estudie los patrones de patrullaje de los enemigos y los aproveche para poder esconderse e ir avanzando.
-- Descomposición: División de problemas en otros más pequeños y deducción. El refuerzo de esta área del pensamiento computacional se introduce en el [tutorial 3](https://github.com/Tale-Weavers/Game#tutorial-3), donde el jugador debe analizar los recursos disponibles para decidir cómo eliminará a los dos enemigos de la escena, requisito necesario para superar este nivel. Los dos enemigos de este nivel se encuentran en dos áreas diferentes y no deberían interactuar, por lo que el jugador debe enfrentar este nivel como dos problemas independientes más pequeños. Este área también se sigue entrenando en el [nivel 2](https://github.com/Tale-Weavers/Game#nivel-2) y en el [nivel 3](https://github.com/Tale-Weavers/Game#nivel-3-sin-implementar), donde los enemigos se configuran en varios grupos diferenciados, que suponen la división del problema principal (el nivel) en diferentes subproblemas, para los cuales el jugador debe gestionar los recursos disponibles
-- Evaluación: Decidir sobre el buen uso de recursos, ajustar acciones según los objetivos y detección de errores. Este área se reforzará en niveles como el [tutorial 3](https://github.com/Tale-Weavers/Game#tutorial-3) y el [nivel 1](https://github.com/Tale-Weavers/Game#nivel-1), donde el jugador tendrá que gestionar los recursos que se encontrará en el escenario para completar el nivel. En el caso del [tutorial 3](https://github.com/Tale-Weavers/Game#tutorial-3), aunque es la introducción a los objetos consumibles, se muestra al jugador cómo usar los objetos que se encontrará a lo largo del juego y que deberá averiguar cómo usar correctamente.
+- Abstracción: Reconocer los elementos clave de un problema y reconocimiento de patrones. Esta área se desarrolla en varios niveles, como por ejemplo en el [tutorial 1](#_kyzpz7ezrxzp), donde se busca que el jugador sea capaz de identificar qué camino debe elegir y cómo gestionar la presencia del enemigo guardando la salida, o en el [tutorial 2](#_hf175fta6aac), donde se necesita que el jugador estudie los patrones de patrullaje de los enemigos y los aproveche para poder esconderse e ir avanzando.
+- Descomposición: División de problemas en otros más pequeños y deducción. El refuerzo de esta área del pensamiento computacional se introduce en el [tutorial 3](#_7ka8f6xzyden), donde el jugador debe analizar los recursos disponibles para decidir cómo eliminará a los dos enemigos de la escena, requisito necesario para superar este nivel. Los dos enemigos de este nivel se encuentran en dos áreas diferentes y no deberían interactuar, por lo que el jugador debe enfrentar este nivel como dos problemas independientes más pequeños. Este área también se sigue entrenando en el [nivel 2](#_vnuzg9mqv1sc) y en el [nivel 3](#_5yaj58b6g6xh), donde los enemigos se configuran en varios grupos diferenciados, que suponen la división del problema principal (el nivel) en diferentes subproblemas, para los cuales el jugador debe gestionar los recursos disponibles
+- Evaluación: Decidir sobre el buen uso de recursos, ajustar acciones según los objetivos y detección de errores. Este área se reforzará en niveles como el[tutorial 3](#_7ka8f6xzyden) y el [nivel 1](#_kfz0e5paqu9z), donde el jugador tendrá que gestionar los recursos que se encontrará en el escenario para completar el nivel. En el caso del [tutorial 3](#_7ka8f6xzyden), aunque es la introducción a los objetos consumibles, se muestra al jugador cómo usar los objetos que se encontrará a lo largo del juego y que deberá averiguar cómo usar correctamente.
 
-Por ejemplo, el jugador tendrá la opción de graznar donde quiera y tendrá que pensar cómo usarlo de la forma más eficiente posible (en este caso el graznido debe realizarse cerca del escondite para que el enemigo vaya a investigar y el jugador le noquee desde una posición segura). Posteriormente, en el [nivel 1](https://github.com/Tale-Weavers/Game#nivel-1), el jugador podrá usar los objetos de forma completamente libre, por tanto tendrá que valorar de forma correcta cómo usarlos para llegar a la salida en el menor número de movimientos posible.
+Por ejemplo, el jugador tendrá la opción de graznar donde quiera y tendrá que pensar cómo usarlo de la forma más eficiente posible (en este caso el graznido debe realizarse cerca del escondite para que el enemigo vaya a investigar y el jugador le noquee desde una posición segura). Posteriormente, en el [nivel 1](#_kfz0e5paqu9z), el jugador podrá usar los objetos de forma completamente libre, por tanto tendrá que valorar de forma correcta cómo usarlos para llegar a la salida en el menor número de movimientos posible.
 
-- Generalización: Resolución de problemas basada en problemas anteriores, identificación de patrones, conexiones y similitudes. Este área se entrena a lo largo de prácticamente todo el juego. Durante los diferentes tutoriales y niveles se van introduciendo paulatinamente mecánicas con las que el jugador debe familiarizarse, y que más tarde debe volver a usar en niveles posteriores; así como el comportamiento de los enemigos, para ser capaz de predecirlos. Por ejemplo, en el [tutorial 2](https://github.com/Tale-Weavers/Game#tutorial-2) se introducen los escondites, que el jugador debe aprovechar para pasar desapercibido frente a los enemigos. Estos escondites vuelven a aparecer en numerosos niveles posteriores, por lo que el jugador se debe familiarizar con ellos y debe ser capaz de reconocerlos y saber utilizarlos para su ventaja.
+- Generalización: Resolución de problemas basada en problemas anteriores, identificación de patrones, conexiones y similitudes. Este área se entrena a lo largo de prácticamente todo el juego. Durante los diferentes tutoriales y niveles se van introduciendo paulatinamente mecánicas con las que el jugador debe familiarizarse, y que más tarde debe volver a usar en niveles posteriores; así como el comportamiento de los enemigos, para ser capaz de predecirlos. Por ejemplo, en el [tutorial 2](#_hf175fta6aac) se introducen los escondites, que el jugador debe aprovechar para pasar desapercibido frente a los enemigos. Estos escondites vuelven a aparecer en numerosos niveles posteriores, por lo que el jugador se debe familiarizar con ellos y debe ser capaz de reconocerlos y saber utilizarlos para su ventaja.
 
 Más adelante, en la sección de niveles de este documento, se explicará detalladamente cómo se mejorará cada área que afecta al pensamiento computacional con las mecánicas.
 
 ### Equipo de desarrollo
 
-Tale Weavers es un grupo de alumnos de 4º de Diseño y Desarrollo de Videojuegos del campus de Quintana. Podéis encontrar nuestras redes sociales en [nuestro linktree](https://linktr.ee/TaleWeavers_). 
+Tale Weavers es un grupo de alumnos de 4º de Diseño y Desarrollo de Videojuegos del campus de Quintana. Podéis encontrar nuestras redes sociales en [nuestro linktree](https://linktr.ee/TaleWeavers_).
 
 El equipo de desarrollo se compone de 6 alumnos cuyos roles son:
 
@@ -77,7 +77,7 @@ Para conseguir la máxima puntuación al final del nivel, el jugador tendrá que
 
 El juego cuenta con un sistema de turnos donde primero actúa el jugador, pudiendo escoger a donde moverse (arriba, abajo, izquierda o derecha) y realizar una acción (atacar, colocar objeto, interactuar con objeto) o saltar el turno. Luego actuaría el resto del mundo, ya sean enemigos o las trampas que ha colocado el jugador en el escenario. Los enemigos también tendrán el mismo sistema de turnos que el jugador, es decir, moverse (donde incluimos la acción de girarse y cambiar de dirección) y hacer una acción (atacar al jugador, dar la voz de alarma…)
 
-Como mecánicas principales del juego se implementarán desde el prototipo:
+Como mecánicas principales del juego se implementará desde el prototipo:
 
 - **Movimiento:** El jugador verá un mapa dividido en casillas cuadradas. El movimiento puede darse en cuatro direcciones: Arriba, abajo, izquierda y derecha.
 - **Movimiento guardias:** El juego contará con distintos movimientos según el tipo de guardia. Los dos tipos básicos de movimiento de guardia serán estático (no tiene movimiento) y patrullar (se ha implementado un sistema de waypoints que los guardias tienen que seguir, simulando una patrulla por el mapa)
@@ -103,15 +103,17 @@ El juego funciona como "point and click". El movimiento básico del personaje y 
 
 El juego ofrecerá dos vistas de la cámara que el jugador podrá ir alternando: una vista de la cámara en perspectiva donde se verá el escenario desde un plano picado, que será la cámara por defecto del juego (ejemplo: Hitman Go) y una vista cenital donde se verá todo el escenario al completo (ejemplo: 12 minutes).
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image18.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image81.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image1.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image2.png)
+
 ### Progresión del Juego
 
 A medida que se avance en los niveles del juego, el jugador irá encontrándose con nuevas mecánicas y niveles más complicados de resolver. Los primeros niveles contarán con poca dificultad, para ir introduciendo las mecánicas y que el jugador se familiarice con estas, y a medida que se vaya avanzando por los niveles, estos se irán complicando y el jugador se encontrará con distintos tipos de enemigos, que le supondrán mayor dificultad para completar un nivel.
 
 ### Feedback al Jugador
 
-Queremos que el jugador sea consciente en todo momento de qué puede hacer y qué no puede hacer. Por ello, se incluirán sonidos que representen la interacción con el entorno y sus objetos. También, en el departamento visual, se destacarán los objetos consumibles para que el jugador reconozca de forma clara con qué elementos puede interactuar.
+Queremos que el jugador sea consciente en todo momento de qué puede hacer y qué no puede hacer. Por ello, se incluirán sonidos que representan la interacción con el entorno y sus objetos. También, en el departamento visual, se destacarán los objetos consumibles para que el jugador reconozca de forma clara con qué elementos puede interactuar.
 
 ## Resumen de las opciones de juego
 
@@ -135,8 +137,10 @@ En el juego, el jugador contará con la opción guardar su progreso y sus estad�
 
 ## Estados de Juego
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image23.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image55.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image3.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image4.png)
+
 ## Interfaces
 
 ### Objetivos de la Interfaz de Usuario In-Game
@@ -149,7 +153,8 @@ La interfaz debe mostrarle al jugador información relevante para que complete e
 
 Boceto de la interfaz In-Game:
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image36.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image5.png)
+
 ###
 
 
@@ -157,27 +162,78 @@ Boceto de la interfaz In-Game:
 
 El menú principal del juego contará con una imagen que introduzca al jugador al universo del juego, con el título del mismo y con los botones descritos en el diagrama de estados para poder navegar por los distintos menús.
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image79.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image6.png)
+
 ### Diseño de Menús y Submenús
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image4.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image46.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image7.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image8.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image9.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image10.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image11.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image12.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image13.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image14.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image15.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image16.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image17.png)
+
+### Interfaces finales
+
+#### Comienzo del juego
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image18.png)
+
+#### Menú de opciones
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image19.png)
+
+#### Selección de Tutoriales
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image20.png)
+
+#### Selección de Niveles
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image21.png)
+
+#### Ayuda: controles (distintos dispositivos), acciones y objetos
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image22.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image23.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image24.png)
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image25.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image30.png)
+
+#### Pantalla de Victoria
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image26.png)
+
+#### Pantalla de Derrota
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image27.png)
+
+#### Pantalla de Carga
+
 ![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image28.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image62.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image40.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image74.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image78.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image37.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image68.png)
+
+#### Créditos
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image29.png)
+
 ## Niveles
 
 ### Tutorial
 
 #### Tutorial: Movimiento básico
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image71.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image30.png)
 
 **Explicación:** El camino esperado para el jugador es el marcado con la línea negra. El cuervo tendrá que moverse hacia el gato para noquearlo y posteriormente avanzar hasta la casilla de salida.
 
@@ -187,7 +243,11 @@ El menú principal del juego contará con una imagen que introduzca al jugador a
 
 (Nada más entrar al nivel)
 
+"Great, I'm out of my cell. Now, I have to go find Midnight Wing so that we can get out of here."
+
 "Bien, he conseguido salir de la celda. Ahora tengo que encontrar a Midnight Wing y salir de aquí con él."
+
+"Guards don't see anything outside their cone of vision, so as long as I stay out of it, I'm in the clear."
 
 "Los guardias ven sólo en el cono rojo que sale de ellos, así que será mejor que evite entrar en su visión."
 
@@ -195,10 +255,15 @@ El menú principal del juego contará con una imagen que introduzca al jugador a
 
 "Vaya, veo que hay un guardia mirando hacia el pasillo de la salida."
 
+"Oh dear, that guard is looking right at the exit path."
+
 "Tendré que buscar un camino alternativo y noquearlo si quiero pasar"
 
+"I'll have to find my way around him and knock him out if I want to get out."
+
 #### Tutorial: Esconderse y esperar 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image15.jpg)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image31.png)
 
 **Explicación:** El camino superior se encuentra bloqueado por la presencia del gato número 1 que se encuentra vigilando siempre en la misma dirección.
 
@@ -212,17 +277,27 @@ El camino esperado para el jugador se marca con la línea negra, que contará co
 
 "¡Vaya, aquí hay dos guardias patrullando!"
 
+"Dash it all! There are two guards on patrol!"
+
 "El de arriba parece que va a mirar hacia este pasillo todo el rato. Tendré que ir por abajo."
+
+"It doesn't seem like this one is going to look away. I will have to go down the hallway."
 
 "Si voy por abajo podré aprovechar ese escondite para noquear al guardia"
 
+"That way I can use that hiding spot to ambush the guard."
+
 "Tendré que esperar al momento oportuno para avanzar y colarme en el escondite"
+
+"I must wait for the right time so that I can safely go to the hiding spot"
 
 "Desde el escondite podré noquear al guardia sin que me vea nadie"
 
+"From there I can strike the guard without arousing suspicion."
+
 #### Tutorial: Bol de comida
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image48.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image32.png)
 
 **Explicación:** El camino esperado por el jugador consiste en avanzar por arriba y recoger el bol de comida. Posteriormente debe dejar el bol de comida dentro del rango de visión del gato para que lo recoja y quede fuera de combate.
 
@@ -236,11 +311,16 @@ Las áreas del pensamiento computacional a explorar en este nivel son Abstracci�
 
 "Un bol de comida. Podré usarlo para distraer al guardia que me bloquea la salida"
 
+"A food bowl. Maybe I can distract the guard blocking the exit with it."
+
 "Tendré que cogerlo y ponerlo enfrente de él para que lo vea."
+
+"I'll grab it and place it somewhere so he sees it."
 
 #### Tutorial: Fuente
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image45.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image33.png)
+
 **Explicación:** El jugador debe llegar a la fuente para atraer al guardia con el graznido. De este modo, podrá noquear al enemigo y completar el nivel.
 
 **Objetivo:** El objetivo de este nivel es introducir al jugador los distintos objetos consumibles que hay en el juego y que aprenda a usar la fuente de agua junto al graznido.
@@ -253,13 +333,19 @@ Las áreas del pensamiento computacional a explorar en este nivel son Abstracci�
 
 "Veo una fuente. Tengo la garganta un poco seca y no me vendría mal un trago."
 
+"Is that a fountain? I am parched. I could use a drink."
+
 "Si bebo agua podría graznar para atraer al guardia que bloquea la salida."
+
+"Once I've had a drink I can squawk and attract the cat guarding the exit."
 
 "Si grazno el guardia vendrá a mí posición, tendré que estar en una posición segura para noquearlo sin que me vea"
 
+"If I squawk, he'll come to my position. I will have to be somewhere safe so that I can strike without being seen."
+
 #### Tutorial: Ovillo
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image20.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image34.png)
 
 **Explicación:** El jugador debe coger el ovillo para lanzarlo al guardia y que este comience a jugar. De este modo, podrá completar el nivel sin problemas.
 
@@ -273,13 +359,17 @@ Las áreas del pensamiento computacional a explorar en este nivel son Abstracci�
 
 "Un ovillo. Si lo lanzo a través de los obstáculos seguro que distraigo al guardia que me bloquea el paso"
 
+"A ball of yarn. I can throw this over obstacles, and the guard is sure to get distracted by it."
+
 "Tendré que coger el ovillo y luego lanzarlo a un sitio que vea el guardia"
+
+"I must grab it and throw it somewhere the guard will see it. "
 
 #### Tutorial: Linterna
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image6.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image35.png)
 
-**Explicación:** El jugador debe coger la linterna para usarla contra el guardia y que este comience se quede aturdido. De este modo, el jugador podrá atacar al guardia sin problema y podrá avanzar al siguiente nivel.
+**Explicación:** El jugador debe coger la linterna para usarla contra el guardia y que este se quede aturdido. De este modo, el jugador podrá atacar al guardia sin problema y podrá avanzar al siguiente nivel.
 
 **Objetivo:** El objetivo de este nivel es introducir al jugador los distintos objetos consumibles que hay en el juego y que aprenda a usar la linterna.
 
@@ -291,27 +381,42 @@ Las áreas del pensamiento computacional a explorar en este nivel son Abstracci�
 
 "\*Suspira\* Perfecto, ese guardia bloquea el pasillo completo… Espera, ¿eso es una linterna?"
 
+"\*Sighs\* Perfect, that guard is completely blocking that hallway… Wait, is that a torch?"
+
 "Si cojo la linterna y la uso contra el guardia podré noquearlo si corro hacia él"
+
+"If I take the torch and shine it on the guard's face I can reach him and knock him out before he sees me."
 
 (Al salir)
 
 "No creo que las siguientes salas sean igual de sencillas que estas. Tendré que aplicar lo aprendido para seguir avanzando."
 
+"I don't think the next rooms will be quite as easy as these. I will have to keep what I have learnt here in mind to make my way forward."
+
 "Siempre puedo volver a hacer estas salas si salgo al Menú Principal desde el Menú de Pausa"
 
-### Zona 1
+"Well, I can always come back by going to the Main Menu from the Pause Menu."
 
-#### Nivel 1
+### Niveles
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image2.jpg)
+#### Nivel 1 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image36.png)
 
 **Explicación:** El jugador tendrá que hacer una gestión adecuada del bol de comida y la fuente para terminar el nivel de forma adecuada. Como se puede observar, el nivel tiene varios caminos que se pueden tomar, aunque el más óptimo se encuentra pasando por la zona izquierda. Un ejemplo para completar el nivel sería distraer al gato número 2 con el bol de comida y distraer al número 1 con la fuente para despejar el camino. Un camino óptimo se representa con la línea negra del diagrama del nivel.
 
 **Objetivo:** No se introducen nuevas mecánicas en este nivel puesto que se quiere afianzar las mecánicas ya introducidas previamente. De este modo, se aplica el principio de generalización que hará que los jugadores apliquen los conocimientos previos para completar este nivel.
 
-#### Nivel 2 
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image57.jpg)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en 18 turnos o menos.
+
+3ª Estrella = Completar el nivel matando a un enemigo o menos y usando 14 turnos o menos
+
+#### Nivel 2 (Zona 1) 
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image37.png)
 
 **Explicación:** El camino esperado por el jugador es esconderse del gato número 1 en el escondite para poder noquearlo y posteriormente pasar a la siguiente zona del nivel.
 
@@ -319,9 +424,17 @@ Una vez allí se encuentra con los gatos 2 y 3 vigilando todos los posibles cami
 
 **Objetivo:** El objetivo de este nivel es introducir la mecánica de esconderse de los guardias cuando han detectado al jugador. Al esconderse sin ser visto por los guardias, éstos perderán al jugador y volverán a sus posiciones. Se espera mejorar la capacidad de generalización de los jugadores aplicando las mecánicas de los anteriores niveles.
 
-#### Nivel 3
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image9.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel con menos de 28 turnos
+
+3ª Estrella = Completar el nivel con menos de 24 turnos y sin matar enemigos
+
+#### Nivel 3 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image38.png)
 
 **Explicación:** En este nivel el jugador debe utilizar los charcos de aceite para evitar la primera del primer gato, noquearlo y conseguir el bol de comida. Con el bol de comida debe distraer al segundo gato y salir del nivel corriendo más que el tercero y llegando a la salida.
 
@@ -333,64 +446,131 @@ Una vez allí se encuentra con los gatos 2 y 3 vigilando todos los posibles cami
 
 "Vaya, un charco de aceite. Si lo piso me desplazaría a la siguiente casilla en la dirección en la que me mueva. Tendré que tener cuidado"
 
-#### Nivel 4
+"Blast! a puddle of oil. If I step on it I will slide to the next square in that direction. I must be careful."
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image53.png)
+**Sistema de estrellas:**
+
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel con menos de 28 turnos
+
+3ª Estrella = Completar el nivel con menos de 22 turnos y matando 2 enemigos o menos
+
+#### Nivel 4 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image39.png)
+
 **Explicación:** El jugador debe beber de la fuente para atraer al primer gato y noquearlo, luego llegar a por el siguiente en su ruta y noquearlo para obtener el bol de comida para apartar al tercer gato del camino y poder terminar el nivel.
 
 **Objetivo:** El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (La forma de eliminar al gato 1 y 3); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario noquear a los gatos; Descomposición, para deshacer el nivel en problemas más pequeños (Pasar a por el bol de comida que permite resolver el nivel); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 5
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image33.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 35 turnos
+
+3ª Estrella = Completar el nivel en menos de 30 turnos y matando a 1 enemigos o menos
+
+#### Nivel 5 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image40.png)
 
 **Explicación:** El jugador debe ir a por la fuente para atraer al gato 2 y conseguir el bol de comida para distraer al gato 4 y abrirse paso. Para ello tiene que utilizar los escondites para esconderse de la atención del gato 4, atraer al gato 2, luego en la zona inferior debe recoger el bol de comida y noquear al gato 3. Gracias a los chanchos de aceite el jugador puede finalmente distraer al gato 4 con el bol de comida y terminar el nivel.
 
 **Objetivo:** El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional y reforzar lo aprendido con los charcos de aceite. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Los gatos 2 y 4); Evaluación, porque tendrá que pensar en cómo usar los charcos de aceite para avanzar correctamente y los objetos para encargarse de los gatos que le tapan la salida; y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 6
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image10.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 35 turnos
+
+3ª Estrella = Completar el nivel en menos de 20 turnos y sin matar enemigos
+
+#### Nivel 6 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image41.png)
 
 **Explicación:** En este nivel el jugador debe beber de la fuente para deshacerse del gato numero 2, esquivando al gato numero 1 y luego pasando de largo del gato 3 para terminar el nivel. Hay un bol de comida adicional que no hace falta usar para engañar al jugador.
 
 **Objetivo:** El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Evaluación, porque tendrá que pensar en cómo completar correctamente el puzzle y darse cuenta de que no hace falta el bol de comida para pasarse el nivel; Descomposición, para deshacer el nivel en problemas más pequeños (beber de la fuente); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 7
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image16.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = 30
+
+3ª Estrella = 24 turnos matando 1 enemigo
+
+#### Nivel 7 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image42.png)
 
 **Explicación:** En este nivel hay dos posibles caminos que llevan a conseguir un bol de comida para abrirse camino por el gato protegiendo la salida. La más óptima es la inferior donde hay que distraer al gato 1 con un graznido dentro del escondite y noquearlo. Una vez noqueado hay que coger el bol de comida y repetir lo mismo con el gato número 2, luego solo queda distraer al gato 5 y salir.
 
 **Objetivo:** El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Distraer al gato de la salida con comida); Evaluación, porque hay que descubrir cuál es el camino más óptimo; y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 8
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image52.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 35 turno
+
+3ª Estrella = Completar el nivel con menos de 22 turnos y sin usar boles de comida
+
+#### Nivel 8 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image43.png)
 
 **Explicación:** En este nivel el jugador debe coger la linterna para deshacerse del guardia que vigila la salida. La ruta más segura consistirá en coger el ovillo que guarda el guardia de más a la derecha y usarlo contra el guardia que vigila la salida.
 
 **Objetivo:** El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Distraer al gato de la salida con comida); Evaluación, porque tendrá que pensar en cómo completar correctamente el puzzle; Descomposición, para deshacer el nivel en problemas más pequeños (ir avanzando por el nivel); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 9
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image11.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 30 turnos.
+
+3ª Estrella = Completar el nivel en menos de 25 turnos y sin matar ningún enemigo.
+
+#### Nivel 9 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image44.png)
 
 **Explicación:** El jugador tendrá que coger las dos linternas del nivel para eliminar a los guardias que vigilan la puerta. Primero tendrá que deslumbrar a uno y eliminarle y posteriormente tendrá que ir a por el otro. El órden de eliminación de los guardias será relevante para conseguir el mínimo número de pasos.
 
 **Objetivo:** El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Evaluación, porque tendrá que pensar en cómo completar correctamente el puzzle; Descomposición, para deshacer el nivel en problemas más pequeños (ir avanzando por el nivel); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 10
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image67.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en 50 turnos
+
+3ª Estrella = Completar el nivel en 45 turnos y matando 2 enemigos o menos
+
+#### Nivel 10 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image45.png)
 
 **Explicación:** El jugador tendrá que coger el ovillo o el bol de comida para distraer al primer guardia que le bloquea la salida. Posteriormente tendrá que usar el graznido para eliminar al guardia que vigila la salida.
 
 **Objetivo:** El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Evaluación, porque tendrá que pensar en cómo completar correctamente el puzzle; Descomposición, para deshacer el nivel en problemas más pequeños (ir avanzando por el nivel); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 11
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image60.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 50 movimientos
+
+3ª Estrella = Completar el nivel en menos de 35 turnos y matando a 2 enemigos o menos
+
+#### Nivel 11 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image46.png)
 
 **Explicación:** El jugador tendrá que usar los boles de comida para eliminar a los guardias que vigilan la palanca que abre la puerta. Una vez abierta la puerta, podrá abandonar el nivel de forma rápida.
 
@@ -402,11 +582,23 @@ Una vez allí se encuentra con los gatos 2 y 3 vigilando todos los posibles cami
 
 "Vaya, parece que han bloqueado la salida. Tendré que buscar un botón que la abra"
 
+"Uh-oh, the exit seems to have been blocked. I'll have to look for a button to open it."
+
 "Tendré que pisar el botón del color que corresponda a la puerta"
 
-#### Nivel 12
+"The colour of the button must match the colour of the gate."
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image24.png)
+**Sistema de estrellas:**
+
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel 60
+
+3ª Estrella = Completar el nivel en menos de 45 y matando a 4 enemigos o menos
+
+#### Nivel 12 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image47.png)
 
 **Explicación:** En este nivel el jugador tendrá que usar el ovillo para tener el acceso a la fuente. Posteriormente, la fuente le permitirá noquear al gato que vigila el botón que abre la puerta. Una vez pulsado el botón, el jugador tendrá que hacer el mini puzzle de los charcos de aceite para salir del nivel.
 
@@ -414,9 +606,17 @@ Una vez allí se encuentra con los gatos 2 y 3 vigilando todos los posibles cami
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Acceder al botón para abrir la puerta); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario; Descomposición, para deshacer el nivel en problemas más pequeños; y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel
 
-#### Nivel 13
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image59.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 100 turnos
+
+3ª Estrella = Completar el nivel en menos de 75 turnos y sin usar la linterna
+
+#### Nivel 13 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image48.png)
 
 **Explicación:** Este nivel trata de darle un poco de variedad a los demás niveles del juego. Concretamente, presentando un nivel rápido donde hay que aplicar la lógica para llegar a la salida.
 
@@ -424,9 +624,17 @@ El objetivo de este nivel es mejorar distintas áreas del pensamiento computacio
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Descomposición, para deshacer el nivel en problemas más pequeños; y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel
 
-#### Nivel 14
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image72.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en 30 turnos o menos
+
+3ª Estrella = Completar el nivel en 20 turnos o menos
+
+#### Nivel 14 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image49.png)
 
 **Explicación:** El jugador debe eliminar a los guardias que vigilan la salida. Para ellos tendrá múltiples formas de hacerlo con los distintos objetos que hay en el mapa. Para completar el nivel solo es necesario usar la fuente y el ovillo que hay en la parte inferior izquierda del mapa, pero se pueden usar más objetos para facilitar el camino a la salida.
 
@@ -434,9 +642,17 @@ El objetivo de este nivel es mejorar distintas áreas del pensamiento computacio
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Eliminar a los gatos que bloquean la salida); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario; Descomposición, para deshacer el nivel en problemas más pequeños (Eliminación de los gatos de la salida y cómo llegar a los distintos objetos); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel
 
-#### Nivel 15
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image12.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 50
+
+3ª Estrella = Completar el nivel en menos de 36, sin usar la linterna y matando a 2 enemigos o menos
+
+#### Nivel 15 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image50.png)
 
 **Explicación:** Para completar este nivel, el jugador tendrá que usar las herramientas del escenario para desbloquear la puerta que bloquea el paso a la linterna. Para ello, tendrá que usar el graznido, el ovillo y el bol de comida para acceder al botón. Finalmente terminará el nivel aturdiendo al enemigo con el flash de la linterna.
 
@@ -444,9 +660,17 @@ El objetivo de este nivel es mejorar distintas áreas del pensamiento computacio
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Eliminar con la linterna al gato que bloquean la salida; Desbloquear la linterna); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario para acceder al botón; Descomposición, para deshacer el nivel en problemas más pequeños (Eliminar gato de la salida; Pulsar el botón de la puerta a la linterna); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 16
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image83.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 100 turnos
+
+3ª Estrella = Completar el nivel en 80 turnos o menos, matando y distrayendo a 3 gatos o menos
+
+#### Nivel 16 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image51.png)
 
 **Explicación:** Este nivel es similar al nivel 13, ofreciendo dos caminos posibles para completar el nivel. El jugador tendrá que escoger el camino correcto para no toparse con los enemigos.
 
@@ -454,9 +678,17 @@ El objetivo de este nivel es mejorar distintas áreas del pensamiento computacio
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Descomposición, para deshacer el nivel en problemas más pequeños; y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel
 
-#### Nivel 17
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image70.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en 30 turnos o menos
+
+3ª Estrella = Completar el nivel en 16 turnos
+
+#### Nivel 17 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image52.png)
 
 **Explicación:** En este nivel el jugador tendrá que abrir 2 puertas para conseguir los objetos clave que necesita para pasarse el nivel. Tendrá que usar el ovillo para eliminar al primer guardia del pasillo y la linterna para eliminar al segundo. De este modo, tendrá acceso a la salida.
 
@@ -464,9 +696,17 @@ El objetivo de este nivel es mejorar distintas áreas del pensamiento computacio
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Eliminar a los gatos que bloquean la salida; Desbloquear la linterna y el ovillo); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario para acceder al botón; Descomposición, para deshacer el nivel en problemas más pequeños (Eliminar gatos de la salida; Pulsar el botón de la puerta a la linterna y del ovillo); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 18
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image43.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 150 turnos
+
+3ª Estrella = Completar el nivel usando 100 turnos o menos, matando y distrayendo a 3 gatos o menos
+
+#### Nivel 18 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image53.png)
 
 **Explicación:** De forma similar al anterior nivel, el jugador tendrá que abrir puertas para conseguir objetos y acceder a la salida.
 
@@ -474,9 +714,17 @@ El objetivo de este nivel es mejorar distintas áreas del pensamiento computacio
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Eliminar gatos en la salida); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario para acceder al botón; Descomposición, para deshacer el nivel en problemas más pequeños (Desbloquear puertas y poder acceder a la salida); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 19
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image87.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 150 turnos
+
+3ª Estrella = Completar el nivel en menos de 85 turnos, matando y distrayendo a 4 enemigos o menos
+
+#### Nivel 19 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image54.png)
 
 **Explicación:** Este nivel es similar a los niveles 13 y 16. En este caso, el jugador tendrá que usar un objeto para eliminar al gato que bloquea su camino. De nuevo, habrá que usar la lógica para completar el puzzle del nivel.
 
@@ -484,15 +732,49 @@ El objetivo de este nivel es mejorar distintas áreas del pensamiento computacio
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Evaluación, porque tendrá que pensar en cómo completar correctamente el puzzle; Descomposición, para deshacer el nivel en problemas más pequeños (ir avanzando por el nivel); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
 
-#### Nivel 20
+**Sistema de estrellas:**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image31.png)
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 40 turnos
+
+3ª Estrella = Completar el nivel en 25 turnos o menos y sin matar enemigos
+
+#### Nivel 20 (Zona 1)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image55.png)
 
 **Explicación:** El nivel se divide en dos áreas. En la primera, el jugador tendrá que abrir la puerta pulsando el botón vigilado por los 3 gatos. Para ello, tendrá que emplear los objetos del escenario para eliminarlos de forma óptima. Dentro de la segunda área habrá que hacer lo mismo, desbloquear la puerta para acceder a la salida.
 
 **Objetivo:**
 
 El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Abrir las distintas puertas que hay, eliminando a los gatos que vigilan los botones); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario para acceder a los botones de las puertas; Descomposición, para deshacer el nivel en problemas más pequeños (el nivel se divide en dos áreas, cada área será un problema independiente del otro); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
+
+**Sistema de estrellas:**
+
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 120 turnos
+
+3ª Estrella = Completar el nivel en menos de 100 turnos
+
+#### Nivel 21 (Zona 2)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image56.png)
+
+**Explicación:** El nivel se divide en dos áreas. En la primera, el jugador tendrá que abrir la puerta pulsando el botón vigilado por los 3 gatos. Para ello, tendrá que emplear los objetos del escenario para eliminarlos de forma óptima. Dentro de la segunda área habrá que hacer lo mismo, desbloquear la puerta para acceder a la salida.
+
+**Objetivo:**
+
+El objetivo de este nivel es mejorar distintas áreas del pensamiento computacional. Las áreas del pensamiento computacional a explorar en este nivel son Abstracción, porque el jugador tendrá que reconocer la clave del problema (Abrir las distintas puertas que hay, eliminando a los gatos que vigilan los botones); Evaluación, porque tendrá que pensar en cómo usar correctamente los recursos del escenario para acceder a los botones de las puertas; Descomposición, para deshacer el nivel en problemas más pequeños (el nivel se divide en dos áreas, cada área será un problema independiente del otro); y Generalización, porque tendrá que aplicar lo aprendido en los anteriores niveles para completar el nivel.
+
+**Sistema de estrellas:**
+
+1ª Estrella = Completar el nivel
+
+2ª Estrella = Completar el nivel en menos de 120 turnos
+
+3ª Estrella = Completar el nivel en menos de 65 turnos, sin usar ovillos o boles de comida y matando a 4 enemigos o menos
 
 ## Historia
 
@@ -525,16 +807,58 @@ Los objetivos del protagonista son:
 
 ### Storyboards
 
+#### Storyboard pantalla inicial:
+
 Storyboard de la cinemática inicial donde se introduce al jugador a la historia principal:
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image19.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image57.png)
+
+####
+
+
+#### Storyboard nivel 21:
+
+Plano 1: Plano entero de Feather Noir abriendo una puerta de una patada.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image58.png)
+
+Plano 2: Plano general de dos gatos matones (de espaldas) llevando a Midnight Wing a un ascensor. Los gatos se alejan en dirección a un ascensor junto a un tercer gato (Don Felino) que aparece desenfocado.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image59.png)
+
+Plano 3: Mismo plano que el anterior pero los gatos se dan cuenta de que Feather Noir ha entrado en la sala y se alertan.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image60.png)
+
+Plano 4: Plano medio de uno de los matones subiéndose las mangas mirando enfadado a Feather Noir.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image61.png)
+
+Plano 5: Mismo plano, pero se ve la mano (o pata) de Don Felino, indicando al gato que se quede quieto.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image62.png)
+
+Plano 6: Primer plano de Don Felino sonriendo malévolamente. Don Felino se encuentra justo enfrente del ascensor.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image63.png)
+
+Plano 7: Mismo plano pero la puerta del ascensor se abre.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image64.png)
+
+Plano 8: Plano contrapicado. En el plano tiene que aparecer Don Felino en el centro del plano y del ascensor tienen que salir varios tipos de gato (para introducir nuevos enemigos, gato forzudo, gato con la percepción de la realidad completamente alterada, gato persa…)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image65.png)
+
+Plano 9: Plano americano de Feather Noir, mirando decidido hacia los gatos. El plano cierra con un "continuará".
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image66.png)
 
 ## Personajes
 
 ### Personajes Relevantes
 
-#### Feather Noir 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image75.png)
+#### Feather Noir ![](RackMultipart20231210-1-lgkrgl_html_9dea85db638dd753.png)
 
 Feather Noir es un cuervo originario de Creatureville que se dedica a robar a los malvados para repartirlo entre los pobres. Feather Noir es un pájaro oscuro de denso plumaje y estatura mediana (para un cuervo de Creatureville)
 
@@ -578,7 +902,7 @@ Los graznidos atraen gatos en un radio circular de 3 casillas para que se muevan
 
 Radio del graznido:
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image88.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image68.png)
 
 #### Bol de comida
 
@@ -637,7 +961,7 @@ El enemigo más básico de todos, su comportamiento se define de la siguiente fo
 
 A continuación, presentamos el Árbol de Comportamiento de los enemigos básicos:
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image85.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image69.png)
 
 #### Gato con la percepción de la realidad completamente alterada
 
@@ -668,6 +992,9 @@ Los gatos pueden llegar a tener 1 objeto equipado, lo que le permite protegerse 
 - **Gafas:** El rango de visión del gato aumenta 2 casillas.
 - **Gafas de sol:** El enemigo es inmune a los objetos: ovillo y linterna.
 
+#
+
+
 ## Arte Conceptual
 
 ### Estilo Artístico
@@ -676,24 +1003,25 @@ El estilo visual es simple y amigable, orientado a una audiencia joven y cuidado
 
 Se usarán colores neutros para el entorno con colores vivos o fuertes para elementos importantes como personajes, objetos, campos de visión etc.
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image73.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image65.jpg)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image21.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image70.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image71.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image72.png)
 
 ### Paleta de Colores
 
 El cuervo utilizará tonos azulados para crear la ilusión de la oscuridad de su plumaje sin recurrir directamente al color negro puro y dar tambien así el efecto de los reflejos metálicos típicos de los córvidos.
 
 Los gatos base serán de color naranja, pero los diferentes tipos de enemigo vendrán diferenciados por color. Todos estarán inspirados en el pelaje de tipos reales de gatos. 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image64.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image74.png)
 
 Los componentes de gángster de su diseño irán en escala de grises u otros colores oscuros y neutros.
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image1.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image73.png)
 
 Habrá diferentes tipos de escenarios según avanza la aventura, los cuales se diferenciarán principalmente por sus colores, que deben permitir el contraste tanto con el cuervo como con los gatos.
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image17.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image75.png)
 
 ### Diseño de Personajes
 
@@ -701,42 +1029,38 @@ Los personajes deben ser antropomórficos pero no demasiado, de la misma manera 
 
 En este aspecto hemos tomado como referencia animales de cómic y personajes de Disney para elaborar bocetos de personajes atractivos.
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image27.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image69.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image50.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image76.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image78.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image79.png)
 
 ### Diseño de Entornos
 
 Para mayor claridad y que el entorno no distraiga del puzle que conforman las mecánicas del juego, se ha decidido utilizar un estilo que, mientras que sea simple sin dejar de aportar cierto interés visual.
 
 Un ejemplo e inspiración en este aspecto es el juego Monument Valley. 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image49.jpg)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image42.jpg)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image61.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image80.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image81.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image82.png)
 
 A pesar de su relativa simpleza, los escenarios son memorables y cautivadores, a la vez que dejan claro al jugador de una mirada su objetivo, el camino a seguir, y los recursos en su mano.
 
 Mientras que en nuestro juego el ambiente no tiene tanto peso como en este, tomaremos inspiración en lo que a estilo se refiere. Queremos capturar la misma limpieza y estilización de la arquitectura.
 
 Al haberse ambientado el juego en un mundo de gangsters reminiscente de la época de los speakeasy, contemporánea al art deco y a la bauhaus, ambos movimientos de gran inspiración geométrica, hemos decidido apoyarnos en estos para decorar los escenarios.
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image56.jpg)
-
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image66.png)
-
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image58.png)
 
 La idea es utilizar motivos geométricos y principios racionalistas para diseñar los entornos, aprovechando los mismos para guiar la mirada del jugador y hacer el juego más intuitivo, usando el entorno como apoyo o acompañamiento a la interfaz. 
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image83.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image84.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image85.png)
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image44.png)
-
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image86.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image86.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image87.png)
 
 La idea es que el fondo sea relativamente neutro en cuanto a paleta y de esta manera ayude a personaje, enemigos y objetos a destacar por color. En principio nos apoyaremos en la iluminación para aumentar este efecto como en estos escenarios de Eddy Loukil:
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image51.jpg)
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image82.jpg)
-
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image34.jpg)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image88.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image89.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image90.png)
 
 ### Diseño de Objetos y Requisitos Gráficos
 
@@ -748,50 +1072,51 @@ Los objetos estarán modelados en Low Poly y serán visibles en el escenario y f
 
 #### Llaves
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image47.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image91.png)
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image84.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image92.png)
 
 #### Fuente
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image14.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image93.png)
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image39.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image94.png)
 
 #### Ovillo de lana
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image35.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image95.png)
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image3.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image96.png)
 
 #### Botón
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image7.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image97.png)
 
 Por motivos de diseño se cambió el botón por unas palancas.
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image63.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image98.png)
 
 #### Bomba de Humo
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image41.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image99.png)
 
 #### Bol de comida
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image22.png)
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image32.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image100.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image101.png)
 
 #### Linterna
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image77.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image102.png)
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image29.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image103.png)
 
 #### Escondite
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image54.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image104.png)
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image80.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image105.png)
 
 ### Efectos Visuales (VFX)
 
@@ -830,7 +1155,9 @@ Las animaciones de escenario serán simples, puertas que se abren, láseres que 
 ### Cinemáticas y Cutscenes
 
 Las cinemáticas y cutscenes consistirán en imágenes o viñetas estáticas (o de movimiento sutil) que se suceden para claridad y simplificación del proceso.
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image19.png)
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image106.png)
+
 Se mantendrá el estilo antropomórfico amigable y estarán - en apariencia - inspirados por webcomics. Utilizarán trazo claro y coloreado sólido, y los personajes tendrán un poco más de detalle que sus modelos in-game.
 
 ## Música y sonido
@@ -865,9 +1192,6 @@ Los sonidos tendrán un estilo cartoon que no resulten muy agresivos al jugador.
 
 El juego como tal no tendrá doblaje, pero sí se incluirán sonidos durante los diálogos al estilo de Animal Crossing. La forma de crear estos sonidos se estudiará más adelante cuando el juego esté más desarrollado.
 
-#
-
-
 ## Logros
 
 1. **Amigo rescatado:** Completar todos los niveles
@@ -900,9 +1224,6 @@ El juego como tal no tendrá doblaje, pero sí se incluirán sonidos durante los
 28. **Buscando recovecos:** Encontrar un camino alternativo en un nivel
 29. **Física de partículas:** Teletransportarse por primera vez en un nivel
 30. **Física de partículas aplicada:** Usar el teletransporte para perder a un guardia
-
-#
-
 
 ## Referencias y autoría
 
@@ -1064,7 +1385,7 @@ Quiere mejorar sus competencias educativas invirtiendo el mínimo dinero posible
 
 **Usuario 1: Niños de 5 a 14 años**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image38.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image107.png)
 
 **¿Qué piensa y siente?**
 
@@ -1092,7 +1413,7 @@ Que los niños mejoren sus habilidades de pensamiento computacional y resolució
 
 **Usuario 2: Jugadores casuales**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image8.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image108.png)
 
 **¿Qué piensa y siente?**
 
@@ -1120,7 +1441,7 @@ Compras dentro del juego siguiendo un modelo freemium, obtener una base de jugad
 
 **Usuario 3: Instituciones educativas**
 
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image5.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image109.png)
 
 **¿Qué piensa y siente?**
 
@@ -1175,11 +1496,13 @@ Con nuestro juego se conseguirá mejorar las siguientes competencias del pensami
 
 **Mercado meta:** Instituciones educativas de primaria que busquen innovar en el aprendizaje, niños occidentales (entre 5 y 12 años), principalmente europeos y americanos, jugadores casuales, inversores, profesores.
 
-**Flujo de ingresos:** freemium del producto, expansiones del producto (más niveles por precios bajos), venta de licencias, micropago, posibilidad de anuncios.
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image89.png)
+**Flujo de ingresos:** freemium del producto, expansiones del producto (más niveles por precios bajos), venta de licencias, micropago, posibilidad de anuncio
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image110.png)
+
 ##
 # Toolbox
-![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image13.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image111.png)
 
 # **Viabilidad a 2 años**
 
@@ -1222,3 +1545,139 @@ Las reglas de Whispers & Whiskers son simples: los enemigos tratan de encontrar 
 De esta forma, nuestras estéticas principales, desafío y coleccionismo, se ven respaldadas en las dinámicas que se generan durante el juego, concretamente, por el sistema de estrellas. Por otro lado, las estéticas secundarias, descubrimiento y sensación, vendrán dadas por las dinámicas del sistema de estrellas y por los distintos cambios en la música respectivamente.
 
 Las **mecánicas** , por último, son muy sencillas de forma intencional. La accesibilidad del juego al público general y no muy familiarizado con el mundo de los videojuegos es fundamental. Los controles por tanto, son simples y con el fin principal de que sean intuitivos y comprensibles de un vistazo. Además, ya que el juego está pensado tanto para ordenador como para dispositivos móviles, se puede jugar únicamente con una mano, ya sea con el ratón en el ordenador, o en el móvil. Todo esto, sumado a las partidas cortas (los niveles se resuelven en un periodo estimado de entre 5 y 10 minutos) y la estética amigable y juguetona, contribuyen a la atracción del público casual por parte del juego.
+
+# Post-mortem
+
+## POST-MORTEM Individual
+
+**Gonzalo Barranco Castro**
+
+Que ha ido bien:
+
+- La idea ha sido suficientemente pequeña y contenida para poder desarrollar el juego en el tiempo previsto.
+- Hemos dividido bien el trabajo de cada persona
+- He intentado ser proactivo y hacer tareas que faltasen.
+- Hacer un calendario de subidas en redes sociales ha sido muy útil.
+
+¿Qué cosas habría que mejorar?
+
+- La comunicación entre el equipo de diseño de arte y arte técnico no ha sido la mejor.
+- Necesitamos dejar más claro qué tareas están hechas y faltan por hacer dentro del equipo de arte.
+- Dejar las cosas bien escritas referentes a lo que es la clave del juego. Todo el equipo tiene que tener bien claro cómo es el GDD y si hay alguna duda preguntar.
+
+**Daniel Salguero Fernández:**
+
+Que ha ido bien
+
+- Hemos logrado hacer un juego desde 0
+- Hemos conseguido sacar adelante un proyecto de un género que no habíamos hecho antes
+- La estética del juego es muy adecuada para el juego
+- El juego tiene una dificultad progresiva y va mostrando las mecánicas poco a poco
+- Buen rendimiento en todas las plataformas
+- Buen acabado gráfico
+- Buenas interfaces
+- Hemos desarrollado música bastante buena para el juego
+
+¿Qué cosas habría que mejorar?
+
+- Comunicación entre el equipo
+- Gestión del proyecto en trello (a nivel personal sobretodo pero también a nivel del equipo)
+- Podría haber planteado mejor los niveles a nivel organizativo y de diseño
+- RRSS abandonadas durante la mayor parte del desarrollo hasta la release de la beta
+- Mejor gestión de los prefabs en cuanto al Game Design
+
+**Pablo Conde López** :
+
+Que ha ido bien
+
+- Hemos sido capaces de establecer un pipeline de trabajo semi-funcional
+- Hemos coordinando de manera satisfactoria el trabajo (al menos en el apartado de programación)
+- Hemos sacado el juego adelante que no es poco
+- Hemos tenido un sistema donde quedaba constancia de que paquetes de trabajo corresponden a cada persona
+
+¿Qué cosas habría que mejorar?
+
+- Necesitamos mejorar el flujo de comunicación entre el equipo, en especial entre diferentes partes (arte/game-design/programación)
+- Necesitamos establecer de manera más clara las prioridades de los paquetes a desarrollar
+- Necesitamos establecer de manera más clara los plazos en los que se van a realizar, de manera estimada, los paquetes de trabajo
+
+**Luis** :
+
+Que ha ido bien
+
+- He conseguido programar de forma más legible y sin #terrorismo
+- He programado UI de forma muchas más eficiente para implementar
+- Programación más eficiente
+- Hemos entregado con tiempo de sobra sin el asfixiados
+- Se ha implementado la mayoría de las cosas que queríamos implementar
+
+¿Qué cosas habría que mejorar?
+
+- REALIZAR PREFABS LO PRIMERO
+- No dejar cosas para los últimos días que son tediosas de implementar
+- Usar mejor nomenclatura de variables, principalmente de privadas y públicas
+- Mejor organización de carpetas
+
+_ **Gloria** _
+
+Que ha ido bien
+
+- Se han usado muchos de los objetos
+- Se han usado los iconos de la ui
+- La música no ha quedado mal
+
+¿Qué cosas habría que mejorar?
+
+- Saber qué hay que hacer desde el principio
+- Muchos modelos y objetos al final no se han utilizado
+- Que me digan antes lo que hay que hacer en vez de que me lo vayan diciendo según surge
+- Música mejor
+
+**Almudena**
+
+Que ha ido bien
+
+- Aprender sobre Blender
+- Animaciones resultonas (que han servido para varias cosas)
+- Buenas ilustraciones que han servido para varias cosas
+- Modularización del escenario
+- Publicaciones respaldadas con nuestras otras cuentas
+
+¿Qué cosas habría que mejorar?
+
+- Blender daba bastantes problemas en cuanto a hacer curvas
+- Hice las paredes 3 veces distintas (problemas míos de planteamiento + poco feedback)
+- Riggeé al cuervo dos veces por no plantear correctamente los huesos y aun así la solución no era la más eficiente y tiene sus problemas aunque los haya escondido
+- Aprender de Blender sobre la marcha (derivando en problemas varios)
+- Gestión de tiempo y prioridades mejorable (en el futuro animación lo antes posible)
+- Poco tiempo dedicado a redes
+- Loop de animación mejorable (idle)
+- Baldosas aun no son propias
+
+## Post Mortem
+
+### ¿Qué ha ido bien?
+
+- _ **Hemos tenido un buen scope dentro del proyecto** _
+- _ **Hemos entregado con calma** _
+- _ **Buena división de trabajo** _
+- _ **Teníamos claro que juego estábamos haciendo** _
+- _ **Buena estética y bien desarrollada** _
+- _ **Cumplido objetivos de la beta** _
+- _ **Hemos establecido un buen flujo de trabajo entre las partes del equipo** _
+- _ **Buena y eficiente resolución de los problemas que iban surgiendo** _
+
+### ¿Qué se puede mejorar?
+
+- _ **Comunicación** _
+  - _ **Qué está en proceso de desarrollo y qué no** _
+  - _ **Definir mejor el orden de prioridad de los paquetes de trabajo** _
+
+- _**Hacer un uso más completo de SCRUM(o la técnica que decidamos)**_
+  - _ **Definir tiempos estimados de realización en las tareas** _
+
+- _ **Mejor uso de carpetas en Unity** _
+- _ **Usar prefabs en Unity para objetos que vayan a ser recurrentes en las escenas** _
+- _ **Mantener las redes sociales más actualizadas.** _
+- _ **PROHIBIDO TOCAR ESCENAS VARIAS PERSONAS A LA VEZ. Cada vez que alguna persona vaya a tocar alguna escena, asegurarse de que nadie la está tocando.** _
+- _ **Hacer builds en WebGL de manera más frecuente** _
