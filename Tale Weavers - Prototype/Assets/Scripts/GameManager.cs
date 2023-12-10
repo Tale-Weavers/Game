@@ -94,6 +94,10 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         AudioManager.instance.Play("musicaNivel");
         if (OnMenu) { skipButton.interactable = false; }
         _checkLevelCompletion.stars = canvasC.starsGO;
+        if(nextLevelName=="Tutorial 2")
+        {
+            canvasC.OpenHelpScreen();
+        }
     }
 
     public void SetUpMusic()

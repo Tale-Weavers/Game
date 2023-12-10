@@ -18,20 +18,15 @@ public class VidPlayer : MonoBehaviour
         {
             string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
             player.url = videoPath;
-            player.Prepare();
-            player.prepareCompleted += OnVideoPrepared;
+            if (SceneManager.GetActiveScene().name != "Nivel 21")
+            {
+                PlayVideo();
+            }
             player.loopPointReached += OnVideoEnd;
         }
     }
 
 
-    void OnVideoPrepared(VideoPlayer vp)
-    {
-        if (SceneManager.GetActiveScene().name != "Nivel 21")
-        {
-            PlayVideo();
-        }
-    }
     public void PlayVideo()
     {
         if (player)
