@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,10 +18,12 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     public Button torchButton;
     public Button mainMenuButton;
     public Button cancelButton;
+    
 
     public Button restartButton;
     public Button optionsButton;
     public Button skipLevelButton;
+    public Button helpButton;
 
     public TextMeshProUGUI turnText;
     public TextMeshProUGUI winText;
@@ -53,6 +53,15 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     [Header("Loading Screen")]
     public Image loadingProgressBar;
     public GameObject loadingScreenGO;
+
+    [Header("Help Screen")]
+    public GameObject[] helpImages;
+    public Button nextPageButton;
+    public Button previousPageButton;
+    public Button leaveHelpButton;
+    [SerializeField] private int helpIndx;
+    [SerializeField] private GameObject _helpScreenGO;
+    
 
     [Header("Other")]
     public Button closeStarsInfoButton;
@@ -104,6 +113,7 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
 
         optionsButton.onClick.AddListener(OpenSettings);
         returnButton.onClick.AddListener(CloseSettings);
+        helpButton.onClick.AddListener(OpenHelpScreen);
 
 
         retryButtonWS.onClick.AddListener(GameManager.instance.RestartLevel);
@@ -118,6 +128,15 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
         masterSlider.onValueChanged.AddListener(AudioManager.instance.GeneralSound);
         sfxSlider.onValueChanged.AddListener(AudioManager.instance.SFXSound);
         musicSlider.onValueChanged.AddListener(AudioManager.instance.MusicSound);
+
+
+
+        nextPageButton.onClick.AddListener(NextPage);
+        previousPageButton.onClick.AddListener(PreviousPage);
+        leaveHelpButton.onClick.AddListener(CloseHelpScreen);
+
+
+
         AudioManager.instance.sliderGeneral = masterSlider;
         AudioManager.instance.sliderSFX = sfxSlider;
         AudioManager.instance.sliderMusic = musicSlider;
@@ -202,4 +221,64 @@ public class CanvasController : MonoBehaviour,IObserver<bool>
     {
         return _optionsScreenGO.activeSelf;
     }
+
+    public void OpenHelpScreen()
+    {
+        _helpScreenGO.SetActive(true);
+        lastOnMenu = GameManager.instance.OnMenu;
+        GameManager.instance.OnMenu = true;
+    }
+
+    public void CloseHelpScreen()
+    {
+        foreach(GameObject scene in helpImages)
+        {
+            scene.SetActive(false);
+        }
+        helpImages[0].SetActive(true);
+        helpIndx = 0;
+        previousPageButton.gameObject.SetActive(false);
+        nextPageButton.gameObject.SetActive(true);
+
+        _helpScreenGO.SetActive(false);
+        GameManager.instance.OnMenu = lastOnMenu;
+    }
+
+    public void NextPage()
+    {
+        helpImages[helpIndx].SetActive(false);
+        helpIndx++;
+        if(helpIndx == helpImages.Length-1)
+        {
+            nextPageButton.gameObject.SetActive(false);
+        }
+        else if (helpIndx >= helpImages.Length)
+        {
+            helpIndx = helpImages.Length - 1;
+
+
+        }
+        
+        previousPageButton.gameObject.SetActive(true);
+        helpImages[helpIndx].SetActive(true);
+    }
+
+    public void PreviousPage()
+    {
+        helpImages[helpIndx].SetActive(false);
+        helpIndx--;
+        if (helpIndx == 0)
+        {
+            previousPageButton.gameObject.SetActive(false);
+        }
+        else if (helpIndx <0)
+        {
+            helpIndx = 0;
+            
+        }
+        nextPageButton.gameObject.SetActive(true);
+        helpImages[helpIndx].SetActive(true);
+    }
+
+   
 }
