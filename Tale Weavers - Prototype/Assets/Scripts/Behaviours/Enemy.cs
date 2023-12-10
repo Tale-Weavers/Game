@@ -108,13 +108,13 @@ public abstract class Enemy : MoveableCharacter
 
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
+        //Debug.DrawRay(transform.position, facingDirection * 3.5f, Color.red, 0.5f);
 
         if (Physics.Raycast(transform.position, facingDirection, out hit, 3.5f))
         {
             if (hit.collider.CompareTag("Player") && !GameManager.instance.player.IsHiding)
             {
-                Debug.Log("Atrapada");
+                //Debug.Log("Atrapada");
                 GameManager.instance.player.Seen(true);
                 GameManager.instance.NotifyEnemies(true);
 

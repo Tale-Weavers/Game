@@ -7,7 +7,7 @@ public class OilPuddleController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Chof Chof Chof");
+        //Debug.Log("Chof Chof Chof");
         if (other.CompareTag("Player"))
         {
             StartCoroutine(WaitToCheck());
@@ -17,7 +17,7 @@ public class OilPuddleController : MonoBehaviour
     private IEnumerator WaitToCheck()
     {
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("Cuervo te veo");
+        //Debug.Log("Cuervo te veo");
         GameManager.instance.EnemiesVision();
     }
 }

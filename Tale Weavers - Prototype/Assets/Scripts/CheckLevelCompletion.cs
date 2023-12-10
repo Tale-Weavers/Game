@@ -40,9 +40,9 @@ public class CheckLevelCompletion : MonoBehaviour
         if (nOfSteps3star < GameManager.instance.currentTurn) star3 = false;
 
         if (nOfEnemiesKnockedOut < GameManager.instance.enemiesKnockedOut) star3 = false;
-        Debug.Log(GameManager.instance.enemiesKnockedOut);
+        //Debug.Log(GameManager.instance.enemiesKnockedOut);
         if (nOfEnemiesDistracted < GameManager.instance.enemiesDistracted) star3 = false;
-        Debug.Log(GameManager.instance.enemiesDistracted);
+        //Debug.Log(GameManager.instance.enemiesDistracted);
 
         if (notUsedWoolball) { star3 = !GameManager.instance.woolBallUsed; }
         if (notUsedLaser) { star3 = !GameManager.instance.laserUsed; }

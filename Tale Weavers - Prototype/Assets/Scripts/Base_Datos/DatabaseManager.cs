@@ -125,13 +125,13 @@ public class DatabaseManager : MonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError("Error en la solicitud: " + www.error);
+            //Debug.LogError("Error en la solicitud: " + www.error);
         }
         else
         {
             // Procesar la respuesta
             string resultado = www.downloadHandler.text;
-            Debug.Log("Resultado de la consulta: " + resultado);
+            //Debug.Log("Resultado de la consulta: " + resultado);
         }
     }
     IEnumerator SendPostRequest(string data)
@@ -170,7 +170,7 @@ public class DatabaseManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Config file not found!");
+            //Debug.LogError("Config file not found!");
         }
     }
 

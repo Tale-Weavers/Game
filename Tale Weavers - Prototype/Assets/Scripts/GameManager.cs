@@ -270,7 +270,9 @@ public class GameManager : MonoBehaviour, ISubject<bool>
             }
         }
 
-        if (!enemyHit) { Debug.Log("NO HAY ENEMIGOS CERCA"); }
+        if (!enemyHit) { 
+            //Debug.Log("NO HAY ENEMIGOS CERCA"); 
+        }
         return enemyHit;
     }
 
@@ -284,7 +286,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         {
             int nStars;
             nStars = _checkLevelCompletion.CountStars();
-            Debug.Log($"Numero de estrellas conseguido: {nStars}");
+            //Debug.Log($"Numero de estrellas conseguido: {nStars}");
             DatabaseManager.instance.SendLevelDataJSON(levelIndx, nStars, currentTurn, 1);
         }
         else
@@ -311,7 +313,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
             Vector3 distance = (enemy.transform.position - player.transform.position);
             if (distance.magnitude < _squawkRange && !enemy.knockOut && !enemy.GetBlinded() && !enemy.GetDistracted())
             {
-                Debug.Log(enemy.name);
+                //Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
                 squawkUsed = true;
             }

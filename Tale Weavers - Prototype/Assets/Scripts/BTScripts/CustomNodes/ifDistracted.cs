@@ -13,7 +13,7 @@ namespace CustomNodes
         {
             if (_thisEnemy.GetDistracted())
             {
-                Debug.Log("Distraido");
+                //Debug.Log("Distraido");
                 return NodeResult.success;
             }
             return NodeResult.failure;

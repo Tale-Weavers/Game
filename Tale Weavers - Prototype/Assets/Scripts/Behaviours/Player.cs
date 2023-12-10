@@ -200,7 +200,7 @@ public class Player : MoveableCharacter, ISubject<bool>
 
     public void KnockOutEnemies()
     {
-        Debug.Log("pum te pego");
+        //Debug.Log("pum te pego");
         foreach (Enemy enemy in GameManager.instance.listOfEnemies)
         {
             if (!enemy.GetBlinded() && !enemy.GetDistracted() && !enemy.knockOut)
