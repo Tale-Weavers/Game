@@ -21,11 +21,17 @@ public class BoxAnimatorStateController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") { animator.SetBool("PlayerIn", true); }
+        if (other.gameObject.tag == "Player") {
+            other.gameObject.GetComponent<PlayerBehaviour>().Hidden = true;
+            animator.SetBool("PlayerIn", true); 
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player") { animator.SetBool("PlayerIn", false); }
+        if (other.gameObject.tag == "Player") {
+            other.gameObject.GetComponent<PlayerBehaviour>().Hidden = false;
+            animator.SetBool("PlayerIn", false); 
+        }
     }
 }

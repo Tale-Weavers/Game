@@ -21,6 +21,8 @@ public class BasicEnemy : MonoBehaviour
     private GameObject player; 
     private GameObject distraction;
     private bool isPlaying;
+    private Vector3 posToExplore;
+    private bool lostVision;
 
     public bool GoAwake { get => goAwake; set => goAwake = value; }
     public bool PlayerSeen { get => playerSeen; set => playerSeen = value; }
@@ -29,6 +31,7 @@ public class BasicEnemy : MonoBehaviour
     public GameObject PlayerPos { get => player; set => player = value; }
     public GameObject Distraction { get => distraction; set => distraction = value; }
     public bool IsPlaying { get => isPlaying; set => isPlaying = value; }
+    public bool LostVision { get => lostVision; set => lostVision = value; }
 
 
 
@@ -90,11 +93,16 @@ public class BasicEnemy : MonoBehaviour
     } 
     public void Investigar()
     {
-
+        agent.SetDestination(posToExplore);
+        float dist = agent.remainingDistance;
+        if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0)
+        {
+            Alerted = false;
+        }
     }
     public void Levantar()
     {
-        Debug.Log("get sopited");
+        //Debug.Log("get sopited");
         agent.SetDestination(distraction.transform.position);
         float dist = agent.remainingDistance;
         if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance < 1)
@@ -102,5 +110,40 @@ public class BasicEnemy : MonoBehaviour
             distraction.GetComponent<ContinuousWoolBall>().ForgetWoolball();
             distraction.SetActive(false);
         }
+    }
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("RangeCollider"))
+        {
+            posToExplore = other.transform.parent.position;
+            Alerted = true;
+        }
+
+        
+    }
+
+
+    public void ForgetRoute()
+    {
+        agent.ResetPath();
+    }
+
+    public void PlayerFound(GameObject player,bool seen)
+    {
+        if (seen)
+        {
+            PlayerSeen = true;
+            PlayerPos = player;
+        }
+        else
+        {
+            PlayerSeen = false;
+            PlayerPos = null;
+            agent.ResetPath();
+        }
+
     }
 }

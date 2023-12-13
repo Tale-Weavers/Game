@@ -47,9 +47,22 @@ public class FieldOfView : MonoBehaviour
                 float distToTarget = Vector3.Distance(transform.position, targetTransform.position);
                 if(!Physics.Raycast(transform.position, dirToTarget, distToTarget, wallMask))
                 {
-                    visibleTargets.Add(targetTransform);
-                    enemy.PlayerSeen = true;
-                    enemy.PlayerPos = target.gameObject;
+                    if (!targetTransform.GetComponent<PlayerBehaviour>().Hidden)
+                    {
+                        enemy.LostVision = false;
+                        visibleTargets.Add(targetTransform);
+                        enemy.PlayerSeen = true;
+                        enemy.PlayerPos = target.gameObject;
+                        GM.instance.NotifyEnemies(true);
+                    }
+                }
+                else
+                {
+                    if(enemy.PlayerPos != null && enemy.PlayerPos.GetComponent<PlayerBehaviour>().Hidden)
+                    {
+                        enemy.LostVision = true;
+                        GM.instance.CheckLostVision();
+                    }
                 }
             }
         }
