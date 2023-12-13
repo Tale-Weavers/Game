@@ -8,7 +8,7 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class Patrullar : Leaf
     {
-        private MoveableEnemy _thisEnemy;
+        private BasicEnemy _thisEnemy;
         public override NodeResult Execute()
         {
             _thisEnemy.Patrullar();
@@ -16,23 +16,10 @@ namespace CustomNodes
             return NodeResult.success;
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<MoveableEnemy>();
+            _thisEnemy = GetComponentInParent<BasicEnemy>();
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
 
     }
 }

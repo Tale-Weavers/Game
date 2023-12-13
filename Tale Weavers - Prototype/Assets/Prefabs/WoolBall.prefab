@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7819880093776135761}
   - component: {fileID: 5027486083341650658}
   - component: {fileID: 6688574734701201165}
-  - component: {fileID: 6390013831791525692}
+  - component: {fileID: 6489793793626095812}
   m_Layer: 0
   m_Name: WoolBall
   m_TagString: WoolBall
@@ -107,7 +107,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6390013831791525692
+--- !u!114 &6489793793626095812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,12 +116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2565667084302871485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a159c3afbf372f341a3672faf6d10c5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 28aff3600af36564684f613b1422421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
   beingPlayed: 0
-  isLaser: 1
+  isLaser: 0
   enemyList: []
 --- !u!1 &3934888322512534900
 GameObject:
@@ -150,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 3934888322512534900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6199999, z: -0.38000003}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []

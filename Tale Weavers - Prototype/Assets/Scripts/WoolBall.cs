@@ -20,7 +20,7 @@ public class WoolBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddEnemy(Enemy enemy)
@@ -30,7 +30,7 @@ public class WoolBall : MonoBehaviour
 
     public void NotifyEnemies(Enemy enemy)
     {
-        foreach(Enemy enemigo in enemyList)
+        foreach (Enemy enemigo in enemyList)
         {
             if (enemy != enemigo) { enemigo.SetDistracted(false); enemigo.SetGoAwake(true); }
         }
@@ -38,7 +38,7 @@ public class WoolBall : MonoBehaviour
 
     public void ForgetWoolball()
     {
-       foreach (Enemy enemy in enemyList)
+        foreach (Enemy enemy in enemyList)
         {
             enemy.ForgetWoolball();
             enemy.SetDistracted(false);

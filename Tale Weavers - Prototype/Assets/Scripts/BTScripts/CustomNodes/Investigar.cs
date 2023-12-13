@@ -8,7 +8,7 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class Investigar : Leaf
     {
-        private Enemy _thisEnemy;
+        private BasicEnemy _thisEnemy;
         public override NodeResult Execute()
         {
             _thisEnemy.Investigar();
@@ -24,7 +24,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<Enemy>();
+            _thisEnemy = GetComponentInParent<BasicEnemy>();
         }
 
         // Update is called once per frame

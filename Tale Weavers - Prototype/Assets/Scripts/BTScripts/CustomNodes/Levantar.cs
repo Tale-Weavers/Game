@@ -8,7 +8,7 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class Levantar : Leaf
     {
-        private Enemy _thisEnemy;
+        private BasicEnemy _thisEnemy;
         public override NodeResult Execute()
         {
             _thisEnemy.Levantar();
@@ -16,21 +16,9 @@ namespace CustomNodes
             return NodeResult.success;
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<Enemy>();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            _thisEnemy = GetComponentInParent<BasicEnemy>();
         }
 
 

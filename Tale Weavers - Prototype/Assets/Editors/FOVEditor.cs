@@ -22,5 +22,10 @@ public class FOVEditor : Editor
         {
             Handles.DrawLine(fov.transform.position, visibleTarget.position);
         }
+        Handles.color = Color.cyan;
+        foreach (Transform visibleTarget in fov.visibleDistractions)
+        {
+            Handles.DrawLine(fov.transform.position, visibleTarget.position);
+        }
     }
 }

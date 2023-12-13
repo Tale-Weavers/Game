@@ -8,10 +8,10 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class ifPlayerSeen : Leaf
     {
-        private Enemy _thisEnemy;
+        private BasicEnemy _thisEnemy;
         public override NodeResult Execute()
         {
-            if (_thisEnemy.GetPlayerSeen()) return NodeResult.success;
+            if (_thisEnemy.PlayerSeen) return NodeResult.success;
             return NodeResult.failure;
         }
 
@@ -29,7 +29,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<Enemy>();
+            _thisEnemy = GetComponentInParent<BasicEnemy>();
         }
     }
 }

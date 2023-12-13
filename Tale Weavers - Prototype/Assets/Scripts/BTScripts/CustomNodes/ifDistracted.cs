@@ -8,10 +8,10 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class ifDistracted : Leaf
     {
-        private Enemy _thisEnemy;
+        private BasicEnemy _thisEnemy;
         public override NodeResult Execute()
         {
-            if (_thisEnemy.GetDistracted())
+            if (_thisEnemy.Distracted)
             {
                 //Debug.Log("Distraido");
                 return NodeResult.success;
@@ -32,7 +32,7 @@ namespace CustomNodes
         }
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<Enemy>();
+            _thisEnemy = GetComponentInParent<BasicEnemy>();
         }
     }
 }

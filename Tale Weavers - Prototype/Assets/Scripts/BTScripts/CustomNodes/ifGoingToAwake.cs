@@ -8,10 +8,10 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class ifGoingToAwake : Leaf
     {
-        private Enemy _thisEnemy;
+        private BasicEnemy _thisEnemy;
         public override NodeResult Execute()
         {
-            if (_thisEnemy.GetGoAwake()) return NodeResult.success;
+            if (_thisEnemy.GoAwake) return NodeResult.success;
             return NodeResult.failure;
         }
 
@@ -29,7 +29,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<Enemy>();
+            _thisEnemy = GetComponentInParent<BasicEnemy>();
         }
     }
 }
