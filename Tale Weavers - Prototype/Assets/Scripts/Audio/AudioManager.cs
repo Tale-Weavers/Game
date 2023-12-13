@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     public Slider sliderGeneral, sliderMusic, sliderSFX;
 
+    public bool loggedIn;
+
     private void Awake()
     {
         if (instance == null)

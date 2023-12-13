@@ -35,9 +35,10 @@ public class ProgressManager : MonoBehaviour
 
     public void UpdateLevel(int levelIndx)
     {
-        if(levelIndx>lastLevelCompleted)
+        if(levelIndx>lastLevelCompleted && levelIndx < 21)
         {
-            lastLevelCompleted= levelIndx;
+            
+            lastLevelCompleted = levelIndx;
             PlayerPrefs.SetInt("LastLevelCompleted", lastLevelCompleted);
         }
 

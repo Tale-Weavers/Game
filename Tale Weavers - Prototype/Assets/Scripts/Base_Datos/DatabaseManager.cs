@@ -20,8 +20,6 @@ public class DatabaseManager : MonoBehaviour
 
     string levelDataTable = "LevelData";
     string userDataTable = "UserData";
-    string name = "Maria";
-
     private void Awake()
     {
         Time.timeScale = 1.0f;
@@ -59,6 +57,7 @@ public class DatabaseManager : MonoBehaviour
     }
     public void SendLevelDataJSON(int level, int nStars, int nSteps, int levelCompleted)
     {
+        string playerName = PlayerPrefs.GetString("PlayerName", "debug");
         string json;
         if (levelCompleted == 0)
         {
@@ -67,7 +66,7 @@ public class DatabaseManager : MonoBehaviour
             ""password"":""{password}"",
             ""table"":""{levelDataTable}"",
             ""data"": {{
-                ""usuario"": ""{name}"",
+                ""usuario"": ""{playerName}"",
                 ""nivel"": {level},
                 ""completado"": {levelCompleted},
                 
@@ -83,7 +82,7 @@ public class DatabaseManager : MonoBehaviour
             ""password"":""{password}"",
             ""table"":""{levelDataTable}"",
             ""data"": {{
-                ""usuario"": ""{name}"",
+                ""usuario"": ""{playerName}"",
                 ""nivel"": {level},
                 ""completado"": {levelCompleted},
                 ""nEstrellas"": {nStars},
@@ -130,7 +129,7 @@ public class DatabaseManager : MonoBehaviour
             }}
         }}";
 
-        StartCoroutine(SendGetLoginRequest(json));
+        StartCoroutine(SendGetLoginRequest(json, playerUsername));
     }
     public void GetSignupDataJSON(string playerUsername, string playerPassword, int age, int gender)
     {
@@ -160,7 +159,7 @@ public class DatabaseManager : MonoBehaviour
             }}
         }}";
 
-        StartCoroutine(SendGetRequest(getJson, json));
+        StartCoroutine(SendGetRequest(getJson, json, playerUsername));
     }
 
     public void StartQueryCoroutine(string playerUsername, string playerPassword, int age, int gender)
@@ -212,7 +211,7 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    IEnumerator SendGetRequest(string data, string postData)
+    IEnumerator SendGetRequest(string data, string postData, string playerUsername)
     {
         //string data = CreateJSON("UserData", "Maria", "123calypso", 116 ,1);
         //string data = SendLevelDataJSON("LevelData", "Maria", 1, 2, 34, 0);
@@ -236,7 +235,8 @@ public class DatabaseManager : MonoBehaviour
                   
                     StartCoroutine(SendPostRequest(postData));
                     sessionController.SuccessRegister();
-
+                    
+                    PlayerPrefs.SetString("PlayerName", playerUsername);
                 }
                 else
                 {
@@ -247,7 +247,7 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    IEnumerator SendGetLoginRequest(string data)
+    IEnumerator SendGetLoginRequest(string data, string playerUsername)
     {
         //string data = CreateJSON("UserData", "Maria", "123calypso", 116 ,1);
         //string data = SendLevelDataJSON("LevelData", "Maria", 1, 2, 34, 0);
@@ -270,8 +270,8 @@ public class DatabaseManager : MonoBehaviour
                 {
 
                     sessionController.SuccessLogin();
-                    GetLevelData();
-
+                    GetLevelData(playerUsername);
+                    PlayerPrefs.SetString("PlayerName", playerUsername);
 
                 }
                 else
@@ -302,13 +302,14 @@ public class DatabaseManager : MonoBehaviour
                 print("Respuesta: " + www.downloadHandler.text);
                 string answer = www.downloadHandler.text;
                 RespuestaLevelData respuesta = JsonUtility.FromJson<RespuestaLevelData>(answer);
-                
+                GetMaxLevel(respuesta);
 
             }
         }
+
     }
 
-    public void GetLevelData()
+    public void GetLevelData(string playerName)
     {
         string getJson;
 
@@ -317,7 +318,7 @@ public class DatabaseManager : MonoBehaviour
             ""password"":""{password}"",
             ""table"":""{levelDataTable}"",
             ""filter"": {{
-                ""usuario"": ""{name}""
+                ""usuario"": ""{playerName}""
 
             }}
         }}";
@@ -328,11 +329,17 @@ public class DatabaseManager : MonoBehaviour
 
     public void GetMaxLevel(RespuestaLevelData files)
     {
-        int maxLevel;
+        int maxLevel = 0;
         foreach(var levelData in files.data)
         {
-
+            if(levelData.completado == 1 && maxLevel < levelData.nivel)
+            {
+                maxLevel = levelData.nivel;
+            }
         }
+        Debug.Log(maxLevel);
+        if (maxLevel >= 21) maxLevel = 20;
+        PlayerPrefs.SetInt("LastLevelCompleted", maxLevel);
     }
 
 

@@ -26,6 +26,10 @@ public class LoginSignup : MonoBehaviour
     {
         sendSignupData.onClick.AddListener(CheckSignup);
         sendLoginData.onClick.AddListener(CheckLogin);
+        if(AudioManager.instance.loggedIn)
+        {
+            SuccessLogin();
+        }
     }
 
     // Update is called once per frame
@@ -63,6 +67,7 @@ public class LoginSignup : MonoBehaviour
 
     public void SuccessLogin()
     {
+        AudioManager.instance.loggedIn = true;
         Debug.Log("SuccessLogin");
         gameObject.SetActive(false);
     }
@@ -76,6 +81,7 @@ public class LoginSignup : MonoBehaviour
 
     public void SuccessRegister()
     {
+        AudioManager.instance.loggedIn = true;
         Debug.Log("SuccessRegister");
         gameObject.SetActive(false);
     }
