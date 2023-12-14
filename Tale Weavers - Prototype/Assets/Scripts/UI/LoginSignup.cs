@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class LoginSignup : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class LoginSignup : MonoBehaviour
     [SerializeField] TMP_InputField loginPasswordInput;
     [SerializeField] Button sendLoginData;
 
+
     [Header("Signup Attributes")]
     [SerializeField] TMP_InputField signupUsernameInput;
     [SerializeField] TMP_InputField signupPasswordInput;
@@ -18,14 +20,18 @@ public class LoginSignup : MonoBehaviour
     [SerializeField] TMP_Dropdown signupGenderInput;
     [SerializeField] Button sendSignupData;
 
+
+    [Header("Warning Attributes")]
     [SerializeField] TextMeshProUGUI errorText;
-    [SerializeField] float errorTime = 1f;
+    [SerializeField] GameObject warningGO;
+    [SerializeField] Button warningButton;
 
     // Start is called before the first frame update
     void Start()
     {
         sendSignupData.onClick.AddListener(CheckSignup);
         sendLoginData.onClick.AddListener(CheckLogin);
+        warningButton.onClick.AddListener(HideWarning);
         if(AudioManager.instance.loggedIn)
         {
             SuccessLogin();
@@ -46,9 +52,9 @@ public class LoginSignup : MonoBehaviour
         int age = int.Parse(ageText);
         int gender = signupGenderInput.value;
 
-        if (age > 120)
+        if (age > 120 || username=="" || password==""||ageText=="")
         {
-            Debug.Log("Invalid age");
+            ShowError();
             return;
         }
 
@@ -60,6 +66,11 @@ public class LoginSignup : MonoBehaviour
     {
         string username = loginUsernameInput.text;
         string password = loginPasswordInput.text;
+        if(username == "" || password == "")
+        {
+            ShowError();
+            return;
+        }
         DatabaseManager.instance.SendLoginDataJSON(username, password);
 
     }
@@ -76,7 +87,7 @@ public class LoginSignup : MonoBehaviour
     {
         Debug.Log("FailureLogin");
         errorText.text = "Wrong username or password";
-        StartCoroutine(DisableErrorText());
+        warningGO.SetActive(true);
     }
 
     public void SuccessRegister()
@@ -90,14 +101,29 @@ public class LoginSignup : MonoBehaviour
     {
         Debug.Log("FailureRegister");
         errorText.text = "Username already registered";
-        StartCoroutine(DisableErrorText());
+        warningGO.SetActive(true);
     }
 
-    IEnumerator DisableErrorText()
+    public void ShowError()
     {
-        errorText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(errorTime);
-        errorText.gameObject.SetActive(false);
+        errorText.text = "Invalid Fields";
+        warningGO.SetActive(true);
+
     }
+
+    public void HideWarning()
+    {
+        warningGO.SetActive(false);
+    }
+
+
+
+
+    //IEnumerator DisableErrorText()
+    //{
+    //    errorText.gameObject.SetActive(true);
+    //    yield return new WaitForSeconds(errorTime);
+    //    errorText.gameObject.SetActive(false);
+    //}
 
 }
