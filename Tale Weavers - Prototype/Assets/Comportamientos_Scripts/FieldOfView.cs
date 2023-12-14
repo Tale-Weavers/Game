@@ -55,6 +55,7 @@ public class FieldOfView : MonoBehaviour
                         enemy.PlayerSeen = true;
                         enemy.PlayerPos = target.gameObject;
                         GM.instance.NotifyEnemies(true);
+                        enemy.First = true;
                     }
                 }
                 else
@@ -63,6 +64,7 @@ public class FieldOfView : MonoBehaviour
                     {
                         enemy.LostVision = true;
                         GM.instance.CheckLostVision();
+                        
                     }
                 }
             }
@@ -83,11 +85,11 @@ public class FieldOfView : MonoBehaviour
                         visibleDistractions.Add(targetTransform);
                         targetTransform.GetComponent<ContinuousWoolBall>().beingPlayed = true;
                         enemy.Distracted = true;
-                        enemy.Distraction = target.gameObject;
+                        enemy.Distraction = target.GetComponent<ContinuousWoolBall>();
                     }
                     else
                     {
-                        enemy.Distraction = target.gameObject;
+                        enemy.Distraction = target.GetComponent<ContinuousWoolBall>();
                         enemy.GoAwake = true;
                         Debug.Log("mi pana esta jugando re loco");
                     }
@@ -146,8 +148,14 @@ public class FieldOfView : MonoBehaviour
                 case AEnemy.TypeOfEnemy.CleanerEnemy:
                     FindPlayer();
                     break;
+                case AEnemy.TypeOfEnemy.SmallEnemy:
+                    FindVisibleTargets();
+                    break;
+
             }
             
         }
     }
+
+
 }

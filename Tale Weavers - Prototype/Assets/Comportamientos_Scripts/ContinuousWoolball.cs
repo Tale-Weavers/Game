@@ -7,30 +7,32 @@ public class ContinuousWoolBall : MonoBehaviour
 {
     public bool beingPlayed = false;
     public bool isLaser;
-    public List<BasicEnemy> enemyList = new();
+    public List<AEnemy> enemyList = new();
 
 
-    public void AddEnemy(BasicEnemy enemy)
+    public void AddEnemy(AEnemy enemy)
     {
         enemyList.Add(enemy);
     }
 
-    public void NotifyEnemies(BasicEnemy enemy)
+    public void NotifyEnemies(AEnemy enemy)
     {
-        foreach (BasicEnemy enemigo in enemyList)
+        foreach (AEnemy enemigo in enemyList)
         {
             if (enemy != enemigo) 
-            { 
-                enemigo.Distracted = false; enemigo.GoAwake = true; 
+            {
+                BasicEnemy newEnemy = enemigo.GetComponent<BasicEnemy>();
+                newEnemy.Distracted = false; newEnemy.GoAwake = true; 
             }
         }
     }
 
     public void ForgetWoolball()
     {
-        foreach (BasicEnemy enemy in enemyList)
+        foreach (AEnemy enemy in enemyList)
         {
-            enemy.Distracted = false; enemy.GoAwake = false;
+            BasicEnemy newEnemy = enemy.GetComponent<BasicEnemy>();
+            newEnemy.Distracted = false; newEnemy.GoAwake = false;
         }
     }
 }

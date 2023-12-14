@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class AEnemy : MonoBehaviour
 {
     protected GameObject player;
-    [SerializeField] protected GameObject distraction;
+    [SerializeField] protected ContinuousWoolBall distraction;
     [SerializeField] protected NavMeshAgent agent;
     protected bool lostVision;
     public TypeOfEnemy enemyType;
@@ -15,11 +15,13 @@ public class AEnemy : MonoBehaviour
 
     public bool LostVision { get => lostVision; set => lostVision = value; }
     public GameObject PlayerPos { get => player; set => player = value; }
+    public ContinuousWoolBall Distraction { get => distraction; set => distraction = value; }
 
     public enum TypeOfEnemy
     {
         BasicEnemy,
-        CleanerEnemy
+        CleanerEnemy,
+        SmallEnemy
     }
 
     protected void Update()

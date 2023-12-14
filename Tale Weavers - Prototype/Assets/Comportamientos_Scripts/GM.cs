@@ -7,7 +7,9 @@ public class GM : MonoBehaviour
     public static GM instance;
 
     public BasicEnemy[] listOfEnemies;
+    public Square[] cleanerSpawnPoints;
     public PlayerBehaviour player;
+    public Square exitSquare;
 
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class GM : MonoBehaviour
         foreach (BasicEnemy enemy in listOfEnemies)
         {
             enemy.PlayerFound(player.gameObject,seen);
+            if (!seen) enemy.First = false;
         }
     }
     public void CheckLostVision()
@@ -44,6 +47,7 @@ public class GM : MonoBehaviour
         if (allLostVision)
         {
             NotifyEnemies(false);
+
         }
     }
 

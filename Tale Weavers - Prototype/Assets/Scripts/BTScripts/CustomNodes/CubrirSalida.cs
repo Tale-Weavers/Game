@@ -2,14 +2,14 @@ using MBT;
 using UnityEngine;
 namespace CustomNodes
 {
-    [MBTNode("CustomNodes/Limpiar")]
+    [MBTNode("CustomNodes/CubrirSalida")]
     [AddComponentMenu("")]
-    public class Limpiar : Leaf
+    public class CubrirSalida : Leaf
     {
-        private CleanerEnemy _thisEnemy;
+        private SmallEnemy _thisEnemy;
         public override NodeResult Execute()
         {
-            _thisEnemy.Cleanup();
+            _thisEnemy.CoverExit();
 
             return NodeResult.success;
         }
@@ -22,7 +22,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<CleanerEnemy>();
+            _thisEnemy = GetComponentInParent<SmallEnemy>();
         }
 
         // Update is called once per frame

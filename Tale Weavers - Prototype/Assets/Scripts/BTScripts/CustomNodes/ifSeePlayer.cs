@@ -8,11 +8,30 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class ifSeePlayer : Leaf
     {
-        CleanerEnemy enemy;
+        AEnemy enemy;
         public override NodeResult Execute()
         {
-            if (enemy.LookAround()) return NodeResult.success;
+            if (enemy.enemyType == AEnemy.TypeOfEnemy.CleanerEnemy) { 
+
+                CleanerEnemy cleaner = enemy.GetComponent<CleanerEnemy>();
+                if (cleaner.LookAround())
+                {
+                    return NodeResult.success;
+                }
+                return NodeResult.failure;
+            }
+            else if(enemy.enemyType == AEnemy.TypeOfEnemy.SmallEnemy)
+            {
+                SmallEnemy small = enemy.GetComponent<SmallEnemy>();
+                if (small.LookAround())
+                {
+                    return NodeResult.success;
+                }
+                
+                return NodeResult.failure;
+            }
             return NodeResult.failure;
+            
         }
 
         // Start is called before the first frame update
@@ -29,7 +48,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            enemy = GetComponentInParent< CleanerEnemy>();
+            enemy = GetComponentInParent<AEnemy>();
         }
     }
 }

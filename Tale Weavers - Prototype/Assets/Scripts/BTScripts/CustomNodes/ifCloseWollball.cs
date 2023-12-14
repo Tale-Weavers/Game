@@ -8,10 +8,10 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class ifCloseWollball : Leaf
     {
-        //private BasicEnemy _thisEnemy;
+        private CleanerEnemy _thisEnemy;
         public override NodeResult Execute()
         {
-            //if (_thisEnemy.GoAwake) return NodeResult.success;
+            if (_thisEnemy.CheckDistToDistraction()<0.75f) return NodeResult.success;
             return NodeResult.failure;
         }
 
@@ -29,7 +29,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            //_thisEnemy = GetComponentInParent<BasicEnemy>();
+            _thisEnemy = GetComponentInParent<CleanerEnemy>();
         }
     }
 }

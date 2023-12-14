@@ -19,20 +19,20 @@ public class BasicEnemy : AEnemy
     [SerializeField] private bool goAwake;
     private bool isPlaying;
     private Vector3 posToExplore;
+    private bool first;
 
     public bool GoAwake { get => goAwake; set => goAwake = value; }
     public bool PlayerSeen { get => playerSeen; set => playerSeen = value; }
     public bool Alerted { get => alerted; set => alerted = value; }
     public bool Distracted { get => distracted; set => distracted = value; }
-    
-    public GameObject Distraction { get => distraction; set => distraction = value; }
     public bool IsPlaying { get => isPlaying; set => isPlaying = value; }
-    
+    public bool First { get => first; set => first = value; }
+
 
 
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         foreach (var direction in wayPoints)
         {
@@ -99,7 +99,7 @@ public class BasicEnemy : AEnemy
         if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && dist < 1)
         {
             distraction.GetComponent<ContinuousWoolBall>().ForgetWoolball();
-            distraction.SetActive(false);
+            distraction.gameObject.SetActive(false);
         }
     }
 
@@ -139,7 +139,6 @@ public class BasicEnemy : AEnemy
         else
         {
             PlayerSeen = false;
-            PlayerPos = null;
             agent.ResetPath();
         }
 

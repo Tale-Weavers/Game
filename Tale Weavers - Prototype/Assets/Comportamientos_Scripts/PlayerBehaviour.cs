@@ -15,6 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float moveSpeed;
     ContinuousWoolBall woolBall;
     bool hasWoolball;
+    public GameObject cleanerPrefab;
 
     public bool Hidden { get => hidden; set => hidden = value; }
 
@@ -86,6 +87,22 @@ public class PlayerBehaviour : MonoBehaviour
         woolBall.transform.position = transform.position + transform.forward * throwDist;
         woolBall.gameObject.SetActive(true);
         hasWoolball = false;
+
+        Square furthestSquare = GM.instance.cleanerSpawnPoints[0];
+        float distToSpawn = 0;
+        foreach(Square square in GM.instance.cleanerSpawnPoints)
+        {
+            if((square.transform.position - woolBall.transform.position).magnitude > distToSpawn)
+            {
+                furthestSquare = square;
+                distToSpawn = (square.transform.position - woolBall.transform.position).magnitude;
+            }
+        }
+
+        GameObject newEnemy = Instantiate(cleanerPrefab);
+        newEnemy.GetComponent<CleanerEnemy>().CleanerEnemySetup(woolBall.gameObject, furthestSquare);
+        newEnemy.GetComponent<CleanerEnemy>().enabled = true;
+        
     }
 
 
