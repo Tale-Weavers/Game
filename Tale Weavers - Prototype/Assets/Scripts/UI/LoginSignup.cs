@@ -46,13 +46,18 @@ public class LoginSignup : MonoBehaviour
 
     void CheckSignup()
     {
+        int age = 0;
         string username = signupUsernameInput.text;
         string password = signupPasswordInput.text;
         string ageText = signupAgeInput.text;
-        int age = int.Parse(ageText);
+        if(ageText!="")
+        {
+             age = int.Parse(ageText);
+        }
+
         int gender = signupGenderInput.value;
 
-        if (age > 120 || username=="" || password==""||ageText=="")
+        if (age > 120 || username=="" || password==""|| age==0)
         {
             ShowError();
             return;
