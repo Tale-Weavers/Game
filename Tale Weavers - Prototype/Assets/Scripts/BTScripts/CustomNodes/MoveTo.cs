@@ -6,10 +6,10 @@ namespace CustomNodes
     [AddComponentMenu("")]
     public class MoveTo : Leaf
     {
-        //private StaticEnemy _thisEnemy;
+        private CleanerEnemy _thisEnemy;
         public override NodeResult Execute()
         {
-            //_thisEnemy.Vigilar();
+            _thisEnemy.SetCheckpoint();
 
             return NodeResult.success;
         }
@@ -22,7 +22,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            //_thisEnemy = GetComponentInParent<StaticEnemy>();
+            _thisEnemy = GetComponentInParent<CleanerEnemy>();
         }
 
         // Update is called once per frame

@@ -16,12 +16,12 @@ public class FieldOfView : MonoBehaviour
     public List<Transform> visibleTargets = new();    
     [HideInInspector]
     public List<Transform> visibleDistractions = new();
-    BasicEnemy enemy;
+    AEnemy initialEnemy;
 
     private void Start()
     {
         StartCoroutine(FindTargetsDelay());
-        enemy = GetComponent<BasicEnemy>();
+        initialEnemy = GetComponent<AEnemy>();
     }
     public Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
@@ -34,6 +34,7 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
+        BasicEnemy enemy = GetComponent<BasicEnemy>();
         if (enemy.Distracted == true) return;
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
         Collider[] distractionsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, woolballMask);
@@ -95,6 +96,41 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    void FindPlayer()
+    {
+        CleanerEnemy enemy = GetComponent<CleanerEnemy>();
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
+        
+
+        foreach (Collider target in targetsInViewRadius)
+        {
+            Transform targetTransform = target.transform;
+            Vector3 dirToTarget = (targetTransform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            {
+                float distToTarget = Vector3.Distance(transform.position, targetTransform.position);
+                if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, wallMask))
+                {
+                    if (!targetTransform.GetComponent<PlayerBehaviour>().Hidden)
+                    {
+                        visibleTargets.Add(targetTransform);
+                        enemy.PlayerPos = target.gameObject;
+                        enemy.PlayerInSight = true;
+                    }
+                    else
+                    {
+                        enemy.PlayerInSight = false;
+                    }
+                } 
+            }
+            
+        }
+        if(targetsInViewRadius.Length == 0)
+        {
+            enemy.PlayerInSight = false;
+        }
+    }
+
     IEnumerator FindTargetsDelay()
     {
         while (true)
@@ -102,7 +138,16 @@ public class FieldOfView : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             visibleTargets.Clear();
 
-            FindVisibleTargets();
+            switch (initialEnemy.enemyType)
+            {
+                case AEnemy.TypeOfEnemy.BasicEnemy:
+                    FindVisibleTargets();
+                    break;
+                case AEnemy.TypeOfEnemy.CleanerEnemy:
+                    FindPlayer();
+                    break;
+            }
+            
         }
     }
 }
