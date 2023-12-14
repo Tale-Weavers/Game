@@ -2,14 +2,14 @@ using MBT;
 using UnityEngine;
 namespace CustomNodes
 {
-    [MBTNode("CustomNodes/Vigilar")]
+    [MBTNode("CustomNodes/IrHacia")]
     [AddComponentMenu("")]
-    public class Vigilar : Leaf
+    public class MoveTo : Leaf
     {
-        private StaticEnemy _thisEnemy;
+        //private StaticEnemy _thisEnemy;
         public override NodeResult Execute()
         {
-            _thisEnemy.Vigilar();
+            //_thisEnemy.Vigilar();
 
             return NodeResult.success;
         }
@@ -22,7 +22,7 @@ namespace CustomNodes
 
         private void Awake()
         {
-            _thisEnemy = GetComponentInParent<StaticEnemy>();
+            //_thisEnemy = GetComponentInParent<StaticEnemy>();
         }
 
         // Update is called once per frame
