@@ -13,7 +13,7 @@ public class BasicEnemy : AEnemy
     
     
 
-    [SerializeField] private bool playerSeen;
+
     [SerializeField] private bool alerted;
     [SerializeField] private bool distracted;
     [SerializeField] private bool goAwake;
@@ -22,7 +22,6 @@ public class BasicEnemy : AEnemy
     private bool first;
 
     public bool GoAwake { get => goAwake; set => goAwake = value; }
-    public bool PlayerSeen { get => playerSeen; set => playerSeen = value; }
     public bool Alerted { get => alerted; set => alerted = value; }
     public bool Distracted { get => distracted; set => distracted = value; }
     public bool IsPlaying { get => isPlaying; set => isPlaying = value; }
@@ -34,6 +33,7 @@ public class BasicEnemy : AEnemy
     // Start is called before the first frame update
     protected void Start()
     {
+        base.Start();
         foreach (var direction in wayPoints)
         {
             Vector3 newDir = direction.transform.position;

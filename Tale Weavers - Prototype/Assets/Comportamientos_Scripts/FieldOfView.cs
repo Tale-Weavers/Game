@@ -64,10 +64,14 @@ public class FieldOfView : MonoBehaviour
                     {
                         enemy.LostVision = true;
                         GM.instance.CheckLostVision();
-                        
                     }
                 }
             }
+        }
+        if (!enemy.LostVision&& targetsInViewRadius.Length == 0 && GM.instance.player.Hidden)
+        {
+            enemy.LostVision = true;
+            GM.instance.CheckLostVision();
         }
 
         foreach (Collider target in distractionsInViewRadius)
@@ -133,6 +137,46 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    void LookForPlayer()
+    {
+        DetectiveEnemy enemy = GetComponent<DetectiveEnemy>();
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
+
+
+        foreach (Collider target in targetsInViewRadius)
+        {
+            Transform targetTransform = target.transform;
+            Vector3 dirToTarget = (targetTransform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            {
+                float distToTarget = Vector3.Distance(transform.position, targetTransform.position);
+                if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, wallMask))
+                {
+                    if (!targetTransform.GetComponent<PlayerBehaviour>().Hidden)
+                    {
+                        visibleTargets.Add(targetTransform);
+                        enemy.PlayerPos = target.gameObject;
+                        enemy.currentState = DetectiveEnemy.State.Fleeing;
+                        GM.instance.NotifyEnemies(true);
+                    }
+                    else
+                    {
+                        
+                        GM.instance.CheckLostVision();
+                    }
+                }
+            }
+
+        }
+        if (targetsInViewRadius.Length == 0)
+        {
+            if(enemy.currentState == DetectiveEnemy.State.Fleeing)
+            {
+                enemy.currentState = DetectiveEnemy.State.Returning;
+            }
+        }
+    }
+
     IEnumerator FindTargetsDelay()
     {
         while (true)
@@ -151,7 +195,9 @@ public class FieldOfView : MonoBehaviour
                 case AEnemy.TypeOfEnemy.SmallEnemy:
                     FindVisibleTargets();
                     break;
-
+                case AEnemy.TypeOfEnemy.DetectiveEnemy:
+                    LookForPlayer();
+                    break;
             }
             
         }

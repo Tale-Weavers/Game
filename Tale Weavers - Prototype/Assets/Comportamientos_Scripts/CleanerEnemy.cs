@@ -9,7 +9,6 @@ public class CleanerEnemy : AEnemy
     Square SpawnPos;
     public bool playerInSight;
     float cleanupProgress;
-    FieldOfView FOV;
     Vector3 spawnPosVector;
 
     public bool PlayerInSight { get => playerInSight; set => playerInSight = value; }
@@ -25,6 +24,7 @@ public class CleanerEnemy : AEnemy
 
     void Start()
     {
+        base.Start();
         BT = GetComponentInChildren<MonoBehaviourTree>();
         enemyType = TypeOfEnemy.CleanerEnemy;
         FOV = GetComponent<FieldOfView>(); 

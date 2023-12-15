@@ -17,7 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     bool hasWoolball;
     public GameObject cleanerPrefab;
 
-    public bool Hidden { get => hidden; set => hidden = value; }
+    public bool Hidden { get { return hidden; } set { hidden = value; } }
 
     // Start is called before the first frame update
     void Start()

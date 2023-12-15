@@ -7,6 +7,7 @@ public class GM : MonoBehaviour
     public static GM instance;
 
     public BasicEnemy[] listOfEnemies;
+    public DetectiveEnemy[] listOfDetectives;
     public Square[] cleanerSpawnPoints;
     public PlayerBehaviour player;
     public Square exitSquare;
@@ -29,16 +30,20 @@ public class GM : MonoBehaviour
     {
         foreach (BasicEnemy enemy in listOfEnemies)
         {
-            enemy.PlayerFound(player.gameObject,seen);
-            if (!seen) enemy.First = false;
+            if (enemy.gameObject.activeSelf)
+            {
+                enemy.PlayerFound(player.gameObject, seen);
+                if (!seen) enemy.First = false;
+            }
         }
     }
     public void CheckLostVision()
     {
+        Debug.Log("a ver si te veo");
         bool allLostVision = true;
         foreach (BasicEnemy enemy in listOfEnemies)
         {
-            if (!enemy.LostVision&&!enemy.Distracted)
+            if (!enemy.LostVision&&!enemy.Distracted&&enemy.gameObject.activeSelf)
             {
                 allLostVision = false;
             }
@@ -46,7 +51,14 @@ public class GM : MonoBehaviour
         }
         if (allLostVision)
         {
+            Debug.Log("Ya no te veo");
             NotifyEnemies(false);
+            foreach(DetectiveEnemy enemy in listOfDetectives)
+            {
+                enemy.SetInvestigationPoint(player.gameObject);
+                enemy.currentState = DetectiveEnemy.State.Investigating;
+                
+            }
 
         }
     }

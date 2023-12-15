@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SmallEnemy : BasicEnemy
 {
-
-    [SerializeField] private FieldOfView FOV;
     bool playerInSight;
 
     public bool PlayerInSight { get => playerInSight; set => playerInSight = value; }

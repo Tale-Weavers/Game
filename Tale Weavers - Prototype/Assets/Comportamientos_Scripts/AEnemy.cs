@@ -12,20 +12,29 @@ public class AEnemy : MonoBehaviour
     protected bool lostVision;
     public TypeOfEnemy enemyType;
     protected MonoBehaviourTree BT;
+    protected FieldOfView FOV;
+    [SerializeField] protected bool playerSeen;
 
     public bool LostVision { get => lostVision; set => lostVision = value; }
     public GameObject PlayerPos { get => player; set => player = value; }
     public ContinuousWoolBall Distraction { get => distraction; set => distraction = value; }
+    public bool PlayerSeen { get => playerSeen; set => playerSeen = value; }
 
     public enum TypeOfEnemy
     {
         BasicEnemy,
         CleanerEnemy,
-        SmallEnemy
+        SmallEnemy,
+        DetectiveEnemy
     }
 
     protected void Update()
     {
         BT.Tick();
+    }
+
+    protected void Start()
+    {
+        FOV = GetComponent<FieldOfView>();
     }
 }

@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: rect.y
       value: 599
       objectReference: {fileID: 0}
+    - target: {fileID: 7023187772027400606, guid: e4e39f171d2029f4983882ee16388e85,
+        type: 3}
+      propertyPath: viewRadius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7165967675293161379, guid: e4e39f171d2029f4983882ee16388e85,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -314,7 +319,6 @@ MonoBehaviour:
   alerted: 0
   distracted: 0
   goAwake: 0
-  FOV: {fileID: 9221262998048130273}
 --- !u!1 &8401176948978427063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7645168411887833544, guid: e4e39f171d2029f4983882ee16388e85,
@@ -422,15 +426,3 @@ MonoBehaviour:
   behaviourTree: {fileID: 0}
   runtimePriority: 0
   breakpoint: 0
---- !u!114 &9221262998048130273 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7023187772027400606, guid: e4e39f171d2029f4983882ee16388e85,
-    type: 3}
-  m_PrefabInstance: {fileID: 2202226984762979711}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6523565234933226995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31495d1600a1f324f921092499211c09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
