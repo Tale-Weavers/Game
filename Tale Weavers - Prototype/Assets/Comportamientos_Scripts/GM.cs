@@ -10,6 +10,8 @@ public class GM : MonoBehaviour
     public DetectiveEnemy[] listOfDetectives;
     public Square[] cleanerSpawnPoints;
     public PlayerBehaviour player;
+    public ContinuousWoolBall[] listOfContinuousWoolBalls;
+    
     public Square exitSquare;
 
     private void Awake()

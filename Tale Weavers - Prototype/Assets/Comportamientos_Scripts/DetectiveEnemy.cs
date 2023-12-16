@@ -32,7 +32,7 @@ public class DetectiveEnemy : AEnemy
         switch(currentState)
         {
             case State.Resting:
-                Debug.Log("mimimimimi");
+                
                 break;
 
             case State.Investigating:

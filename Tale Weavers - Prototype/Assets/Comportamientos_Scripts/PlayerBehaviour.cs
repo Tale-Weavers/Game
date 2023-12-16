@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     ContinuousWoolBall woolBall;
     bool hasWoolball;
     public GameObject cleanerPrefab;
+    public GameObject buddyGO;
 
     public bool Hidden { get { return hidden; } set { hidden = value; } }
 
@@ -47,6 +49,10 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlaceDistraction();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            buddyGO.SetActive(true);
         }
     }
 
@@ -82,6 +88,10 @@ public class PlayerBehaviour : MonoBehaviour
 
     void PlaceDistraction()
     {
+        if (!hasWoolball)
+        {
+            return;
+        }
         int throwDist = 1;
         if (woolBall.isLaser) throwDist = 2;
         woolBall.transform.position = transform.position + transform.forward * throwDist;
@@ -103,6 +113,24 @@ public class PlayerBehaviour : MonoBehaviour
         newEnemy.GetComponent<CleanerEnemy>().CleanerEnemySetup(woolBall.gameObject, furthestSquare);
         newEnemy.GetComponent<CleanerEnemy>().enabled = true;
         
+    }
+
+    public void GiveWollball(ContinuousWoolBall wb)
+    {
+        if(wb!=null)
+        {
+            if (!hasWoolball)
+            {
+                woolBall = wb;
+                hasWoolball = true;
+            }
+            else
+            {
+                wb.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2);
+                wb.gameObject.SetActive(true) ;
+                
+            }
+        }
     }
 
 
