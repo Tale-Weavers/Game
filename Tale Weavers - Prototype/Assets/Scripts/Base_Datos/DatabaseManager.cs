@@ -1,11 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
-using UnityEngine.Analytics;
 using UnityEngine.Networking;
 
 public class DatabaseManager : MonoBehaviour
@@ -345,12 +341,18 @@ public class DatabaseManager : MonoBehaviour
 
     void LoadCredentials()
     {
-        string configPath = "Assets/Resources/Datos/config.json";
-
-        if (File.Exists(configPath))
+        TextAsset configData = Resources.Load<TextAsset>("Datos/configBuild");
+        
+        if (Application.isEditor)
         {
-            string configJson = File.ReadAllText(configPath);
-            var config = JsonUtility.FromJson<Credentials>(configJson);
+            configData = Resources.Load<TextAsset>("Datos/config");
+        }
+
+        
+        if (configData!=null)
+        {
+            
+            var config = JsonUtility.FromJson<Credentials>(configData.text);
 
             username = config.username;
             password = config.password;
