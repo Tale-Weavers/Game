@@ -53,6 +53,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             buddyGO.SetActive(true);
+            buddyGO.GetComponent<BuddyAlly>().UpdateActions();
         }
     }
 

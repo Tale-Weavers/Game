@@ -15,8 +15,9 @@ public class BuddyAlly : MonoBehaviour
     public UtilitySystem utilitySystem;
     AEnemy closestEnemy;
     ContinuousWoolBall closestItem;
+    GameObject closestButton;
     PlayerBehaviour pb;
-
+    public List<BasicEnemy> distractedEnemies = new List<BasicEnemy>();
 
     [Header("Variables")]
     public float distanciaSalida;
@@ -33,11 +34,14 @@ public class BuddyAlly : MonoBehaviour
     private List<UtilityAction> actionList = new();
 
     private bool hasItem;
+    public bool buttonPressed;
 
     NavMeshAgent agent;
     // Start is called before the first frame update
 
     public BSRuntimeDebugger _bsRuntimeDebugger;
+
+    private bool coroutineLaunched;
 
     private void Awake()
     {
@@ -152,7 +156,7 @@ public class BuddyAlly : MonoBehaviour
 
         foreach(AEnemy enemy in GM.instance.listOfEnemies)
         {
-            if ((enemy.transform.position - pb.transform.position).magnitude < distancia && enemy.gameObject.activeSelf)
+            if ((enemy.transform.position - pb.transform.position).magnitude < distancia && enemy.gameObject.activeSelf && !enemy.GetComponent<BasicEnemy>().Distracted)
             {
                 closestEnemy = enemy;
                 distancia = (enemy.transform.position - pb.transform.position).magnitude;
@@ -174,7 +178,17 @@ public class BuddyAlly : MonoBehaviour
         }
         objetosCercanos = distancia;
 
+        distancia = 1000000;
 
+        foreach (GameObject button in GM.instance.buttons)
+        {
+            if ((button.transform.position - pb.transform.position).magnitude < distancia && button.activeSelf)
+            {
+                closestButton = button;
+                distancia = (button.transform.position - pb.transform.position).magnitude;
+            }
+        }
+        botonesCercanos = distancia;
 
         foreach (UtilityAction i in actionList)
         {
@@ -188,8 +202,13 @@ public class BuddyAlly : MonoBehaviour
 
     public Status ChaseUpdate()
     {
+        if(!coroutineLaunched)
+        {
+            StartCoroutine(EndChasing());
+            coroutineLaunched = true;
+        }
         Vector3 targetPosition = closestEnemy.transform.position;
-        targetPosition.z += 2;
+        targetPosition += closestEnemy.transform.forward*2;
         agent.SetDestination(targetPosition);
         return Status.Running;
     }
@@ -223,9 +242,37 @@ public class BuddyAlly : MonoBehaviour
 
     public Status PushButtonUpdate()
     {
-        Debug.Log("Presiono");
-        return Status.Success;
+
+        if (!buttonPressed)
+        {
+            agent.SetDestination(closestButton.transform.position);
+        }
+        else
+        {
+            agent.SetDestination(pb.transform.position);
+            if ((pb.transform.position - transform.position).magnitude < 1f)
+            {
+                buttonPressed = false;
+                gameObject.SetActive(false);
+            }
+        }
+        return Status.Running;
     }
 
+    IEnumerator EndChasing()
+    {
+        yield return new WaitForSeconds(10);
+        transform.position = pb.transform.position + pb.transform.forward;
+        gameObject.SetActive(false);
+        coroutineLaunched = false;
+    }
 
+    private void OnDisable()
+    {
+        foreach (BasicEnemy enemy in distractedEnemies)
+        {
+            enemy.Distracted = false;
+            enemy.DistractedByBuddy = false;
+        }
+    }
 }

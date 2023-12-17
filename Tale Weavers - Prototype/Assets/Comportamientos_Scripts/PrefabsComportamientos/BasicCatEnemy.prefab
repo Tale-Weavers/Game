@@ -97,8 +97,9 @@ MonoBehaviour:
   distraction: {fileID: 0}
   agent: {fileID: 6154427750537037905}
   enemyType: 0
-  wayPoints: []
   playerSeen: 0
+  wayPoints: []
+  buddy: {fileID: 0}
   alerted: 0
   distracted: 0
   goAwake: 0
@@ -125,6 +126,9 @@ MonoBehaviour:
   woolballMask:
     serializedVersion: 2
     m_Bits: 512
+  buddyMask:
+    serializedVersion: 2
+    m_Bits: 2048
   visibleTargets: []
   visibleDistractions: []
 --- !u!1 &7645168411887833544

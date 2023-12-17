@@ -11,6 +11,7 @@ public class GM : MonoBehaviour
     public Square[] cleanerSpawnPoints;
     public PlayerBehaviour player;
     public ContinuousWoolBall[] listOfContinuousWoolBalls;
+    public GameObject[] buttons;
     
     public Square exitSquare;
 

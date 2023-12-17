@@ -11,6 +11,7 @@ public class FieldOfView : MonoBehaviour
     public LayerMask playerMask;
     public LayerMask wallMask;
     public LayerMask woolballMask;
+    public LayerMask buddyMask;
 
     [HideInInspector]
     public List<Transform> visibleTargets = new();    
@@ -38,6 +39,7 @@ public class FieldOfView : MonoBehaviour
         if (enemy.Distracted == true) return;
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
         Collider[] distractionsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, woolballMask);
+        Collider[] buddyInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, buddyMask);
 
         foreach(Collider target in targetsInViewRadius)
         {
@@ -48,6 +50,7 @@ public class FieldOfView : MonoBehaviour
                 float distToTarget = Vector3.Distance(transform.position, targetTransform.position);
                 if(!Physics.Raycast(transform.position, dirToTarget, distToTarget, wallMask))
                 {
+                    
                     if (!targetTransform.GetComponent<PlayerBehaviour>().Hidden)
                     {
                         enemy.LostVision = false;
@@ -97,6 +100,25 @@ public class FieldOfView : MonoBehaviour
                         enemy.GoAwake = true;
                         Debug.Log("mi pana esta jugando re loco");
                     }
+                }
+            }
+        }
+
+        foreach (Collider target in buddyInViewRadius)
+        {
+            Transform targetTransform = target.transform;
+            Vector3 dirToTarget = (targetTransform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            {
+                float distToTarget = Vector3.Distance(transform.position, targetTransform.position);
+                if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, wallMask))
+                {
+                    BuddyAlly buddy = target.GetComponent<BuddyAlly>();
+                    enemy.Distracted = true;
+                    enemy.DistractedByBuddy = true;
+                    enemy.buddy = buddy.gameObject;
+                    visibleDistractions.Add(targetTransform);
+                    buddy.distractedEnemies.Add(enemy);
                 }
             }
         }
@@ -196,6 +218,10 @@ public class FieldOfView : MonoBehaviour
                     FindVisibleTargets();
                     break;
                 case AEnemy.TypeOfEnemy.DetectiveEnemy:
+                    if(GetComponent<DetectiveEnemy>().currentState == DetectiveEnemy.State.Resting)
+                    {
+                        break;
+                    }
                     LookForPlayer();
                     break;
             }

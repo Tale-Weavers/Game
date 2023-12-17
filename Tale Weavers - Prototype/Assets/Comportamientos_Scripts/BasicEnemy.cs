@@ -10,8 +10,8 @@ public class BasicEnemy : AEnemy
     private List<Vector3> waypointList = new();
     private Vector3 currentWaypoint;
     private int waypointCounter;
-    
-    
+    protected bool distractedByBuddy;
+    public GameObject buddy;
 
 
     [SerializeField] private bool alerted;
@@ -26,6 +26,7 @@ public class BasicEnemy : AEnemy
     public bool Distracted { get => distracted; set => distracted = value; }
     public bool IsPlaying { get => isPlaying; set => isPlaying = value; }
     public bool First { get => first; set => first = value; }
+    public bool DistractedByBuddy { get => distractedByBuddy; set => distractedByBuddy = value; }
 
 
 
@@ -61,12 +62,19 @@ public class BasicEnemy : AEnemy
 
     public void Jugar()
     {
-        agent.SetDestination(distraction.transform.position);
-        float dist = agent.remainingDistance;
-        if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0 && !IsPlaying)
+        if (!distractedByBuddy)
         {
-            distraction.GetComponent<ContinuousWoolBall>().NotifyEnemies(this);
-            IsPlaying = true;
+            agent.SetDestination(distraction.transform.position);
+            float dist = agent.remainingDistance;
+            if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0 && !IsPlaying)
+            {
+                distraction.GetComponent<ContinuousWoolBall>().NotifyEnemies(this);
+                IsPlaying = true;
+            }
+        }
+        else
+        {
+            agent.SetDestination(buddy.transform.position);
         }
     }
 
