@@ -1681,3 +1681,181 @@ Que ha ido bien
 - _ **Mantener las redes sociales más actualizadas.** _
 - _ **PROHIBIDO TOCAR ESCENAS VARIAS PERSONAS A LA VEZ. Cada vez que alguna persona vaya a tocar alguna escena, asegurarse de que nadie la está tocando.** _
 - _ **Hacer builds en WebGL de manera más frecuente** _
+
+# Plan de marketing
+
+# **Dónde estamos**
+
+## Análisis DAFO
+
+Debilidades:
+
+- Estudio recién creado
+- Poca experiencia haciendo juegos
+- Sin experiencia en juegos educativos
+
+Amenazas:
+
+- Competidores que puedan adelantarse
+- Que el juego no sea comprado/financiado por ninguna institución educativa
+- No terminar el proyecto
+
+Fortalezas:
+
+- Base del juego sólida
+- Propuesta innovadora
+
+Oportunidades:
+
+- Nicho de mercado
+- Ayudas públicas
+- Base muy amplia de jugadores (niños)
+
+## Público objetivo
+
+- Niños de 5 a 14 años: Jugarán al juego como herramienta educativa. Es muy complicado llegar a ellos directamente mediante una campaña de marketing y principalmente conocerán el juego por el boca a boca o a través del tercer grupo objetivo.
+- Jugadores Casuales: Es relativamente fácil acceder a ellos pero hay que hacer un esfuerzo en fidelizarlos, van a ser nuestros principales leads y objetivo en redes sociales.
+- Instituciones educativas y tutores: Complicado acceder a ellos a través de redes sociales pero clave para acceder a los niños. Se requerirá contacto directo con ellos.
+
+## Propuesta de valor
+
+Nuestra principal propuesta de valor es el hecho de que nuestro juego está diseñado para desarrollar y evaluar el pensamiento computacional en niños de entre 5 y 14 años. La comunidad europea ha considerado esta competencia como algo esencial y de enseñanza obligatoria en las aulas. De esta forma, mediante una base de datos y herramientas de evaluación integradas, podemos acercarnos a las instituciones educativas y vender licencias de nuestro videojuego.
+
+Para un público más casual y que no busca entender el juego como una herramienta educativa nuestra propuesta de valor es un videojuego de sesiones cortas donde se busca que el jugador invierta unos minutos muertos y acabe recompensado con una victoria satisfactoria tras resolver un puzzle.
+
+## Competencia
+
+Respecto al mercado de videojuegos para desarrollar el pensamiento computacional, la competencia es baja. La mayoría de herramientas no son videojuegos como tal, por lo que podemos entrar al mercado con calma y seguridad en que destacaremos.
+
+El mercado de juegos casuales de móvil es otra historia. Se trata de un entorno saturado de juegos que, aunque no siempre con la mejor calidad, puede eclipsar nuestro lanzamiento enormemente. Además, el género de puzzles es uno de los más populares en este mercado, especialmente en UK y US de acuerdo a las estadísticas recogidas por la firma [YouGov](https://yougov.co.uk/technology/articles/36220-most-popular-categories-mobile-games).
+
+# **Objetivos**
+
+## Comunidad
+
+Dentro del mercado móvil el tipo de jugador casual que más interesado está son del perfil "Playful Explorer". Para este tipo de jugador el hecho de pertenecer a una comunidad es muy importante, por lo que elaborar un entorno para ellos debe ser una prioridad.
+
+Ser consistentes en redes sociales y asistir a eventos es una parte clave del proceso para crear la comunidad. Dado que el tipo de público casual objetivo también suele interesarse más por los videojuegos y se considera un "gamer", ser transparente con las actualizaciones y procesos en la creación del videojuego son estrategias a tener en cuenta. Así como videos menos serios y más graciosos en plataformas como Instagram o TikTok para atraerlos en un primer lugar.
+
+En el estado temprano en el que nos encontramos la comunidad es muy limitada, pero si empieza a crecer se tomarán acciones como: Creación de un reddit y servidor de Discord, sorteos, interacción directa con la comunidad en redes sociales, creación y venta de productos de merchandising.
+
+## Leads
+
+Muy similar a la creación de la comunidad, la mejor forma de atraer leads en nuestro estado actual es la interacción directa en redes sociales y asistir a eventos para poder conducir a los leads más fríos y fidelizar a aquellos templados que buscan jugar a un juego parecido al nuestro.
+
+Las instituciones educativas, por otra parte, pertenecen a una categoría de Lead Calificado en Marketing. Busca una solución a la necesidad de evaluar y mejorar el pensamiento computacional en alumnos, es en este punto que deberíamos de contactar con ellas mediante correos electrónicos o, en caso de que nos hayan encontrado investigando soluciones, asegurarnos de proporcionarles un enlace en nuestra página web para establecer contacto.
+
+## Ventas (Compra, backer)
+
+Para financiar el proyecto nuestro objetivo de Backers son publishers especializados en juegos de puzzles o educativos centrado en un mercado europeo. Como buenos candidatos encontramos a: Kuato Studios y Kwalee.
+ Como alternativa podemos solicitar ayudas públicas al ministerio de cultura y deporte español, o incluso a la Unión Europea.
+
+Respecto a la estrategia de monetización:
+
+- En el periodo de un año hay que buscar el contacto con instituciones educativas para la venta de licencias.
+- En la versión móvil lo más rentable sería introducir anuncios ya que, de acuerdo con las analíticas de google, el 73% de los jugadores de este género se encuentran cómodos con la presencia de anuncios in-game.
+- Si la comunidad es suficientemente grande el merchandising puede ser otro factor importante.
+
+# **Estrategia y táctica**
+
+### Dar a conocer el estudio
+
+- Objetivo: Crear redes sociales
+
+Se han creado las siguientes redes sociales: Twitter, Instagram, Tik Tok, Youtube y Reddit; Para promocionar el juego y tener un acercamiento a los jugadores.
+
+La función de las redes sociales es, principalmente, dar a conocer al estudio. Se intentará llegar al público casual para que prueben nuestro juego desde itch.io para así poder recibir feedback
+
+- Estrategia: Dotarlas de contenido relevante
+
+Para dar a conocer nuestro juego, las redes sociales solo tendrán contenido que sea útil a la hora de informar a los jugadores de cómo va nuestro juego, cómo es nuestro juego, en qué fase del desarrollo nos encontramos, etc. Así como posibles fechas de salida y anuncios relevantes con respecto al desarrollo.
+
+### Crear una comunidad de jugadores
+
+- Objetivo: Impactar en el público objetivo en redes sociales
+
+Buscamos crear la comunidad dentro de nuestro público objetivo casual del perfil "Playful Explorer ".
+
+- Táctica: Llegar a estos jugadores mediante las redes sociales, promoción en otros juegos de móvil con la ayuda de anuncios, interacción directa con la comunidad y transparencia.
+
+### Dar a conocer el juego a las instituciones educativas
+
+- Objetivo: Visibilizar el juego para las instituciones educativas
+
+El principal objetivo del juego es mejorar la capacidad del pensamiento computacional en niños, algo que se va a exigir por ley desde la Unión Europea. Desde nuestro estudio, vemos una oportunidad de mercado en este aspecto y tenemos que visibilizar nuestro proyecto para poder venderlo a entidades educativas.
+
+- Estrategia: Asistir a congresos y concursos públicos, contactar con las instituciones.
+
+Para ello, se promocionará el juego en concursos públicos y en conferencias de distintas instituciones educativas. Hay que asegurarse de tener una página web con un contacto directo para que aquellas buscando un producto como el nuestro puedan llegar con facilidad.
+
+**ANÁLISIS DE LAS ACCIONES EN REDES SOCIALES:**
+
+Juntando tanto la Beta y la Gold Release en Itch.io a se han extraido los siguientes datos referentes a cuanta gente ha visitado la pagina de los juegos:
+
+- Se ha visitado la página un total de 205 veces. Las fuentes de estas visitas han sido: Aula Virtual (79), Itchio (58), Link.tree (28), twitter/x (20), instagram (14), búsqueda de google (5), reddit (1).
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image112.png)
+
+Se ven unos picos de ingresos en diferentes puntos:
+
+- En el caso de la Beta (gráfico 1) entre el 19 y el 26 de noviembre hay un aumento de las personas que han entrado a visitar el juego. La mayoría de ellas desde el aula virtual, aunque hay que destacar el post de twitter que proporciona unas 13 visitas aproximadas a la página de itch.io. La tracción se mantuvo hasta el 23 de noviembre y tuvo un pico de 58 visitas el 20.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image113.png)
+
+- En el caso de Gold Release (gráfico 2) el mayor pico ha ocurrido el 10 de diciembre, con 21 jugadores después de que se publicase la versión final en el aula virtual. Tras el anuncio en las redes sociales de Twitter e Instagram (12 y 14 de diciembre) ha vuelto a haber un repunte de jugadores con una pequeña caída en el día 14.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image114.png)
+
+Análisis de X/Twitter:
+
+En el periodo de 60 días desde que empezamos a hacer publicaciones hemos conseguido los siguientes números con una media de 1 publicación cada 2 días:
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image115.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image116.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image117.png)
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image118.png)
+
+- Hemos terminado el día 17 de diciembre con un número de 41 seguidores creciendo desde los 12 hasta el día 20 de octubre.
+- Nuestros mejores posts en impresiones y engagement han sido los anuncios del Gold Release y la Beta, y un video humorístico el día 13 de diciembre.
+- La mejor hora para publicar los tweets ha demostrado ser las 13:00 o las 20:00 de España. Aquellas publicaciones hechas a la tarde o muy de mañana no han tenido tantas interacciones en sus primeras horas clave.
+- El hashtag "screenshotsaturday" ha otorgado bastante impresiones (entre 366 y 170) y por lo general el engagement de dichos posts se ha mantenido entre el 16.7% y 11.8%.
+
+Análisis instagram
+
+- Hemos tenido un alcance de 237 cuentas de las cuales 179 son no seguidores.
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image119.png)
+
+- Han interactuado con nuestros posts 49 cuentas de las cuales 13 son no seguidores
+
+![](https://raw.githubusercontent.com/Tale-Weavers/Game/master/GDD-Images/Imagenes_GDD_Completo/image120.png)
+
+- Hemos tenido 92 visitas al perfil, y han clicado el link embebido hacia el linktree 2 personas.
+- Las publicaciones que mejor han funcionado ha sido un reel con la OST del juego seguido por los teasers de los cómics.
+
+Análisis Tik Tok:
+
+No hemos podido extraer analíticas demasiado profundas de TikTok porque no hemos conseguido que nuestra cuenta sea una cuenta de empresa. Aún así se han publicado 3 videos cortos:
+
+- El primero con 940 visualizaciones, 22 likes, 1 seguidor más y un tiempo de retención de 3.7s de 10.71s de duración total. Siguió un trend popular.
+- El segundo no siguió ningún trend y tiene 14 visualizaciones, 1 like, no generó seguidores y nadie lo vio completo.
+- El tercero siguió un trend y tuvo 274 visualizaciones, 7 likes, no generó seguidores y tuvo un tiempo de retención de 2.7s de 15.13s.
+
+Análisis Reddit:
+
+Se hizo una publicación en reddit para anunciar la salida del juego en el subreddit de r/IndieDev. Tuvo 1000 visualizaciones, pero solo 3 upvotes y 2 difusiones.
+
+**PLANIFICACIÓN:**
+
+Nuestra mejor red social respecto a rendimiento ha sido Twitter/X seguido de Instagram. Nuestro objetivo es aumentar el número de seguidores en estas redes sociales hasta 1000 en un periodo de 1 o 3 meses. Con ese objetivo se van a seguir las siguientes estrategias en un periodo de 6 meses:
+
+- Twitter/X: Seguir con un ritmo de publicación de, al menos, 1 post cada 2 días. Hacer publicaciones orientadas a la industria del desarrollo de videojuegos para ganar una base de renombre y cuando lleguemos al objetivo de 1000 seguidores transicionar a una cuenta más orientada a atraer al público casual objetivo.
+- Instagram: Aumentar el ritmo de publicación para que sea igual o incluso mayor al de twitter. Habrá que orientarlas a nuestro público casual objetivo y centrarse en posts acerca del estilo visual o arte del juego. Cualquier post de TikTok también ha de subirse a Reels.
+- TikTok: Aumentar el ritmo de publicaciones a 1 o 2 semanales. Necesitamos estar activos respecto a la búsqueda de tendencias en las que moverse. Debido al poco éxito hasta ahora, durante estos 6 meses se realizarán más análisis para saber cómo de rentable es invertir esfuerzo en la red social y saber que clase de público podemos atraer al juego.
+- Reddit: Aumentar el ritmo de publicaciones a 1 o 2 semanales y extender las publicaciones a más subreddits relacionados con el desarrollo como r/GameDevs. Los posts se centrarán en los procesos del desarrollo con el objetivo de atraer un público especializado que nos pueda ofrecer feedback de calidad y un renombre dentro de la industria.
+- Presencial: Asistir a pequeños eventos de desarrolladores para dar a conocer nuestro juego en persona y contactar con otros devs.
+
+A partir de este periodo de 6 meses, con una base de seguidores y jugadores establecida, y con un juego más acabado, se seguirá esta estrategia desde los 6 meses hasta los 2 años:
+
+- Presencial: Asistir a más eventos de desarrolladores cada vez más grandes y a otros relacionados con la gamificación y las herramientas educativas, buscando acercarnos a las instituciones educativas.
+- Búsqueda de Backers: Se contactará con posibles publishers y se solicitarán ayudas europeas o estatales para financiar el proyecto al comienzo del periodo, para poder mantenerlo a largo plazo.
