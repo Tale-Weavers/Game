@@ -20,6 +20,7 @@ public class CleanerEnemy : AEnemy
         transform.position = new Vector3(SpawnPos.transform.position.x, 0.655f, SpawnPos.transform.position.z);
         
         cleanupProgress = 0;
+        currentBark = allBarks[2];
     }
 
     void Start()
@@ -33,11 +34,12 @@ public class CleanerEnemy : AEnemy
 
     public void SetCheckpoint()
     {
-        if(distraction == null)
+        if (distraction == null)
         {
             agent.SetDestination(spawnPosVector);
+            currentBark = allBarks[5];
         }
-        else agent.SetDestination(distraction.transform.position);
+        else {agent.SetDestination(distraction.transform.position); currentBark = allBarks[2]; }
     }
 
     public bool LookAround()
@@ -48,8 +50,8 @@ public class CleanerEnemy : AEnemy
 
     public void Cleanup()
     {
-        
-        if(distraction == null)
+        currentBark = allBarks[2];
+        if (distraction == null)
         {
             Destroy(gameObject);
             return;
@@ -69,6 +71,7 @@ public class CleanerEnemy : AEnemy
 
     public void Flee()
     {
+        currentBark = allBarks[4];
         Debug.Log("ay que miedo");
         Vector3 awayFromPlayer = transform.position - player.transform.position;
         agent.SetDestination(transform.position + awayFromPlayer);

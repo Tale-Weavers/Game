@@ -29,29 +29,35 @@ public class DetectiveEnemy : AEnemy
     // Update is called once per frame
     void Update()
     {
-        switch(currentState)
+
+        switch (currentState)
         {
             case State.Resting:
-                
+                currentBark = allBarks[5];
                 break;
 
             case State.Investigating:
+                currentBark = allBarks[6];
                 agent.SetDestination(investigationPoint);
                 if ((transform.position - investigationPoint).magnitude < 1) currentState = State.Returning;
                 break;
 
             case State.Fleeing:
+                currentBark = allBarks[4];
                 Vector3 awayFromPlayer = transform.position - player.transform.position;
                 agent.SetDestination(transform.position + awayFromPlayer);
                 FOV.viewAngle = 360;
                 break;
 
             case State.Returning:
+                currentBark = allBarks[5];
                 FOV.viewAngle = 90;
                 agent.SetDestination(spawnPosDir);
                 if ((transform.position - spawnPosDir).magnitude < 1) currentState = State.Resting;
                 break;
         }
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = currentBark;
     }
 
     public void SetInvestigationPoint(GameObject invPoint)

@@ -19,6 +19,7 @@ public class SmallEnemy : BasicEnemy
     {
         agent.SetDestination(new Vector3 (GM.instance.exitSquare.transform.position.x, 0.655f, GM.instance.exitSquare.transform.position.z));
         Debug.Log("You shall not pass");
+        currentBark = allBarks[1];
     }
 
     public bool LookAround()

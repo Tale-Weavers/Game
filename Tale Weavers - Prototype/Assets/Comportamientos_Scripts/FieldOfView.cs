@@ -71,7 +71,7 @@ public class FieldOfView : MonoBehaviour
                 }
             }
         }
-        if (!enemy.LostVision&& targetsInViewRadius.Length == 0 && GM.instance.player.Hidden)
+        if (!enemy.LostVision && targetsInViewRadius.Length == 0 && GM.instance.player.Hidden)
         {
             enemy.LostVision = true;
             GM.instance.CheckLostVision();
@@ -194,6 +194,7 @@ public class FieldOfView : MonoBehaviour
         {
             if(enemy.currentState == DetectiveEnemy.State.Fleeing)
             {
+                GM.instance.CheckLostVision();
                 enemy.currentState = DetectiveEnemy.State.Returning;
             }
         }

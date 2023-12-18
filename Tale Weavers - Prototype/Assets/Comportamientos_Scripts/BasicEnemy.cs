@@ -71,10 +71,12 @@ public class BasicEnemy : AEnemy
                 distraction.GetComponent<ContinuousWoolBall>().NotifyEnemies(this);
                 IsPlaying = true;
             }
+            currentBark = allBarks[5];
         }
         else
         {
             agent.SetDestination(buddy.transform.position);
+            currentBark = allBarks[1];
         }
     }
 
@@ -85,10 +87,12 @@ public class BasicEnemy : AEnemy
         {
             GetNextWaypoint();
         }
+        currentBark = allBarks[7];
     }
     public void Perseguir()
     {
         agent.SetDestination(player.transform.position);
+        currentBark = allBarks[1];
     } 
     public void Investigar()
     {
@@ -98,6 +102,7 @@ public class BasicEnemy : AEnemy
         {
             Alerted = false;
         }
+        currentBark = allBarks[6];
     }
     public void Levantar()
     {
@@ -109,6 +114,7 @@ public class BasicEnemy : AEnemy
             distraction.GetComponent<ContinuousWoolBall>().ForgetWoolball();
             distraction.gameObject.SetActive(false);
         }
+        currentBark = allBarks[5];
     }
 
 

@@ -9,11 +9,13 @@ public class AEnemy : MonoBehaviour
     protected GameObject player;
     [SerializeField] protected ContinuousWoolBall distraction;
     [SerializeField] protected NavMeshAgent agent;
-    protected bool lostVision;
+    [SerializeField] protected bool lostVision;
     public TypeOfEnemy enemyType;
     protected MonoBehaviourTree BT;
     protected FieldOfView FOV;
     [SerializeField] protected bool playerSeen;
+    public Sprite[] allBarks; //button - chase - clean - distract - flee - play - investigate - patrol - woolball
+    protected Sprite currentBark;
 
     public bool LostVision { get => lostVision; set => lostVision = value; }
     public GameObject PlayerPos { get => player; set => player = value; }
@@ -31,10 +33,13 @@ public class AEnemy : MonoBehaviour
     protected void Update()
     {
         BT.Tick();
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = currentBark;
     }
 
     protected void Start()
     {
         FOV = GetComponent<FieldOfView>();
+        currentBark = allBarks[5];
     }
 }

@@ -43,6 +43,10 @@ public class BuddyAlly : MonoBehaviour
 
     private bool coroutineLaunched;
 
+    public Sprite[] allBarks; //button - chase - clean - distract - flee - play - investigate - patrol - woolball
+    protected Sprite currentBark;
+    SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
         
@@ -56,7 +60,7 @@ public class BuddyAlly : MonoBehaviour
     }
     void Start()
     {
-
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -67,6 +71,8 @@ public class BuddyAlly : MonoBehaviour
 
             utilitySystem.Update();
         }
+        
+        spriteRenderer.sprite = currentBark;
     }
 
     void Generate()
@@ -202,6 +208,7 @@ public class BuddyAlly : MonoBehaviour
 
     public Status ChaseUpdate()
     {
+        currentBark = allBarks[3];
         if(!coroutineLaunched)
         {
             StartCoroutine(EndChasing());
@@ -216,6 +223,7 @@ public class BuddyAlly : MonoBehaviour
 
     public Status BringObjectUpdate()
     {
+        currentBark = allBarks[8];
         if (!hasItem)
         {
             agent.SetDestination(closestItem.transform.position);
@@ -242,7 +250,7 @@ public class BuddyAlly : MonoBehaviour
 
     public Status PushButtonUpdate()
     {
-
+        currentBark = allBarks[0];
         if (!buttonPressed)
         {
             agent.SetDestination(closestButton.transform.position);
