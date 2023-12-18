@@ -77,7 +77,7 @@ public class BuddyAlly : MonoBehaviour
 
     void Generate()
     {
-        pb = GetComponentInParent<PlayerBehaviour>();
+        pb = GM.instance.player;
 
 
 

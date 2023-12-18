@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12064,8 +12064,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1823293470}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -12865,8 +12865,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.75}
-  m_LocalScale: {x: 0.4, y: 0.40000004, z: 0.40000004}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1095570494}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -15067,6 +15067,7 @@ GameObject:
   - component: {fileID: 1095570495}
   - component: {fileID: 1095570496}
   - component: {fileID: 1095570497}
+  - component: {fileID: 1095570498}
   m_Layer: 11
   m_Name: Buddy
   m_TagString: Pizza
@@ -15116,13 +15117,13 @@ Transform:
   m_GameObject: {fileID: 1095570492}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalPosition: {x: -2.92, y: 0.96, z: 9.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1908187615}
   - {fileID: 934936129}
-  m_Father: {fileID: 477281953}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &1095570495
 NavMeshAgent:
@@ -15182,6 +15183,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.005, y: 0.005, z: 0.005}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1095570498
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095570492}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1001 &1104854503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30975,10 +31003,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 982669175}
-    - targetCorrespondingSourceObject: {fileID: 2803984115638018324, guid: 50b4dcb979b25474c983030f0298c948,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1095570494}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b4dcb979b25474c983030f0298c948, type: 3}
 --- !u!1001 &4797445420698906519
@@ -31365,6 +31389,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1715503360}
+  - {fileID: 1095570494}
   - {fileID: 2039307534708785325}
   - {fileID: 779830927}
   - {fileID: 1907462571}

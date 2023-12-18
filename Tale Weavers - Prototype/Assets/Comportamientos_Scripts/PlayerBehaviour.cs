@@ -50,8 +50,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             PlaceDistraction();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q)&& !buddyGO.gameObject.activeSelf)
         {
+
+            buddyGO.transform.position = transform.position + transform.forward;
             buddyGO.SetActive(true);
             buddyGO.GetComponent<BuddyAlly>().UpdateActions();
         }

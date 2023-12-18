@@ -156,22 +156,22 @@ PrefabInstance:
     - target: {fileID: 7191391735486271533, guid: e4e39f171d2029f4983882ee16388e85,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7191391735486271533, guid: e4e39f171d2029f4983882ee16388e85,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7191391735486271533, guid: e4e39f171d2029f4983882ee16388e85,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7191391735486271533, guid: e4e39f171d2029f4983882ee16388e85,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8730334281298326862, guid: e4e39f171d2029f4983882ee16388e85,
         type: 3}
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distraction: {fileID: 0}
   agent: {fileID: 3989891468924147580}
+  lostVision: 0
   enemyType: 3
   playerSeen: 0
   allBarks:
