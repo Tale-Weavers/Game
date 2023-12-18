@@ -525,6 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distraction: {fileID: 0}
   agent: {fileID: 4759715653884143020}
+  lostVision: 0
   enemyType: 0
   playerSeen: 0
   allBarks:
@@ -602,6 +603,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8375280159269887912, guid: 51361bbdf0ca346468cb6566c9f9f9e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af8ca791ec56d93449765ecebc32916d, type: 2}
     - target: {fileID: 919132149155446097, guid: 51361bbdf0ca346468cb6566c9f9f9e1,
         type: 3}
       propertyPath: m_Name
