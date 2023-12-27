@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5614523671521803396
 Transform:
@@ -48,6 +48,7 @@ MonoBehaviour:
   sliderGeneral: {fileID: 0}
   sliderMusic: {fileID: 0}
   sliderSFX: {fileID: 0}
+  loggedIn: 0
   sounds:
   - audioType: 0
     name: squawk
@@ -264,3 +265,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7db72a5c2eb2545876a5d6d2b5f7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sessionController: {fileID: 0}

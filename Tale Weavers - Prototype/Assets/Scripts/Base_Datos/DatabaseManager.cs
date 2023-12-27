@@ -341,13 +341,12 @@ public class DatabaseManager : MonoBehaviour
 
     void LoadCredentials()
     {
-        TextAsset configData = Resources.Load<TextAsset>("Datos/configBuild");
+        TextAsset configData = Resources.Load<TextAsset>("Datos/configBuild");      
         
-        if (Application.isEditor)
+        if (Application.isEditor || Application.platform == RuntimePlatform.Android)
         {
             configData = Resources.Load<TextAsset>("Datos/config");
         }
-
         
         if (configData!=null)
         {
