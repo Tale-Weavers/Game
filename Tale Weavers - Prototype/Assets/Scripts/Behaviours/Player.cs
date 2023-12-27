@@ -8,6 +8,12 @@ public class Player : MoveableCharacter, ISubject<bool>
     [SerializeField] private bool _isSeen;
     [SerializeField] private bool _isHiding = false;
 
+    private Vector3 fp;   //First touch position
+    private Vector3 lp;   //Last touch position
+    private float dragDistance;  //minimum distance for a swipe to be registered
+    private bool firstTap = true;
+
+
     public bool IsHiding
     {
         get { return _isHiding; }
@@ -82,6 +88,9 @@ public class Player : MoveableCharacter, ISubject<bool>
         animator = GetComponentInChildren<Animator>();
         facingDirection = inspectorFacingDir.position;
         transform.rotation = Quaternion.LookRotation(facingDirection);
+
+        dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen
+        Debug.Log(dragDistance);
     }
 
     void FixedUpdate()
@@ -114,8 +123,18 @@ public class Player : MoveableCharacter, ISubject<bool>
     // Update is called once per frame
     private void Update()
     {
+
         if (GameManager.instance.OnMenu)
         {
+            if(Input.touchCount == 1)
+            {
+                Touch touch = Input.GetTouch(0); // get the touch
+                if (touch.phase == TouchPhase.Began) //check for the first touch
+                {
+                    fp = touch.position;
+                    lp = touch.position;
+                }
+            }
             return;
         }
 
@@ -137,7 +156,61 @@ public class Player : MoveableCharacter, ISubject<bool>
             UseFlashlight();
         }
 
-        if((Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow)) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
+        if (Input.touchCount == 1 && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight) // user is touching the screen with a single touch
+        {
+            Touch touch = Input.GetTouch(0); // get the touch
+            if (touch.phase == TouchPhase.Began) //check for the first touch
+            {
+                fp = touch.position;
+                lp = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Moved) // update the last position based on where they moved
+            {
+                lp = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Ended) //check if the finger is removed from the screen
+            {
+                lp = touch.position;  //last touch position. Ommitted if you use list
+
+                //Check if drag distance is greater than 20% of the screen height
+                if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
+                {//It's a drag
+                 //check if the drag is vertical or horizontal
+                    if (Mathf.Abs(lp.x - fp.x) > Mathf.Abs(lp.y - fp.y))
+                    {   //If the horizontal movement is greater than the vertical movement...
+                        if ((lp.x > fp.x))  //If the movement was to the right)
+                        {   //Right swipe
+                            Debug.Log("Right Swipe");
+                            CheckMove("east");
+                        }
+                        else
+                        {   //Left swipe
+                            Debug.Log("Left Swipe");
+                            CheckMove("west");
+                        }
+                    }
+                    else
+                    {   //the vertical movement is greater than the horizontal movement
+                        if (lp.y > fp.y)  //If the movement was up
+                        {   //Up swipe
+                            Debug.Log("Up Swipe");
+                            CheckMove("north");
+                        }
+                        else
+                        {   //Down swipe
+                            Debug.Log("Down Swipe"); 
+                            CheckMove("south");
+                        }
+                    }
+                }
+                else
+                {   //It's a tap as the drag distance is less than 20% of the screen height
+                    Debug.Log("Tap");
+                }
+            }
+        }
+
+        if ((Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow)) && currentTurn == GameManager.instance.currentTurn && !_placingWool && !moveDone && !checkingRange && !_placingLaser && !_usingFlashlight)
         {
             CheckMove("north");
         }
