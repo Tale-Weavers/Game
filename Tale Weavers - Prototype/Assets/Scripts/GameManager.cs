@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
         {
             woolBall.GetComponent<Collider>().enabled = false;
         }
+        Handheld.Vibrate();
     }
 
     public void EndPlayerTurn()

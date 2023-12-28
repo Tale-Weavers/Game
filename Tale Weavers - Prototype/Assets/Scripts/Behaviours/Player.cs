@@ -11,7 +11,6 @@ public class Player : MoveableCharacter, ISubject<bool>
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
     private float dragDistance;  //minimum distance for a swipe to be registered
-    private bool firstTap = true;
 
 
     public bool IsHiding
@@ -90,7 +89,6 @@ public class Player : MoveableCharacter, ISubject<bool>
         transform.rotation = Quaternion.LookRotation(facingDirection);
 
         dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen
-        Debug.Log(dragDistance);
     }
 
     void FixedUpdate()
