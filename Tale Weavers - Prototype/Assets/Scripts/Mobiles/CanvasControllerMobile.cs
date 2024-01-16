@@ -15,6 +15,7 @@ public class CanvasControllerMobile : MonoBehaviour
     public Button skipLevelButton;
     public Button helpButton;
     public Button mainMenuButton;
+    public Timer timer;
 
     [Header("Win Screen")]
     public Button retryButtonWS;
@@ -86,7 +87,7 @@ public class CanvasControllerMobile : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(AudioManager.instance.SFXSound);
         musicSlider.onValueChanged.AddListener(AudioManager.instance.MusicSound);
 
-
+        GameManagerMobile.instance.timer = timer;
 
         nextPageButton.onClick.AddListener(NextPage);
         previousPageButton.onClick.AddListener(PreviousPage);

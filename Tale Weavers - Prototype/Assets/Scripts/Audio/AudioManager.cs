@@ -176,6 +176,7 @@ public class AudioManager : MonoBehaviour
     //Metodo que controla el volumen general atraves del slider y lo guarda
     public void GeneralSound(float sliderValue)
     {
+        
         if (sliderValue == 0)
         {
             GeneralMixerGroup.audioMixer.SetFloat(masterMixer, -80);

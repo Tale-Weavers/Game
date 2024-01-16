@@ -12,6 +12,10 @@ public class GameManagerMobile : MonoBehaviour
 
     public string nextLevelName;
     public bool _onMenu;
+
+    [HideInInspector] public Timer timer;
+
+    [SerializeField] private float maxTime;
     public bool OnMenu
     {
         get { return _onMenu; }
@@ -66,11 +70,16 @@ public class GameManagerMobile : MonoBehaviour
         AudioManager.instance.Stop("musicaDerrota");
         AudioManager.instance.Stop("musicaMenu");
         AudioManager.instance.Stop("musicaAtrapado");
+        AudioManager.instance.Play("musicaNivel");
     }
 
     public void WinScreen()
     {
+        AudioManager.instance.Stop("musicaNivel");
+        AudioManager.instance.Play("musicaVictoria");
         canvasC.EndLevel();
+        //AudioManager.instance.Stop("musicaAtrapado");
+        //AudioManager.instance.Play("musicaDerrota");
     }
 
 
@@ -99,7 +108,21 @@ public class GameManagerMobile : MonoBehaviour
 
     public void StartGame()
     {
+        timer.timer = maxTime;
         player.gameObject.SetActive(true);
+        timer.StartTimer();
         OnMenu = false;
+        Vibration.Vibrate(100);
     }
+
+    public void EndLevelLost()
+    {
+        Time.timeScale = 0.0f;
+        canvasC.LostLevel();
+        AudioManager.instance.Stop("musicaNivel");
+        AudioManager.instance.Play("musicaDerrota");
+        Vibration.Vibrate(100);
+    }
+
+
 }

@@ -261,6 +261,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
                     knockedEnemy = enemy;
                     enemy.currentPos.isWalkable = true;
                     attackButton.gameObject.SetActive(false);
+                    Vibration.Vibrate(100);
                 }
             }
         }
@@ -275,6 +276,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
                     enemyHit = true;
                     knockedEnemy = enemy;
                     attackButton.gameObject.SetActive(false);
+                    Vibration.Vibrate(100);
                 }
             }
         }
