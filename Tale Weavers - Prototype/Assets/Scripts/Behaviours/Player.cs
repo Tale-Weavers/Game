@@ -178,12 +178,12 @@ public class Player : MoveableCharacter, ISubject<bool>
                     {   //If the horizontal movement is greater than the vertical movement...
                         if ((lp.x > fp.x))  //If the movement was to the right)
                         {   //Right swipe
-                            Debug.Log("Right Swipe");
+                            
                             CheckMove("east");
                         }
                         else
                         {   //Left swipe
-                            Debug.Log("Left Swipe");
+                            
                             CheckMove("west");
                         }
                     }
@@ -191,12 +191,12 @@ public class Player : MoveableCharacter, ISubject<bool>
                     {   //the vertical movement is greater than the horizontal movement
                         if (lp.y > fp.y)  //If the movement was up
                         {   //Up swipe
-                            Debug.Log("Up Swipe");
+                            
                             CheckMove("north");
                         }
                         else
                         {   //Down swipe
-                            Debug.Log("Down Swipe"); 
+                            
                             CheckMove("south");
                         }
                     }
@@ -479,13 +479,16 @@ public class Player : MoveableCharacter, ISubject<bool>
                 Square target = hit.transform.GetComponent<Square>();
                 if (!target.containsWool)
                 {
+                    
                     target.containsWool = true;
                     target.wool = _woolball;
+                    Debug.Log(target.wool.transform.position);
                     hasWoolBall = false;
                     _woolball.transform.position = new Vector3(hit.transform.position.x, _woolball.transform.position.y, hit.transform.position.z);
                     _woolball.tile = target;
                     _woolball.gameObject.SetActive(true);
                     _placingWool = false;
+                    Debug.Log(target.wool.transform.position);
                     GameManager.instance.PlayerPlaceWoolball();
                 }
             }
