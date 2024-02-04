@@ -8,6 +8,11 @@ public class Player : MoveableCharacter, ISubject<bool>
     [SerializeField] private bool _isSeen;
     [SerializeField] private bool _isHiding = false;
 
+    public delegate void onAttack(Vector3 pos);
+    public static event onAttack attack;
+    public delegate void onStep(Vector3 pos, Quaternion rot);
+    public static event onStep step;
+
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
     private float dragDistance;  //minimum distance for a swipe to be registered
@@ -288,6 +293,11 @@ public class Player : MoveableCharacter, ISubject<bool>
             actionDone = true;
             UpdateMoveable();
             animator.SetTrigger("Attack");
+            attack?.Invoke(new Vector3(
+                knockedEnemy.transform.position.x, 
+                knockedEnemy.transform.position.y + 0.6f, 
+                knockedEnemy.transform.position.z)
+            );
         }
     }
 
@@ -323,7 +333,11 @@ public class Player : MoveableCharacter, ISubject<bool>
             facingDirection = target - transform.position;
             RotateCharacter();
             UpdateMoveable();
-
+            step?.Invoke(new 
+                Vector3(transform.position.x, 
+                transform.position.y + 0.1f, 
+                transform.position.z), 
+                transform.rotation);
         }
 
         fountain = GridManager.instance.LookForFountain(currentPos);

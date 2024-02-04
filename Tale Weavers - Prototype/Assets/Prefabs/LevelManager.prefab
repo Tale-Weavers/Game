@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3725945671466176950}
   - component: {fileID: 1160993671518468785}
   - component: {fileID: 3281665268867620363}
+  - component: {fileID: 8805608049520725581}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -58,3 +59,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastLevelCompleted: 0
+--- !u!114 &8805608049520725581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804614912873762476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6028c55f4dfba2546a5a3451f58714fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step: {fileID: 1785139462684296258, guid: 07ee984dd96771b42bf74344ce18a020, type: 3}
+  bonk: {fileID: 8560650552967558764, guid: b38f4db37648205449197078f3ac1ff9, type: 3}
