@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour, ISubject<bool>
 
     [SerializeField] public bool isTutorial;
 
+    public delegate void onEnemySeenPlayer(Enemy parent);
+    public static event onEnemySeenPlayer alert;
+
     public bool OnMenu
     {
         get { return _onMenu; }
@@ -326,6 +329,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
             {
                 //Debug.Log(enemy.name);
                 enemy.AlertEnemy(player.currentPos);
+                alert?.Invoke(enemy);
                 squawkUsed = true;
             }
             player.canSquawk = false;

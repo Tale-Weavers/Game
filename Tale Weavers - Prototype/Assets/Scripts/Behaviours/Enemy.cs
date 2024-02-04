@@ -49,8 +49,6 @@ public abstract class Enemy : MoveableCharacter
     // Start is called before the first frame update
     protected void Start()
     {
-        
-
         facingDirection = inspectorFacingDir.position;
 
         transform.rotation = Quaternion.LookRotation(facingDirection);

@@ -9,6 +9,9 @@ public class MoveableEnemy : Enemy
     private int waypointCounter;
     [SerializeField] private bool onWaypoint = false;
 
+    public delegate void onBlind(Enemy enemy, int stage);
+    public static event onBlind blinded;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -36,6 +39,7 @@ public class MoveableEnemy : Enemy
         else
         {
             blindedCounter--;
+            blinded?.Invoke(this, blindedCounter);
             if (blindedCounter == 0) { SetBlinded(false); blindedCounter = 3; }
         }
     }

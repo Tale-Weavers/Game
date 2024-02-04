@@ -9,6 +9,9 @@ public class StaticEnemy : Enemy
     public Transform[] directions;
     protected List<Vector3> realDirections = new();
 
+    public delegate void onBlind(Enemy enemy, int stage);
+    public static event onBlind blinded;
+
     private void Start()
     {
         base.Start();
@@ -33,6 +36,7 @@ public class StaticEnemy : Enemy
         else
         {
             blindedCounter--;
+            blinded?.Invoke(this, blindedCounter);
             if (blindedCounter == 0) { SetBlinded(false); blindedCounter = 3; }
         }
     }
