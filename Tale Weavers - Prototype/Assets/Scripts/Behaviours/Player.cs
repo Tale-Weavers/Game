@@ -12,6 +12,8 @@ public class Player : MoveableCharacter, ISubject<bool>
     public static event onAttack attack;
     public delegate void onStep(Vector3 pos, Quaternion rot);
     public static event onStep step;
+    public delegate void onOilStep(Player parent);
+    public static event onOilStep oilStep;
 
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
@@ -471,6 +473,7 @@ public class Player : MoveableCharacter, ISubject<bool>
             {
                 if (adjacent.transform.position == currentPos.transform.position + direction)
                 {
+                    oilStep?.Invoke(this);
                     Slip(adjacent);
                 }
             }

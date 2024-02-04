@@ -10,11 +10,13 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private ParticleSystem blind3;
     [SerializeField] private ParticleSystem blind2;
     [SerializeField] private ParticleSystem blind1;
+    [SerializeField] private ParticleSystem oilStep;
 
     private void OnEnable()
     {
         Player.attack += BonkParticle;
         Player.step += StepParticle;
+        Player.oilStep += OilStepParticle;
         GameManager.alert += Alert;
         MoveableEnemy.blinded += BlindedParticle;
         StaticEnemy.blinded += BlindedParticle;
@@ -24,6 +26,7 @@ public class ParticleManager : MonoBehaviour
     {
         Player.attack -= BonkParticle;
         Player.step -= StepParticle;
+        Player.oilStep -= OilStepParticle;
         GameManager.alert -= Alert;
         MoveableEnemy.blinded -= BlindedParticle;
         StaticEnemy.blinded -= BlindedParticle;
@@ -36,6 +39,10 @@ public class ParticleManager : MonoBehaviour
     private void BonkParticle(Vector3 pos)
     {
         Instantiate(bonk, pos, new Quaternion());
+    }
+    private void OilStepParticle(Player parent)
+    {
+        Instantiate(oilStep, parent.transform);
     }
     private void Alert(Enemy parent)
     {
