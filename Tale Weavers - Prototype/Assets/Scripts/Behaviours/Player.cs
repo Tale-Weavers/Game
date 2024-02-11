@@ -208,10 +208,6 @@ public class Player : MoveableCharacter, ISubject<bool>
                         }
                     }
                 }
-                else
-                {   //It's a tap as the drag distance is less than 20% of the screen height
-                    Debug.Log("Tap");
-                }
             }
         }
 

@@ -315,6 +315,7 @@ public class GameManager : MonoBehaviour, ISubject<bool>
 
     public void EndLevelLost()
     {
+        Vibration.Vibrate(100);
         DatabaseManager.instance.SendLevelDataJSON(levelIndx, 0, currentTurn, 0);
         StartCoroutine(EndLevelCoroutine());
     }

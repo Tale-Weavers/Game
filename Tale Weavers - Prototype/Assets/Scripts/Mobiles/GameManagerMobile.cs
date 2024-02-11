@@ -99,6 +99,7 @@ public class GameManagerMobile : MonoBehaviour
 
     public void NextLevel()
     {
+        ProgressManager.instance.UpdateLevel(levelIndx);
         LevelManager.instance.LoadSceneCoroutine(nextLevelName);
     }
     public void MainMenu()
@@ -117,6 +118,7 @@ public class GameManagerMobile : MonoBehaviour
 
     public void EndLevelLost()
     {
+        
         Time.timeScale = 0.0f;
         canvasC.LostLevel();
         AudioManager.instance.Stop("musicaNivel");
